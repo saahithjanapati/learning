@@ -23,4 +23,3 @@ This repo is organized so you can:
 3. Save lesson recap in `topics/<domain>/<topic>/lessons/`.
 4. Update `learning_system/LESSON_INDEX.md`.
 5. Update `learning_system/SKILL_GRAPH.md` as skills improve.
-
