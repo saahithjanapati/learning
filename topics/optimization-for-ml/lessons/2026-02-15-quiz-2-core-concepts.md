@@ -1,285 +1,562 @@
-# Optimization Quiz 2 Prep: Core Concepts (Exposition-First)
+# Optimization Quiz 2 Prep: Beginner Textbook Guide
 
 Date: 2026-02-15  
 Mode: learn (exposition-heavy)  
-Scope: Gradient Descent, GD convergence proofs, Subgradients, Subgradient Method, Projected (Sub)gradient, Optimality Conditions, Stochastic Gradient
+Scope: Gradient Descent, GD convergence proof ideas, Subgradients, Subgradient Method, Projected (Sub)gradient, Optimality Conditions, Stochastic Gradient
 
-## How To Use This Lesson
+## Start Here
 
-This lesson is designed to be as self-contained as possible, with minimal assumptions.  
-Goal: build intuition first, then connect to the main formulas and proof ideas you are likely to see on a quiz.
+If optimization feels confusing, this is normal. Most confusion comes from three things:
 
-If a symbol feels unfamiliar, pause and restate it in plain English before moving on.
+- too many symbols at once
+- seeing formulas before intuition
+- not knowing why a method exists
 
-## Quiz Scope Map (From Your Schedule)
+This guide fixes that order:
 
-1. Gradient Descent
-2. Proofs of GD convergence rates
-3. Subgradients
-4. Subgradient method
-5. Projected (sub)gradient
-6. Optimality conditions
-7. Stochastic gradient
+1. What problem are we solving?
+2. Why do updates look the way they do?
+3. What assumptions make proofs work?
+4. What changes in non-smooth, constrained, and stochastic settings?
 
-## Quick Notation Warmup
+You can read this as a mini textbook, not a checklist.
 
-- Objective: `f(x)` (the thing we want to minimize)
-- Variable: `x in R^d` (the parameters we control)
-- Gradient: `grad f(x)` (direction of steepest increase)
-- Step size / learning rate: `eta_t > 0`
-- Constraint set (if constrained): `x in C`
+## How To Use This Guide
 
-Core theme across all topics: choose an update direction, choose a step size, and reason about whether/why that update improves the objective.
+- Read one section fully.
+- Do the section's tiny practice at the end.
+- Check answers only after attempting.
+- If you get stuck, reread only the worked example in that section.
 
-## 1) Gradient Descent (GD)
+## Part A: Foundations (From Zero)
+
+## 1) What Optimization Is
+
+In optimization, you choose variables to make an objective small (or large).
+
+Standard minimization form:
+
+$$
+\min_x f(x)
+$$
+
+- $x$: what you are allowed to change (parameters, weights, decision vector)
+- $f(x)$: score/cost/loss you want as small as possible
+
+If there are constraints:
+
+$$
+\min_x f(x) \quad \text{subject to } x \in C
+$$
+
+- $C$: feasible set (allowed values)
+
+### Worked Example 1 (No Constraints)
+
+$$
+f(x) = (x-4)^2
+$$
+
+Smallest value happens at $x=4$, where $f(4)=0$.
+
+### Worked Example 2 (With Constraints)
+
+$$
+f(x) = (x-4)^2, \quad x \in [0,3]
+$$
+
+Unconstrained best point is $x=4$, but not allowed. So the constrained best point is boundary point $x=3$.
+
+### Tiny Practice
+
+1. For $f(x)=(x+2)^2$, what is unconstrained minimizer?
+2. For the same $f$, with $x \in [0,5]$, what is constrained minimizer?
+
+## 2) Gradient Intuition Before Equations
+
+In 1D, slope tells you which direction increases the function:
+
+- positive slope: move left to go down
+- negative slope: move right to go down
+
+In many dimensions, slope becomes gradient $\nabla f(x)$.
+
+- $\nabla f(x)$ points in steepest increase direction
+- $-\nabla f(x)$ points in steepest decrease direction
+
+That is why minimization updates use minus sign.
+
+### Worked Example (1D)
+
+$$
+f(x)=\frac{1}{2}x^2, \quad f'(x)=x
+$$
+
+At $x=5$, slope is positive, so moving left decreases $f$.
+At $x=-3$, slope is negative, so moving right decreases $f$.
+
+### Tiny Practice
+
+1. For $f(x)=x^2$, what direction decreases $f$ at $x=2$?
+2. Same function, what direction decreases $f$ at $x=-1$?
+
+## 3) Core Vocabulary You Actually Need
+
+- **Convex function**: bowl-like enough that local minimum is global minimum.
+- **Smooth ($L$-smooth)**: gradient changes in a controlled way.
+- **Strongly convex**: convex plus guaranteed curvature.
+- **Non-smooth**: has kinks, gradient may not exist at some points.
+
+These words are not decoration. They determine algorithm choice and proof guarantees.
+
+## Part B: Gradient Descent and Why It Works
+
+## 4) Gradient Descent (GD)
 
 Update rule:
 
-`x_{t+1} = x_t - eta_t grad f(x_t)`
+$$
+x_{t+1} = x_t - \eta_t \nabla f(x_t)
+$$
 
-Intuition:
+- $x_t$: current point
+- $\nabla f(x_t)$: uphill direction
+- $\eta_t$: step size (learning rate)
 
-- `grad f(x_t)` points uphill.
-- `-grad f(x_t)` points downhill.
-- `eta_t` controls how far you move.
+### Worked Example A (1D, full iteration trace)
 
-Why GD works (high level):
+Let:
 
-- For smooth enough functions, local linear approximation is reliable.
-- Small enough steps move you toward lower objective values.
+$$
+f(x)=\frac{1}{2}x^2, \quad x_0=10, \quad \eta=0.1
+$$
 
-Common failure mode:
+Then:
 
-- If `eta_t` is too large, iterates can zig-zag or diverge.
+$$
+x_{t+1} = x_t - 0.1x_t = 0.9x_t
+$$
 
-Checkpoint:
+Compute first steps:
 
-1. Why is `-grad f(x_t)` used instead of `grad f(x_t)` for minimization?
-2. What is the practical effect of doubling `eta_t`?
+- $x_1=9$
+- $x_2=8.1$
+- $x_3=7.29$
 
-## 2) Proof Idea: GD Convergence Rates
+Objective values:
 
-You usually prove convergence with two ingredients:
+- $f(x_0)=50$
+- $f(x_1)=40.5$
+- $f(x_2)=32.805$
 
-1. A smoothness inequality (often called descent lemma).
-2. A telescoping-style argument over iterations.
+Function decreases smoothly.
 
-Typical statements you should recognize:
+### Worked Example B (2D)
 
-- Convex + smooth: GD gets suboptimality around `O(1/T)` with a good fixed step size.
-- Strongly convex + smooth: GD gets geometric (linear) convergence, often written like `O((1-c)^T)`.
+Let:
 
-What to remember for quiz proofs:
+$$
+f(x_1,x_2)=\frac{1}{2}(x_1^2+9x_2^2),\quad x_0=(3,2),\quad \eta=0.1
+$$
 
-- You do not need to memorize every constant first.
-- You do need to know the structure: one-step decrease bound -> sum over steps -> final rate.
+Gradient:
 
-Minimal proof skeleton (convex + smooth):
+$$
+\nabla f(x_1,x_2)=(x_1,9x_2)
+$$
 
-1. Start from smoothness upper bound on `f(x_{t+1})`.
-2. Plug in GD update.
-3. Choose `eta` to make the RHS decrease.
-4. Sum inequalities from `t=0` to `T-1`.
-5. Rearrange to get bound in terms of `T`.
+At $x_0$:
 
-Checkpoint:
+$$
+\nabla f(x_0)=(3,18)
+$$
 
-1. What extra assumption upgrades `O(1/T)` to linear convergence?
-2. In one sentence: what does telescoping buy you?
+Update:
 
-## 3) Subgradients
+$$
+x_1=(3,2)-0.1(3,18)=(2.7,0.2)
+$$
 
-Why gradients are not enough:
+Second coordinate shrinks much faster because curvature is larger in that direction.
 
-- Some convex functions are not differentiable everywhere (example: `|x|` at `x=0`).
+### Why Step Size Matters
 
-Subgradient idea:
+- Too small: very slow progress
+- Too large: overshoot, oscillation, or divergence
 
-`g` is a subgradient at `x` if for all `y`,
+### Tiny Practice
 
-`f(y) >= f(x) + g^T (y - x)`
+1. For $f(x)=\frac{1}{2}x^2$, $x_0=6$, $\eta=0.2$, compute $x_1,x_2$.
+2. In words: why can large $\eta$ break GD?
+
+## 5) Smoothness and the Descent Inequality
+
+The central inequality for smooth functions is:
+
+$$
+f(y) \le f(x) + \nabla f(x)^T(y-x) + \frac{L}{2}\|y-x\|^2
+$$
 
 Interpretation:
 
-- The affine function on the right is a global under-estimator of `f`.
-- At non-smooth points, there may be many valid subgradients.
+- linear term predicts change
+- quadratic term is curvature penalty
+- together they upper bound next value
 
-Subdifferential:
+Plug in GD step $y=x-\eta\nabla f(x)$:
 
-- Set of all subgradients at `x`, written `partial f(x)`.
+$$
+f(x_{t+1}) \le f(x_t) - \left(\eta-\frac{L\eta^2}{2}\right)\|\nabla f(x_t)\|^2
+$$
 
-Checkpoint:
+If $\eta \le 1/L$, bracket is positive, so you get descent guarantee.
 
-1. For `f(x)=|x|`, what are valid subgradients at `x=0`?
-2. Why can there be multiple subgradients at one point?
+### Worked Example (Coefficient Check)
 
-## 4) Subgradient Method
+Let $L=4$.
 
-Update rule (unconstrained):
+- If $\eta=0.2$: coefficient $=0.2-4(0.04)/2=0.12>0$ (good)
+- If $\eta=0.8$: coefficient $=0.8-4(0.64)/2=-0.48$ (no descent guarantee)
 
-`x_{t+1} = x_t - eta_t g_t`, where `g_t in partial f(x_t)`
+### Tiny Practice
+
+1. Compute coefficient for $L=6, \eta=0.1$.
+2. What sign do you want for descent guarantee?
+
+## 6) Convergence Rates Without Overcomplicating
+
+When proofs show rates, they usually do this:
+
+1. get one-step inequality
+2. rewrite into difference of two consecutive quantities
+3. sum over $t$ and cancel terms (telescoping)
+
+### Telescoping Pattern
+
+If:
+
+$$
+f(x_t)-f(x^*) \le A_t-A_{t+1}
+$$
+
+sum from $0$ to $T-1$:
+
+$$
+\sum_{t=0}^{T-1}(f(x_t)-f(x^*)) \le A_0-A_T \le A_0
+$$
+
+Middle terms cancel.
+
+### Rate Headlines You Should Remember
+
+- smooth convex GD: typically $O(1/T)$
+- smooth strongly convex GD: linear/geometric
+
+Strong convexity gives faster contraction because curvature is stronger.
+
+### Tiny Practice
+
+1. Which decays faster: $1/T$ or $1/\sqrt{T}$?
+2. What extra assumption usually gives linear rate for GD?
+
+## Part C: Non-smooth Optimization
+
+## 7) Why Subgradients Exist
+
+For non-smooth convex functions (like $|x|$), gradient may not exist at kink points.
+
+So we use subgradient.
+
+Definition: $g$ is a subgradient at $x$ if for all $y$:
+
+$$
+f(y) \ge f(x) + g^T(y-x)
+$$
+
+So the affine model is a global lower bound touching at $x$.
+
+### Worked Example A: $f(x)=|x|$
+
+- $x>0$: subgradient $=1$
+- $x<0$: subgradient $=-1$
+- $x=0$: subdifferential $\partial f(0)=[-1,1]$
+
+### Worked Example B: ReLU-type function
+
+$$
+f(x)=\max(x,0)
+$$
+
+At $x=0$, subgradients are all values in $[0,1]$.
+
+### Tiny Practice
+
+1. Give one valid subgradient of $|x|$ at $0$.
+2. Give one valid subgradient of $\max(x,0)$ at $0$.
+
+## 8) Subgradient Method
+
+Update:
+
+$$
+x_{t+1}=x_t-\eta_t g_t, \quad g_t\in\partial f(x_t)
+$$
 
 Key difference vs GD:
 
-- Subgradient direction is not guaranteed to be a strict descent direction each step.
-- So analysis often tracks best-so-far iterate, not just the latest iterate.
+- function value may increase on some iterations
+- analysis often tracks best iterate or average iterate
 
-Practical step-size patterns:
+### Worked Example (Non-monotone objective)
 
-- Constant step sizes for speed early on.
-- Diminishing step sizes for convergence guarantees (common in theory).
+Let:
 
-Checkpoint:
+$$
+f(x)=|x|,\quad x_0=1.2,\quad \eta=0.7
+$$
 
-1. Why might objective value increase on some subgradient iterations?
-2. Why do we often track the best iterate?
+Choose $g_t=1$ for positive $x_t$.
 
-## 5) Projected (Sub)Gradient
+- $x_1=0.5$, $f=0.5$
+- $x_2=-0.2$, $f=0.2$
 
-Now constrained optimization:
+Now at negative point use $g_t=-1$:
 
-`min f(x) subject to x in C`
+- $x_3=-0.2-0.7(-1)=0.5$, $f=0.5$
 
-If you take a normal GD/subgradient step, you might leave feasible set `C`.
+Objective went from $0.2$ up to $0.5$.
 
-Fix: projection back to `C`.
+### Typical Rate Headline
 
-Projected subgradient update:
+For convex non-smooth problems:
 
-`y_{t+1} = x_t - eta_t g_t`  
-`x_{t+1} = Proj_C(y_{t+1})`
+$$
+O\left(\frac{1}{\sqrt{T}}\right)
+$$
 
-Projection means:
+This is slower than smooth GD but works without differentiability.
 
-- pick the closest point in `C` to `y_{t+1}` (Euclidean distance by default).
+### Tiny Practice
 
-Intuition:
+1. Using $f(x)=|x|$, $x_0=2$, $\eta=0.5$, compute $x_1,x_2,x_3$ with natural subgradient choices.
+2. Is monotone decrease guaranteed?
 
-- Gradient-like step improves objective direction.
-- Projection restores feasibility.
+## Part D: Constraints and Projections
 
-Checkpoint:
+## 9) Projection Intuition
 
-1. Why is projection needed in constrained problems?
-2. If `y_{t+1}` is already in `C`, what does projection do?
+Projection onto feasible set $C$:
 
-## 6) Optimality Conditions (High-Yield View)
+$$
+\Pi_C(y)=\arg\min_{x\in C}\|x-y\|
+$$
 
-### Unconstrained, differentiable
+It means: closest feasible point to $y$.
 
-- Necessary condition at local optimum: `grad f(x*) = 0`.
-- For convex `f`, this is also sufficient for global optimality.
+### Worked Example A (Interval)
 
-### Constrained, convex
+$C=[1,4]$.
 
-Useful first-order condition:
+- $\Pi_C(0)=1$
+- $\Pi_C(2.5)=2.5$
+- $\Pi_C(9)=4$
 
-`<grad f(x*), x - x*> >= 0` for all feasible `x in C`.
+### Worked Example B (2D Box)
 
-Meaning:
+$C=[0,2]\times[-1,1]$, $y=(3,2.5)$.
 
-- No feasible direction gives first-order decrease at optimum.
+Project coordinatewise:
 
-### KKT (you likely need conceptual familiarity)
+- first coordinate $3 \to 2$
+- second coordinate $2.5 \to 1$
 
-For problems with inequality/equality constraints, KKT combines:
+So $\Pi_C(y)=(2,1)$.
 
-1. Stationarity
-2. Primal feasibility
-3. Dual feasibility
-4. Complementary slackness
+## 10) Projected (Sub)Gradient Method
 
-Checkpoint:
+Template:
 
-1. In convex optimization, why is `grad f(x*)=0` especially powerful?
-2. What does complementary slackness mean intuitively?
+$$
+y_{t+1}=x_t-\eta_t g_t,\quad x_{t+1}=\Pi_C(y_{t+1})
+$$
 
-## 7) Stochastic Gradient (SGD)
+- first step: optimization move
+- second step: feasibility repair
 
-Why SGD:
+### Worked Example (One full step)
 
-- Full gradient can be expensive on large datasets.
+Let:
 
-SGD update:
+$$
+f(x)=x^2,\quad C=[-1,1],\quad x_t=0.8,\quad \eta=1
+$$
 
-`x_{t+1} = x_t - eta_t g_t`,
+Gradient at $0.8$ is $1.6$.
 
-where `g_t` is a noisy gradient estimate from one sample or mini-batch.
+Raw step:
+
+$$
+y_{t+1}=0.8-1(1.6)=-0.8
+$$
+
+Projection:
+
+$$
+x_{t+1}=\Pi_{[-1,1]}(-0.8)=-0.8
+$$
+
+No clipping needed because it is already feasible.
+
+If raw step had been $-1.3$, projection would return $-1$.
+
+### Tiny Practice
+
+1. Compute $\Pi_{[-2,2]}(3.1)$.
+2. For box $[0,1]\times[0,1]$, compute projection of $(1.4,-0.3)$.
+
+## Part E: Stochastic Gradient
+
+## 11) Why SGD Exists
+
+In ML you often optimize average loss:
+
+$$
+f(x)=\frac{1}{n}\sum_{i=1}^n \ell_i(x)
+$$
+
+Full GD uses all $n$ samples per step.
+
+SGD uses one sample (or minibatch), so each step is much cheaper.
+
+## 12) SGD Update and Noise
+
+Pick random index $i_t$:
+
+$$
+g_t=\nabla\ell_{i_t}(x_t),\quad x_{t+1}=x_t-\eta_t g_t
+$$
 
 Main tradeoff:
 
-- Cheap, noisy updates vs expensive, accurate full gradients.
+- cheaper steps
+- noisier direction
 
-Behavior:
+### Worked Example
 
-- Often much faster per step.
-- Noise can cause oscillation near optimum.
-- Step-size schedules matter even more than in GD.
+$$
+\ell_1(x)=\frac{1}{2}(x-2)^2,\quad \ell_2(x)=\frac{1}{2}(x-8)^2
+$$
 
-Common practical patterns:
+At $x_0=1$, $\eta=0.1$:
 
-- Mini-batches (variance reduction vs compute).
-- Learning-rate decay.
-- Averaging iterates in some settings.
+- if sample 1 chosen: $g_0=1-2=-1$, so $x_1=1.1$
+- if sample 2 chosen: $g_0=1-8=-7$, so $x_1=1.7$
 
-Checkpoint:
+Same point, two very different valid updates. That is stochastic noise.
 
-1. What is the core computational advantage of SGD over GD?
-2. Why can SGD fail to settle exactly at optimum with a constant learning rate?
+### Tiny Practice
 
-## 8) Method Selection Cheat Sheet
+1. Why is SGD usually faster per step than full GD?
+2. Why can constant step sizes cause jitter near optimum?
 
-If objective is smooth, unconstrained:
+## Part F: Optimality Conditions (Clean Version)
 
-- Start with GD (or practical variants in code).
+## 13) Unconstrained Differentiable
 
-If objective is convex but non-smooth:
+Necessary condition at local optimum:
 
-- Use subgradient method.
+$$
+\nabla f(x^*)=0
+$$
 
-If constraints matter (`x` must stay in a feasible set):
+For convex $f$, this is sufficient for global optimum.
 
-- Use projected GD / projected subgradient.
+### Worked Example
 
-If dataset is huge:
+$$
+f(x)=(x+3)^2
+$$
 
-- Use SGD-style updates.
+$$
+f'(x)=2(x+3)=0 \Rightarrow x^*=-3
+$$
 
-If quiz asks "why this method?":
+## 14) Convex Non-smooth
 
-- answer using structure: smoothness, non-smoothness, constraints, or data scale.
+Condition:
 
-## 9) What To Memorize vs What To Understand
+$$
+0\in\partial f(x^*)
+$$
 
-Memorize:
+This replaces $\nabla f(x^*)=0$ when gradient may not exist.
 
-- Core update rules (GD, subgradient, projected, SGD).
-- The names of key assumptions (convex, smooth, strongly convex).
-- The convergence-rate headlines (`O(1/T)` vs linear under strong convexity).
+## 15) Constrained Convex First-Order Condition
 
-Understand:
+$$
+\langle \nabla f(x^*),x-x^*\rangle\ge 0 \quad \forall x\in C
+$$
 
-- Why each method exists.
-- Why each assumption changes guarantees.
-- Why step size controls stability and convergence speed.
+Interpretation: no feasible first-order descent direction at $x^*$.
 
-## 10) Light Quiz Checks (Short Answer)
+### Tiny Practice
 
-1. Write GD update and explain each term.
-2. What assumption gives linear convergence for GD?
-3. Define subgradient in one line.
-4. Why is subgradient method not always descent each step?
-5. Write projected subgradient update in two lines.
-6. Give one unconstrained and one constrained optimality condition.
-7. What is the biggest computational motivation for SGD?
-8. Give one reason step-size decay is common in SGD.
-9. In one sentence, contrast GD and SGD.
-10. In one sentence, contrast GD and projected GD.
+1. In one sentence, what does $0\in\partial f(x^*)$ mean?
+2. Why can constrained optima occur at boundaries?
 
-## Suggested Next Step
+## Part G: Quiz Memory Sheet
 
-Next session should be a guided practice set (still beginner-friendly) with:
+## 16) Core Formulas To Memorize
 
-1. 6 conceptual multiple-choice items,
-2. 4 short derivation skeletons (fill missing steps),
-3. 2 tiny hand-computation update problems.
+$$
+x_{t+1}=x_t-\eta_t\nabla f(x_t)
+$$
+
+$$
+x_{t+1}=x_t-\eta_t g_t,\quad g_t\in\partial f(x_t)
+$$
+
+$$
+x_{t+1}=\Pi_C(x_t-\eta_t g_t)
+$$
+
+$$
+\nabla f(x^*)=0,\quad 0\in\partial f(x^*)
+$$
+
+Rate headlines:
+
+- smooth convex GD: $O(1/T)$
+- smooth strongly convex GD: linear/geometric
+- subgradient method: $O(1/\sqrt{T})$
+
+## 17) Mini Self-Test (8 Questions)
+
+1. What does step size control?
+2. Why minus gradient for minimization?
+3. State smoothness inequality.
+4. What is $\partial|x|$ at $x=0$?
+5. Why is subgradient method not always monotone?
+6. What does projection do in one line?
+7. Why is SGD cheaper per step?
+8. Which is faster: $1/T$ or $1/\sqrt{T}$?
+
+## 18) Short Answer Key
+
+1. Step length each iteration.
+2. Gradient points uphill; negative gradient points downhill.
+3. $f(y)\le f(x)+\nabla f(x)^T(y-x)+\frac{L}{2}\|y-x\|^2$.
+4. Interval $[-1,1]$.
+5. Subgradient directions do not guarantee per-step descent.
+6. Maps point to nearest feasible point in $C$.
+7. It uses one sample/minibatch instead of full dataset each step.
+8. $1/T$.
+
+## References (Your Transcribed Notes)
+
+- GD: `materials/processed/optimization-for-ml/Jan29_GD.md`
+- Subgradients: `materials/processed/optimization-for-ml/Feb5_subgradients.md`
+- Subgradient method: `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
+- Projected subgradient: `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+
+Note: We still do not have your course-specific transcripts for lectures titled "Optimality Conditions" and "Stochastic Gradient". This guide uses standard optimization formulations; once those PDFs are ingested, I can align notation and proof style exactly to your class.

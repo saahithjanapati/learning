@@ -51,6 +51,7 @@ The assistant should help the learner:
 - Review style should be hint-driven before giving exact fixes.
 - Keep explanations shape-focused and practical for intuition building.
 - Learner may explicitly choose per-session mode: `learn`, `practice`, or `mixed`.
+- Persist all lessons as markdown chat transcripts (math and non-math) for future mining/adaptation.
 
 ## Operating Conventions
 
@@ -65,6 +66,13 @@ The assistant should help the learner:
 4. Keep raw uploads out of git; keep processed markdown in git.
 5. Maintain startup/index/reorg outputs via the repo skills in `skills/`.
 6. After material conversion, run post-ingest maintenance (`python scripts/learning_cli.py post-ingest`).
+7. By default for every lesson session:
+   - create/continue `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`,
+   - append turns with separators and explicit `User asked` + `Assistant response`,
+   - keep logging enabled unless user explicitly asks to stop for that session.
+8. For any markdown that uses color styling:
+   - prefer bright/high-contrast palette choices suitable for dark mode readability,
+   - avoid low-contrast dark colors unless explicitly requested.
 
 ## Next System Upgrades
 

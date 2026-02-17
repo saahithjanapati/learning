@@ -53,6 +53,16 @@ This prints:
 - "dry-run merge transformers/rope into transformers/attention/rope"
 - then: "apply that merge"
 
+10. Start markdown live chat mode (math-friendly)
+- "start markdown live chat for this topic"
+- "switch this session to markdown chat mode"
+- "log this chat in a lesson markdown file"
+
+11. Clarify default lesson transcript logging
+- "is lesson chat logging on by default?"
+- "stop transcript logging for this session"
+- "resume transcript logging"
+
 ## Internal Note
 
 The assistant may use `scripts/learning_cli.py` internally, but the user should not need to run scripts manually.

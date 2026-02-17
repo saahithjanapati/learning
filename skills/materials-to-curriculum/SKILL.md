@@ -25,6 +25,11 @@ Use this skill when user asks:
   - if truncated/failure, fallback to chunked conversion,
 - save extracted markdown to:
   - `materials/processed/<source-name>.md`
+- math formatting policy for markdown output (Obsidian/MathJax compatible):
+  - inline math must use `$...$`
+  - display equations must use `$$...$$` on separate lines
+  - never wrap equations in backticks
+  - preserve LaTeX commands and symbols (`\\frac`, `\\sum`, `\\mathbb{R}`, `\\nabla`, etc.)
 
 3. Archive processed source files:
 - move processed files from `materials/inbox/` to `materials/archive/`

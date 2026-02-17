@@ -64,10 +64,12 @@ For each session, record:
 - what was correct/incorrect,
 - recurring mistakes and fixes,
 - recommended next session.
+- full chat transcript in lesson markdown format (for later mining).
 
 Update:
 - `learning_system/PROGRESS_LOG.md`
 - topic lesson log under `topics/<root>/<topic>/lessons/`
+- topic live chat transcript under `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`
 - `learning_system/TOPIC_INDEX.md` if new topic path or alias is created
 - `learning_system/SKILL_GRAPH.md` if skill status changes.
 
