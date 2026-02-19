@@ -39,6 +39,7 @@ After each lesson session, update:
 - `learning_system/PROGRESS_LOG.md`
 - topic lesson file under `topics/<root>/<topic>/lessons/`
 - `learning_system/SKILL_GRAPH.md` when skill status changes
+- end-of-session recap file summarizing learned concepts, mistakes/corrections, and next-session targets
 
 ## Session Control References
 
@@ -70,6 +71,11 @@ For every lesson session (math or non-math):
 3. keep this logging enabled by default, even if the learner is not actively reading the file.
 4. use `$...$` or `$$...$$` math delimiters for Obsidian compatibility.
 5. if the learner explicitly asks to stop transcript logging, honor that request for the current session.
+6. at session close, create/update a recap artifact with:
+- what was covered
+- what is solid vs needs reinforcement
+- mistake tags and corrections
+- recommended next steps
 
 ## Markdown Color Accessibility Policy (Default)
 
@@ -79,6 +85,11 @@ When using colors in markdown output (equations, spans, callouts, or legends):
 3. apply this policy to all markdown artifacts, not just textbook-style lessons.
 4. if user requests a different palette for a specific file, honor that override.
 
-## Current Known Topic
+## Current Known Topics
 
 - `topics/transformers/kv-caching`
+- `topics/optimization-for-ml`
+
+## Current Active Lesson (Local Day: 2026-02-17)
+
+- `topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md`

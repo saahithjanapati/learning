@@ -67,3 +67,18 @@ Use one primary tag per missed item:
   - `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`
 - Include both user prompt and assistant response so future instances can mine confusion patterns.
 - Keep this logging on for math and non-math lessons unless learner explicitly opts out for that session.
+
+## Session Closeout Recap
+
+At the end of any live lesson/chat session, create a concise recap artifact and index it.
+
+Minimum recap contents:
+- topics/sections covered
+- what the learner now seems solid on
+- what needs more coverage
+- mistakes and corrections (with one primary mistake tag each)
+- next-session recommended drill order
+
+Minimum index updates:
+- add session row to `learning_system/LESSON_INDEX.md`
+- append performance row to `learning_system/PROGRESS_LOG.md`

@@ -1365,14 +1365,35 @@ What this section gets you:
 - A concrete set of gaps to target in your next review loop.
 
 1. In one sentence, what does the step size $\eta_t$ control?
+	1. how much you move in the direction...
+
 2. For $f(x)=\tfrac{1}{2}x^2$, write the GD update and describe what happens when $0<\eta<2$.
-3. State the definition of a subgradient in one inequality.
+	1. grad_f = x, so GD update would be x_{t+1} = x_t - n x x_t... = (1-n)x_t
+		1. so it's gonna keep going down towards zero...
+
+3. State the definition of a subgradient in one inequality. 
+	1. sub_gr(x) 
+		1. f(y) >= f(x) + g^T (y-x) for all y
+		2. g s.th. f(y) >= f(x) + g^T (y-x) for all y
+		3. g s.th. f(y) >= f(x) + g^T (y-x) for all y
+
 4. What is $\partial |x|$ at $x=0$?
+	1. [ -1, 1]
+
 5. Write the projected subgradient update in two lines.
-6. In one sentence, what does projection do?
-7. Give one optimality condition for convex, non-smooth, unconstrained minimization.
-8. In one sentence, what is SGD approximating?
+	1. y_t = x_t - n_t * g_t
+	2. x_{t+1} = pi_c(y_{t+1}) (move it to the closest point in constraint set C)
+
+7. In one sentence, what does projection do?
+	1. It takes a point, and moves it to the closest point that also meets some given constraint set C
+
+8. Give one optimality condition for convex, non-smooth, unconstrained minimization.
+	1. zero in partial_deriv(x*)
+
+
 9. Which converges faster: $1/T$ or $1/\sqrt{T}$, and where do they typically show up?
+	1. 1/T converges faster... shows up for smooth convex settings
+	2. 1/sqrt(t): non-smooth subgradient method (and noisy stochastic regimes)
 
 ## References (Course Transcripts You Already Have)
 
