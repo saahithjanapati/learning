@@ -18,3 +18,6 @@ Source transcripts live in: `materials/processed/probabilistic-graphical-models/
   - `materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md`
 - Sampling / MCMC intro
   - `materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md`
+
+- Homework (problem sets)
+  - `materials/processed/probabilistic-graphical-models/S2610708_HW1_Final_prob_graph_model.md`

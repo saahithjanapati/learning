@@ -32,6 +32,26 @@ Use this as a lightweight skill tree. Status values:
 | Projected subgradient update + projection behavior | Subgradient basics | practicing | Correct projection and feasibility checks |
 | Timed recall under quiz pressure | KKT + subgradient + projected updates | learning | Completed one timed 6-question mixed drill (5/6), then reinforced with guided KKT solves |
 
+## Probabilistic Graphical Models (Midterm 1 Track)
+
+| Node | Depends On | Status | Evidence |
+|---|---|---|---|
+| DGM vs UGM mental model (when to use each) | - | learning | Intro summary created in `2026-02-20-midterm-1-intro-summary.md` |
+| DGM factorization and ancestral sampling order (`p(x)=\prod_i p(x_i \mid pa_i)`) | DGM vs UGM mental model | learning | DAG factorization and sampling-order intuition covered in intro summary |
+| UGM factorization + partition function (`p(x)\propto \prod_C \psi_C(x_C)`, `Z`) | DGM vs UGM mental model | learning | Potentials/energy/normalization relation captured in intro summary |
+| Variable elimination mechanics + elimination-order effects | UGM factorization + partition function | learning | Fill-in clique and treewidth bottleneck summarized |
+| Belief propagation/message passing on trees | Variable elimination mechanics + elimination-order effects | learning | Sum-product two-pass intuition and exactness-on-trees noted |
+| GNN message+aggregation connection to PGMs | Belief propagation/message passing on trees | learning | Message-passing analogy plus objective differences summarized |
+| MCMC motivation (high-dimensional + multimodal targets) | UGM factorization + partition function | learning | Approximate-inference motivation and mixing issues introduced |
+| Metropolis-Hastings proposal/accept correction | MCMC motivation (high-dimensional + multimodal targets) | learning | Acceptance-ratio workflow documented in intro summary |
+| Gibbs sampling full-conditional updates | Metropolis-Hastings proposal/accept correction | learning | Coordinate-wise update and accept=1 special-case relation recorded |
+| D-separation to conditional-independence proof pattern | DGM factorization and ancestral sampling order (`p(x)=\prod_i p(x_i \mid pa_i)`) | not_started | HW1 includes formal proof question; not yet practiced end-to-end |
+| Tree-Ising exact sampler (upward sum-product + top-down sampling) | Belief propagation/message passing on trees | not_started | HW1 includes full derivation/runtime proof; not yet covered deeply |
+| Partition-function/marginal oracle reductions (`Z -> marginals`, `marginals -> Z`) | UGM factorization + partition function (`p(x)\propto \prod_C \psi_C(x_C)`, `Z`) | not_started | HW1 hardness section introduces reductions; currently unfamiliar |
+| Factor-graph BP numeric fluency (messages -> beliefs -> factor beliefs -> `Z`) | Belief propagation/message passing on trees | learning | Basic numeric BP done; homework-level full pipeline still partial |
+| DGM/UGM/factor-graph conversion fluency + moralization | DGM vs UGM mental model (when to use each) | learning | Intro conversion intuition present; full mixed conversion drills pending |
+| MCMC diagnostics (burn-in, mixing, autocorrelation, multimodality) | MCMC motivation (high-dimensional + multimodal targets) | not_started | Conceptual mention only; no diagnostic drill yet |
+
 ## Suggested Next Unlocks
 
 1. Implement prefill + decode split API.
@@ -41,3 +61,11 @@ Use this as a lightweight skill tree. Status values:
 5. Continue problem set from Q18 onward (subgradient method -> projected updates -> optimality).
 6. Run timed KKT mixed-problem drills (2-3 problems, hint-first).
 7. Run short recall sprint for `kappa`, `eta` interval, and subgradient active-branch rules.
+8. Run a no-notes drill to distinguish DGM vs UGM factorization on 6 toy graphs.
+9. Hand-run variable elimination with two elimination orders and compare induced cliques/treewidth.
+10. Run one MH step trace and one Gibbs trace (5-10 steps) and explain likely mixing behavior.
+11. Prove one d-separation implication by factor regrouping (`P(x,y,z)=f(x,y)g(y,z)` style).
+12. Solve one full factor-graph BP problem including factor beliefs and partition function.
+13. Derive tree-Ising exact sampler and justify `O(n)` runtime.
+14. Execute both directions of hardness-style reductions between `Z` and marginals on a toy Ising model.
+15. Run a diagnostics-focused MCMC checkpoint (burn-in, mixing, multimodality failure cases).

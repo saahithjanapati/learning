@@ -18,3 +18,6 @@ Source transcripts live in: `materials/processed/optimization-for-ml/`
   - `materials/processed/optimization-for-ml/Feb5_subgradients.md`
   - `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
   - `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+
+- Homework (problem sets)
+  - `materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md`

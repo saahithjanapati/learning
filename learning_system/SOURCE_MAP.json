@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-02-15",
+  "generated_on": "2026-02-21",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -527,6 +527,15 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
+      "duplicate_equivalents": [
+        "S26_10_725_HW1_optimization_ml.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_1_intro.md",
       "root_topic": "probabilistic-graphical-models",
       "source_pdf": "materials/archive/probabilistic graphical models/Lecture_1_intro (1).pdf",
@@ -591,6 +600,15 @@
         "Lecture_9_MCMC_intro (1).pdf",
         "Lecture_9_MCMC_intro (2).pdf",
         "Lecture_9_MCMC_intro.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/S2610708_HW1_Final_prob_graph_model.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/S2610708_HW1_Final_prob_graph_model.pdf",
+      "duplicate_equivalents": [
+        "S2610708_HW1_Final_prob_graph_model.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     }

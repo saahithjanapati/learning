@@ -4721,5 +4721,23 @@ What invertibility changes:
 - Quadratic: $f(x)=ax^2+bx+c$ with $a\neq 0$.
 - If you start from a cubic template $px^3+ax^2+bx+c$, then for a quadratic you set $p=0$.
 
+---
+
+## Response 185
+
+User asked:
+> The scores would be 0.8 and -0.8 and the unnormalized probability would be e^0.8411 and that has the higher unnormalized probability.
+
+Assistant response:
+Your ranking is correct: the score $0.8$ gives the higher softmax weight.
+
+Tiny numeric correction:
+- unnormalized weights are
+  - $e^{0.8}\approx 2.23$
+  - $e^{-0.8}\approx 0.45$
+
+If there are only these two options, normalized probabilities are:
+- $p_1=\frac{e^{0.8}}{e^{0.8}+e^{-0.8}}\approx 0.832$
+- $p_2=\frac{e^{-0.8}}{e^{0.8}+e^{-0.8}}\approx 0.168$
 
 

@@ -1,7 +1,7 @@
 # Probabilistic Graphical Models Full-PDF Ingest Report
 
-Model: `gemini-3-flash-preview`
-Unique files: 7
+Model: `mixed (legacy gemini-3-flash-preview + local-pymupdf)`
+Unique files: 8
 
 ## Files
 
@@ -12,3 +12,4 @@ Unique files: 7
 - `Lecture_6_7_beliefprop (2).pdf` -> `Lecture_6_7_beliefprop.md` (finish: `STOP`)
 - `Lecture_8_GNNs.pdf` -> `Lecture_8_GNNs.md` (finish: `STOP`)
 - `Lecture_9_MCMC_intro.pdf` -> `Lecture_9_MCMC_intro.md` (finish: `STOP`)
+- `S2610708_HW1_Final_prob_graph_model.pdf` -> `S2610708_HW1_Final_prob_graph_model.md` (finish: `COMPLETE`)

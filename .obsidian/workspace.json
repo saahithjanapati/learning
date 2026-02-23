@@ -13,26 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-19-quiz-2-study-guide-concise-and-deep"
+              "title": "2026-02-22-live-chat-03-lecture-2-directed"
             }
           },
           {
-            "id": "244a160ed0d828cf",
+            "id": "8e05eca67b32db4c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-02-19-chat-clarification-smoothness-descent.md",
+                "file": "topics/probabilistic-graphical-models/undirected-graphical-models/curriculum/0-to-1-plan.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-19-chat-clarification-smoothness-descent"
+              "title": "0-to-1-plan"
             }
           }
         ]
@@ -92,7 +92,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 270.5
   },
   "right": {
     "id": "5cabd87a7ea33faf",
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-02-19-quiz-2-study-guide-concise-and-deep"
+              "title": "Backlinks for 2026-02-22-live-chat-03-lecture-2-directed"
             }
           },
           {
@@ -127,12 +127,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2026-02-19-quiz-2-study-guide-concise-and-deep"
+              "title": "Outgoing links from 2026-02-22-live-chat-03-lecture-2-directed"
             }
           },
           {
@@ -170,13 +170,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-02-19-quiz-2-study-guide-concise-and-deep"
+              "title": "Outline of 2026-02-22-live-chat-03-lecture-2-directed"
             }
           }
         ]
@@ -197,48 +197,32 @@
       "bases:Create new base": false
     }
   },
-  "floating": {
-    "id": "cdacb03450a5e574",
-    "type": "floating",
-    "children": [
-      {
-        "id": "f6f9ee640977d083",
-        "type": "window",
-        "children": [
-          {
-            "id": "1932e89e645acd1d",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "88bb68d018e98e36",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "topics/optimization-for-ml/lessons/2026-02-19-chat-clarification-smoothness-descent.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "2026-02-19-chat-clarification-smoothness-descent"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": -1066,
-        "y": 25,
-        "width": 1066,
-        "height": 503,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
   "active": "2388d1bee6f9707a",
   "lastOpenFiles": [
+    "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-02-lecture-3-4.md",
+    "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
+    "materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md",
+    "topics/probabilistic-graphical-models/materials/INDEX.md",
+    "topics/probabilistic-graphical-models/undirected-graphical-models/curriculum/0-to-1-plan.md",
+    "topics/probabilistic-graphical-models/lessons/2026-02-21-live-chat.md",
+    "topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md",
+    "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat.md",
+    "topics/probabilistic-graphical-models/lessons/2026-02-20-live-chat.md",
+    "topics/probabilistic-graphical-models/lessons/2026-02-15-catchup-lesson-01.md",
+    "Untitled.md",
+    "materials/archive/local-figures/dsep-chain-fork-collider-rules.png",
+    "topics/probabilistic-graphical-models/lessons/2026-02-21-hw1-advanced-gap-map.md",
+    "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
+    "materials/archive/S2610708_HW1_Final_prob_graph_model.pdf",
+    "materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md",
+    "materials/processed/probabilistic-graphical-models/S2610708_HW1_Final_prob_graph_model.md",
+    "materials/inbox/S2610708_HW1_Final_prob_graph_model.pdf",
+    "materials/inbox/S26_10_725_HW1_optimization_ml.pdf",
+    "topics/probabilistic-graphical-models/lessons/2026-02-20-midterm-1-intro-summary.md",
+    "materials/archive/local-figures/ve-eliminate-x-concrete.png",
     "topics/optimization-for-ml/lessons/2026-02-19-chat-clarification-smoothness-descent.md",
+    "materials/archive/local-figures/ve-order-star-intuition.png",
+    "materials/archive/local-figures/pgm-dgm-vs-ugm-intuition.png",
     "topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md",
     "topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md",
     "topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md",
@@ -253,21 +237,6 @@
     "materials/archive/local-figures/projection-geometry-contradiction.png",
     "materials/archive/local-figures/projection-geometry-1d-interval.png",
     "materials/archive/local-figures/projection-geometry-obtuse.png",
-    "topics/optimization-for-ml/lessons/2026-02-17-quiz-2-problem-set-01.md",
-    "learning_system/LEARNER_PROFILE.md",
-    "learning_system/IN_DEPTH_MODE.md",
-    "learning_system/CURRICULUM_WORKFLOW.md",
-    "topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md",
-    "topics/probabilistic-graphical-models/directed-graphical-models/curriculum/0-to-1-plan.md",
-    "topics/probabilistic-graphical-models/mcmc/curriculum/0-to-1-plan.md",
-    "learning_system/SKILL_GRAPH.md",
-    "learning_system/CLI_HELP.md",
-    "learning_system/ADAPTIVE_TEACHING_POLICY.md",
-    "learning_system/STARTUP_CONTEXT.md",
-    "learning_system/SKILL_TREE.md",
-    "learning_system/SELF_DIRECTED_CONTROLS.md",
-    "learning_system/PROGRESS_LOG.md",
-    "learning_system/LESSON_INDEX.md",
     "materials/archive/local-figures/conditioning-intuition.png",
     "materials/archive/local-figures",
     "scripts/__pycache__/terminal_web_shuttle.cpython-311.pyc",

@@ -1,7 +1,7 @@
 # Optimization Notes Full-PDF Ingest Report
 
-Model: `gemini-3-flash-preview`
-Files: 9
+Model: `mixed (legacy gemini-3-flash-preview + local-pymupdf)`
+Files: 10
 
 ## Files
 
@@ -14,3 +14,4 @@ Files: 9
 - `Jan20_ConvexFunctions.pdf` -> `Jan20_ConvexFunctions.md` (finish: `STOP`)
 - `Jan27_matrix_norms.pdf` -> `Jan27_matrix_norms.md` (finish: `STOP`)
 - `Jan29_GD.pdf` -> `Jan29_GD.md` (finish: `STOP`)
+- `S26_10_725_HW1_optimization_ml.pdf` -> `S26_10_725_HW1_optimization_ml.md` (finish: `COMPLETE`)
