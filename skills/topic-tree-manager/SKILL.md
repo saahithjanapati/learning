@@ -1,6 +1,6 @@
 ---
 name: topic-tree-manager
-description: Manage hierarchical topics/subtopics for this repo. Use when the user asks to create topic branches, reorganize structure, regenerate skill trees, or merge topics.
+description: Manage hierarchical topics and repo structure for this learning repo. Use for topic creation, reindexing, reorg reports, and topic merges; do not use for startup navigation or skill-catalog edits.
 ---
 
 # Topic Tree Manager
@@ -12,6 +12,10 @@ Use this skill for:
 - structure audits
 - skill-tree regeneration
 - merge/cleanup operations
+
+Do not use this skill for:
+- startup help or recent-topic resume
+- creating, splitting, or auditing repo skills
 
 ## Workflow
 
@@ -36,4 +40,3 @@ Summarize changed files:
 - `learning_system/TOPIC_INDEX.md`
 - `learning_system/SKILL_TREE.md`
 - `learning_system/reorg/latest-report.md`
-

@@ -1,9 +1,16 @@
 ---
 name: learning-repo-orchestrator
-description: Manage this repository's learning system with natural-language commands. Use when the user asks to start with a help menu, resume recent topics, reorganize/merge topics, regenerate topic indexes or skill trees, or create hierarchical topics without running shell commands directly.
+description: Internal composite helper for the learning repo. Use only when a higher-level router needs one repo-maintenance entry point; prefer the narrower public skills for direct user requests.
+visibility: internal
 ---
 
 # Learning Repo Orchestrator
+
+This is an internal composite skill.
+Do not advertise it in `AGENTS.md` while the narrower public skills exist.
+Route direct user requests to the leaf skills instead:
+- startup/recent/resume -> `learning-startup-resume`
+- topic creation/reindex/reorg/merge -> `topic-tree-manager`
 
 This skill provides a user-facing natural-language interface for repository maintenance and startup UX.
 The user should not need to run Python commands directly.

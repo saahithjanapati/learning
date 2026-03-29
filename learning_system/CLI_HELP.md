@@ -1,5 +1,8 @@
 # Learning Skill Help
 
+`AGENTS.md` is the canonical public skill registry for discoverable skills.
+If a skill is not listed there, treat it as internal-only.
+
 ## Quick Start
 
 Ask:
@@ -19,7 +22,7 @@ This prints:
 - topic creation/merge/reindex/reorg -> `topic-tree-manager`
 - materials to markdown/curriculum -> `materials-to-curriculum`
 - session generation/adaptation -> `adaptive-session-tutor`
-- skill create/split/merge -> `skill-catalog-manager`
+- skill audit/create/split/merge -> `skill-catalog-manager`
 
 ## Natural-Language Commands
 
@@ -62,6 +65,10 @@ This prints:
 - "is lesson chat logging on by default?"
 - "stop transcript logging for this session"
 - "resume transcript logging"
+
+12. Audit the skill catalog
+- "audit the repo skills"
+- "check whether our skills are registered correctly"
 
 ## Internal Note
 

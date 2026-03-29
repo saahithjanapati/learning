@@ -47,7 +47,10 @@ This repo is organized so you can:
 
 Use natural-language requests instead of running scripts directly.
 
-Primary skills:
+Public skills:
+- `AGENTS.md` is the canonical public skill registry.
+- If a skill file exists under `skills/` but is not listed in `AGENTS.md`, treat it as internal and do not rely on it showing up as a public skill.
+
 - `learning-startup-resume`
 - `topic-tree-manager`
 - `materials-to-curriculum`
@@ -61,6 +64,7 @@ Examples:
 - "create a new topic under transformers called attention/rope"
 - "show a reorganization report"
 - "dry-run merge topic A into topic B"
+- "audit the repo skills and fix the catalog"
 
 The assistant executes maintenance actions internally.
 

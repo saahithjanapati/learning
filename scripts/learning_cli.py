@@ -7,6 +7,7 @@ Examples:
   python scripts/learning_cli.py start
   python scripts/learning_cli.py recent-topics --limit 5
   python scripts/learning_cli.py reindex --write-skill-tree
+  python scripts/learning_cli.py audit-skills --write-report
   python scripts/learning_cli.py post-ingest
   python scripts/learning_cli.py reorganize --write-report
   python scripts/learning_cli.py archive-processed --apply
@@ -30,12 +31,15 @@ from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TOPICS_DIR = REPO_ROOT / "topics"
+SKILLS_DIR = REPO_ROOT / "skills"
 LEARNING_SYSTEM_DIR = REPO_ROOT / "learning_system"
 LESSON_INDEX_PATH = LEARNING_SYSTEM_DIR / "LESSON_INDEX.md"
 TOPIC_INDEX_PATH = LEARNING_SYSTEM_DIR / "TOPIC_INDEX.md"
 SKILL_TREE_PATH = LEARNING_SYSTEM_DIR / "SKILL_TREE.md"
 REORG_REPORT_PATH = LEARNING_SYSTEM_DIR / "reorg" / "latest-report.md"
 SOURCE_MAP_PATH = LEARNING_SYSTEM_DIR / "SOURCE_MAP.json"
+SKILL_CATALOG_REPORT_PATH = LEARNING_SYSTEM_DIR / "SKILL_CATALOG_REPORT.md"
+AGENTS_PATH = REPO_ROOT / "AGENTS.md"
 MATERIALS_DIR = REPO_ROOT / "materials"
 INBOX_DIR = MATERIALS_DIR / "inbox"
 PROCESSED_DIR = MATERIALS_DIR / "processed"
@@ -52,6 +56,21 @@ class LessonRow:
     mode: str
     outcome: str
     file_ref: str
+
+
+@dataclass
+class SkillRegistryEntry:
+    name: str
+    description: str
+    rel_path: str
+
+
+@dataclass
+class SkillFileRecord:
+    name: str
+    description: str
+    rel_path: str
+    visibility: str
 
 
 def _normalize_slug(s: str) -> str:
@@ -117,6 +136,206 @@ def _discover_topic_paths() -> list[Path]:
         if any(p.exists() and p.is_dir() for p in marker_hits):
             results.append(path.relative_to(TOPICS_DIR))
     return sorted(set(results))
+
+
+def _parse_front_matter(path: Path) -> dict[str, str]:
+    lines = path.read_text(encoding="utf-8").splitlines()
+    if not lines or lines[0].strip() != "---":
+        return {}
+
+    fields: dict[str, str] = {}
+    for line in lines[1:]:
+        striped = line.strip()
+        if striped == "---":
+            break
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        fields[key.strip()] = value.strip()
+    return fields
+
+
+def _parse_agents_skill_registry() -> tuple[list[SkillRegistryEntry], list[str]]:
+    if not AGENTS_PATH.exists():
+        return [], ["Missing AGENTS.md."]
+
+    entries: list[SkillRegistryEntry] = []
+    malformed: list[str] = []
+    in_section = False
+
+    for line in AGENTS_PATH.read_text(encoding="utf-8").splitlines():
+        striped = line.strip()
+        lower = striped.lower()
+        if lower in {"### public skills", "### available skills"}:
+            in_section = True
+            continue
+        if in_section and striped.startswith("### "):
+            break
+        if not in_section or not striped.startswith("- "):
+            continue
+
+        match = re.match(r"- ([^:]+): (.+?) \(file: `([^`]+)`\)\s*$", striped)
+        if not match:
+            malformed.append(striped)
+            continue
+        entries.append(
+            SkillRegistryEntry(
+                name=match.group(1).strip(),
+                description=match.group(2).strip(),
+                rel_path=match.group(3).strip(),
+            )
+        )
+
+    if not entries and not malformed:
+        malformed.append("No public skill entries found in AGENTS.md.")
+    return entries, malformed
+
+
+def _discover_skill_files() -> list[SkillFileRecord]:
+    if not SKILLS_DIR.exists():
+        return []
+
+    records: list[SkillFileRecord] = []
+    for path in sorted(SKILLS_DIR.rglob("SKILL.md")):
+        rel_path = path.relative_to(REPO_ROOT).as_posix()
+        front_matter = _parse_front_matter(path)
+        records.append(
+            SkillFileRecord(
+                name=front_matter.get("name", path.parent.name),
+                description=front_matter.get("description", ""),
+                rel_path=rel_path,
+                visibility=front_matter.get("visibility", "public").lower(),
+            )
+        )
+    return records
+
+
+def _audit_skill_catalog() -> dict:
+    registered, malformed_entries = _parse_agents_skill_registry()
+    discovered = _discover_skill_files()
+    discovered_by_name = {record.name: record for record in discovered}
+
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    for line in malformed_entries:
+        errors.append(f"Malformed public-skill registry entry: {line}")
+
+    seen_names: set[str] = set()
+    seen_paths: set[str] = set()
+    for entry in registered:
+        if entry.name in seen_names:
+            errors.append(f"Duplicate public skill name in AGENTS.md: {entry.name}")
+        else:
+            seen_names.add(entry.name)
+        if entry.rel_path in seen_paths:
+            errors.append(f"Duplicate public skill path in AGENTS.md: {entry.rel_path}")
+        else:
+            seen_paths.add(entry.rel_path)
+
+        full_path = REPO_ROOT / entry.rel_path
+        if not full_path.exists():
+            errors.append(f"Registered public skill path does not exist: {entry.rel_path}")
+            continue
+
+        front_matter = _parse_front_matter(full_path)
+        front_name = front_matter.get("name", full_path.parent.name)
+        visibility = front_matter.get("visibility", "public").lower()
+        if visibility == "internal":
+            errors.append(f"Internal skill is listed as public in AGENTS.md: {entry.name}")
+        if front_name != entry.name:
+            errors.append(
+                f"Registered skill name does not match SKILL.md front matter: {entry.name} != {front_name}"
+            )
+
+        expected_rel_path = f"skills/{entry.name}/SKILL.md"
+        if entry.rel_path != expected_rel_path:
+            warnings.append(
+                f"Public skill path is non-canonical for {entry.name}: {entry.rel_path} (expected {expected_rel_path})"
+            )
+
+    internal_records: list[SkillFileRecord] = []
+    public_records: list[SkillFileRecord] = []
+    for record in discovered:
+        if record.visibility == "internal":
+            internal_records.append(record)
+            if record.name in seen_names:
+                errors.append(f"Internal skill should not be publicly registered: {record.name}")
+            continue
+
+        public_records.append(record)
+        if record.name not in seen_names:
+            errors.append(
+                f"Public skill file exists but is not registered in AGENTS.md: {record.name} ({record.rel_path})"
+            )
+
+        expected_rel_path = f"skills/{record.name}/SKILL.md"
+        if record.rel_path != expected_rel_path:
+            warnings.append(
+                f"Skill file path is non-canonical for {record.name}: {record.rel_path} (expected {expected_rel_path})"
+            )
+
+    for entry in registered:
+        if entry.name not in discovered_by_name:
+            errors.append(f"Public skill is registered in AGENTS.md but missing on disk: {entry.name}")
+
+    return {
+        "registered": registered,
+        "discovered": discovered,
+        "public_records": public_records,
+        "internal_records": internal_records,
+        "errors": errors,
+        "warnings": warnings,
+    }
+
+
+def _render_skill_catalog_report(audit: dict) -> str:
+    lines = [
+        "# Skill Catalog Report",
+        "",
+        f"Generated: {date.today().isoformat()}",
+        "",
+        "## Summary",
+        "",
+        f"- Catalog status: {'PASS' if not audit['errors'] else 'FAIL'}",
+        f"- Public skills registered in `AGENTS.md`: {len(audit['registered'])}",
+        f"- Skill files discovered on disk: {len(audit['discovered'])}",
+        f"- Internal skill files: {len(audit['internal_records'])}",
+        f"- Errors: {len(audit['errors'])}",
+        f"- Warnings: {len(audit['warnings'])}",
+        "",
+        "## Public Registry",
+        "",
+    ]
+
+    if audit["registered"]:
+        for entry in audit["registered"]:
+            lines.append(f"- `{entry.name}` -> `{entry.rel_path}`")
+    else:
+        lines.append("- None.")
+
+    lines.extend(["", "## Internal Skill Files", ""])
+    if audit["internal_records"]:
+        for record in audit["internal_records"]:
+            lines.append(f"- `{record.name}` -> `{record.rel_path}`")
+    else:
+        lines.append("- None.")
+
+    lines.extend(["", "## Errors", ""])
+    if audit["errors"]:
+        for error in audit["errors"]:
+            lines.append(f"- {error}")
+    else:
+        lines.append("- None.")
+
+    lines.extend(["", "## Warnings", ""])
+    if audit["warnings"]:
+        for warning in audit["warnings"]:
+            lines.append(f"- {warning}")
+    else:
+        lines.append("- None.")
+
+    return "\n".join(lines) + "\n"
 
 
 def _parse_lesson_index() -> list[LessonRow]:
@@ -819,6 +1038,30 @@ def cmd_source_map(args: argparse.Namespace) -> None:
         print(f"Unresolved source-material paths: {unresolved_count}")
 
 
+def cmd_audit_skills(args: argparse.Namespace) -> None:
+    audit = _audit_skill_catalog()
+    report = _render_skill_catalog_report(audit)
+
+    if args.write_report:
+        SKILL_CATALOG_REPORT_PATH.write_text(report, encoding="utf-8")
+        print(f"Updated: {SKILL_CATALOG_REPORT_PATH.relative_to(REPO_ROOT)}")
+
+    print(f"Catalog status: {'PASS' if not audit['errors'] else 'FAIL'}")
+    print(f"Public skills registered: {len(audit['registered'])}")
+    print(f"Skill files discovered: {len(audit['discovered'])}")
+    print(f"Internal skill files: {len(audit['internal_records'])}")
+    print(f"Errors: {len(audit['errors'])}")
+    print(f"Warnings: {len(audit['warnings'])}")
+
+    for error in audit["errors"]:
+        print(f"ERROR: {error}")
+    for warning in audit["warnings"]:
+        print(f"WARNING: {warning}")
+
+    if audit["errors"]:
+        raise SystemExit(1)
+
+
 def cmd_archive_processed(args: argparse.Namespace) -> None:
     summary = _archive_processed_pdfs(apply=args.apply)
     mode = "APPLY" if args.apply else "DRY-RUN"
@@ -925,6 +1168,17 @@ def _build_parser() -> argparse.ArgumentParser:
         help="Generate machine-readable mapping from topics to transcript sources.",
     )
     p_source_map.set_defaults(func=cmd_source_map)
+
+    p_audit_skills = sub.add_parser(
+        "audit-skills",
+        help="Audit the public skill registry against skills/ and optionally write a report.",
+    )
+    p_audit_skills.add_argument(
+        "--write-report",
+        action="store_true",
+        help="Write learning_system/SKILL_CATALOG_REPORT.md",
+    )
+    p_audit_skills.set_defaults(func=cmd_audit_skills)
 
     p_archive = sub.add_parser(
         "archive-processed",

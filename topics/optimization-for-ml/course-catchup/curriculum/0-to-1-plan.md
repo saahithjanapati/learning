@@ -23,6 +23,8 @@ Bridge from backlog to active-class readiness in about 3 weeks, using the transc
 7. `materials/processed/optimization-for-ml/Feb5_subgradients.md`
 8. `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
 9. `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+10. `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
+11. `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
 
 ## Weekly Plan
 

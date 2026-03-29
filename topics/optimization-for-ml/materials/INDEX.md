@@ -18,6 +18,12 @@ Source transcripts live in: `materials/processed/optimization-for-ml/`
   - `materials/processed/optimization-for-ml/Feb5_subgradients.md`
   - `materials/processed/optimization-for-ml/Feb10_subgradient-method.md`
   - `materials/processed/optimization-for-ml/Feb12-projected-subgradient.md`
+- Optimality + stochastic optimization
+  - `materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md`
+  - `materials/processed/optimization-for-ml/Feb19_stoch_gd.md`
 
 - Homework (problem sets)
   - `materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md`
+- Quizzes (graded submissions)
+  - `materials/processed/optimization-for-ml/submission_385380809.md` (Quiz 1)
+  - `materials/processed/optimization-for-ml/submission_391256496.md` (Quiz 2)

@@ -2,6 +2,7 @@
 
 This file is the compact memory for new assistant instances.
 Use `learning_system/LOAD_ORDER.md` for full startup loading sequence.
+Use `AGENTS.md` as the canonical public skill registry; treat `AGENT.md` as background context only.
 
 ## User Preferences
 

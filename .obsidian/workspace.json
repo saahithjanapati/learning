@@ -13,12 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
+                "file": "topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-02-22-live-chat-03-lecture-2-directed"
+              "title": "2026-02-26-live-chat-all-topics-cumulative"
+            }
+          },
+          {
+            "id": "f4424cd54b556973",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "topics/optimization-for-ml/curriculum/0-to-1-master-plan.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "0-to-1-master-plan"
             }
           },
           {
@@ -92,7 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 270.5
+    "width": 481.5026054382324
   },
   "right": {
     "id": "5cabd87a7ea33faf",
@@ -108,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
+                "file": "topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +132,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 2026-02-22-live-chat-03-lecture-2-directed"
+              "title": "Backlinks for 2026-02-26-live-chat-all-topics-cumulative"
             }
           },
           {
@@ -127,12 +141,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
+                "file": "topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from 2026-02-22-live-chat-03-lecture-2-directed"
+              "title": "Outgoing links from 2026-02-26-live-chat-all-topics-cumulative"
             }
           },
           {
@@ -170,13 +184,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
+                "file": "topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2026-02-22-live-chat-03-lecture-2-directed"
+              "title": "Outline of 2026-02-26-live-chat-all-topics-cumulative"
             }
           }
         ]
@@ -199,50 +213,51 @@
   },
   "active": "2388d1bee6f9707a",
   "lastOpenFiles": [
-    "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-02-lecture-3-4.md",
-    "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat-03-lecture-2-directed.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md",
-    "topics/probabilistic-graphical-models/materials/INDEX.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-ultra-deep-study-guide-worked-problems.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb19-sgd-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-25-live-chat.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb17-optimality-conditions-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb17-optimality-conditions-full-summary.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb12-projected-subgradient-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb17-feb19-optimization-lecture-map.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb10-subgradient-method-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb05-subgradients-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-feb19-sgd-full-summary.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-jan29-gradient-descent-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-jan27-matrix-norms-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-jan20-convex-functions-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-jan15-convex-sets-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-jan13-logistics-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-jan13-intro-deep-dive.md",
+    "topics/optimization-for-ml/lessons/2026-02-26-optimization-lecture-deep-dive-index.md",
+    "topics/optimization-for-ml/lessons/2026-02-25-exam-cheat-sheet-double-sided.md",
+    "topics/optimization-for-ml/lessons/2026-02-25-exam-study-guide-all-topics.md",
     "topics/probabilistic-graphical-models/undirected-graphical-models/curriculum/0-to-1-plan.md",
-    "topics/probabilistic-graphical-models/lessons/2026-02-21-live-chat.md",
-    "topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md",
-    "topics/probabilistic-graphical-models/lessons/2026-02-22-live-chat.md",
-    "topics/probabilistic-graphical-models/lessons/2026-02-20-live-chat.md",
-    "topics/probabilistic-graphical-models/lessons/2026-02-15-catchup-lesson-01.md",
-    "Untitled.md",
+    "topics/optimization-for-ml/curriculum/0-to-1-master-plan.md",
+    "topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md",
+    "topics/optimization-for-ml/lessons/2026-02-23-live-chat-03-affine-hull-weights.md",
+    "topics/optimization-for-ml/lessons/2026-02-23-quiz-1-topics-in-depth-study-guide.md",
+    "topics/probabilistic-graphical-models/lessons/2026-02-24-live-chat-lecture-5-inference.md",
+    "materials/archive/submission_391256496.pdf",
+    "materials/archive/submission_385380809.pdf",
+    "materials/inbox/submission_391256496.pdf",
+    "materials/inbox/submission_385380809.pdf",
+    "materials/archive/Feb19_stoch_gd.pdf",
+    "materials/archive/Feb17_Optimiality_Conditions.pdf",
+    "materials/inbox/Feb19_stoch_gd.pdf",
+    "materials/inbox/Feb17_Optimiality_Conditions.pdf",
+    "materials/archive/local-figures/normal-cone-2d-illustration.png",
+    "materials/archive/local-figures/cone-polar-duality.png",
+    "materials/archive/local-figures/cone-orthant-normal-tangent.png",
+    "materials/archive/local-figures/cone-halfspace-normal-tangent.png",
     "materials/archive/local-figures/dsep-chain-fork-collider-rules.png",
-    "topics/probabilistic-graphical-models/lessons/2026-02-21-hw1-advanced-gap-map.md",
     "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
     "materials/archive/S2610708_HW1_Final_prob_graph_model.pdf",
-    "materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md",
-    "materials/processed/probabilistic-graphical-models/S2610708_HW1_Final_prob_graph_model.md",
-    "materials/inbox/S2610708_HW1_Final_prob_graph_model.pdf",
-    "materials/inbox/S26_10_725_HW1_optimization_ml.pdf",
-    "topics/probabilistic-graphical-models/lessons/2026-02-20-midterm-1-intro-summary.md",
     "materials/archive/local-figures/ve-eliminate-x-concrete.png",
-    "topics/optimization-for-ml/lessons/2026-02-19-chat-clarification-smoothness-descent.md",
     "materials/archive/local-figures/ve-order-star-intuition.png",
     "materials/archive/local-figures/pgm-dgm-vs-ugm-intuition.png",
-    "topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md",
-    "topics/optimization-for-ml/lessons/2026-02-17-quiz-2-class-bridge-notes.md",
-    "topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md",
-    "topics/optimization-for-ml/lessons/2026-02-15-quiz-2-core-concepts.md",
-    "topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md",
-    "topics/optimization-for-ml/lessons/2026-02-17-quiz-2-cheat-sheet.md",
-    "topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-interactive.md",
-    "topics/optimization-for-ml/lessons/2026-02-17-quiz-2-gap-audit.md",
-    "topics/optimization-for-ml/lessons/2026-02-16-live-chat.md",
-    "learning_system/LOAD_ORDER.md",
     "materials/archive/local-figures/projection-geometry-right-angle.png",
-    "materials/archive/local-figures/projection-geometry-contradiction.png",
-    "materials/archive/local-figures/projection-geometry-1d-interval.png",
-    "materials/archive/local-figures/projection-geometry-obtuse.png",
-    "materials/archive/local-figures/conditioning-intuition.png",
-    "materials/archive/local-figures",
-    "scripts/__pycache__/terminal_web_shuttle.cpython-311.pyc",
-    "web/terminal_shuttle/index.html",
-    "web/terminal_shuttle",
-    "web",
-    "scripts/terminal_web_shuttle.py"
+    "materials/archive/local-figures/projection-geometry-contradiction.png"
   ]
 }

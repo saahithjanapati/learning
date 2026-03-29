@@ -1,5 +1,8 @@
 # Agent Notes: Learning System
 
+`AGENTS.md` is the canonical public skill registry for this repo.
+This file is background context only and should not be treated as the source of discoverable skills.
+
 ## Purpose
 
 This repository is a personal learning system for guided study and coding practice.
@@ -64,7 +67,7 @@ The assistant should help the learner:
 2. Keep exercises in topic `practice/` folders.
 3. Prefer concise, concrete notes over long prose.
 4. Keep raw uploads out of git; keep processed markdown in git.
-5. Maintain startup/index/reorg outputs via the repo skills in `skills/`.
+5. Maintain startup/index/reorg outputs via the public skills registered in `AGENTS.md` and implemented under `skills/`.
 6. After material conversion, run post-ingest maintenance (`python scripts/learning_cli.py post-ingest`).
 7. By default for every lesson session:
    - create/continue `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`,

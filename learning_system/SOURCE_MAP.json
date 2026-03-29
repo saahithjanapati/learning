@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-02-21",
+  "generated_on": "2026-03-28",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -81,6 +81,8 @@
           "source_materials": [
             "materials/processed/optimization-for-ml/Feb10_subgradient-method.md",
             "materials/processed/optimization-for-ml/Feb12-projected-subgradient.md",
+            "materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md",
+            "materials/processed/optimization-for-ml/Feb19_stoch_gd.md",
             "materials/processed/optimization-for-ml/Feb5_subgradients.md",
             "materials/processed/optimization-for-ml/Jan13_Intro.md",
             "materials/processed/optimization-for-ml/Jan13_Logistics.md",
@@ -92,6 +94,8 @@
           "source_pdfs": [
             "materials/archive/Feb10_subgradient-method.pdf",
             "materials/archive/Feb12-projected-subgradient.pdf",
+            "materials/archive/Feb17_Optimiality_Conditions.pdf",
+            "materials/archive/Feb19_stoch_gd.pdf",
             "materials/archive/Feb5_subgradients.pdf",
             "materials/archive/Jan13_Intro.pdf",
             "materials/archive/Jan13_Logistics.pdf",
@@ -464,6 +468,43 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/Feb17+24_proximal_gd.pdf",
+      "duplicate_equivalents": [
+        "Feb17+24_proximal_gd.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/Feb17_Optimiality_Conditions.pdf",
+      "duplicate_equivalents": [
+        "Feb17_Optimiality_Conditions.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/Feb19_stoch_gd.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/Feb19_stoch_gd.pdf",
+      "duplicate_equivalents": [
+        "Feb19_stoch_gd.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/Feb24_proximal_gd_examples.pdf",
+      "duplicate_equivalents": [
+        "Feb24_proximal_gd_examples.pdf",
+        "Feb24_proximal_gd_examples (1).pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/optimization-for-ml/Feb5_subgradients.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/Feb5_subgradients.pdf",
@@ -527,11 +568,74 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/optimization-for-ml/March10_LP_Duality.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March10_LP_Duality.pdf",
+      "duplicate_equivalents": [
+        "March10_LP_Duality.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March12_Part1_LagrangianFunction.pdf",
+      "duplicate_equivalents": [
+        "March12_Part1_LagrangianFunction.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March12_Part2_SaddlePoints_Minimax_Slater.pdf",
+      "duplicate_equivalents": [
+        "March12_Part2_SaddlePoints_Minimax_Slater.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/March17_KKT.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March17_KKT.pdf",
+      "duplicate_equivalents": [
+        "March17_KKT.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/March19_Newton_method.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March19_Newton_method.pdf",
+      "duplicate_equivalents": [
+        "March19_Newton_method.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/optimization-for-ml/S26_10_725_HW1_optimization_ml.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
       "duplicate_equivalents": [
         "S26_10_725_HW1_optimization_ml.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/submission_385380809.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/submission_385380809.pdf",
+      "duplicate_equivalents": [
+        "submission_385380809.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/submission_391256496.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/submission_391256496.pdf",
+      "duplicate_equivalents": [
+        "submission_391256496.pdf"
       ],
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
