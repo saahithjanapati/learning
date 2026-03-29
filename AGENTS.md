@@ -4,6 +4,7 @@ A skill is a reusable instruction set stored in `SKILL.md`.
 `AGENTS.md` is the canonical public skill registry for this repo.
 Only skills listed under `### Public skills` should be treated as discoverable and user-facing.
 Skill files may exist under `skills/` for internal composition, but they should not be advertised unless they are listed here.
+Public skills are authored under `skills/` and mirrored under `.agents/skills/` for native Codex discovery and `$skill-name` style invocation.
 
 ### Public skills
 - learning-startup-resume: Startup help menu, recent-topic listing, and resume flow. (file: `skills/learning-startup-resume/SKILL.md`)
@@ -21,7 +22,9 @@ Skill files may exist under `skills/` for internal composition, but they should 
 
 ### Catalog hygiene
 - Every public skill listed here must map to an existing `skills/<name>/SKILL.md`.
+- Every public skill listed here must also be mirrored at `.agents/skills/<name>/SKILL.md` for native Codex discovery.
 - Do not list internal or composite helper skills here.
+- Do not mirror internal or composite helper skills under `.agents/skills/`.
 - When skill boundaries change, update this file first, then align supporting docs.
 - Trigger when user names a skill or asks for behavior that matches a skill description.
 - Read only the required skill files and minimal related context.

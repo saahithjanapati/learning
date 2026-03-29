@@ -67,7 +67,7 @@ The assistant should help the learner:
 2. Keep exercises in topic `practice/` folders.
 3. Prefer concise, concrete notes over long prose.
 4. Keep raw uploads out of git; keep processed markdown in git.
-5. Maintain startup/index/reorg outputs via the public skills registered in `AGENTS.md` and implemented under `skills/`.
+5. Maintain startup/index/reorg outputs via the public skills registered in `AGENTS.md`, implemented under `skills/`, and mirrored under `.agents/skills/` for native discovery.
 6. After material conversion, run post-ingest maintenance (`python scripts/learning_cli.py post-ingest`).
 7. By default for every lesson session:
    - create/continue `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`,

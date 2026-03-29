@@ -32,6 +32,7 @@ from typing import Iterable
 REPO_ROOT = Path(__file__).resolve().parents[1]
 TOPICS_DIR = REPO_ROOT / "topics"
 SKILLS_DIR = REPO_ROOT / "skills"
+NATIVE_SKILLS_DIR = REPO_ROOT / ".agents" / "skills"
 LEARNING_SYSTEM_DIR = REPO_ROOT / "learning_system"
 LESSON_INDEX_PATH = LEARNING_SYSTEM_DIR / "LESSON_INDEX.md"
 TOPIC_INDEX_PATH = LEARNING_SYSTEM_DIR / "TOPIC_INDEX.md"
@@ -248,6 +249,23 @@ def _audit_skill_catalog() -> dict:
                 f"Registered skill name does not match SKILL.md front matter: {entry.name} != {front_name}"
             )
 
+        native_skill_path = NATIVE_SKILLS_DIR / entry.name / "SKILL.md"
+        if not native_skill_path.exists():
+            errors.append(
+                f"Public skill is not mirrored for native Codex discovery: {entry.name} (.agents/skills/{entry.name}/SKILL.md)"
+            )
+        else:
+            native_front_matter = _parse_front_matter(native_skill_path)
+            native_name = native_front_matter.get("name", native_skill_path.parent.name)
+            if native_name != entry.name:
+                errors.append(
+                    f"Native skill mirror name does not match registry: {entry.name} != {native_name}"
+                )
+            elif not _same_file_content(full_path, native_skill_path):
+                warnings.append(
+                    f"Native skill mirror differs from source for {entry.name}: {native_skill_path.relative_to(REPO_ROOT).as_posix()}"
+                )
+
         expected_rel_path = f"skills/{entry.name}/SKILL.md"
         if entry.rel_path != expected_rel_path:
             warnings.append(
@@ -261,6 +279,10 @@ def _audit_skill_catalog() -> dict:
             internal_records.append(record)
             if record.name in seen_names:
                 errors.append(f"Internal skill should not be publicly registered: {record.name}")
+            if (NATIVE_SKILLS_DIR / record.name / "SKILL.md").exists():
+                errors.append(
+                    f"Internal skill should not be mirrored for native Codex discovery: {record.name}"
+                )
             continue
 
         public_records.append(record)
@@ -290,6 +312,9 @@ def _audit_skill_catalog() -> dict:
 
 
 def _render_skill_catalog_report(audit: dict) -> str:
+    native_mirror_count = sum(
+        1 for entry in audit["registered"] if (NATIVE_SKILLS_DIR / entry.name / "SKILL.md").exists()
+    )
     lines = [
         "# Skill Catalog Report",
         "",
@@ -300,6 +325,7 @@ def _render_skill_catalog_report(audit: dict) -> str:
         f"- Catalog status: {'PASS' if not audit['errors'] else 'FAIL'}",
         f"- Public skills registered in `AGENTS.md`: {len(audit['registered'])}",
         f"- Skill files discovered on disk: {len(audit['discovered'])}",
+        f"- Native Codex mirrors in `.agents/skills`: {native_mirror_count}",
         f"- Internal skill files: {len(audit['internal_records'])}",
         f"- Errors: {len(audit['errors'])}",
         f"- Warnings: {len(audit['warnings'])}",
@@ -311,6 +337,15 @@ def _render_skill_catalog_report(audit: dict) -> str:
     if audit["registered"]:
         for entry in audit["registered"]:
             lines.append(f"- `{entry.name}` -> `{entry.rel_path}`")
+    else:
+        lines.append("- None.")
+
+    lines.extend(["", "## Native Codex Mirrors", ""])
+    if audit["registered"]:
+        for entry in audit["registered"]:
+            native_rel_path = f".agents/skills/{entry.name}/SKILL.md"
+            status = "present" if (NATIVE_SKILLS_DIR / entry.name / "SKILL.md").exists() else "missing"
+            lines.append(f"- `{entry.name}` -> `{native_rel_path}` ({status})")
     else:
         lines.append("- None.")
 

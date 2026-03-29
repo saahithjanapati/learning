@@ -28,9 +28,11 @@ Use this skill when user asks:
 
 3. Update registration:
 - treat `AGENTS.md` as the canonical public skill registry
+- mirror every public skill under `.agents/skills/<skill-name>/`
 - maintain only public skill list entries there
 - keep file paths accurate
 - do not register internal/composite helper skills in `AGENTS.md`
+- do not mirror internal/composite helper skills under `.agents/skills/`
 
 4. Validate overlap:
 - check for duplicate trigger domains
