@@ -1,0 +1,7 @@
+interface:
+  display_name: "Markdown Live Chat"
+  short_description: "Create or continue markdown live-chat transcripts and mirror each turn into the lesson file."
+  default_prompt: "Start a markdown live chat for this topic and keep appending each question and answer to the lesson transcript."
+
+policy:
+  allow_implicit_invocation: true
