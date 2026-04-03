@@ -13,15 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-03-28-hw3-live-chat-problem-1.md",
+                "file": "materials/processed/scale-labs-papers-2025-2026/brief.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-03-28-hw3-live-chat-problem-1"
+              "title": "brief"
+            }
+          },
+          {
+            "id": "74ee75a9ca38967e",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "5b3cdf17f0405a19",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.7"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -183,8 +206,26 @@
       "bases:Create new base": false
     }
   },
-  "active": "2388d1bee6f9707a",
+  "active": "5b3cdf17f0405a19",
   "lastOpenFiles": [
+    "topics/optimization-for-ml/lessons/2026-03-31-hw3-live-chat-problem-4.md",
+    "topics/optimization-for-ml/lessons/2026-03-31-hw3-live-chat-problem-3.md",
+    "topics/optimization-for-ml/lessons/2026-03-28-hw3-topics-interactive-study-guide.md",
+    "topics/optimization-for-ml/lessons/2026-03-31-hw1-live-chat-question-3.md",
+    "Untitled.md",
+    "materials/processed/scale-labs-papers-2025-2026/brief.md",
+    "materials/processed/scale-labs-papers-2025-2026/paper_summaries.md",
+    "topics/optimization-for-ml/lessons/2026-03-28-hw3-live-chat-problem-1.md",
+    "materials/processed/scale-labs-papers-2025-2026/papers.json",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/01-02-2025_toolcomp-a-multi-tool-reasoning-and-process-supervision-benchmark.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/01-23-2025_humanitys-last-exam.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/01-29-2025_multichallenge.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/02-10-2025_projecttest.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/02-11-2025_j2.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/02-13-2025_enigma_eval.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/03-05-2025_mask.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/03-08-2025_cfpd.pdf",
+    "materials/archive/scale-labs-papers-2025-2026/pdfs/03-14-2025_rerank_beyond_relevance.pdf",
     "topics/probabilistic-graphical-models/lessons/2026-03-30-late-course-module-map.md",
     "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/curriculum/0-to-1-plan.md",
     "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/README.md",
@@ -192,35 +233,17 @@
     "topics/probabilistic-graphical-models/generative-adversarial-networks/README.md",
     "topics/probabilistic-graphical-models/variational-inference-and-em/curriculum/0-to-1-plan.md",
     "topics/probabilistic-graphical-models/variational-inference-and-em/README.md",
-    "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/curriculum",
-    "topics/probabilistic-graphical-models/score-matching-and-energy-based-models",
-    "topics/probabilistic-graphical-models/generative-adversarial-networks/curriculum",
-    "topics/probabilistic-graphical-models/generative-adversarial-networks",
-    "topics/probabilistic-graphical-models/variational-inference-and-em/curriculum",
-    "topics/probabilistic-graphical-models/variational-inference-and-em",
     "topics/probabilisticgraphicalmodels/variational-inference-and-em/curriculum/0-to-1-plan.md",
-    "topics/probabilisticgraphicalmodels/variational-inference-and-em/practice",
-    "topics/probabilisticgraphicalmodels/variational-inference-and-em/lessons",
-    "topics/probabilisticgraphicalmodels/variational-inference-and-em/curriculum",
     "topics/probabilisticgraphicalmodels/variational-inference-and-em/README.md",
-    "topics/probabilisticgraphicalmodels/variational-inference-and-em",
     "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md",
     "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md",
     "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
     "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
     "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
-    "topics/optimization-for-ml/lessons/2026-03-28-hw3-topics-interactive-study-guide.md",
-    "topics/optimization-for-ml/lessons/2026-03-28-hw3-live-chat-problem-1.md",
     "topics/probabilistic-graphical-models/undirected-graphical-models/curriculum/0-to-1-plan.md",
     "topics/optimization-for-ml/curriculum/0-to-1-master-plan.md",
     "topics/optimization-for-ml/lessons/2026-02-26-ultra-deep-study-guide-worked-problems.md",
     "materials/processed/probabilistic-graphical-models/HW2_graded_submission.md",
-    "materials/processed/probabilistic-graphical-models/HW1_graded_submission.md",
-    "materials/processed/probabilistic-graphical-models/HW3_prompt.md",
-    "materials/processed/probabilistic-graphical-models/HW1_prompt.md",
-    "materials/processed/optimization-for-ml/Quiz3_graded_submission.md",
-    "materials/processed/optimization-for-ml/HW2_graded_submission.md",
-    "materials/processed/optimization-for-ml/Quiz2_graded_submission.md",
     "materials/archive/local-figures/normal-cone-2d-illustration.png",
     "materials/archive/local-figures/cone-polar-duality.png",
     "materials/archive/local-figures/cone-orthant-normal-tangent.png",
