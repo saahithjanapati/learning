@@ -7,8 +7,32 @@
       "root_topic": "ai",
       "processed_material_dir": "materials/processed/ai",
       "materials_index_path": null,
-      "topic_count": 1,
+      "topic_count": 2,
       "topics": [
+        {
+          "topic_path": "topics/ai/confessions",
+          "root_topic": "ai",
+          "topic_key": "confessions",
+          "readme_path": "topics/ai/confessions/README.md",
+          "curriculum_path": "topics/ai/confessions/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/ai/confessions/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/ai/why-we-are-excited-about-confessions.md"
+          ],
+          "source_pdfs": [
+            "https://alignment.openai.com/confessions/"
+          ],
+          "transcript_anchors": [
+            "Core idea: separate task reward from confession reward and optimize confessions for honesty.",
+            "Why honesty in confessions may be easier than lying.",
+            "Evidence from training dynamics and out-of-distribution evaluations.",
+            "Comparison with chain-of-thought monitoring and monitorability.",
+            "Scaling confession training with total RL compute."
+          ],
+          "unresolved_source_materials": []
+        },
         {
           "topic_path": "topics/ai/effective-agents",
           "root_topic": "ai",
@@ -673,6 +697,13 @@
       "transcript_path": "materials/processed/ai/building-effective-agents.md",
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/engineering/building-effective-agents",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/why-we-are-excited-about-confessions.md",
+      "root_topic": "ai",
+      "source_pdf": "https://alignment.openai.com/confessions/",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

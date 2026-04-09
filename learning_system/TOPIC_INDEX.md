@@ -4,6 +4,7 @@ Canonical topic paths and aliases used for matching new requests.
 
 | Topic Key | Root | Canonical Path | Aliases |
 |---|---|---|---|
+| confessions | ai | `topics/ai/confessions` |  |
 | effective-agents | ai | `topics/ai/effective-agents` |  |
 | ml-system-design | interviews | `topics/interviews/ml-system-design` |  |
 | convex-sets-and-functions | optimization-for-ml | `topics/optimization-for-ml/convex-sets-and-functions` |  |

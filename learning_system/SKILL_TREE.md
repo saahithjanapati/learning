@@ -6,6 +6,7 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ```text
 ├─ ai
+│  ├─ confessions
 │  └─ effective-agents
 ├─ interviews
 │  └─ ml-system-design
