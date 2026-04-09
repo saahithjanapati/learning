@@ -1,12 +1,13 @@
 # Skill Tree
 
-Last generated: 2026-04-08
+Last generated: 2026-04-09
 
 Hierarchical topic tree discovered from `topics/` paths.
 
 ```text
 ├─ ai
 │  ├─ confessions
+│  ├─ diff-tool
 │  └─ effective-agents
 ├─ interviews
 │  └─ ml-system-design
