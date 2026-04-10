@@ -6,79 +6,19 @@
     {
       "root_topic": "ai",
       "processed_material_dir": "materials/processed/ai",
-      "materials_index_path": null,
-      "topic_count": 3,
+      "materials_index_path": "topics/ai/materials/INDEX.md",
+      "topic_count": 1,
       "topics": [
         {
-          "topic_path": "topics/ai/confessions",
+          "topic_path": "topics/ai",
           "root_topic": "ai",
-          "topic_key": "confessions",
-          "readme_path": "topics/ai/confessions/README.md",
-          "curriculum_path": "topics/ai/confessions/curriculum/0-to-1-plan.md",
-          "curriculum_paths": [
-            "topics/ai/confessions/curriculum/0-to-1-plan.md"
-          ],
-          "source_materials": [
-            "materials/processed/ai/why-we-are-excited-about-confessions.md"
-          ],
-          "source_pdfs": [
-            "https://alignment.openai.com/confessions/"
-          ],
-          "transcript_anchors": [
-            "Core idea: separate task reward from confession reward and optimize confessions for honesty.",
-            "Why honesty in confessions may be easier than lying.",
-            "Evidence from training dynamics and out-of-distribution evaluations.",
-            "Comparison with chain-of-thought monitoring and monitorability.",
-            "Scaling confession training with total RL compute."
-          ],
-          "unresolved_source_materials": []
-        },
-        {
-          "topic_path": "topics/ai/diff-tool",
-          "root_topic": "ai",
-          "topic_key": "diff-tool",
-          "readme_path": "topics/ai/diff-tool/README.md",
-          "curriculum_path": "topics/ai/diff-tool/curriculum/0-to-1-plan.md",
-          "curriculum_paths": [
-            "topics/ai/diff-tool/curriculum/0-to-1-plan.md"
-          ],
-          "source_materials": [
-            "materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md"
-          ],
-          "source_pdfs": [
-            "https://www.anthropic.com/research/diff-tool"
-          ],
-          "transcript_anchors": [
-            "Why traditional benchmark suites miss unknown unknowns.",
-            "Base-vs-finetune diffing versus cross-architecture diffing.",
-            "Dedicated Feature Crosscoder as a shared-plus-model-specific dictionary.",
-            "Steering as validation of causal behavioral control.",
-            "Case studies: CCP alignment, American exceptionalism, and copyright refusal."
-          ],
-          "unresolved_source_materials": []
-        },
-        {
-          "topic_path": "topics/ai/effective-agents",
-          "root_topic": "ai",
-          "topic_key": "effective-agents",
-          "readme_path": "topics/ai/effective-agents/README.md",
-          "curriculum_path": "topics/ai/effective-agents/curriculum/0-to-1-plan.md",
-          "curriculum_paths": [
-            "topics/ai/effective-agents/curriculum/0-to-1-plan.md"
-          ],
-          "source_materials": [
-            "materials/processed/ai/building-effective-agents.md"
-          ],
-          "source_pdfs": [
-            "https://www.anthropic.com/engineering/building-effective-agents"
-          ],
-          "transcript_anchors": [
-            "Distinction between workflows and agents.",
-            "Simpler-is-better decision rule and the latency/cost tradeoff.",
-            "Production workflow patterns: prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.",
-            "Conditions for when autonomous agents are justified.",
-            "Tooling guidance: transparency, tool documentation, and ground-truth feedback loops."
-          ],
+          "topic_key": "ai",
+          "readme_path": "topics/ai/README.md",
+          "curriculum_path": null,
+          "curriculum_paths": [],
+          "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [],
           "unresolved_source_materials": []
         }
       ]
@@ -728,6 +668,13 @@
       "transcript_path": "materials/processed/ai/building-effective-agents.md",
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/engineering/building-effective-agents",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/text-is-the-universal-interface.md",
+      "root_topic": "ai",
+      "source_pdf": "https://scale.com/blog/text-universal-interface",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

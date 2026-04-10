@@ -34,6 +34,9 @@ Use this when new materials are uploaded or linked.
 
 ## Routing Examples
 
+- "Add this AI blog post"
+  - default to `topics/ai/...` as a root-level collection dump unless the user explicitly wants a dedicated AI subtopic
+
 - "This PDF is for CS229 lecture 3"
   - `topics/cs229/gradient-descent/...`
 
