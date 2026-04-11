@@ -10,6 +10,7 @@ Source transcripts live in: `materials/processed/optimization-for-ml/`
 - Convex sets/functions
   - `materials/processed/optimization-for-ml/Jan15_ConvexSets.md`
   - `materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md`
+  - `materials/processed/optimization-for-ml/FunctionClasses.md`
 - Matrix fundamentals for optimization
   - `materials/processed/optimization-for-ml/Jan27_matrix_norms.md`
 - First-order optimization
@@ -29,12 +30,23 @@ Source transcripts live in: `materials/processed/optimization-for-ml/`
   - `materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md`
   - `materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md`
   - `materials/processed/optimization-for-ml/March17_KKT.md`
+  - `materials/processed/optimization-for-ml/March19_EXTRA_Nonconvex_KKT.md`
 - Second-order methods
   - `materials/processed/optimization-for-ml/March19_Newton_method.md`
-- Independent component analysis
+- Conic + semidefinite optimization
+  - `materials/processed/optimization-for-ml/March24_SDP.md`
+- Newton and advanced second-order methods
+  - `materials/processed/optimization-for-ml/March26_Newton_method.md`
+- Independent component analysis + late-course bridge
   - `materials/processed/optimization-for-ml/March31_ICA.md`
+  - `materials/processed/optimization-for-ml/March31_April2_ICA.md`
 - Momentum and adaptive optimization
   - `materials/processed/optimization-for-ml/April2_MomentumBasedOptimization.md`
+  - `materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md`
+- Accelerated optimization theory
+  - `materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md`
+- Advanced neural network optimization
+  - `materials/processed/optimization-for-ml/April14_AvancedNeuralNetOptimization.md`
 
 - Homework (problem sets)
   - `materials/processed/optimization-for-ml/HW1_prompt.md`

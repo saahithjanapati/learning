@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-09",
+  "generated_on": "2026-04-11",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -665,6 +665,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md",
+      "root_topic": "ai",
+      "source_pdf": "https://alignment.anthropic.com/2025/bloom-auto-evals/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/building-effective-agents.md",
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/engineering/building-effective-agents",
@@ -672,9 +679,30 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/machines-of-faithful-obedience.md",
+      "root_topic": "ai",
+      "source_pdf": "https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/text-is-the-universal-interface.md",
       "root_topic": "ai",
       "source_pdf": "https://scale.com/blog/text-universal-interface",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md",
+      "root_topic": "ai",
+      "source_pdf": "https://alignment.anthropic.com/2026/hot-mess-of-ai/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/vibe-physics-the-ai-grad-student.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.anthropic.com/research/vibe-physics",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -693,11 +721,38 @@
       "ingest_report": "materials/processed/interviews/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/optimization-for-ml/April14_AvancedNeuralNetOptimization.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/April14_AvancedNeuralNetOptimization.pdf",
+      "duplicate_equivalents": [
+        "April14_AvancedNeuralNetOptimization.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/optimization-for-ml/April2_MomentumBasedOptimization.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/April2_MomentumBasedOptimization.pdf",
       "duplicate_equivalents": [
         "April2_MomentumBasedOptimization.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/April7_EXTRA_AcceleratedGD_Theory.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/April7_EXTRA_AcceleratedGD_Theory.pdf",
+      "duplicate_equivalents": [
+        "April7_EXTRA_AcceleratedGD_Theory.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/April7_MomentumBasedOptimization.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/April7_MomentumBasedOptimization.pdf",
+      "duplicate_equivalents": [
+        "April7_MomentumBasedOptimization.pdf"
       ],
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
@@ -762,6 +817,15 @@
       "source_pdf": "materials/archive/Feb5_subgradients.pdf",
       "duplicate_equivalents": [
         "Feb5_subgradients.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/FunctionClasses.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/FunctionClasses.pdf",
+      "duplicate_equivalents": [
+        "FunctionClasses.pdf"
       ],
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
@@ -892,11 +956,47 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/optimization-for-ml/March19_EXTRA_Nonconvex_KKT.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March19_EXTRA_Nonconvex_KKT.pdf",
+      "duplicate_equivalents": [
+        "March19_EXTRA_Nonconvex_KKT.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/optimization-for-ml/March19_Newton_method.md",
       "root_topic": "optimization-for-ml",
       "source_pdf": "materials/archive/March19_Newton_method.pdf",
       "duplicate_equivalents": [
         "March19_Newton_method.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/March24_SDP.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March24_SDP.pdf",
+      "duplicate_equivalents": [
+        "March24_SDP.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/March26_Newton_method.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March26_Newton_method.pdf",
+      "duplicate_equivalents": [
+        "March26_Newton_method.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/March31_April2_ICA.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/March31_April2_ICA.pdf",
+      "duplicate_equivalents": [
+        "March31_April2_ICA.pdf"
       ],
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },

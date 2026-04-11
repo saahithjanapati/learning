@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + manual repo ingest`
-Files: 8
+Files: 9
 
 ## Files
 
@@ -13,3 +13,4 @@ Files: 8
 - `https://www.anthropic.com/research/vibe-physics` -> `vibe-physics-the-ai-grad-student.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://alignment.anthropic.com/2025/bloom-auto-evals/` -> `bloom-an-open-source-tool-for-automated-behavioral-evaluations.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/` -> `machines-of-faithful-obedience.md` (strategy: `canonical article extraction and collection-oriented normalization`)
+- `https://arxiv.org/pdf/2501.18841` -> `trading-inference-time-compute-for-adversarial-robustness.md` (strategy: `canonical PDF extraction and collection-oriented normalization`)

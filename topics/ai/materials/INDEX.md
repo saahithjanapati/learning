@@ -18,3 +18,4 @@ Policy:
 - `materials/processed/ai/vibe-physics-the-ai-grad-student.md`
 - `materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md`
 - `materials/processed/ai/machines-of-faithful-obedience.md`
+- `materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md`

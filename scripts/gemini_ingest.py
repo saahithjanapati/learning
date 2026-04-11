@@ -17,12 +17,18 @@ import json
 import os
 from pathlib import Path
 import re
+import ssl
 import sys
 import time
 import urllib.parse
 import urllib.request
 
 import fitz
+
+try:
+    import certifi
+except ImportError:  # pragma: no cover - optional dependency
+    certifi = None
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -87,6 +93,15 @@ def _clean_page_text(text: str) -> str:
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
+
+
+def _gemini_ssl_context() -> ssl.SSLContext | None:
+    cafile = os.getenv("SSL_CERT_FILE", "").strip()
+    if cafile:
+        return ssl.create_default_context(cafile=cafile)
+    if certifi is not None:
+        return ssl.create_default_context(cafile=certifi.where())
+    return None
 
 
 def _discover_jobs(
@@ -198,7 +213,11 @@ def _gemini_chunk_request(
         data=json.dumps(payload).encode("utf-8"),
         headers={"Content-Type": "application/json"},
     )
-    with urllib.request.urlopen(request, timeout=180) as response:
+    with urllib.request.urlopen(
+        request,
+        timeout=180,
+        context=_gemini_ssl_context(),
+    ) as response:
         data = json.loads(response.read().decode("utf-8"))
 
     candidates = data.get("candidates", [])

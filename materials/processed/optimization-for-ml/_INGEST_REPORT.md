@@ -1,11 +1,14 @@
 # Optimization Notes Full-PDF Ingest Report
 
 Model: `mixed (legacy gemini-3-flash-preview + local-pymupdf)`
-Files: 27
+Files: 35
 
 ## Files
 
+- `April14_AvancedNeuralNetOptimization.pdf` -> `April14_AvancedNeuralNetOptimization.md` (finish: `STOP`)
 - `April2_MomentumBasedOptimization.pdf` -> `April2_MomentumBasedOptimization.md` (finish: `FALLBACK`)
+- `April7_EXTRA_AcceleratedGD_Theory.pdf` -> `April7_EXTRA_AcceleratedGD_Theory.md` (finish: `STOP`)
+- `April7_MomentumBasedOptimization.pdf` -> `April7_MomentumBasedOptimization.md` (finish: `STOP`)
 - `Feb10_subgradient-method.pdf` -> `Feb10_subgradient-method.md` (finish: `STOP`)
 - `Feb12-projected-subgradient.pdf` -> `Feb12-projected-subgradient.md` (finish: `STOP`)
 - `Feb17+24_proximal_gd.pdf` -> `Feb17+24_proximal_gd.md` (finish: `STOP`)
@@ -13,6 +16,7 @@ Files: 27
 - `Feb19_stoch_gd.pdf` -> `Feb19_stoch_gd.md` (finish: `STOP`)
 - `Feb24_proximal_gd_examples.pdf` -> `Feb24_proximal_gd_examples.md` (finish: `STOP`)
 - `Feb5_subgradients.pdf` -> `Feb5_subgradients.md` (finish: `STOP`)
+- `FunctionClasses.pdf` -> `FunctionClasses.md` (finish: `STOP`)
 - `Jan13_Intro.pdf` -> `Jan13_Intro.md` (finish: `STOP`)
 - `Jan13_Logistics.pdf` -> `Jan13_Logistics.md` (finish: `STOP`)
 - `Jan15_ConvexSets.pdf` -> `Jan15_ConvexSets.md` (finish: `STOP`)
@@ -23,7 +27,11 @@ Files: 27
 - `March12_Part1_LagrangianFunction.pdf` -> `March12_Part1_LagrangianFunction.md` (finish: `STOP`)
 - `March12_Part2_SaddlePoints_Minimax_Slater.pdf` -> `March12_Part2_SaddlePoints_Minimax_Slater.md` (finish: `STOP`)
 - `March17_KKT.pdf` -> `March17_KKT.md` (finish: `STOP`)
+- `March19_EXTRA_Nonconvex_KKT.pdf` -> `March19_EXTRA_Nonconvex_KKT.md` (finish: `STOP`)
 - `March19_Newton_method.pdf` -> `March19_Newton_method.md` (finish: `STOP`)
+- `March24_SDP.pdf` -> `March24_SDP.md` (finish: `STOP`)
+- `March26_Newton_method.pdf` -> `March26_Newton_method.md` (finish: `STOP`)
+- `March31_April2_ICA.pdf` -> `March31_April2_ICA.md` (finish: `STOP`)
 - `March31_ICA.pdf` -> `March31_ICA.md` (finish: `FALLBACK`)
 - `S26_10_725_HW1_optimization_ml.pdf` -> `HW1_prompt.md` (finish: `COMPLETE`)
 - `S26_10_725_HW3_Student.pdf` -> `HW3_prompt.md` (finish: `STOP`)
