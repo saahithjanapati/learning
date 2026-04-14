@@ -81,6 +81,69 @@ Memory hook:
 
 `AdaDelta is a refinement of RMSProp that tries to make the update scale more self-adjusting.`
 
+### The deeper picture
+
+AdaDelta keeps two running averages:
+
+1. squared gradients
+
+$$
+E[g^2]_t = \rho E[g^2]_{t-1} + (1-\rho) g_t^2
+$$
+
+2. squared updates
+
+$$
+E[\Delta x^2]_t = \rho E[\Delta x^2]_{t-1} + (1-\rho) (\Delta x_t)^2
+$$
+
+Then define RMS quantities:
+
+$$
+RMS[g]_t = \sqrt{E[g^2]_t + \epsilon},
+\qquad
+RMS[\Delta x]_{t-1} = \sqrt{E[\Delta x^2]_{t-1} + \epsilon}
+$$
+
+The update is
+
+$$
+\Delta x_t = - \frac{RMS[\Delta x]_{t-1}}{RMS[g]_t} g_t
+$$
+
+and then the algorithm updates the running average of squared updates.
+
+### Why this is different from RMSProp
+
+- RMSProp uses only gradient history
+- AdaDelta uses both gradient history and update history
+
+The numerator matters because it tracks the recent scale of actual parameter updates, not just the scale of gradients.
+
+### Intuition
+
+- if recent gradients are large, the denominator grows and the step shrinks
+- if recent updates have been small, the numerator stays small and future steps stay conservative
+- if recent updates have been larger, AdaDelta allows correspondingly larger new steps
+
+The usual informal takeaway is:
+
+`AdaDelta tries to choose step scales automatically by comparing recent update magnitudes to recent gradient magnitudes.`
+
+### Quiz-safe summary
+
+If this appears on the quiz, the likely expected answer is short:
+
+- AdaDelta is a refinement of RMSProp
+- it keeps moving averages of both squared gradients and squared updates
+- it uses
+
+$$
+\Delta x_t = - \frac{RMS[\Delta x]_{t-1}}{RMS[g]_t} g_t
+$$
+
+- main goal: reduce sensitivity to a global learning rate and avoid AdaGrad's over-shrinking steps
+
 ## 5. SDP duality sign trap
 
 This is one of the easiest places to lose points.
