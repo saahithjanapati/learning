@@ -43,7 +43,7 @@ x_k - h_k[\nabla^2 f(x_k)]^{-1}\nabla f(x_k),
 $$
 
 - away from the optimum, you may need a smaller step size
-- near the optimum, you often recover the full Newton step `h_k = 1`
+- near the optimum, you often recover the full Newton step $h_k = 1$
 
 Memory hook:
 
@@ -158,7 +158,7 @@ What to remember:
 
 - it is `primal objective minus dual objective`
 - not the reverse sign
-- nonnegativity comes from `S \succeq 0` and `X \succeq 0`
+- nonnegativity comes from $S \succeq 0$ and $X \succeq 0$
 
 Memory hook:
 
@@ -180,8 +180,8 @@ $$
 
 Why:
 
-- `zz^T` is a matrix covariance object
-- `z^T z` is a scalar
+- $zz^T$ is a matrix covariance object
+- $z^T z$ is a scalar
 
 Memory hook:
 
@@ -225,8 +225,8 @@ $$
 
 Why they differ:
 
-- root finding solves `\phi(x)=0`
-- minimization solves `\nabla f(x)=0`, so Newton is applied to the gradient equation
+- root finding solves $\phi(x)=0$
+- minimization solves $\nabla f(x)=0$, so Newton is applied to the gradient equation
 
 Memory hook:
 
@@ -236,8 +236,8 @@ Memory hook:
 
 If you only do one last 2-minute pass, make sure you can say these without hesitation:
 
-1. `C • X - b^T y = S • X >= 0`
-2. `E[zz^T] = I`
-3. `x_{k+1} = x_k - [\nabla^2 f(x_k)]^{-1}\nabla f(x_k)`
-4. `f(x_k)-f(x^*) = O(\beta ||x_0-x^*||^2 / k^2)` for convex smooth NAG
-5. `f(x_k)-f(x^*) = O((1-\sqrt{\alpha/\beta})^k)` for strongly convex smooth NAG
+1. $C \bullet X - b^T y = S \bullet X \ge 0$
+2. $E[zz^T] = I$
+3. $x_{k+1} = x_k - [\nabla^2 f(x_k)]^{-1}\nabla f(x_k)$
+4. $f(x_k)-f(x^*) = O(\beta ||x_0-x^*||^2 / k^2)$ for convex smooth NAG
+5. $f(x_k)-f(x^*) = O((1-\sqrt{\alpha/\beta})^k)$ for strongly convex smooth NAG

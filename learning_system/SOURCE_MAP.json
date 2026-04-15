@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-11",
+  "generated_on": "2026-04-14",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -679,9 +679,37 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2406.11794",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/group-level-data-selection-for-efficient-pretraining.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2502.14709",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/group-mates-method-equations.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/machines-of-faithful-obedience.md",
       "root_topic": "ai",
       "source_pdf": "https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/mates-model-aware-data-selection-for-efficient-pretraining-with-data-influence-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2406.06046",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -696,6 +724,20 @@
       "transcript_path": "materials/processed/ai/the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md",
       "root_topic": "ai",
       "source_pdf": "https://alignment.anthropic.com/2026/hot-mess-of-ai/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2501.18841",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/trustworthy-agents-in-practice.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.anthropic.com/research/trustworthy-agents",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1033,6 +1075,15 @@
       "source_pdf": "materials/archive/submission_400400482.pdf",
       "duplicate_equivalents": [
         "submission_400400482.pdf"
+      ],
+      "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/optimization-for-ml/submission_393376523.md",
+      "root_topic": "optimization-for-ml",
+      "source_pdf": "materials/archive/submission_393376523.pdf",
+      "duplicate_equivalents": [
+        "submission_393376523.pdf"
       ],
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },

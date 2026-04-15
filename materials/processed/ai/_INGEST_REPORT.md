@@ -1,10 +1,11 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + manual repo ingest`
-Files: 12
+Files: 13
 
 ## Files
 
+- `https://arxiv.org/abs/2406.11794` -> `datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md` (strategy: `canonical paper extraction and curriculum-oriented normalization`)
 - `https://www.anthropic.com/research/trustworthy-agents` -> `trustworthy-agents-in-practice.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://www.anthropic.com/engineering/building-effective-agents` -> `building-effective-agents.md` (strategy: `canonical article extraction and curriculum-oriented normalization`)
 - `https://alignment.openai.com/confessions/` -> `why-we-are-excited-about-confessions.md` (strategy: `canonical article extraction and curriculum-oriented normalization`)

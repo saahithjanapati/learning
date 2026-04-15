@@ -1,7 +1,7 @@
 # Optimization Notes Full-PDF Ingest Report
 
 Model: `mixed (legacy gemini-3-flash-preview + local-pymupdf)`
-Files: 35
+Files: 36
 
 ## Files
 
@@ -39,4 +39,5 @@ Files: 35
 - `submission_385591771.pdf` -> `HW1_graded_submission.md` (finish: `STOP`)
 - `submission_391256496.pdf` -> `Quiz2_graded_submission.md` (finish: `STOP`)
 - `submission_392216540.pdf` -> `HW2_graded_submission.md` (finish: `MIXED`)
+- `submission_393376523.pdf` -> `submission_393376523.md` (finish: `MIXED`)
 - `submission_400400482.pdf` -> `Quiz3_graded_submission.md` (finish: `STOP`)

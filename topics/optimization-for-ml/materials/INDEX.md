@@ -58,3 +58,5 @@ Source transcripts live in: `materials/processed/optimization-for-ml/`
   - `materials/processed/optimization-for-ml/Quiz1_graded_submission.md`
   - `materials/processed/optimization-for-ml/Quiz2_graded_submission.md`
   - `materials/processed/optimization-for-ml/Quiz3_graded_submission.md`
+- Exams (graded submissions)
+  - `materials/processed/optimization-for-ml/submission_393376523.md`

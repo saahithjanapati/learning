@@ -10,6 +10,7 @@ Policy:
 
 ## Processed Sources
 
+- `materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md`
 - `materials/processed/ai/trustworthy-agents-in-practice.md`
 - `materials/processed/ai/building-effective-agents.md`
 - `materials/processed/ai/why-we-are-excited-about-confessions.md`
