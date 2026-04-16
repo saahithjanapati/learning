@@ -1005,3 +1005,78 @@ The format will be:
 - highlighted substitution being made
 
 I will keep the coloring local to the explanation so it does not change the actual notes unless you ask for that separately.
+
+---
+### Turn 17
+User asked:
+can you explain this line in exam 2 worked problem sgd:
+$$
+\mathbb{E}_\xi[g(x;\xi)]
+=
+\mathbb{E}_\xi[\nabla f_\xi(x)]
+=
+\frac{1}{n}\sum_{i=1}^n \nabla f_i(x).
+$$
+
+Assistant response:
+Yes. The whole point is that $\xi$ is a random index, and it is chosen uniformly from $\{1,\dots,n\}$.
+
+So when you see
+
+$$
+g(x;\xi)=\nabla f_\xi(x),
+$$
+
+that means:
+
+- if $\xi=1$, then $g(x;\xi)=\nabla f_1(x)$
+- if $\xi=2$, then $g(x;\xi)=\nabla f_2(x)$
+- ...
+- if $\xi=n$, then $g(x;\xi)=\nabla f_n(x)$
+
+So $g(x;\xi)$ is a random variable that takes one of the values
+
+$$
+\nabla f_1(x),\nabla f_2(x),\dots,\nabla f_n(x)
+$$
+
+with equal probability $\frac{1}{n}$.
+
+That is why
+
+$$
+\mathbb{E}_\xi[g(x;\xi)]
+=
+\mathbb{E}_\xi[\nabla f_\xi(x)]
+$$
+
+becomes
+
+$$
+\frac{1}{n}\sum_{i=1}^n \nabla f_i(x).
+$$
+
+It is just the expectation formula for a discrete uniform random variable:
+
+if a random variable takes values $a_1,\dots,a_n$ each with probability $\frac{1}{n}$, then
+
+$$
+\mathbb{E}[A]=\frac{1}{n}\sum_{i=1}^n a_i.
+$$
+
+Here, the role of $A$ is being played by the random vector $\nabla f_\xi(x)$.
+
+So the line is not doing anything mysterious. It is just saying:
+
+- pick one component gradient uniformly at random
+- the expected value of that random pick is the average of all component gradients
+
+And that average is exactly
+
+$$
+\nabla f(x)=\nabla\left(\frac{1}{n}\sum_{i=1}^n f_i(x)\right)
+=
+\frac{1}{n}\sum_{i=1}^n \nabla f_i(x).
+$$
+
+So the random single-example gradient is unbiased for the full gradient.

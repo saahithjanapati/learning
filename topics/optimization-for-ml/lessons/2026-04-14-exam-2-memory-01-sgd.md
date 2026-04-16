@@ -16,12 +16,22 @@ Use with [[2026-04-14-exam-2-section-01-sgd]].
 - Mean estimation: for $f(x)=\frac12\mathbb{E}(X-x)^2$, use $g(x;X)=x-X$.
 
 ## Rates and Quantities
+- Quick table:
+
+| Setting | Assumptions | Step size | Quantity controlled | Full inequality | Rate shorthand |
+| --- | --- | --- | --- | --- | --- |
+| Running-average warm-up | Mean-estimation example with $g(x;X)=x-X$ | $\eta_t=\frac{1}{t+1}$ | $f(x^n)-f(x^*)$ | $f(x^n)-f(x^*)=\frac{\sigma^2}{2n}$ | $O(1/n)$ |
+| Convex nonsmooth SGD | Convexity, unbiased stochastic subgradient, bounded second moment | $\eta=\frac{\sqrt{R}}{G\sqrt{k}}$ | $\mathbb{E}[f(\bar x_k)]-f(x^*)$ | $\mathbb{E}[f(\bar x_k)]-f(x^*)\le \frac{G\sqrt{R}}{\sqrt{k}}$ | $O(1/\sqrt{k})$ |
+| Strongly convex SGD, fixed step | $\alpha$-strong convexity, unbiased stochastic gradients, bounded second moment | fixed $\eta<1/\alpha$ | $\mathbb{E}\|x^k-x^*\|^2$ | $\mathbb{E}\|x^k-x^*\|^2\le (1-\alpha\eta)^k\|x^0-x^*\|^2+\frac{\eta G^2}{\alpha}$ | linear contraction to an error floor |
+| Strongly convex SGD, decaying step | Same strong-convexity assumptions | $\eta_t=\frac{1}{\alpha(t+1)}$ | $\mathbb{E}[f(\bar x_k)]-f(x^*)$ | $\mathbb{E}[f(\bar x_k)]-f(x^*)\le \frac{G^2(1+\log k)}{2\alpha k}$ | $O((1+\log k)/k)$ |
+|                                    |                                                                                 |                                   |                                  |                                                         |
+
 - Convex nonsmooth SGD: the theorem controls $\mathbb{E}[f(\bar x_k)]-f(x^*)$, not $\|x^k-x^*\|$.
-- Rate: $\mathbb{E}[f(\bar x_k)]-f(x^*)=O(1/\sqrt{k})$.
+- Bound: $\mathbb{E}[f(\bar x_k)]-f(x^*)\le \frac{G\sqrt{R}}{\sqrt{k}}$.
 - Strongly convex fixed-step SGD: controls $\mathbb{E}\|x^k-x^*\|^2$.
 - Fixed-step bound: $\mathbb{E}\|x^k-x^*\|^2\le (1-\alpha\eta)^k\|x^0-x^*\|^2+\frac{\eta G^2}{\alpha}$.
 - Strongly convex decreasing-step SGD: controls averaged function value.
-- Rate: $\mathbb{E}[f(\bar x_k)]-f(x^*)=O((1+\log k)/k)$.
+- Bound: $\mathbb{E}[f(\bar x_k)]-f(x^*)\le \frac{G^2(1+\log k)}{2\alpha k}$.
 
 ## What Causes the Error Floor
 - Identity: $\mathbb{E}\|g(x,\xi)\|^2 = \|\nabla f(x)\|^2 + \operatorname{Var}(g(x,\xi))$.

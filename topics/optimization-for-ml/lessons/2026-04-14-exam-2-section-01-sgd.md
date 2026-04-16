@@ -21,6 +21,17 @@ $$
 
 This explains the central phenomenon of SGD: even when the iterate is near the optimum and the true gradient is small, the stochastic gradient can still have nontrivial magnitude because of the variance term. Therefore fixed-step SGD typically does not converge exactly; instead it enters a noise-dominated regime.
 
+### 0.5 SGD Summary Table
+
+This is the compact table you should be able to reconstruct on the exam. The most common mistake is to remember only the rate and forget which quantity the theorem is actually controlling.
+
+| Setting                                                      | Main assumptions                                                                                                  | Step size                               | Quantity being controlled                                        | Full inequality                                                                     | Rate shorthand                       | Main interpretation                                                                 |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------ | ----------------------------------------------------------------------------------- |
+| Running-average warm-up $\min_x \frac12 \mathbb{E}\|X-x\|^2$ | Mean-estimation problem; stochastic gradient $g(x;X)=x-X$                                                         | $\eta_t=\frac{1}{t+1}$                  | Function suboptimality $f(x^n)-f(x^*)$                           | $f(x^n)-f(x^*)=\frac{\sigma^2}{2n}$                                                 | $O(1/n)$                             | SGD becomes the sample mean; this is a calibration example, not the generic theorem |
+| Convex nonsmooth SGD                                         | $f$ convex; $\mathbb{E}[g(x;\xi)\mid x]\in\partial f(x)$; $\mathbb{E}\|g(x,\xi)\|^2\le G^2$; $\|x^0-x^*\|^2\le R$ | Fixed $\eta=\frac{\sqrt{R}}{G\sqrt{k}}$ | Averaged function suboptimality $\mathbb{E}[f(\bar x_k)]-f(x^*)$ | $\mathbb{E}[f(\bar x_k)]-f(x^*) \le \frac{G\sqrt{R}}{\sqrt{k}}$                     | $O(1/\sqrt{k})$                      | The theorem is about $\bar x_k$, not necessarily $x^k$                              |
+| Strongly convex SGD, fixed step                              | $f$ is $\alpha$-strongly convex; unbiased stochastic gradients; $\mathbb{E}\|g(x,\xi)\|^2\le G^2$                 | Fixed $\eta<1/\alpha$                   | Mean squared distance $\mathbb{E}\|x^k-x^*\|^2$                  | $\mathbb{E}\|x^k-x^*\|^2 \le (1-\alpha\eta)^k\|x^0-x^*\|^2+\frac{\eta G^2}{\alpha}$ | linear contraction to an error floor | Linear-type contraction plus a nonzero noise floor                                  |
+| Strongly convex SGD, decaying step + averaging               | Same strong-convexity and second-moment assumptions                                                               | $\eta_t=\frac{1}{\alpha(t+1)}$          | Averaged function suboptimality $\mathbb{E}[f(\bar x_k)]-f(x^*)$ | $\mathbb{E}[f(\bar x_k)]-f(x^*) \le \frac{G^2(1+\log k)}{2\alpha k}$                | $O((1+\log k)/k)$                    | Decay in step size reduces the variance effect enough to improve the rate           |
+
 ### 1.0 Lecture Framing and Canonical Examples
 
 The lecture treated SGD as the basic algorithm for objectives that are expectations or large finite averages. The point is not just that gradients are noisy. The point is that the objective often has a structure that naturally produces unbiased sample-based gradients.
@@ -787,17 +798,142 @@ $$
 (1-\alpha\eta_t)\mathbb{E}\|x^t-x^*\|^2+\eta_t^2 G^2.
 $$
 
-Here it is worth unpacking where this comes from.
+Here it is worth unpacking where this comes from. The structure is the same as the convex proof, but strong convexity gives a sharper inequality when we handle the inner-product term.
 
-Step 1: begin from the same distance expansion as before:
+Below, each step is written as:
+
+- original version
+- new version
+- substitution or rule being used
+
+Step 1: start from the SGD update and subtract $x^*$.
+
+Original version:
+
+$$
+x^{t+1}=x^t-\eta_t g(x^t;\xi_t).
+$$
+
+New version:
+
+$$
+x^{t+1}-x^*=(x^t-x^*)-\eta_t g(x^t;\xi_t).
+$$
+
+Substitution being made:
+
+- subtract $x^*$ from both sides
+
+Intermediate algebra:
+
+$$
+x^{t+1}-x^*=x^t-\eta_t g(x^t;\xi_t)-x^*
+$$
+
+$$
+x^{t+1}-x^*=(x^t-x^*)-\eta_t g(x^t;\xi_t)
+$$
+
+Step 2: expand the squared norm.
+
+Original version:
+
+$$
+x^{t+1}-x^*=(x^t-x^*)-\eta_t g(x^t;\xi_t).
+$$
+
+New version:
 
 $$
 \|x^{t+1}-x^*\|^2
 =
-\|x^t-x^*-\eta_t g(x^t;\xi_t)\|^2.
+\|x^t-x^*\|^2
+-2\eta_t g(x^t;\xi_t)^T(x^t-x^*)
++\eta_t^2\|g(x^t;\xi_t)\|^2.
 $$
 
-Step 2: take conditional expectation and use unbiasedness:
+Substitution being made:
+
+- apply $\|a-b\|^2=\|a\|^2-2a^Tb+\|b\|^2$
+
+Intermediate algebra:
+
+Set
+
+$$
+a=x^t-x^*, \qquad b=\eta_t g(x^t;\xi_t).
+$$
+
+Then
+
+$$
+\|x^{t+1}-x^*\|^2=\|a-b\|^2=\|a\|^2-2a^Tb+\|b\|^2.
+$$
+
+So
+
+$$
+\|x^{t+1}-x^*\|^2
+=
+\|x^t-x^*\|^2
+-2\eta_t g(x^t;\xi_t)^T(x^t-x^*)
++\eta_t^2\|g(x^t;\xi_t)\|^2.
+$$
+
+Step 3: take conditional expectation given $x^t$.
+
+Original version:
+
+$$
+\|x^{t+1}-x^*\|^2
+=
+\|x^t-x^*\|^2
+-2\eta_t g(x^t;\xi_t)^T(x^t-x^*)
++\eta_t^2\|g(x^t;\xi_t)\|^2.
+$$
+
+New version:
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+=
+\|x^t-x^*\|^2
+-2\eta_t \mathbb{E}[g(x^t;\xi_t)\mid x^t]^T(x^t-x^*)
++\eta_t^2\mathbb{E}[\|g(x^t;\xi_t)\|^2\mid x^t].
+$$
+
+Substitution being made:
+
+- condition on $x^t$, so the only remaining randomness is $\xi_t$
+- pull fixed vectors outside the conditional expectation
+
+Intermediate algebra:
+
+$$
+\mathbb{E}[\|x^t-x^*\|^2\mid x^t]=\|x^t-x^*\|^2
+$$
+
+and
+
+$$
+\mathbb{E}[g(x^t;\xi_t)^T(x^t-x^*)\mid x^t]
+=
+\mathbb{E}[g(x^t;\xi_t)\mid x^t]^T(x^t-x^*).
+$$
+
+Step 4: apply unbiasedness and the second-moment bound.
+
+Original version:
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+=
+\|x^t-x^*\|^2
+-2\eta_t \mathbb{E}[g(x^t;\xi_t)\mid x^t]^T(x^t-x^*)
++\eta_t^2\mathbb{E}[\|g(x^t;\xi_t)\|^2\mid x^t].
+$$
+
+New version:
 
 $$
 \mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
@@ -807,27 +943,210 @@ $$
 +\eta_t^2 G^2.
 $$
 
-Step 3: use strong convexity with $x=x^t$ and $y=x^*$:
+Substitution being made:
+
+- replace $\mathbb{E}[g(x^t;\xi_t)\mid x^t]$ by $\nabla f(x^t)$
+- use $\mathbb{E}\|g(x,\xi)\|^2\le G^2$
+
+Step 5: write the strong-convexity inequality at the two points we care about.
+
+Original version:
+
+$$
+f(y)\ge f(x)+\nabla f(x)^T(y-x)+\frac{\alpha}{2}\|y-x\|^2.
+$$
+
+New version:
 
 $$
 f(x^*) \ge f(x^t) + \nabla f(x^t)^T(x^*-x^t) + \frac{\alpha}{2}\|x^*-x^t\|^2.
 $$
 
-Rearranging gives an upper bound on the troublesome inner product term:
+Substitution being made:
+
+- choose $x=x^t$
+- choose $y=x^*$
+
+Step 6: rearrange that inequality to isolate the inner-product term.
+
+Original version:
+
+$$
+f(x^*) \ge f(x^t) + \nabla f(x^t)^T(x^*-x^t) + \frac{\alpha}{2}\|x^*-x^t\|^2.
+$$
+
+New version:
+
+$$
+\nabla f(x^t)^T(x^t-x^*)
+\le
+f(x^t)-f(x^*)-\frac{\alpha}{2}\|x^t-x^*\|^2.
+$$
+
+Substitution being made:
+
+- use $x^*-x^t=-(x^t-x^*)$
+- move the remaining terms to the other side
+
+Intermediate algebra:
+
+$$
+f(x^*)-f(x^t)\ge \nabla f(x^t)^T(x^*-x^t)+\frac{\alpha}{2}\|x^t-x^*\|^2
+$$
+
+$$
+f(x^*)-f(x^t)\ge -\nabla f(x^t)^T(x^t-x^*)+\frac{\alpha}{2}\|x^t-x^*\|^2
+$$
+
+$$
+\nabla f(x^t)^T(x^t-x^*)
+\le
+f(x^t)-f(x^*)-\frac{\alpha}{2}\|x^t-x^*\|^2
+$$
+
+Step 7: multiply by $-2\eta_t$ so it matches the recursion term.
+
+Original version:
+
+$$
+\nabla f(x^t)^T(x^t-x^*)
+\le
+f(x^t)-f(x^*)-\frac{\alpha}{2}\|x^t-x^*\|^2.
+$$
+
+New version:
 
 $$
 -2\eta_t\nabla f(x^t)^T(x^t-x^*)
 \le
-2\eta_t\big(f(x^*)-f(x^t)\big)-\alpha\eta_t\|x^t-x^*\|^2.
+2\eta_t(f(x^*)-f(x^t))
+-\alpha\eta_t\|x^t-x^*\|^2.
 $$
 
-Step 4: substitute this bound into the distance recursion. Since $f(x^*)-f(x^t)\le 0$, dropping that term gives
+Substitution being made:
+
+- multiply both sides by $-2\eta_t$
+
+Step 8: substitute this into the recursion from Step 4.
+
+Original version:
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+\le
+\|x^t-x^*\|^2
+-2\eta_t \nabla f(x^t)^T(x^t-x^*)
++\eta_t^2 G^2.
+$$
+
+New version:
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+\le
+\|x^t-x^*\|^2
++2\eta_t(f(x^*)-f(x^t))
+-\alpha\eta_t\|x^t-x^*\|^2
++\eta_t^2 G^2.
+$$
+
+Substitution being made:
+
+- replace the inner-product term using Step 7
+
+Now combine the two norm terms:
+
+$$
+\|x^t-x^*\|^2-\alpha\eta_t\|x^t-x^*\|^2
+=(1-\alpha\eta_t)\|x^t-x^*\|^2.
+$$
+
+So the inequality becomes
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+\le
+(1-\alpha\eta_t)\|x^t-x^*\|^2
++2\eta_t(f(x^*)-f(x^t))
++\eta_t^2 G^2.
+$$
+
+Step 9: drop the nonpositive function-value term.
+
+Original version:
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+\le
+(1-\alpha\eta_t)\|x^t-x^*\|^2
++2\eta_t(f(x^*)-f(x^t))
++\eta_t^2 G^2.
+$$
+
+New version:
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+\le
+(1-\alpha\eta_t)\|x^t-x^*\|^2
++\eta_t^2 G^2.
+$$
+
+Substitution being made:
+
+- use optimality of $x^*$, so $f(x^*)\le f(x^t)$
+- therefore $f(x^*)-f(x^t)\le 0$
+
+Step 10: remove the conditioning.
+
+Original version:
+
+$$
+\mathbb{E}[\|x^{t+1}-x^*\|^2\mid x^t]
+\le
+(1-\alpha\eta_t)\|x^t-x^*\|^2
++\eta_t^2 G^2.
+$$
+
+New version:
 
 $$
 \mathbb{E}\|x^{t+1}-x^*\|^2
 \le
 (1-\alpha\eta_t)\mathbb{E}\|x^t-x^*\|^2+\eta_t^2 G^2.
 $$
+
+Substitution being made:
+
+- take expectation of both sides
+- use the tower property
+
+This is the final one-step recursion.
+
+Step 11: interpret what the recursion means.
+
+If $\eta_t=\eta$ is fixed, then
+
+$$
+\mathbb{E}\|x^{t+1}-x^*\|^2
+\le
+(1-\alpha\eta)\mathbb{E}\|x^t-x^*\|^2+\eta^2 G^2.
+$$
+
+This has two competing effects:
+
+- $(1-\alpha\eta)$ contracts the current error
+- $\eta^2 G^2$ injects new stochastic error
+
+That is why the final bound has a contraction term plus a noise floor:
+
+$$
+\mathbb{E}\|x^k-x^*\|^2
+\le
+(1-\alpha\eta)^k\|x^0-x^*\|^2+\frac{\eta G^2}{\alpha}.
+$$
+
+If $\eta_t$ decreases with $t$, then the noise term also shrinks, which is the mechanism behind the stronger averaged-function-value guarantee.
 
 This is the structural reason behind both theorem statements:
 
