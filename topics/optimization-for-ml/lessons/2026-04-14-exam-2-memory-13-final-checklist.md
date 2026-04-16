@@ -2,6 +2,13 @@
 
 Use with [[2026-04-14-exam-2-section-13-final-checklist]].
 
+## Table of Contents
+
+- [[#Before The Exam]]
+- [[#High-Risk Precision Items]]
+- [[#Last-Minute Recalls]]
+
+
 ## Before The Exam
 - Be able to state every major theorem with the correct quantity and rate.
 - Know the sign conventions in LP duality and SDP duality.

@@ -1,5 +1,10 @@
 # 2. Proximal Gradient Worked Problems
 
+## Table of Contents
+
+- [[#Problem 2.1]]
+- [[#Problem 2.2]]
+
 ### Problem 2.1
 
 Let

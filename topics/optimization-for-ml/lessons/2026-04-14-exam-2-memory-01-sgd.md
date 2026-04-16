@@ -2,6 +2,17 @@
 
 Use with [[2026-04-14-exam-2-section-01-sgd]].
 
+## Table of Contents
+
+- [[#Core Objects]]
+- [[#Canonical Examples]]
+- [[#Rates and Quantities]]
+- [[#What Causes the Error Floor]]
+- [[#Warm-Up Example Facts]]
+- [[#Proof Ingredients To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## Core Objects
 - Objective: minimize $f(x)$ using an unbiased stochastic gradient $g(x;\xi)$.
 - Unbiasedness: $\mathbb{E}[g(x;\xi)\mid x]=\nabla f(x)$ or, in the nonsmooth case, $\mathbb{E}[g(x;\xi)\mid x]\in\partial f(x)$.

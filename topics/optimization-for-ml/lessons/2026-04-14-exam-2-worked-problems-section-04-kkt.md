@@ -1,5 +1,10 @@
 # 4. KKT Worked Problems
 
+## Table of Contents
+
+- [[#Problem 4.1]]
+- [[#Problem 4.2]]
+
 ### Problem 4.1
 
 Solve

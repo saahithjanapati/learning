@@ -2,6 +2,15 @@
 
 Use with [[2026-04-14-exam-2-section-06-newton]].
 
+## Table of Contents
+
+- [[#Core Update]]
+- [[#Key Facts]]
+- [[#Damped Newton]]
+- [[#What To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## Core Update
 - Root finding:
 $$

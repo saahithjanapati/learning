@@ -1,24 +1,48 @@
 # 2. Proximal Gradient and Gradient Mapping
 
-Proximal gradient descent is the course's answer to the question:
+## Table of Contents
 
-How do we recover gradient-descent-like behavior when the objective is not differentiable, but the nonsmoothness has structure?
+- [[#2.00 Where This Topic Came From in the Course]]
+- [[#2.0 Why Proximal Gradient Exists]]
+- [[#2.1 Three Ways to Motivate the Update]]
+    - [[#2.1.1 Local Quadratic Approximation]]
+    - [[#2.1.2 As a Generalization of Projected Gradient Descent]]
+        - [[#Projected Gradient Descent Refresher]]
+    - [[#2.1.3 As a Majorization-Minimization Method]]
+- [[#2.2 Core Definitions]]
+    - [[#2.2.1 Proximal Operator]]
+    - [[#2.2.2 Proximal-Gradient Update]]
+    - [[#2.2.3 Gradient Mapping]]
+- [[#2.3 Special Cases You Should Know]]
+    - [[#2.3.1 Ordinary Gradient Descent]]
+    - [[#2.3.2 Projected Gradient Descent]]
+    - [[#2.3.3 Pure Proximal Minimization: the Case $g=0$]]
+- [[#2.4 Important Proximal Examples]]
+    - [[#2.4.1 Indicator Functions]]
+    - [[#2.4.2 $\ell_1$ Regularization and Soft Thresholding]]
+    - [[#2.4.3 Why ISTA Matters]]
+    - [[#2.4.4 Connection to the Earlier Soft-Thresholding Lecture]]
+    - [[#2.4.5 Matrix Completion and Nuclear-Norm Prox]]
+- [[#2.5 Proximal-Operator Properties]]
+    - [[#2.5.1 Optimality Condition of the Prox Step]]
+    - [[#2.5.2 Contraction / Nonexpansiveness]]
+- [[#2.6 Fixed Points, Optimality, and Why $G_\eta(x)=0$ Matters]]
+    - [[#2.6.1 Direction 1: $G_\eta(x^*)=0 \Rightarrow 0\in \nabla g(x^*)+\partial h(x^*)$]]
+    - [[#2.6.2 Direction 2: $0\in \nabla g(x^*)+\partial h(x^*) \Rightarrow G_\eta(x^*)=0$]]
+- [[#2.7 Main Descent Lemma for Proximal Gradient]]
+    - [[#2.7.1 Proof Structure You Should Memorize]]
+    - [[#2.7.2 Clean Walkthrough of the Main Steps]]
+- [[#2.8 Convergence Rate in the Convex Case]]
+    - [[#2.8.1 Proof Template]]
+- [[#2.9 Strongly Convex Extension]]
+    - [[#2.9.1 Where the New Term Comes From]]
+    - [[#2.9.2 Linear Convergence Theorem]]
+    - [[#2.9.3 Proof Idea for the Linear Rate]]
+- [[#2.10 What Quiz 3 Suggests You Must Know Precisely]]
+- [[#2.11 How This Section Connects to Homework 3]]
+- [[#2.12 Exam-Facing Checklist]]
+- [[#2.13 Common Traps]]
 
-The structured setting is the composite objective
-
-$$
-f(x)=g(x)+h(x),
-$$
-
-where:
-
-- $g$ is the smooth part
-- $h$ is convex and possibly nonsmooth
-- in the standard convex theory, both are convex
-
-This is more special than generic nonsmooth optimization, but it appears constantly in regularized learning problems.
-
-The point of the method is that we do not treat $f$ as one undifferentiable black box. We keep the nice part $g$ in gradient form and handle the difficult part $h$ through a proximal subproblem.
 
 ## 2.00 Where This Topic Came From in the Course
 
@@ -99,6 +123,11 @@ Proximal gradient avoids that failure mode by using structure:
 
 That is why the method has clean descent lemmas while the plain subgradient method usually does not.
 
+The easiest mental contrast is:
+
+- subgradient method: "pick some valid slope and hope it helps"
+- proximal gradient: "use the exact gradient where possible, then fix the step using the structure of the nonsmooth term"
+
 ## 2.1 Three Ways to Motivate the Update
 
 The lectures gave several equivalent ways to understand the algorithm. You should know at least two of them.
@@ -111,6 +140,71 @@ $$
 f(x)+\nabla f(x)^T(z-x)+\frac{1}{2\eta}\|z-x\|^2.
 $$
 
+If this expression feels mysterious, break it into pieces:
+
+- $f(x)$ is just the current function value, so it is a constant with respect to $z$
+- $\nabla f(x)^T(z-x)$ is the first-order linear approximation telling you how the function changes near $x$
+- $\frac{1}{2\eta}\|z-x\|^2$ is a penalty for moving too far away from the current point
+
+That last term is crucial. If you tried to minimize only
+
+$$
+f(x)+\nabla f(x)^T(z-x),
+$$
+
+then the problem would usually be unbounded below: as long as $\nabla f(x)\neq 0$, you could keep moving farther and farther in the direction $-\nabla f(x)$ and make the linear term smaller forever.
+
+So the quadratic term is what turns "here is a good local direction" into "here is a finite local step."
+
+You can also think of it as replacing the true Hessian in a second-order model by the simpler matrix
+
+$$
+\frac{1}{\eta}I.
+$$
+
+That is why the minimizer becomes the usual GD step instead of something unbounded.
+
+Let us do that algebra explicitly.
+
+We want to minimize
+
+$$
+\phi(z)=f(x)+\nabla f(x)^T(z-x)+\frac{1}{2\eta}\|z-x\|^2.
+$$
+
+Since $f(x)$ does not depend on $z$, it does not a
+ffect the minimizer. So this is equivalent to minimizing
+
+$$
+\nabla f(x)^T(z-x)+\frac{1}{2\eta}\|z-x\|^2.
+$$
+
+Now differentiate with respect to $z$:
+
+$$
+\nabla_z \phi(z)=\nabla f(x)+\frac{1}{\eta}(z-x).
+$$
+
+Set this equal to zero:
+
+$$
+\nabla f(x)+\frac{1}{\eta}(z-x)=0.
+$$
+
+So
+
+$$
+z-x=-\eta \nabla f(x),
+$$
+
+which means
+
+$$
+z=x-\eta \nabla f(x).
+$$
+
+That is the ordinary gradient-descent update.
+
 For the composite objective $f=g+h$, we cannot differentiate $h$, so we only linearize and regularize the smooth part:
 
 $$
@@ -122,7 +216,69 @@ g(x)+\nabla g(x)^T(z-x)+\frac{1}{2\eta}\|z-x\|^2+h(z)
 \right\}.
 $$
 
-Now drop the constant term $g(x)$ and complete the square:
+Now slow down the algebra.
+
+First, $g(x)$ is a constant with respect to $z$, so it does not affect the minimizer. Therefore we can drop it and minimize
+
+$$
+\nabla g(x)^T(z-x)+\frac{1}{2\eta}\|z-x\|^2+h(z).
+$$
+
+Next, expand the quadratic-looking part into a completed square.
+
+We want to show that
+
+$$
+\nabla g(x)^T(z-x)+\frac{1}{2\eta}\|z-x\|^2
+$$
+
+is the same as
+
+$$
+\frac{1}{2\eta}\|z-(x-\eta \nabla g(x))\|^2
+$$
+
+up to constants that do not depend on $z$.
+
+Write
+
+$$
+z-(x-\eta \nabla g(x))=(z-x)+\eta \nabla g(x).
+$$
+
+Then
+
+$$
+\|z-(x-\eta \nabla g(x))\|^2
+=
+\|(z-x)+\eta \nabla g(x)\|^2.
+$$
+
+Expand:
+
+$$
+\|(z-x)+\eta \nabla g(x)\|^2
+=
+\|z-x\|^2+2\eta \nabla g(x)^T(z-x)+\eta^2\|\nabla g(x)\|^2.
+$$
+
+Now multiply by $\frac{1}{2\eta}$:
+
+$$
+\frac{1}{2\eta}\|z-(x-\eta \nabla g(x))\|^2
+=
+\frac{1}{2\eta}\|z-x\|^2+\nabla g(x)^T(z-x)+\frac{\eta}{2}\|\nabla g(x)\|^2.
+$$
+
+So the only difference between the two expressions is the constant
+
+$$
+\frac{\eta}{2}\|\nabla g(x)\|^2,
+$$
+
+which does not depend on $z$ and therefore does not change the minimizer.
+
+That is why we can rewrite the update as:
 
 $$
 x^+
@@ -172,6 +328,150 @@ This is conceptually important:
 - projected GD is the case $h=\mathbb{I}_C$
 - proximal GD is the common generalization
 
+So if you already understand projected GD, you already understand half the idea of proximal methods. Proximal gradient is just saying:
+
+- maybe the "constraint-like" part is not literally a constraint set
+- but it can still be handled by a correction step that looks projection-like
+
+#### Projected Gradient Descent Refresher
+
+If this connection feels fuzzy, here is the slow version.
+
+Suppose the problem is
+
+$$
+\min_{x\in C} g(x),
+$$
+
+where:
+
+- $g$ is differentiable
+- $C$ is a convex feasible set
+
+Ordinary gradient descent would ignore the constraint and take the step
+
+$$
+y^{t+1}=x^t-\eta_t \nabla g(x^t).
+$$
+
+But there is a problem: the point $y^{t+1}$ might not lie in $C$.
+
+So projected gradient descent does two steps:
+
+1. take the usual gradient step
+$$
+y^{t+1}=x^t-\eta_t \nabla g(x^t)
+$$
+2. project back onto the feasible set
+$$
+x^{t+1}=P_C(y^{t+1})
+$$
+
+Here
+
+$$
+P_C(y)=\arg\min_{z\in C}\frac12\|z-y\|^2
+$$
+
+means:
+
+"among all feasible points in $C$, choose the one closest to $y$."
+
+So projected gradient descent is literally:
+
+- try the unconstrained gradient step
+- if that step leaves the feasible set, pull it back to the nearest feasible point
+
+Now connect this with proximal gradient.
+
+Define the indicator function of the set $C$ by
+
+$$
+\mathbb{I}_C(x)=
+\begin{cases}
+0 & x\in C \\
+\infty & x\notin C.
+\end{cases}
+$$
+
+This notation looks strange at first, but it is just a trick for encoding constraints as part of the objective.
+
+Why does this work?
+
+If you minimize
+
+$$
+g(x)+\mathbb{I}_C(x),
+$$
+
+then:
+
+- points inside $C$ have objective value $g(x)+0=g(x)$
+- points outside $C$ have objective value $g(x)+\infty=\infty$
+
+So any minimizer must lie in $C$. In other words,
+
+$$
+\min_{x\in C} g(x)
+\qquad\text{and}\qquad
+\min_x g(x)+\mathbb{I}_C(x)
+$$
+
+are the same optimization problem written in two different ways.
+
+Now compute the prox of the indicator:
+
+$$
+\operatorname{prox}_{\eta,\mathbb{I}_C}(v)
+=
+\arg\min_z
+\left\{
+\frac{1}{2\eta}\|z-v\|^2+\mathbb{I}_C(z)
+\right\}.
+$$
+
+Because $\mathbb{I}_C(z)=\infty$ outside $C$, the minimization is automatically forced to stay inside $C$. So this becomes
+
+$$
+\operatorname{prox}_{\eta,\mathbb{I}_C}(v)
+=
+\arg\min_{z\in C}\frac{1}{2\eta}\|z-v\|^2.
+$$
+
+The factor $\frac{1}{2\eta}$ does not change the minimizer, so this is exactly
+
+$$
+P_C(v).
+$$
+
+That is the full meaning of
+
+$$
+h=\mathbb{I}_C.
+$$
+
+It means:
+
+- the nonsmooth term is not a penalty like $\lambda\|x\|_1$
+- instead it is a hard constraint saying "you must stay in the set $C$"
+
+So proximal gradient with $h=\mathbb{I}_C$ becomes
+
+$$
+x^{t+1}
+=
+\operatorname{prox}_{\eta,\mathbb{I}_C}(x^t-\eta \nabla g(x^t))
+=
+P_C(x^t-\eta \nabla g(x^t)),
+$$
+
+which is exactly projected gradient descent.
+
+This is the clean bridge:
+
+- projected GD is prox-GD with a set indicator
+- prox-GD is projected GD generalized from sets to more general nonsmooth structure
+
 ### 2.1.3 As a Majorization-Minimization Method
 
 If $g$ is $\beta$-smooth and $\eta\le 1/\beta$, then
@@ -204,6 +504,10 @@ The proximal-gradient step simply minimizes this upper bound. This is the MM vie
 
 This gives a good intuitive reason for why the algorithm descends.
 
+If you want one sentence for this whole subsection, it is:
+
+"At each step, proximal gradient minimizes an easier upper-bound model of the true objective."
+
 ## 2.2 Core Definitions
 
 ### 2.2.1 Proximal Operator
@@ -225,6 +529,12 @@ You should read this as:
 
 The lecture emphasized that $\operatorname{prox}_{\eta,h}$ depends only on $h$, not on $g$.
 
+This is useful conceptually because it means:
+
+- once you know the prox for a regularizer $h$, you can reuse it in many different problems
+- the data-fit term $g$ might change from problem to problem
+- but the nonsmooth correction rule stays the same
+
 ### 2.2.2 Proximal-Gradient Update
 
 The algorithm can be written in two stages:
@@ -242,6 +552,11 @@ x^{t+1}
 =
 \operatorname{prox}_{\eta_t,h}(x^t-\eta_t \nabla g(x^t)).
 $$
+
+In words:
+
+1. ignore $h$ for one moment and take the usual gradient step for $g$
+2. take the resulting point and "clean it up" using the prox for $h$
 
 ### 2.2.3 Gradient Mapping
 
@@ -270,6 +585,56 @@ This definition matters for several reasons:
 - stationarity is expressed as $G_\eta(x)=0$
 
 So the gradient mapping is not just notation for the step. It is the natural substitute for the gradient in the composite setting.
+
+If that still feels abstract, rewrite the definition one more time:
+
+$$
+\operatorname{prox}_{\eta,h}(x-\eta \nabla g(x))=x-\eta G_\eta(x).
+$$
+
+This tells you exactly what $G_\eta(x)$ is doing.
+
+Start with the raw gradient proposal
+
+$$
+x-\eta \nabla g(x).
+$$
+
+Then apply the prox correction to get the actual next point
+
+$$
+x^+=\operatorname{prox}_{\eta,h}(x-\eta \nabla g(x)).
+$$
+
+The vector
+
+$$
+x-x^+
+$$
+
+is the total change from the current point to the next point. Dividing by $\eta$ gives a gradient-like object:
+
+$$
+G_\eta(x)=\frac{x-x^+}{\eta}.
+$$
+
+So:
+
+- $-\eta G_\eta(x)$ is the actual step
+- $G_\eta(x)$ is the step normalized to look like a generalized gradient
+
+This is exactly parallel to ordinary GD:
+
+$$
+x^+=x-\eta \nabla f(x).
+$$
+
+There, the actual step is $-\eta \nabla f(x)$. Here, the actual step is $-\eta G_\eta(x)$.
+
+So if you ever forget what the gradient mapping means, remember this:
+
+- $\nabla f(x)$ tells you what smooth GD would do
+- $G_\eta(x)$ tells you what composite GD actually does after the prox correction
 
 ## 2.3 Special Cases You Should Know
 
@@ -337,6 +702,11 @@ This is one of the best intuition-building examples in the unit:
 - the proximal step does
 
 This is why the method is more powerful than plain subgradient descent when the structure matches.
+
+The important intuition here is:
+
+- a random subgradient of a nonsmooth function can point in a "legal" direction without being a useful descent direction
+- the prox point is chosen by solving a minimization problem, so it already contains descent information
 
 ## 2.4 Important Proximal Examples
 
@@ -497,6 +867,51 @@ $$
 
 This is one of the most important identities in the entire section.
 
+It is worth seeing exactly where it comes from.
+
+By definition,
+
+$$
+u=\operatorname{prox}_{\eta,h}(v)
+$$
+
+means that $u$ minimizes
+
+$$
+\psi(z)=\frac{1}{2\eta}\|z-v\|^2+h(z).
+$$
+
+Since $\psi$ is convex, first-order optimality says
+
+$$
+0\in \partial \psi(u).
+$$
+
+Now take the subdifferential term by term:
+
+- the quadratic part is differentiable, with gradient
+$$
+\frac{1}{\eta}(u-v)
+$$
+- the nonsmooth part contributes
+$$
+\partial h(u)
+$$
+
+So
+
+$$
+0\in \frac{1}{\eta}(u-v)+\partial h(u).
+$$
+
+Rearrange:
+
+$$
+\frac{1}{\eta}(v-u)\in \partial h(u).
+$$
+
+That is the prox optimality condition.
+
 You use it constantly:
 
 - to identify the subgradient of $h$ at the prox point
@@ -558,6 +973,35 @@ This is the proximal analogue of the fact that $\nabla f(x^*)=0$ characterizes o
 
 The proof is worth understanding.
 
+Before the proof, keep the picture straight:
+
+1. a point is optimal for the composite problem if it satisfies
+$$
+0\in \nabla g(x^*)+\partial h(x^*)
+$$
+2. a point is a fixed point of the prox update if
+$$
+x^*=\operatorname{prox}_{\eta,h}(x^*-\eta \nabla g(x^*))
+$$
+3. the gradient mapping is zero exactly when the point is a fixed point:
+$$
+G_\eta(x^*)=0
+\iff
+x^*=\operatorname{prox}_{\eta,h}(x^*-\eta \nabla g(x^*))
+$$
+
+So the theorem is really saying that all three of these viewpoints are equivalent.
+
+That equivalence is the main conceptual reason the gradient mapping is important.
+
+If $G_\eta(x)$ were just notation for the step, it would not be very interesting. But the theorem says much more:
+
+- zero gradient mapping
+- fixed point of the prox update
+- first-order optimality of the composite objective
+
+are all the same statement in different language.
+
 ### 2.6.1 Direction 1: $G_\eta(x^*)=0 \Rightarrow 0\in \nabla g(x^*)+\partial h(x^*)$
 
 Start from the definition
@@ -565,6 +1009,8 @@ Start from the definition
 $$
 \operatorname{prox}_{\eta,h}(x-\eta \nabla g(x))=x-\eta G_\eta(x).
 $$
+
+This identity is just a rearrangement of the definition of $G_\eta(x)$. We are writing the prox output explicitly.
 
 Let
 
@@ -584,11 +1030,17 @@ $$
 u=x-\eta G_\eta(x).
 $$
 
+This is the key substitution. We are replacing the abstract prox point $u$ by the explicit expression coming from the gradient mapping.
+
 Then
 
 $$
 G_\eta(x)-\nabla g(x)\in \partial h(x-\eta G_\eta(x)).
 $$
+
+Now the magic happens: if the gradient mapping is zero, then the argument of the subdifferential becomes just $x$, and the left-hand side loses the $G_\eta(x)$ term.
+
+That is why this theorem works. The gradient mapping is defined so that when it vanishes, the prox point collapses back to the original point.
 
 If $G_\eta(x^*)=0$, this becomes
 
@@ -626,6 +1078,20 @@ So
 
 $$
 (x^*-\eta \nabla g(x^*))-x^*\in \eta \partial h(x^*).
+$$
+
+This is written to match the prox optimality pattern
+
+$$
+(v-u)\in \eta \partial h(u).
+$$
+
+Here we are choosing
+
+$$
+v=x^*-\eta \nabla g(x^*),
+\qquad
+u=x^*.
 $$
 
 By the prox optimality equivalence, this means
@@ -694,6 +1160,20 @@ $$
 
 You do not need to memorize every line, but you do need to know what comes from smoothness, what comes from convexity, and what comes from prox optimality.
 
+If you get lost in this proof, the safest way to organize it is:
+
+- put all the $g$ terms in one bucket
+- put all the $h$ terms in one bucket
+- only combine them at the very end
+
+Most confusion in proximal-gradient proofs comes from mixing those two buckets too early.
+
+In plain terms:
+
+- use one inequality to control the smooth part
+- use a different inequality to control the nonsmooth part
+- only after each part is under control do you put them back together
+
 ### 2.7.2 Clean Walkthrough of the Main Steps
 
 Let
@@ -704,11 +1184,15 @@ $$
 
 Then $y$ is the next iterate.
 
+It is helpful to stop and name this point, because otherwise the proof gets unreadable. Every time you see $x-\eta G_\eta(x)$, you should think "that is the prox-updated point."
+
 From smoothness of $g$,
 
 $$
 g(y)\le g(x)+\nabla g(x)^T(y-x)+\frac{\beta}{2}\|y-x\|^2.
 $$
+
+This is just the usual smoothness inequality for the smooth part. We are temporarily pretending $h$ does not exist.
 
 Since $y-x=-\eta G_\eta(x)$,
 
@@ -736,10 +1220,20 @@ $$
 
 for any $u\in \partial h(y)$.
 
+This is where many people get tripped up: the subgradient for $h$ is taken at the prox point $y$, not at the original point $x$.
+
 By prox optimality, we may choose
 
 $$
 u=G_\eta(x)-\nabla g(x).
+$$
+
+This is not a random guess. It comes from the identity proved earlier:
+
+$$
+G_\eta(x)-\nabla g(x)\in \partial h(x-\eta G_\eta(x))
+=
+\partial h(y).
 $$
 
 So
@@ -761,6 +1255,10 @@ The $\eta \nabla g(x)^T G_\eta(x)$ terms cancel, leaving
 $$
 f(y)\le f(z)+G_\eta(x)^T(x-z)+\left(\frac{\beta \eta^2}{2}-\eta\right)\|G_\eta(x)\|^2.
 $$
+
+This cancellation is the main reason the proof works cleanly. The smooth part creates one $\nabla g(x)^T G_\eta(x)$ term and the prox-optimality handling of $h$ creates the opposite one.
+
+So if you are ever checking your algebra and the proof is not simplifying, one of the first things to inspect is whether you wrote the $h$ inequality using the correct prox-point subgradient. That is what makes the cancellation possible.
 
 If $\eta\le 1/\beta$, then
 
@@ -810,6 +1308,8 @@ $$
 x^{t+1}=x^t-\eta G_\eta(x^t).
 $$
 
+At this point the proof is basically copying the smooth GD proof, except every ordinary gradient is replaced by the gradient mapping.
+
 Expand the distance to the optimum:
 
 $$
@@ -847,6 +1347,8 @@ $$
 \le
 f(x^*)-f(x^{t+1}).
 $$
+
+This is the exact place where the descent lemma plugs into the distance recursion. If you lose this line, the rest of the proof feels like magic.
 
 Substitute into the distance expansion:
 
@@ -898,6 +1400,22 @@ f(x^k)-f(x^*)
 \le
 \frac{\beta}{2k}\|x^0-x^*\|^2.
 $$
+
+So the real proof pattern is:
+
+1. one-step distance recursion
+2. use descent lemma to control the hard inner-product term
+3. get a telescoping difference of squared distances
+4. sum over time
+5. divide by $k$
+
+That is basically the same story as smooth gradient descent:
+
+- derive a one-step inequality
+- turn it into a telescoping sum
+- extract the rate from the telescoping structure
+
+The only new ingredient is that the gradient mapping and the prox optimality condition replace the ordinary gradient.
 
 ## 2.9 Strongly Convex Extension
 

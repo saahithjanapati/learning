@@ -2,6 +2,16 @@
 
 Use with [[2026-04-14-exam-2-section-02-proximal-gradient]].
 
+## Table of Contents
+
+- [[#Core Setup]]
+- [[#Core Definitions]]
+- [[#Key Interpretations]]
+- [[#Rate To Remember]]
+- [[#Proof Logic To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## Core Setup
 - Composite objective: $f(x)=g(x)+h(x)$.
 - $g$ is the smooth part.

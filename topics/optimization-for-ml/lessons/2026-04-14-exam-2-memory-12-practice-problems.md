@@ -2,6 +2,13 @@
 
 Use with [[2026-04-14-exam-2-section-12-practice-problems]].
 
+## Table of Contents
+
+- [[#How To Use Practice Problems]]
+- [[#What To Memorize Before Drills]]
+- [[#Best Drill Order]]
+
+
 ## How To Use Practice Problems
 - For short-answer problems: answer in 1 to 3 lines with the exact quantity and rate.
 - For proof problems: target 6 to 10 lines, not homework-length derivations.

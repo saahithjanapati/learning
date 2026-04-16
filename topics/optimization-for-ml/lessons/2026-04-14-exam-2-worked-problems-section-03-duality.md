@@ -1,5 +1,10 @@
 # 3. LP Duality Worked Problems
 
+## Table of Contents
+
+- [[#Problem 3.1]]
+- [[#Problem 3.2]]
+
 ### Problem 3.1
 
 Derive the dual of

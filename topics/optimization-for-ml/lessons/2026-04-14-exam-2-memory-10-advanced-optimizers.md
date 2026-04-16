@@ -2,6 +2,16 @@
 
 Use with [[2026-04-14-exam-2-section-10-advanced-optimizers]].
 
+## Table of Contents
+
+- [[#Shampoo]]
+- [[#SOAP]]
+- [[#AdaNGD]]
+- [[#Muon / AdamW Theme]]
+- [[#What To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## Shampoo
 - Structured preconditioner for matrix / tensor parameters.
 - Uses left and right second-moment matrices.

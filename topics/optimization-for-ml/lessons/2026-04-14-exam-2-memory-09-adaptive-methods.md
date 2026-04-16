@@ -2,6 +2,17 @@
 
 Use with [[2026-04-14-exam-2-section-09-adaptive-methods]].
 
+## Table of Contents
+
+- [[#AdaGrad]]
+- [[#RMSProp]]
+- [[#AdaDelta]]
+- [[#Adam]]
+- [[#What To Memorize]]
+- [[#AdamW Distinction]]
+- [[#Likely Exam Traps]]
+
+
 ## AdaGrad
 - Accumulates squared gradients.
 - Effective per-coordinate stepsize shrinks over time.

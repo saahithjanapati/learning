@@ -1,5 +1,9 @@
 # 8. Momentum and NAG Worked Problems
 
+## Table of Contents
+
+- [[#Problem 8.1]]
+
 ### Problem 8.1
 
 Write Polyak momentum and NAG side by side and identify the exact difference.

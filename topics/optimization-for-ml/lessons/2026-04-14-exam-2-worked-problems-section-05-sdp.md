@@ -1,5 +1,10 @@
 # 5. Semidefinite Programming Worked Problems
 
+## Table of Contents
+
+- [[#Problem 5.1]]
+- [[#Problem 5.2]]
+
 ### Problem 5.1
 
 Show that

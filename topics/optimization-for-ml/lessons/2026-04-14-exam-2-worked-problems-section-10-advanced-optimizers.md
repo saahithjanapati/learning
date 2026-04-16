@@ -1,5 +1,10 @@
 # 10. Advanced Neural-Net Optimization Worked Problems
 
+## Table of Contents
+
+- [[#Problem 10.1]]
+- [[#Problem 10.2]]
+
 ### Problem 10.1
 
 Explain why Shampoo can be viewed as a structured form of AdaGrad.

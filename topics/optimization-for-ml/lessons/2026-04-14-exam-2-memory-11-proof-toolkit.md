@@ -2,6 +2,13 @@
 
 Use with [[2026-04-14-exam-2-section-11-proof-toolkit]].
 
+## Table of Contents
+
+- [[#Reusable Proof Moves]]
+- [[#High-Value Statements To Memorize]]
+- [[#Exam Strategy]]
+
+
 ## Reusable Proof Moves
 - Expand a squared norm.
 - Take conditional expectation, then remove conditioning with the tower property.

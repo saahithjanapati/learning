@@ -1,5 +1,10 @@
 # 9. AdaGrad / RMSProp / AdaDelta / Adam Worked Problems
 
+## Table of Contents
+
+- [[#Problem 9.1]]
+- [[#Problem 9.2]]
+
 ### Problem 9.1
 
 Explain mathematically why AdaGrad can become too conservative.

@@ -2,6 +2,14 @@
 
 Use with [[2026-04-14-exam-2-section-07-ica]].
 
+## Table of Contents
+
+- [[#Core Setup]]
+- [[#FastICA Stationarity Shape]]
+- [[#What To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## Core Setup
 - After whitening, $E[zz^T]=I$.
 - In ICA we search for directions $w$ so that $w^T z$ is maximally non-Gaussian.

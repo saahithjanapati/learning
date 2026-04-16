@@ -1,5 +1,14 @@
 # 1. Stochastic Gradient Descent Worked Problems
 
+## Table of Contents
+
+- [[#Problem 1.1]]
+- [[#Problem 1.2]]
+- [[#Problem 1.3]]
+- [[#Problem 1.4]]
+- [[#Problem 1.5]]
+- [[#Problem 1.6]]
+
 ### Problem 1.1
 
 Let

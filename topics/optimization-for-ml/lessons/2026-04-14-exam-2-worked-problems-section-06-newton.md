@@ -1,5 +1,10 @@
 # 6. Newton Method Worked Problems
 
+## Table of Contents
+
+- [[#Problem 6.1]]
+- [[#Problem 6.2]]
+
 ### Problem 6.1
 
 Apply one Newton step to minimize

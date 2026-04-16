@@ -2,6 +2,15 @@
 
 Use with [[2026-04-14-exam-2-section-08-momentum-nag]].
 
+## Table of Contents
+
+- [[#Polyak Momentum]]
+- [[#NAG]]
+- [[#Main Difference]]
+- [[#Rates To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## Polyak Momentum
 $$
 x_{t+1}=x_t-\eta \nabla F(x_t)+\gamma(x_t-x_{t-1}).

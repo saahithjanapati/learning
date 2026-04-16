@@ -2,6 +2,15 @@
 
 Use with [[2026-04-14-exam-2-section-04-kkt]].
 
+## Table of Contents
+
+- [[#Core KKT System]]
+- [[#Sufficiency / Necessity]]
+- [[#Slater]]
+- [[#Solve-and-Verify Pattern]]
+- [[#Likely Exam Traps]]
+
+
 ## Core KKT System
 For
 $$

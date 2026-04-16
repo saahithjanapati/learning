@@ -2,6 +2,16 @@
 
 Use with [[2026-04-14-exam-2-section-03-duality]].
 
+## Table of Contents
+
+- [[#Core Template]]
+- [[#Crucial Finiteness Condition]]
+- [[#Dual Problem]]
+- [[#Weak Duality]]
+- [[#What To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## Core Template
 - Primal:
 $$

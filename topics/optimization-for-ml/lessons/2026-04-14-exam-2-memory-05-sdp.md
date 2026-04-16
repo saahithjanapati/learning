@@ -2,6 +2,15 @@
 
 Use with [[2026-04-14-exam-2-section-05-sdp]].
 
+## Table of Contents
+
+- [[#PSD Facts]]
+- [[#Standard SDP Pair]]
+- [[#Weak Duality Identity]]
+- [[#What To Memorize]]
+- [[#Likely Exam Traps]]
+
+
 ## PSD Facts
 - $X\succeq 0$ means symmetric positive semidefinite.
 - If $A,B\succeq 0$, then $A\bullet B\ge 0$.

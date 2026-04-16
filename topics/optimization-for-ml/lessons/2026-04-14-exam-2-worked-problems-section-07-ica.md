@@ -1,5 +1,10 @@
 # 7. ICA / FastICA Worked Problems
 
+## Table of Contents
+
+- [[#Problem 7.1]]
+- [[#Problem 7.2]]
+
 ### Problem 7.1
 
 Starting from
