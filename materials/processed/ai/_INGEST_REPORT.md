@@ -18,3 +18,4 @@ Files: 13
 - `https://arxiv.org/pdf/2501.18841` -> `trading-inference-time-compute-for-adversarial-robustness.md` (strategy: `canonical PDF extraction and collection-oriented normalization`)
 - `https://arxiv.org/pdf/2406.06046` -> `mates-model-aware-data-selection-for-efficient-pretraining-with-data-influence-models.md` (strategy: `canonical PDF extraction and curriculum-oriented normalization`)
 - `https://arxiv.org/pdf/2502.14709` -> `group-level-data-selection-for-efficient-pretraining.md` (strategy: `canonical PDF extraction and curriculum-oriented normalization`)
+- `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
