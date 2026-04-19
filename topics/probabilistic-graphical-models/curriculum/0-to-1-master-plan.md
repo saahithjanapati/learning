@@ -20,12 +20,15 @@ You are near 0 familiarity and need a full catch-up path from basics.
 - `Lecture_5_inference.md` and `Lecture_6_7_beliefprop.md`: exact inference complexity, variable elimination, sum-product and max-product BP.
 - `Lecture_8_GNNs.md`: graph message passing, GNN layer decomposition, expressivity limits, links to PGM intuition.
 - `Lecture_9_MCMC_intro.md`: Markov chains, MH/Gibbs mechanics, stationary-distribution targeting.
+- `Lecture_11_advanced_MCMC.md`: advanced MCMC for high dimensions, multimodality, Langevin-style intuition, and HMC follow-on material.
 - `Lecture_13_variational.md`: Gibbs variational principle, mean-field/CAVI, local-polytope outer relaxations, Bethe free energy, loopy-BP connection.
 - `Lecture_15_EM.md`: ELBO, posterior approximation, EM vs variational inference, Gaussian-mixture updates, LDA-style variational EM.
+- `Lecture_16_VAE.md`: variational autoencoders, reparameterization trick, and BBVI.
 - `Lecture_17_GAN.md` and `Lecture_18_applications.md`: adversarial training, JS/Wasserstein viewpoints, GAN pathologies, conditional GANs, and image-generation applications.
 - `Lecture_19_scorematching.md`: score matching, denoising score matching, and Langevin-style sampling for EBMs.
+- `Lecture_20_NCE.md`, `Lecture_21_diffusion.md`, `Lecture_22_introcausal.md`, `Lecture_23_backdoor.md`, `Lecture_24_causaldiscovery.md`, and `Lecture_25_intervention.md`: NCE, diffusion-model overview, and the course's causality sequence from introductory interventions to backdoor/frontdoor/do-calculus and structure learning.
 
-Current late-course processed coverage is non-contiguous: the repo currently includes `Lecture 13`, `Lecture 15`, `Lecture 17`, `Lecture 18`, and `Lecture 19`, but not `Lectures 10-12`, `14`, or `16`.
+Current late-course processed coverage is now mostly contiguous, with the remaining gap at `Lecture 14`.
 
 ## 0 -> 1 Definition
 

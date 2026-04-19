@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-17",
+  "generated_on": "2026-04-19",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -38,12 +38,8 @@
           "curriculum_paths": [
             "topics/interviews/ml-system-design/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/interviews/system_design.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/system_design.txt"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Problem framing: novelty types, business goal alignment, success metrics.",
             "Corpus understanding: source quality, metadata, duplication, bias, and sensitive content.",
@@ -78,10 +74,6 @@
             "materials/processed/optimization-for-ml/Feb19_stoch_gd.md",
             "materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md",
             "materials/processed/optimization-for-ml/Feb5_subgradients.md",
-            "materials/processed/optimization-for-ml/HW1_graded_submission.md",
-            "materials/processed/optimization-for-ml/HW1_prompt.md",
-            "materials/processed/optimization-for-ml/HW2_graded_submission.md",
-            "materials/processed/optimization-for-ml/HW3_prompt.md",
             "materials/processed/optimization-for-ml/Jan13_Intro.md",
             "materials/processed/optimization-for-ml/Jan13_Logistics.md",
             "materials/processed/optimization-for-ml/Jan15_ConvexSets.md",
@@ -92,10 +84,7 @@
             "materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md",
             "materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md",
             "materials/processed/optimization-for-ml/March17_KKT.md",
-            "materials/processed/optimization-for-ml/March19_Newton_method.md",
-            "materials/processed/optimization-for-ml/Quiz1_graded_submission.md",
-            "materials/processed/optimization-for-ml/Quiz2_graded_submission.md",
-            "materials/processed/optimization-for-ml/Quiz3_graded_submission.md"
+            "materials/processed/optimization-for-ml/March19_Newton_method.md"
           ],
           "source_pdfs": [
             "materials/archive/Feb10_subgradient-method.pdf",
@@ -115,14 +104,7 @@
             "materials/archive/March12_Part1_LagrangianFunction.pdf",
             "materials/archive/March12_Part2_SaddlePoints_Minimax_Slater.pdf",
             "materials/archive/March17_KKT.pdf",
-            "materials/archive/March19_Newton_method.pdf",
-            "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
-            "materials/archive/S26_10_725_HW3_Student.pdf",
-            "materials/archive/submission_385380809.pdf",
-            "materials/archive/submission_385591771.pdf",
-            "materials/archive/submission_391256496.pdf",
-            "materials/archive/submission_392216540.pdf",
-            "materials/archive/submission_400400482.pdf"
+            "materials/archive/March19_Newton_method.pdf"
           ],
           "transcript_anchors": [],
           "unresolved_source_materials": []
@@ -136,14 +118,8 @@
           "curriculum_paths": [
             "topics/optimization-for-ml/convex-sets-and-functions/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/optimization-for-ml/Jan15_ConvexSets.md",
-            "materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Jan15_ConvexSets.pdf",
-            "materials/archive/Jan20_ConvexFunctions.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Why convex inequality constraints are written as `f_i(x) <= b_i` (not `>=`) for convex feasible sets.",
             "Why equality constraints are required to be affine in convex optimization standard form.",
@@ -162,60 +138,8 @@
           "curriculum_paths": [
             "topics/optimization-for-ml/course-catchup/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/optimization-for-ml/Feb10_subgradient-method.md",
-            "materials/processed/optimization-for-ml/Feb12-projected-subgradient.md",
-            "materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md",
-            "materials/processed/optimization-for-ml/Feb17_Optimiality_Conditions.md",
-            "materials/processed/optimization-for-ml/Feb19_stoch_gd.md",
-            "materials/processed/optimization-for-ml/Feb24_proximal_gd_examples.md",
-            "materials/processed/optimization-for-ml/Feb5_subgradients.md",
-            "materials/processed/optimization-for-ml/HW1_graded_submission.md",
-            "materials/processed/optimization-for-ml/HW1_prompt.md",
-            "materials/processed/optimization-for-ml/HW2_graded_submission.md",
-            "materials/processed/optimization-for-ml/HW3_prompt.md",
-            "materials/processed/optimization-for-ml/Jan13_Intro.md",
-            "materials/processed/optimization-for-ml/Jan13_Logistics.md",
-            "materials/processed/optimization-for-ml/Jan15_ConvexSets.md",
-            "materials/processed/optimization-for-ml/Jan20_ConvexFunctions.md",
-            "materials/processed/optimization-for-ml/Jan27_matrix_norms.md",
-            "materials/processed/optimization-for-ml/Jan29_GD.md",
-            "materials/processed/optimization-for-ml/March10_LP_Duality.md",
-            "materials/processed/optimization-for-ml/March12_Part1_LagrangianFunction.md",
-            "materials/processed/optimization-for-ml/March12_Part2_SaddlePoints_Minimax_Slater.md",
-            "materials/processed/optimization-for-ml/March17_KKT.md",
-            "materials/processed/optimization-for-ml/March19_Newton_method.md",
-            "materials/processed/optimization-for-ml/Quiz1_graded_submission.md",
-            "materials/processed/optimization-for-ml/Quiz2_graded_submission.md",
-            "materials/processed/optimization-for-ml/Quiz3_graded_submission.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Feb10_subgradient-method.pdf",
-            "materials/archive/Feb12-projected-subgradient.pdf",
-            "materials/archive/Feb17+24_proximal_gd.pdf",
-            "materials/archive/Feb17_Optimiality_Conditions.pdf",
-            "materials/archive/Feb19_stoch_gd.pdf",
-            "materials/archive/Feb24_proximal_gd_examples.pdf",
-            "materials/archive/Feb5_subgradients.pdf",
-            "materials/archive/Jan13_Intro.pdf",
-            "materials/archive/Jan13_Logistics.pdf",
-            "materials/archive/Jan15_ConvexSets.pdf",
-            "materials/archive/Jan20_ConvexFunctions.pdf",
-            "materials/archive/Jan27_matrix_norms.pdf",
-            "materials/archive/Jan29_GD.pdf",
-            "materials/archive/March10_LP_Duality.pdf",
-            "materials/archive/March12_Part1_LagrangianFunction.pdf",
-            "materials/archive/March12_Part2_SaddlePoints_Minimax_Slater.pdf",
-            "materials/archive/March17_KKT.pdf",
-            "materials/archive/March19_Newton_method.pdf",
-            "materials/archive/S26_10_725_HW1_optimization_ml.pdf",
-            "materials/archive/S26_10_725_HW3_Student.pdf",
-            "materials/archive/submission_385380809.pdf",
-            "materials/archive/submission_385591771.pdf",
-            "materials/archive/submission_391256496.pdf",
-            "materials/archive/submission_392216540.pdf",
-            "materials/archive/submission_400400482.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [],
           "unresolved_source_materials": []
         },
@@ -228,14 +152,8 @@
           "curriculum_paths": [
             "topics/optimization-for-ml/foundations-intro/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/optimization-for-ml/Jan13_Intro.md",
-            "materials/processed/optimization-for-ml/Jan13_Logistics.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Jan13_Intro.pdf",
-            "materials/archive/Jan13_Logistics.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Standard optimization form with objective, inequality constraints, and equality constraints.",
             "Definitions of feasible solution, optimal solution, infeasible problem, and unbounded objective.",
@@ -254,12 +172,8 @@
           "curriculum_paths": [
             "topics/optimization-for-ml/gradient-descent/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/optimization-for-ml/Jan29_GD.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Jan29_GD.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Step-size definition and role across gradient descent iterations.",
             "Derivation of update direction from Taylor/local linear approximation arguments.",
@@ -278,12 +192,8 @@
           "curriculum_paths": [
             "topics/optimization-for-ml/matrix-norms/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/optimization-for-ml/Jan27_matrix_norms.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Jan27_matrix_norms.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Singular value and singular vector definitions for rectangular matrices.",
             "SVD decomposition `A = U Sigma V^T` and orthogonality structure.",
@@ -302,16 +212,8 @@
           "curriculum_paths": [
             "topics/optimization-for-ml/subgradients-and-projected-methods/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/optimization-for-ml/Feb10_subgradient-method.md",
-            "materials/processed/optimization-for-ml/Feb12-projected-subgradient.md",
-            "materials/processed/optimization-for-ml/Feb5_subgradients.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Feb10_subgradient-method.pdf",
-            "materials/archive/Feb12-projected-subgradient.pdf",
-            "materials/archive/Feb5_subgradients.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Subgradient definition and subdifferential notation `partial f(x)` for convex functions.",
             "Subgradient method update and the warning that it is not always a descent method.",
@@ -378,34 +280,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_1_intro.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_2_directed.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_5_inference.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Lecture_13_variational.pdf",
-            "materials/archive/Lecture_15_EM.pdf",
-            "materials/archive/Lecture_17_GAN.pdf",
-            "materials/archive/Lecture_18_applications.pdf",
-            "materials/archive/Lecture_19_scorematching.pdf",
-            "materials/archive/probabilistic graphical models/Lecture_1_intro (1).pdf",
-            "materials/archive/probabilistic graphical models/Lecture_2_directed (1).pdf",
-            "materials/archive/probabilistic graphical models/Lecture_3_4_undirected (1).pdf",
-            "materials/archive/probabilistic graphical models/Lecture_5_inference (1).pdf",
-            "materials/archive/probabilistic graphical models/Lecture_6_7_beliefprop (2).pdf",
-            "materials/archive/probabilistic graphical models/Lecture_8_GNNs.pdf",
-            "materials/archive/probabilistic graphical models/Lecture_9_MCMC_intro.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [],
           "unresolved_source_materials": []
         },
@@ -418,12 +294,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/directed-graphical-models/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_2_directed.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/probabilistic graphical models/Lecture_2_directed (1).pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Bayesian network examples with node-wise CPT parameterization (Cloudy/Sprinkler/Rain/WetGrass).",
             "Joint factorization as product of local conditionals based on parent sets.",
@@ -442,12 +314,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/foundations-probability/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_1_intro.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/probabilistic graphical models/Lecture_1_intro (1).pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Course framing of exact inference toolkit: variable elimination and belief propagation.",
             "Intro motivation for sampling from unnormalized distributions `p(x) proportional exp(f(x))`.",
@@ -466,14 +334,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/generative-adversarial-networks/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Lecture_17_GAN.pdf",
-            "materials/archive/Lecture_18_applications.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "GAN intuition as jointly learning a generator and a discriminator-defined notion of distance.",
             "DC-GAN minimax objective and its Jensen-Shannon interpretation.",
@@ -492,12 +354,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/gnns-and-pgms/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_8_GNNs.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/probabilistic graphical models/Lecture_8_GNNs.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Message-passing interpretation of graph convolution from lecture visuals.",
             "Multi-layer GNN intuition via k-hop neighborhood receptive fields.",
@@ -516,14 +374,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/inference-and-belief-propagation/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_5_inference.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_6_7_beliefprop.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/probabilistic graphical models/Lecture_5_inference (1).pdf",
-            "materials/archive/probabilistic graphical models/Lecture_6_7_beliefprop (2).pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Exact-inference coverage centered on variable elimination and belief propagation.",
             "Hardness framing for marginals, sampling, and partition-function computation.",
@@ -542,12 +394,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/mcmc/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/probabilistic graphical models/Lecture_9_MCMC_intro.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Inference-hardness framing and motivation for approximate methods (MCMC/VI).",
             "Partition-function estimation example and relation to sampling difficulty.",
@@ -566,12 +414,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/score-matching-and-energy-based-models/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Lecture_19_scorematching.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Likelihood training of EBMs and the partition-function-gradient bottleneck.",
             "Score function `nabla_x log p(x)` and the core score-matching objective.",
@@ -590,12 +434,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/undirected-graphical-models/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/probabilistic graphical models/Lecture_3_4_undirected (1).pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Undirected-model representation as local interactions with soft constraints.",
             "Partition-function definition and computational cost discussion.",
@@ -614,14 +454,8 @@
           "curriculum_paths": [
             "topics/probabilistic-graphical-models/variational-inference-and-em/curriculum/0-to-1-plan.md"
           ],
-          "source_materials": [
-            "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
-            "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md"
-          ],
-          "source_pdfs": [
-            "materials/archive/Lecture_13_variational.pdf",
-            "materials/archive/Lecture_15_EM.pdf"
-          ],
+          "source_materials": [],
+          "source_pdfs": [],
           "transcript_anchors": [
             "Gibbs variational principle as an optimization formula for `log Z`.",
             "Mean-field inner relaxations solved with coordinate ascent / CAVI.",
@@ -710,6 +544,13 @@
       "transcript_path": "materials/processed/ai/mates-model-aware-data-selection-for-efficient-pretraining-with-data-influence-models.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2406.06046",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/openai-stargate-where-the-us-sites-stand.md",
+      "root_topic": "ai",
+      "source_pdf": "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1133,6 +974,15 @@
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_11_advanced_MCMC.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_11_advanced_MCMC.pdf",
+      "duplicate_equivalents": [
+        "Lecture_11_advanced_MCMC.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
       "root_topic": "probabilistic-graphical-models",
       "source_pdf": "materials/archive/Lecture_13_variational.pdf",
@@ -1147,6 +997,15 @@
       "source_pdf": "materials/archive/Lecture_15_EM.pdf",
       "duplicate_equivalents": [
         "Lecture_15_EM.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_16_VAE.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_16_VAE.pdf",
+      "duplicate_equivalents": [
+        "Lecture_16_VAE.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
@@ -1183,6 +1042,60 @@
       "source_pdf": "materials/archive/probabilistic graphical models/Lecture_1_intro (1).pdf",
       "duplicate_equivalents": [
         "Lecture_1_intro (1).pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_20_NCE.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_20_NCE.pdf",
+      "duplicate_equivalents": [
+        "Lecture_20_NCE.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_21_diffusion.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_21_diffusion.pdf",
+      "duplicate_equivalents": [
+        "Lecture_21_diffusion.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_22_introcausal.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_22_introcausal.pdf",
+      "duplicate_equivalents": [
+        "Lecture_22_introcausal.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_23_backdoor.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_23_backdoor.pdf",
+      "duplicate_equivalents": [
+        "Lecture_23_backdoor.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_24_causaldiscovery.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_24_causaldiscovery.pdf",
+      "duplicate_equivalents": [
+        "Lecture_24_causaldiscovery.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Lecture_25_intervention.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Lecture_25_intervention.pdf",
+      "duplicate_equivalents": [
+        "Lecture_25_intervention.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
@@ -1244,20 +1157,6 @@
         "Lecture_9_MCMC_intro.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
-    },
-    {
-      "transcript_path": "materials/processed/scale-labs-papers-2025-2026/brief.md",
-      "root_topic": "scale-labs-papers-2025-2026",
-      "source_pdf": null,
-      "duplicate_equivalents": [],
-      "ingest_report": null
-    },
-    {
-      "transcript_path": "materials/processed/scale-labs-papers-2025-2026/paper_summaries.md",
-      "root_topic": "scale-labs-papers-2025-2026",
-      "source_pdf": null,
-      "duplicate_equivalents": [],
-      "ingest_report": null
     }
   ],
   "unresolved_source_materials": []
