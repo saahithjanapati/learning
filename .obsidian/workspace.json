@@ -35,10 +35,14 @@
             "id": "4fc58f5b6ce0ae56",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-08-momentum-nag.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-04-14-exam-2-section-08-momentum-nag"
             }
           }
         ],
@@ -246,20 +250,20 @@
   },
   "active": "1647d923787a5586",
   "lastOpenFiles": [
+    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-08-momentum-nag.md",
+    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-true-false.md",
+    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-comprehensive-notes.md",
+    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated.md",
     "topics/optimization-for-ml/lessons/2026-04-18-exam-2-mock-exam-index.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-answer-key.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-select-all.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-short-answer.md",
-    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-true-false.md",
     "topics/optimization-for-ml/lessons/2026-04-19-hw3-hw4-topic-summary.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-short-answer-platonic-answers.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-select-all-v2-answer-key.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-select-all-v2.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-key-properties-identities.md",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-comprehensive-notes.md",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-08-momentum-nag.md",
     "topics/optimization-for-ml/lessons/2026-04-18-exam-2-mock-exam-short-answer.md",
     "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-02-proximal-gradient.md",
     "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-01-sgd.md",

@@ -69,7 +69,7 @@ True
 - True
 - False
 
-False, not necessarly true
+False, not necessarily true.
 
 ### 1.7
 
@@ -77,6 +77,7 @@ False, not necessarly true
 
 - True
 - False
+True.
 
 ### 1.8
 
@@ -90,6 +91,7 @@ and this alone implies that the coordinates of $z$ are independent.
 
 - True
 - False
+False, this just means the covariance matrix is the identity, which means they are not correlated.
 
 ### 1.9
 
@@ -101,6 +103,7 @@ $$
 
 - True
 - False
+False, it's a rate on the function value gap, not on the iterate gap.
 
 ### 1.10
 
@@ -108,6 +111,7 @@ $$
 
 - True
 - False
+
 
 ### 1.11
 
