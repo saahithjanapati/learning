@@ -23,12 +23,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-04-19-hw3-hw4-topic-summary.md",
+                "file": "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-true-false.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-19-hw3-hw4-topic-summary"
+              "title": "2026-04-19-exam-2-mock-exam-exam1-calibrated-true-false"
             }
           },
           {
@@ -95,11 +95,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 302.5026054382324
+    "width": 319.5026054382324
   },
   "right": {
     "id": "5cabd87a7ea33faf",
@@ -245,11 +246,13 @@
   },
   "active": "1647d923787a5586",
   "lastOpenFiles": [
-    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-answer-key.md",
-    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-short-answer.md",
-    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-select-all.md",
-    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-true-false.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated.md",
+    "topics/optimization-for-ml/lessons/2026-04-18-exam-2-mock-exam-index.md",
+    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-answer-key.md",
+    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-select-all.md",
+    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-short-answer.md",
+    "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-exam1-calibrated-true-false.md",
+    "topics/optimization-for-ml/lessons/2026-04-19-hw3-hw4-topic-summary.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-short-answer-platonic-answers.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-select-all-v2-answer-key.md",
     "topics/optimization-for-ml/lessons/2026-04-19-exam-2-mock-exam-select-all-v2.md",
@@ -258,8 +261,6 @@
     "topics/optimization-for-ml/lessons/2026-04-14-exam-2-comprehensive-notes.md",
     "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-08-momentum-nag.md",
     "topics/optimization-for-ml/lessons/2026-04-18-exam-2-mock-exam-short-answer.md",
-    "topics/optimization-for-ml/lessons/2026-04-18-exam-2-mock-exam-index.md",
-    "topics/optimization-for-ml/lessons/2026-04-19-hw3-hw4-topic-summary.md",
     "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-02-proximal-gradient.md",
     "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-01-sgd.md",
     "materials/archive/Lecture_25_intervention.pdf",

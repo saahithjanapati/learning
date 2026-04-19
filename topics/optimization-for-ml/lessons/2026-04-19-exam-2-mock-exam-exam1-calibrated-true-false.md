@@ -19,12 +19,17 @@ must hold as $k \to \infty$.
 - True
 - False
 
+False, there's going to be an error floor due to the inherent stochasticity of the method.
+
 ### 1.2
 
 [2 pts] If $h=\mathbb{I}_C$ in proximal gradient, then the update becomes a gradient step followed by Euclidean projection onto $C$.
 
 - True
 - False
+
+True
+
 
 ### 1.3
 
@@ -33,12 +38,16 @@ must hold as $k \to \infty$.
 - True
 - False
 
+True
+
 ### 1.4
 
 [2 pts] For a convex differentiable constrained optimization problem, primal feasibility together with stationarity is enough to conclude global optimality.
 
 - True
 - False
+
+False, you need all KKT conditions, these are just 2 of them.
 
 ### 1.5
 
@@ -51,12 +60,16 @@ $$
 - True
 - False
 
+True
+
 ### 1.6
 
 [2 pts] If $X \succeq 0$ and $S \succeq 0$, then the matrix product $XS$ must also be positive semidefinite.
 
 - True
 - False
+
+False, not necessarly true
 
 ### 1.7
 
