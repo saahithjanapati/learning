@@ -11,6 +11,7 @@
     - [[#7.5.1 Why the derivative looks like 4E[(wT z)^3 z]]]
 - [[#7.6 From Stationarity to the FastICA Update]]
 - [[#7.7 Why the Normalization Step Appears]]
+    - [[#7.7.1 Multiple components, orthogonality, and symmetric decorrelation]]
 - [[#7.8 Why This Topic Belongs in an Optimization Course]]
 - [[#7.9 Common Traps]]
 
@@ -256,6 +257,46 @@ This is conceptually the same pattern you already saw in:
 
 Take an unconstrained-looking update, then enforce the constraint structure explicitly.
 
+### 7.7.1 Multiple components, orthogonality, and symmetric decorrelation
+
+The single-vector FastICA derivation explains how to find one component direction $w$.
+
+But for multiple components, there is one more constraint hiding in the whitened model:
+
+- different recovered directions should not collapse to the same component
+- the rows of the unmixing matrix should remain orthogonal
+
+In the whitened setting, this is usually enforced as
+
+$$
+W W^T = I.
+$$
+
+There are two common ways to impose that:
+
+1. deflation:
+   after finding one component, orthogonalize the next iterate against the previous ones and renormalize
+2. symmetric FastICA:
+   update all rows and then perform a joint orthogonalization step
+
+The symmetric-decorrelation formula used in practice is
+
+$$
+W \leftarrow (W W^T)^{-1/2} W.
+$$
+
+Why this matters:
+
+- it keeps the recovered directions orthonormal
+- it prevents two rows from converging to the same source
+- it is the matrix-valued analogue of the single-vector normalization step
+
+So the full FastICA picture is:
+
+- stationarity gives the fixed-point direction update
+- normalization enforces $\|w\|=1$ for one component
+- orthogonalization / symmetric decorrelation enforces distinct components for many-component ICA
+
 ## 7.8 Why This Topic Belongs in an Optimization Course
 
 FastICA is a nice synthesis topic because it forces you to see that optimization machinery is not just abstract theorem language.
@@ -278,6 +319,7 @@ So the point of the ICA lectures was not just “learn one signal-processing alg
 - forgetting the unit-norm constraint in the optimization problem
 - remembering the update but not the stationarity equation it came from
 - forgetting to renormalize `$w$`
+- forgetting that multi-component FastICA also needs an orthogonalization step so distinct rows do not collapse to the same source
 
 The single most useful sentence to remember is:
 

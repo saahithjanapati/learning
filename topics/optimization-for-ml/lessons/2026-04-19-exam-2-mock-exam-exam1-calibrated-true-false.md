@@ -111,7 +111,7 @@ False, it's a rate on the function value gap, not on the iterate gap.
 
 - True
 - False
-
+False, it's important because we start the estimates at zero, so we need to unbias them...
 
 ### 1.11
 
@@ -120,9 +120,13 @@ False, it's a rate on the function value gap, not on the iterate gap.
 - True
 - False
 
+False, decoupled weight decay inside Adam messes with the update, so it's not exactly the same...
+
 ### 1.12
 
 [2 pts] Every linear program can be written as a special case of a semidefinite program.
 
 - True
 - False
+
+True, linear programs are a subset of semidefinite programs.

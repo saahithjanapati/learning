@@ -5,9 +5,11 @@ Use with [[2026-04-14-exam-2-section-01-sgd]].
 ## Table of Contents
 
 - [[#Core Objects]]
+- [[#One-Step Recursion]]
 - [[#Canonical Examples]]
 - [[#Rates and Quantities]]
 - [[#What Causes the Error Floor]]
+- [[#What To Say Fast If Asked About SGD]]
 - [[#Warm-Up Example Facts]]
 - [[#Proof Ingredients To Memorize]]
 - [[#Likely Exam Traps]]
@@ -19,6 +21,27 @@ Use with [[2026-04-14-exam-2-section-01-sgd]].
 - Update: $x^{t+1}=x^t-\eta_t g(x^t;\xi_t)$.
 - $\eta_t$ is the stepsize. $\xi_t$ is the fresh randomness.
 - $G$ is a bound on stochastic-gradient size or second moment, not the noise itself.
+
+## One-Step Recursion
+- Core expansion:
+$$
+\|x^{t+1}-x^*\|^2
+=
+\|x^t-x^*\|^2
+-2\eta_t g(x^t;\xi_t)^T(x^t-x^*)
++\eta_t^2\|g(x^t;\xi_t)\|^2.
+$$
+- In the convex nonsmooth proof, take conditional expectation and use
+$$
+\mathbb{E}[g(x^t;\xi_t)\mid x^t]\in \partial f(x^t).
+$$
+- In the strongly convex proof, strong convexity sharpens the inner-product term and leads to the recursion
+$$
+\mathbb{E}\|x^{t+1}-x^*\|^2
+\le
+(1-\alpha\eta_t)\mathbb{E}\|x^t-x^*\|^2+\eta_t^2 G^2.
+$$
+- Exam mindset: SGD proofs usually start from a distance recursion, not a deterministic descent lemma.
 
 ## Canonical Examples
 - Finite sum: if $f(x)=\frac1n\sum_{i=1}^n f_i(x)$ and $\xi_t\sim\mathrm{Unif}\{1,\dots,n\}$, then $g(x;\xi_t)=\nabla f_{\xi_t}(x)$ is unbiased.
@@ -43,6 +66,13 @@ Use with [[2026-04-14-exam-2-section-01-sgd]].
 - Fixed-step bound: $\mathbb{E}\|x^k-x^*\|^2\le (1-\alpha\eta)^k\|x^0-x^*\|^2+\frac{\eta G^2}{\alpha}$.
 - Strongly convex decreasing-step SGD: controls averaged function value.
 - Bound: $\mathbb{E}[f(\bar x_k)]-f(x^*)\le \frac{G^2(1+\log k)}{2\alpha k}$.
+
+## What To Say Fast If Asked About SGD
+- Why use SGD: full gradients are expensive; stochastic gradients are cheaper.
+- What is random: the gradient estimate, not the objective.
+- Why fixed-step SGD does not converge exactly: variance does not vanish near the optimum.
+- What smoothness changes in basic SGD theory: much less than in deterministic GD; it does not remove the stochastic error floor.
+- If asked for the most important precision point: always name the quantity that converges, not just the rate.
 
 ## What Causes the Error Floor
 - Identity: $\mathbb{E}\|g(x,\xi)\|^2 = \|\nabla f(x)\|^2 + \operatorname{Var}(g(x,\xi))$.

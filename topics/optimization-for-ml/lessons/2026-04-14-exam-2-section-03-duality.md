@@ -47,8 +47,8 @@ In a constrained minimization problem, the constraints are annoying because they
 
 Duality introduces multipliers that penalize constraint violation and packages the constrained problem into a function of both:
 
-- the primal variable `$x$`
-- multiplier variables such as `$u$` and `$\nu$`
+- the primal variable $x$
+- multiplier variables such as $u$ and $\nu$
 
 The dual problem is useful because it gives:
 
@@ -58,7 +58,7 @@ The dual problem is useful because it gives:
 
 The clean mental model is:
 
-- the primal problem searches over points `$x$`
+- the primal problem searches over points $x$
 - the dual problem searches over certificates/lower bounds
 
 ## 3.2 The Lagrangian for a General Constrained Problem
@@ -87,9 +87,9 @@ f(x)
 \nu_i \ge 0.
 $$
 
-Why do the inequality multipliers satisfy `$\nu_i \ge 0$`?
+Why do the inequality multipliers satisfy $\nu_i \ge 0$?
 
-Because if `$x$` is feasible, then `$h_i(x)\le 0$`, so a nonnegative multiplier makes the term `$\nu_i h_i(x)$` nonpositive. That means for feasible `$x$`,
+Because if $x$ is feasible, then $h_i(x)\le 0$, so a nonnegative multiplier makes the term $\nu_i h_i(x)$ nonpositive. That means for feasible $x$,
 
 $$
 L(x,\nu,u)\le f(x).
@@ -97,7 +97,7 @@ $$
 
 That is the first hint that the Lagrangian will generate lower bounds.
 
-Equality constraints do not get sign restrictions because `$\ell_j(x)=0$` has no preferred direction.
+Equality constraints do not get sign restrictions because $\ell_j(x)=0$ has no preferred direction.
 
 ## 3.3 The Dual Function
 
@@ -110,16 +110,16 @@ $$
 This means:
 
 - fix the multipliers first
-- then let `$x$` vary freely
+- then let $x$ vary freely
 - record the smallest value the Lagrangian can take
 
-The dual function is always a lower bound on the primal objective at feasible points. Indeed, for any feasible `$x$`,
+The dual function is always a lower bound on the primal objective at feasible points. Indeed, for any feasible $x$,
 
 $$
 L(x,\nu,u)\le f(x),
 $$
 
-so taking the infimum over all `$x$` gives
+so taking the infimum over all $x$ gives
 
 $$
 g(\nu,u)\le f(x).
@@ -149,7 +149,7 @@ $$
 x \ge 1.
 $$
 
-Rewrite the constraint in the standard `$\le 0$` form:
+Rewrite the constraint in the standard $\le 0$ form:
 
 $$
 1-x \le 0.
@@ -169,10 +169,10 @@ $$
 L(x,\nu) = (1-\nu)x+\nu.
 $$
 
-Now minimize over `$x$`.
+Now minimize over $x$.
 
-- if `$1-\nu \neq 0$`, then this is a nonconstant linear function of `$x$`, so the infimum is `$-\infty$`
-- if `$1-\nu = 0$`, i.e. `$\nu=1$`, then the `$x$` term disappears and the infimum is `$1$`
+- if $1-\nu \neq 0$, then this is a nonconstant linear function of $x$, so the infimum is $-\infty$
+- if $1-\nu = 0$, i.e. $\nu=1$, then the $x$ term disappears and the infimum is $1$
 
 So the dual function is
 
@@ -196,7 +196,7 @@ whose value is `1`, matching the primal optimum.
 This toy example contains the whole LP-duality pattern in miniature:
 
 - write the Lagrangian
-- collect the `$x$` terms
+- collect the $x$ terms
 - ask when the infimum is finite
 - optimize over the multipliers
 
@@ -204,7 +204,7 @@ This toy example contains the whole LP-duality pattern in miniature:
 
 Weak duality says:
 
-for every primal-feasible `$x$` and dual-feasible `$(\nu,u)$`,
+for every primal-feasible $x$ and dual-feasible $(\nu,u)$,
 
 $$
 g(\nu,u)\le f(x).
@@ -231,9 +231,9 @@ That “matching objectives certify optimality” logic is the bridge from weak 
 
 The proof is short enough that you should be able to reconstruct it from memory.
 
-Take any primal-feasible `$x$` and dual-feasible `$(\nu,u)$`.
+Take any primal-feasible $x$ and dual-feasible $(\nu,u)$.
 
-Because `$x$` is feasible,
+Because $x$ is feasible,
 
 $$
 h_i(x)\le 0,
@@ -241,7 +241,7 @@ h_i(x)\le 0,
 \ell_j(x)=0.
 $$
 
-Because `$\nu_i \ge 0$`, we get
+Because $\nu_i \ge 0$, we get
 
 $$
 \sum_i \nu_i h_i(x)\le 0.
@@ -293,9 +293,9 @@ $$
 
 Here:
 
-- `$x$` is the primal variable
-- `$u$` will be the equality multiplier
-- `$\nu$` will be the inequality multiplier with `$\nu \ge 0$`
+- $x$ is the primal variable
+- $u$ will be the equality multiplier
+- $\nu$ will be the inequality multiplier with $\nu \ge 0$
 
 ### 3.5.2 Form the Lagrangian
 
@@ -309,7 +309,7 @@ c^T x + u^T(Ax-b) + \nu^T(Gx-h),
 \nu \ge 0.
 $$
 
-Expand and collect the terms involving `$x$`:
+Expand and collect the terms involving $x$:
 
 $$
 L(x,u,\nu)
@@ -319,7 +319,7 @@ $$
 
 This is the most important algebra line in the derivation.
 
-The reason is that after grouping terms this way, the dependence on `$x$` becomes purely linear.
+The reason is that after grouping terms this way, the dependence on $x$ becomes purely linear.
 
 ### 3.5.3 Take the infimum over x
 
@@ -339,7 +339,7 @@ $$
 
 finite?
 
-The constants `$\,-b^T u - h^T \nu\,$` do not matter for finiteness. The issue is the linear term in `$x$`.
+The constants $-b^T u - h^T \nu$ do not matter for finiteness. The issue is the linear term in $x$.
 
 ### 3.5.4 The finiteness condition
 
@@ -349,7 +349,7 @@ $$
 c + A^T u + G^T \nu \neq 0,
 $$
 
-then the expression is a nonconstant linear function of `$x$`, and since `$x$` is unconstrained in the infimum defining the dual function, we can send it to `$-\infty$` in a direction that makes the linear term arbitrarily negative.
+then the expression is a nonconstant linear function of $x$, and since $x$ is unconstrained in the infimum defining the dual function, we can send it to $-\infty$ in a direction that makes the linear term arbitrarily negative.
 
 So in that case,
 
@@ -363,7 +363,7 @@ $$
 c + A^T u + G^T \nu = 0,
 $$
 
-then the `$x$`-dependent part vanishes and the Lagrangian becomes constant in `$x$`:
+then the $x$-dependent part vanishes and the Lagrangian becomes constant in $x$:
 
 $$
 L(x,u,\nu)=-b^T u - h^T \nu.
@@ -405,8 +405,8 @@ That is the LP dual.
 The exam-safe derivation template is:
 
 1. write the Lagrangian
-2. collect the `$x$` terms
-3. determine when the infimum over `$x$` is finite
+2. collect the $x$ terms
+3. determine when the infimum over $x$ is finite
 4. write the dual function piecewise
 5. maximize it over the multiplier domain
 
@@ -416,13 +416,13 @@ This fact appeared explicitly on `Quiz 3` as a conceptual true/false style state
 
 The dual function is always concave because it is the pointwise infimum of affine functions of the multipliers.
 
-For fixed `$x$`, the Lagrangian
+For fixed $x$, the Lagrangian
 
 $$
 L(x,\nu,u)
 $$
 
-is affine in `$(\nu,u)$`.
+is affine in $(\nu,u)$.
 
 Then
 
@@ -483,13 +483,32 @@ So Slater is one of the standard routes from “good convex problem” to “KKT
 
 The March 12 lecture emphasizes that strong duality is closely tied to a saddle-point picture for the Lagrangian.
 
-Very roughly, if `$(x^*,\nu^*,u^*)$` is optimal and strong duality holds, then the Lagrangian sits at a saddle:
+Very roughly, if $(x^*,\nu^*,u^*)$ is optimal and strong duality holds, then the Lagrangian sits at a saddle:
 
 $$
 L(x^*,\nu,u)\le L(x^*,\nu^*,u^*) \le L(x,\nu^*,u^*)
 $$
 
-for all primal variables `$x$` and dual-feasible multipliers `$\nu$`.
+for all primal variables $x$ and dual-feasible multipliers $\nu$.
+
+What is a saddle point in plain language?
+
+It is a point that is:
+
+- a minimum if you move in the primal direction
+- a maximum if you move in the dual direction
+
+So the same point behaves differently depending on which variables you are allowed to change.
+
+That is why the word "saddle" is used:
+
+- along one set of directions, the surface bends upward like a valley
+- along another set of directions, it bends downward like a hill
+
+In duality, those two direction types are:
+
+- primal variables: the primal problem wants to **minimize**
+- dual variables: the dual problem wants to **maximize**
 
 Why is this the right picture?
 
@@ -499,6 +518,81 @@ Why is this the right picture?
 So the primal side wants a minimum, while the dual side wants a maximum.
 
 That is exactly what a saddle point is.
+
+You can read the inequality
+
+$$
+L(x^*,\nu,u)\le L(x^*,\nu^*,u^*) \le L(x,\nu^*,u^*)
+$$
+
+in two pieces:
+
+1. Fix the primal point at $x^*$ and vary the dual variables.
+
+Then
+$$
+L(x^*,\nu,u)\le L(x^*,\nu^*,u^*)
+$$
+means the optimal dual variables $(\nu^*,u^*)$ make the Lagrangian as large as possible at that primal point.
+
+2. Fix the dual variables at $(\nu^*,u^*)$ and vary the primal variable.
+
+Then
+$$
+L(x^*,\nu^*,u^*) \le L(x,\nu^*,u^*)
+$$
+means the optimal primal point $x^*$ makes the Lagrangian as small as possible at those dual variables.
+
+So the center point $(x^*,\nu^*,u^*)$ is simultaneously:
+
+- best from the primal minimization side
+- best from the dual maximization side
+
+That is exactly the geometric content of primal-dual optimality under strong duality.
+
+### 3.7.1.1 Tiny toy picture
+
+If you want an intuition without constraints, think of a function like
+
+$$
+\phi(a,b)=a^2-b^2.
+$$
+
+At $(0,0)$:
+
+- if you vary $a$ and hold $b=0$, then $\phi(a,0)=a^2$, which is minimized at $a=0$
+- if you vary $b$ and hold $a=0$, then $\phi(0,b)=-b^2$, which is maximized at $b=0$
+
+So $(0,0)$ is a saddle point.
+
+The Lagrangian saddle picture is the same idea, except:
+
+- the "$a$-direction" is the primal variable direction
+- the "$b$-direction" is the dual variable direction
+
+### 3.7.1.2 Why this matters for KKT
+
+This saddle-point view is not just geometric decoration.
+
+It explains why KKT conditions are the right optimality conditions.
+
+At a saddle point of the Lagrangian:
+
+- the primal variable is minimizing against fixed multipliers
+- the multipliers are maximizing against the fixed primal point
+
+That is exactly why KKT contains:
+
+- primal feasibility
+- dual feasibility
+- complementary slackness
+- stationarity
+
+Stationarity is the first-order version of "we are at the center of the saddle."
+
+So a good memory line is:
+
+`KKT is the first-order algebraic shadow of the Lagrangian saddle-point picture.`
 
 ### 3.7.2 Minimax interpretation
 
@@ -553,10 +647,10 @@ So for duality you should be ready for all three levels:
 
 ## 3.10 Common Traps
 
-- forgetting the sign restriction `$\nu \ge 0$` for inequality multipliers
-- treating the dual function as a maximum over `$x$` instead of an infimum
-- deriving the dual but not explicitly stating when it equals `$-\infty$`
-- writing only `A^T u + G^T \nu + c = 0` and forgetting that `$\nu \ge 0$` is also part of the dual-feasible domain
+- forgetting the sign restriction $\nu \ge 0$ for inequality multipliers
+- treating the dual function as a maximum over $x$ instead of an infimum
+- deriving the dual but not explicitly stating when it equals $-\infty$
+- writing only $A^T u + G^T \nu + c = 0$ and forgetting that $\nu \ge 0$ is also part of the dual-feasible domain
 - saying “dual function is concave only if the primal is convex”
 - confusing weak duality with strong duality
 

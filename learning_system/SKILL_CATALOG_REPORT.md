@@ -1,14 +1,14 @@
 # Skill Catalog Report
 
-Generated: 2026-04-18
+Generated: 2026-04-19
 
 ## Summary
 
 - Catalog status: PASS
 - Public skills registered in `AGENTS.md`: 7
-- Skill files discovered on disk: 8
+- Skill files discovered on disk: 7
 - Public skills in `.agents/skills`: 7
-- Internal skill files: 1
+- Internal skill files: 0
 - Errors: 0
 - Warnings: 0
 
@@ -34,7 +34,7 @@ Generated: 2026-04-18
 
 ## Internal Skill Files
 
-- `learning-repo-orchestrator` -> `skills/learning-repo-orchestrator/SKILL.md`
+- None.
 
 ## Errors
 

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-19",
+  "generated_on": "2026-04-20",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -241,12 +241,20 @@
             "topics/probabilistic-graphical-models/curriculum/0-to-1-master-plan.md"
           ],
           "source_materials": [
+            "materials/processed/probabilistic-graphical-models/Lecture_11_advanced_MCMC.md",
             "materials/processed/probabilistic-graphical-models/Lecture_13_variational.md",
             "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_16_VAE.md",
             "materials/processed/probabilistic-graphical-models/Lecture_17_GAN.md",
             "materials/processed/probabilistic-graphical-models/Lecture_18_applications.md",
             "materials/processed/probabilistic-graphical-models/Lecture_19_scorematching.md",
             "materials/processed/probabilistic-graphical-models/Lecture_1_intro.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_20_NCE.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_21_diffusion.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_22_introcausal.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_23_backdoor.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_24_causaldiscovery.md",
+            "materials/processed/probabilistic-graphical-models/Lecture_25_intervention.md",
             "materials/processed/probabilistic-graphical-models/Lecture_2_directed.md",
             "materials/processed/probabilistic-graphical-models/Lecture_3_4_undirected.md",
             "materials/processed/probabilistic-graphical-models/Lecture_5_inference.md",
@@ -255,11 +263,19 @@
             "materials/processed/probabilistic-graphical-models/Lecture_9_MCMC_intro.md"
           ],
           "source_pdfs": [
+            "materials/archive/Lecture_11_advanced_MCMC.pdf",
             "materials/archive/Lecture_13_variational.pdf",
             "materials/archive/Lecture_15_EM.pdf",
+            "materials/archive/Lecture_16_VAE.pdf",
             "materials/archive/Lecture_17_GAN.pdf",
             "materials/archive/Lecture_18_applications.pdf",
             "materials/archive/Lecture_19_scorematching.pdf",
+            "materials/archive/Lecture_20_NCE.pdf",
+            "materials/archive/Lecture_21_diffusion.pdf",
+            "materials/archive/Lecture_22_introcausal.pdf",
+            "materials/archive/Lecture_23_backdoor.pdf",
+            "materials/archive/Lecture_24_causaldiscovery.pdf",
+            "materials/archive/Lecture_25_intervention.pdf",
             "materials/archive/probabilistic graphical models/Lecture_1_intro (1).pdf",
             "materials/archive/probabilistic graphical models/Lecture_2_directed (1).pdf",
             "materials/archive/probabilistic graphical models/Lecture_3_4_undirected (1).pdf",
@@ -1155,6 +1171,15 @@
         "Lecture_9_MCMC_intro (1).pdf",
         "Lecture_9_MCMC_intro (2).pdf",
         "Lecture_9_MCMC_intro.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/mnib2m5iyej4fu.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/mnib2m5iyej4fu.pdf",
+      "duplicate_equivalents": [
+        "mnib2m5iyej4fu.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     }

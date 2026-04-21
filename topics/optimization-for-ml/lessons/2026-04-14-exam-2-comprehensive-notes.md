@@ -85,6 +85,7 @@ For proof background from the earlier convex-optimization lectures, use [[2026-0
 ## Companion Notes
 
 - [[2026-04-19-exam-2-key-properties-identities|Key Properties / Identities Sheet]]
+- [[2026-04-20-main-descent-lemmas-sheet|Main Descent Lemmas Sheet]]
 - [[2026-04-19-hw3-hw4-topic-summary|HW3 + HW4 Topic Summary]]
 - [[2026-04-14-exam-2-worked-problems|Worked Problems Hub]]
 - [[2026-04-14-exam-2-proof-drill|Proof Drill]]

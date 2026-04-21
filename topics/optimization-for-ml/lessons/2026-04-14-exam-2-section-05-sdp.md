@@ -14,7 +14,10 @@
     - [[#5.6.2 Why S bullet X is nonnegative]]
 - [[#5.7 Complementary-Slackness Style Consequences]]
 - [[#5.8 Schur Complement]]
+    - [[#5.8.1 The 2x2 scalar case]]
 - [[#5.9 SDP as a Modeling Tool]]
+    - [[#5.9.1 LP as a special SDP]]
+    - [[#5.9.2 Rank-one thinking behind SDP relaxations]]
 - [[#5.10 HW3 and HW4 Connections]]
     - [[#5.10.0 What question are we trying to answer]]
     - [[#5.10.1 What sum of squares means]]
@@ -485,6 +488,48 @@ This is one of those facts that may appear either as:
 - a direct recall question
 - or a short application inside a modeling problem
 
+### 5.8.1 The 2x2 scalar case
+
+The most exam-friendly Schur-complement special case is
+
+$$
+\begin{pmatrix}
+a & b \\
+b & c
+\end{pmatrix}
+\succeq 0.
+$$
+
+For a symmetric `2 x 2` matrix, this is equivalent to
+
+$$
+a \ge 0,
+\qquad
+c \ge 0,
+\qquad
+ac-b^2 \ge 0.
+$$
+
+If $a>0$, you can read the same condition in Schur-complement form:
+
+$$
+\begin{pmatrix}
+a & b \\
+b & c
+\end{pmatrix}
+\succeq 0
+\iff
+a>0
+\text{ and }
+c-\frac{b^2}{a}\ge 0.
+$$
+
+So if you ever see a small block PSD constraint on the exam, the fast checklist is:
+
+1. check the obvious diagonal nonnegativity
+2. check the determinant condition
+3. if one block is invertible, rewrite it with the Schur complement
+
 ## 5.9 SDP as a Modeling Tool
 
 The course did not present SDP only as a theorem collection. It also emphasized SDP as a modeling language.
@@ -503,6 +548,58 @@ So you should not study SDP only as:
 You should also study it as:
 
 - a way to reformulate algebraic structure as convex constraints
+
+### 5.9.1 LP as a special SDP
+
+The March 24 lecture also emphasized that LP sits inside SDP.
+
+The reason is simple: if a matrix is restricted to be diagonal, then PSD just means its diagonal entries are nonnegative.
+
+For example,
+
+$$
+X=\operatorname{Diag}(x_1,\dots,x_n) \succeq 0
+\iff
+x_i \ge 0 \quad \text{for all } i.
+$$
+
+So the nonnegative-orthant constraints from LP can be viewed as a special diagonal PSD constraint.
+
+That is why it is mathematically correct to think:
+
+- LP uses the nonnegative orthant
+- SDP generalizes that cone to the PSD cone
+
+### 5.9.2 Rank-one thinking behind SDP relaxations
+
+The `HW3` relaxation material is easier to understand if you name the usual pattern explicitly.
+
+Many quadratic or discrete problems naturally want a matrix of the form
+
+$$
+X = xx^T.
+$$
+
+That automatically implies
+
+$$
+X \succeq 0
+\qquad \text{and} \qquad
+\operatorname{rank}(X)=1.
+$$
+
+The hard part is usually the rank-one condition.
+
+So a standard SDP relaxation does this:
+
+1. keep the convex PSD condition $X \succeq 0$
+2. drop the nonconvex rank-one condition
+
+That is the core modeling move behind MaxCut-style and similar SDP relaxations.
+
+So when you see an SDP relaxation, the right question is often:
+
+`what nonconvex structure was replaced by a PSD matrix constraint after dropping rank information?`
 
 ## 5.10 HW3 and HW4 Connections
 

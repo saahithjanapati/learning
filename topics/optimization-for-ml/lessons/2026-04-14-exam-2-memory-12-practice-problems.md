@@ -6,6 +6,7 @@ Use with [[2026-04-14-exam-2-section-12-practice-problems]].
 
 - [[#How To Use Practice Problems]]
 - [[#What To Memorize Before Drills]]
+- [[#What To Write First By Topic]]
 - [[#Best Drill Order]]
 
 
@@ -19,6 +20,23 @@ Use with [[2026-04-14-exam-2-section-12-practice-problems]].
 - Which quantities converge in each method.
 - Standard proof ingredients for SGD, duality, KKT, SDP, and Newton.
 - High-frequency traps from prior quiz/exam performance.
+
+## What To Write First By Topic
+- SGD:
+  - write the update
+  - write the distance expansion
+  - say what expectation or subgradient fact you will use
+- Proximal gradient:
+  - define the prox point or gradient mapping
+  - write the prox optimality condition
+- Duality:
+  - write the Lagrangian before touching the dual
+- KKT:
+  - write the full KKT system before solving
+- SDP:
+  - write primal and dual feasibility and the weak-duality identity
+- Newton:
+  - write the step and the gradient inner product
 
 ## Best Drill Order
 - SGD / proximal gradient precision.

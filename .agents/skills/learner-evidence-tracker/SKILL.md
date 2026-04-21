@@ -5,6 +5,15 @@ description: Log topic-level doubts, incorrect answers, and recurring confusion 
 
 # Learner Evidence Tracker
 
+## Temporary Override
+
+Current repo-local preference:
+
+- Do not use this skill by default right now.
+- Do not log learner doubts, mistakes, confusion, or proof gaps unless the user explicitly asks to resume evidence logging or explicitly asks to use this skill.
+
+This override takes precedence over the normal trigger rules below until it is removed.
+
 ## When To Use
 
 Use this skill when the learner asks for:
