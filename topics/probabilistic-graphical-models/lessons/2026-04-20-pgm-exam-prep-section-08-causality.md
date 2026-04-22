@@ -85,19 +85,12 @@ Intervention means:
 - you set `T=t`
 - you break the normal causal mechanism that would have chosen `T`
 
-This is why the notation
-$$
-P(Y \mid T=t)
-$$
-is different from
-$$
-P(Y \mid do(T=t)).
-$$
+This is why the notation $P(Y \mid T=t)$ is different from $P(Y \mid do(T=t))$.
 
 In words:
 
-- `P(Y | T=t)` = what outcomes are associated with treatment level `t` in the observational world
-- `P(Y | do(T=t))` = what outcomes would happen if we forced treatment to `t`
+- $P(Y \mid T=t)$ = what outcomes are associated with treatment level $t$ in the observational world
+- $P(Y \mid do(T=t))$ = what outcomes would happen if we forced treatment to $t$
 
 The two only match under special conditions.
 
@@ -269,14 +262,7 @@ These are the causal statements worth being able to recognize and write cleanly.
 
 ### Observation versus intervention
 
-Observing
-$$
-P(Y\mid T=t)
-$$
-is not the same as intervening:
-$$
-P(Y\mid do(T=t)).
-$$
+Observing $P(Y\mid T=t)$ is not the same as intervening to get $P(Y\mid do(T=t))$.
 
 An intervention breaks the original structural mechanism for `T` and sets it externally.
 In graph language, you can think of `do(T=t)` as cutting the incoming edges into `T` and forcing the treatment node to the chosen value.

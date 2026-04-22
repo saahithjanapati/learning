@@ -80,13 +80,13 @@ You would like quantities like:
 - marginals
 - probabilities of events
 
-If you had exact samples from `pi`, you could estimate many of these by Monte Carlo.
+If you had exact samples from $\pi$, you could estimate many of these by Monte Carlo.
 
 So the real goal becomes:
 
 `how do I get samples whose distribution is pi?`
 
-MCMC answers this by constructing a Markov chain with `pi` as its long-run distribution.
+MCMC answers this by constructing a Markov chain with $\pi$ as its long-run distribution.
 
 ## 5.1 What a Markov Chain Is in Plain English
 
@@ -96,7 +96,7 @@ The Markov property means:
 
 the next state depends only on the current state, not on the full past history.
 
-If the chain is currently at state `x`, the transition rule tells you how likely it is to move to each possible next state `y`.
+If the chain is currently at state $x$, the transition rule tells you how likely it is to move to each possible next state $y$.
 
 Mathematically, this is written as
 $$
@@ -106,9 +106,9 @@ $$
 But do not let the notation scare you.
 Plain-English version:
 
-- you are at `x`
+- you are at $x$
 - you flip some probabilistic coins
-- you may move to `y`
+- you may move to $y$
 
 That is all a Markov chain is.
 
@@ -116,9 +116,9 @@ That is all a Markov chain is.
 
 Now the key idea.
 
-A distribution `pi` is **stationary** for the chain if:
+A distribution $\pi$ is **stationary** for the chain if:
 
-if the current state is distributed as `pi`, then after one more transition it is still distributed as `pi`.
+if the current state is distributed as $\pi$, then after one more transition it is still distributed as $\pi$.
 
 In symbols:
 $$
@@ -129,12 +129,12 @@ This is the distribution we want the chain to preserve.
 
 Why is stationarity important?
 
-Because if the chain eventually settles into that distribution, then long-run samples from the chain look like samples from `pi`.
+Because if the chain eventually settles into that distribution, then long-run samples from the chain look like samples from $\pi$.
 
 So the whole game in MCMC is:
 
 - design a chain
-- make sure `pi` is stationary for it
+- make sure $\pi$ is stationary for it
 - hope the chain reaches that stationary behavior in reasonable time
 
 ## 5.3 Irreducible and Aperiodic: Why Those Words Keep Showing Up
@@ -184,7 +184,7 @@ At first this looks abstract.
 
 Here is the plain-English version:
 
-under distribution `pi`, the probability flow from `x` to `y` is exactly matched by the probability flow from `y` to `x`.
+under distribution $\pi$, the probability flow from $x$ to $y$ is exactly matched by the probability flow from $y$ to $x$.
 
 Why do we care?
 
@@ -211,7 +211,7 @@ Here is the idea in words.
 
 ### Step 1: propose a move
 
-If you are currently at `x`, propose a new state `y` using some easier proposal rule `q(x,y)`.
+If you are currently at state $x$, propose a new state $y$ using some easier proposal rule $q(x,y)$.
 
 ### Step 2: maybe accept it
 

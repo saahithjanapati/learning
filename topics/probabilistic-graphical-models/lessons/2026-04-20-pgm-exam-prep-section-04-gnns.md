@@ -93,14 +93,14 @@ That is why the topic belongs here.
 
 A standard message-passing GNN layer can be written as
 $$
+\begin{aligned}
 m_v^{(t+1)}
-=
-\operatorname{AGGREGATE}\left(\left\{M_t(h_v^{(t)},h_u^{(t)},e_{uv}) : u \in N(v)\right\}\right),
-$$
-$$
+&=
+\operatorname{AGGREGATE}\left(\left\{M_t(h_v^{(t)},h_u^{(t)},e_{uv}) : u \in N(v)\right\}\right),\\
 h_v^{(t+1)}
-=
+&=
 \operatorname{UPDATE}(h_v^{(t)},m_v^{(t+1)}).
+\end{aligned}
 $$
 
 Read this slowly.
@@ -316,14 +316,14 @@ These are the more formal statements worth being able to recognize and explain.
 
 The standard form is
 $$
+\begin{aligned}
 m_v^{(t+1)}
-=
-\operatorname{AGGREGATE}\left(\left\{M_t(h_v^{(t)},h_u^{(t)},e_{uv}) : u \in N(v)\right\}\right),
-$$
-$$
+&=
+\operatorname{AGGREGATE}\left(\left\{M_t(h_v^{(t)},h_u^{(t)},e_{uv}) : u \in N(v)\right\}\right),\\
 h_v^{(t+1)}
-=
+&=
 \operatorname{UPDATE}(h_v^{(t)},m_v^{(t+1)}).
+\end{aligned}
 $$
 
 This formalizes the idea of neighbor-to-node communication followed by a state update.

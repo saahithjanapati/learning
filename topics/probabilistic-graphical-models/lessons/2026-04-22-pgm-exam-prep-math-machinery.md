@@ -139,13 +139,13 @@ $$
 This means:
 
 - $\tilde p(x)$ is correct up to a multiplicative constant
-- the missing constant does not depend on `x`
+- the missing constant does not depend on $x$
 
 This is useful because:
 
 - MAP only needs proportionality
 - MCMC acceptance ratios often cancel the constant
-- score matching with respect to `x` kills the constant
+- score matching with respect to $x$ kills the constant
 
 ### One high-yield exam habit
 
@@ -469,8 +469,8 @@ Why?
 Even if you cannot compute `Z`, you can often still do useful things:
 
 - compare energies
-- run MH because `Z` cancels
-- compute scores with respect to `x` because `\nabla_x \log Z = 0`
+- run MH because $Z$ cancels
+- compute scores with respect to $x$ because $\nabla_x \log Z = 0$
 
 That cancellation instinct is one of the best habits you can build.
 
@@ -572,7 +572,7 @@ If $f(\theta)$ is scalar-valued, then
 $$
 \nabla_\theta f(\theta)
 $$
-is the vector of partial derivatives with respect to the coordinates of `\theta`.
+is the vector of partial derivatives with respect to the coordinates of $\theta$.
 
 Always ask:
 
@@ -587,7 +587,7 @@ $$
 J_s(x)=\frac{\partial s}{\partial x}.
 $$
 
-In score matching, people often call this `Ds` or `\nabla s`.
+In score matching, people often call this $Ds$ or $\nabla s$.
 
 ### Hessian
 
@@ -621,8 +621,8 @@ $$
 
 Do not confuse:
 
-- gradient with respect to `x`
-- gradient with respect to parameters `\theta`
+- gradient with respect to $x$
+- gradient with respect to parameters $\theta$
 
 These are different objects.
 
@@ -634,7 +634,7 @@ we have
 $$
 \nabla_x \log p_\theta(x)= -\nabla_x E_\theta(x),
 $$
-because the normalizing constant does not depend on `x`.
+because the normalizing constant does not depend on $x$.
 
 That single cancellation powers score matching.
 
@@ -656,7 +656,7 @@ $$
 =
 \mathbb{E}_{q_\phi(z)}[f(z)\nabla_\phi \log q_\phi(z)]
 $$
-when `f` does not itself depend on `\phi`.
+when $f$ does not itself depend on $\phi$.
 
 This is the score-function estimator idea behind REINFORCE.
 
@@ -668,7 +668,7 @@ z=g_\phi(\epsilon,x),
 \qquad
 \epsilon \sim p(\epsilon),
 $$
-then the randomness is moved into `\epsilon`, and you can differentiate through the deterministic map `g_\phi`.
+then the randomness is moved into $\epsilon$, and you can differentiate through the deterministic map $g_\phi$.
 
 That is the core math idea behind the VAE reparameterization trick.
 
@@ -768,7 +768,7 @@ That often tells you whether you get a lower or upper bound.
 This exact logic appears in the Gibbs variational principle relaxations:
 
 - mean field is an inner approximation
-- outer relaxations can overestimate `\log Z`
+- outer relaxations can overestimate $\log Z$
 
 ### ELBO decomposition
 
@@ -852,15 +852,15 @@ $$
 
 ### Stationary distribution
 
-A distribution `\pi` is stationary if
+A distribution $\pi$ is stationary if
 $$
 \pi P=\pi.
 $$
 
 Meaning:
 
-- if the chain is already distributed as `\pi`
-- one more step leaves it distributed as `\pi`
+- if the chain is already distributed as $\pi$
+- one more step leaves it distributed as $\pi$
 
 ### Detailed balance
 
@@ -868,7 +868,7 @@ $$
 \pi(x)P(x,y)=\pi(y)P(y,x).
 $$
 
-This says flow from `x` to `y` matches flow from `y` to `x`.
+This says flow from $x$ to $y$ matches flow from $y$ to $x$.
 
 It is a very common sufficient condition for stationarity.
 
@@ -987,7 +987,7 @@ Ask:
 
 Ask:
 
-- am I differentiating with respect to `x` or `\theta`?
+- am I differentiating with respect to $x$ or $\theta$?
 - does the partition function depend on that variable?
 
 ### If the problem is about MCMC
@@ -1142,7 +1142,7 @@ For
 $$
 p_\theta(x)\propto \exp(-E_\theta(x)),
 $$
-why does the score with respect to `x` not require the partition function?
+why does the score with respect to $x$ not require the partition function?
 
 ### Solution
 
@@ -1150,13 +1150,13 @@ Because
 $$
 \log p_\theta(x)= -E_\theta(x)-\log Z_\theta,
 $$
-and `\log Z_\theta` does not depend on `x`.
+and $\log Z_\theta$ does not depend on $x$.
 So
 $$
 \nabla_x \log p_\theta(x)= -\nabla_x E_\theta(x).
 $$
 
-The normalizer disappears under differentiation with respect to `x`.
+The normalizer disappears under differentiation with respect to $x$.
 
 ### Problem 5
 
@@ -1190,7 +1190,7 @@ If
 $$
 \pi(x)P(x,y)=\pi(y)P(y,x)
 $$
-for all `x,y`, then summing over `x` gives
+for all $x,y$, then summing over $x$ gives
 $$
 \sum_x \pi(x)P(x,y)
 =
@@ -1207,8 +1207,8 @@ What is the key difference between covariance and precision in a Gaussian model?
 
 ### Solution
 
-The covariance matrix `\Sigma` measures marginal linear dependence.
-The precision matrix `J=\Sigma^{-1}` captures conditional-dependence structure in Gaussian graphical models.
+The covariance matrix $\Sigma$ measures marginal linear dependence.
+The precision matrix $J=\Sigma^{-1}$ captures conditional-dependence structure in Gaussian graphical models.
 
 So sparse precision has graphical meaning, while sparse covariance generally does not play the same role.
 
