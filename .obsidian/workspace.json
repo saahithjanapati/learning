@@ -11,20 +11,14 @@
             "id": "b12686e79b2f47ae",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "4f07db794915f8b2",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "learning_system/LESSON_INDEX.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LESSON_INDEX"
             }
           },
           {
@@ -33,26 +27,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-course-overview.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-comprehensive-notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-20-pgm-course-overview"
+              "title": "2026-04-20-pgm-exam-prep-comprehensive-notes"
             }
           },
           {
-            "id": "c505de4ecee5c958",
+            "id": "2c2fd2471fcd6fa1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md",
+                "file": "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-04-gnns.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-04-14-exam-2-live-chat"
+              "title": "2026-04-20-pgm-exam-prep-section-04-gnns"
             }
           }
         ],
@@ -109,11 +103,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 462.5
+    "width": 323.5
   },
   "right": {
     "id": "5cabd87a7ea33faf",
@@ -218,92 +213,52 @@
       "bases:Create new base": false
     }
   },
-  "floating": {
-    "id": "785dd6772b4c56f6",
-    "type": "floating",
-    "children": [
-      {
-        "id": "11f141412547f072",
-        "type": "window",
-        "children": [
-          {
-            "id": "de20331a639e543b",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "2e6d260e2b85e2bc",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "2026-04-14-exam-2-live-chat"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 777,
-        "y": 130,
-        "width": 975,
-        "height": 800,
-        "maximize": false,
-        "zoom": 1
-      }
-    ]
-  },
-  "active": "70edc9a7ef74b88a",
+  "active": "2c2fd2471fcd6fa1",
   "lastOpenFiles": [
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-04-gnns.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-comprehensive-notes.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-05-mcmc.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-03-inference-bp.md",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-moralization-markov-blanket.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-moralization-markov-blanket.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-directed-vs-undirected.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-directed-vs-undirected.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-dag-path-patterns.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-dag-path-patterns.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-ugm-separation-cliques.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/section02-ugm-separation-cliques.png",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-02-directed-undirected.md",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/bp-hmm-forward-backward-viterbi.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/bp-hmm-forward-backward-viterbi.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/bp-treewidth-junction-tree.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/bp-treewidth-junction-tree.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/bp-factor-graph-construction.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/bp-factor-graph-construction.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155945-a-clean-notebook-style-educational-comparison-diagram-for-a.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155945-a-clean-notebook-style-educational-comparison-diagram-for-a.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155945-a-clean-notebook-style-educational-diagram-for-a-probabilist.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155945-a-clean-notebook-style-educational-diagram-for-a-probabilist.png",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155826-a-clean-notebook-style-educational-diagram-for-a-probabilist.png.json",
+    "topics/probabilistic-graphical-models/lessons/local-assets/openai-images/20260422-155826-a-clean-notebook-style-educational-diagram-for-a-probabilist.png",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-06-vi-em-vae.md",
+    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md",
+    "materials/processed/probabilistic-graphical-models/Practice_Exam_Solutions.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-section-01-foundations.md",
+    "materials/processed/probabilistic-graphical-models/Midterm_1_graded_submission.md",
+    "materials/processed/probabilistic-graphical-models/HW4_recitation_beyond_likelihood.md",
+    "materials/processed/probabilistic-graphical-models/HW4_prompt.md",
+    "materials/processed/probabilistic-graphical-models/HW3_graded_submission.md",
+    "materials/processed/probabilistic-graphical-models/Course_recap_review.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-course-overview.md",
+    "topics/probabilistic-graphical-models/lessons/2026-03-30-late-course-module-map.md",
+    "topics/probabilistic-graphical-models/lessons/2026-02-24-live-chat-lecture-5-inference.md",
+    "learning_system/LESSON_INDEX.md",
+    "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-memory-01-foundations.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-worked-problems-section-01-foundations.md",
     "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-practice-problems-section-01-foundations.md",
     "topics/probabilistic-graphical-models/lessons/2026-02-20-live-chat.md",
     "topics/probabilistic-graphical-models/lessons/2026-02-15-catchup-lesson-01.md",
     "topics/probabilistic-graphical-models/course-catchup/README.md",
-    "topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_15_EM.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_16_VAE.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_22_introcausal.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_23_backdoor.md",
-    "materials/processed/probabilistic-graphical-models/Lecture_24_causaldiscovery.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-sgd-convex-nonsmooth-rate.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-sgd-strongly-convex-recursions.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-gd-descent-lemma.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-prox-fixed-points-and-stationarity.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-gd-proof-hub.md",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-comprehensive-notes.md",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-02-proximal-gradient.md",
-    "topics/optimization-for-ml/lessons/2026-04-14-exam-2-section-01-sgd.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-sgd-prox-proof-structures.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-prox-convergence-rates.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-prox-descent-lemma.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-polyak-momentum-quadratic.md",
-    "topics/optimization-for-ml/lessons/2026-04-20-proof-gd-smooth-convex-rate.md",
-    "materials/archive/mnib2m5iyej4fu.pdf",
-    "materials/inbox/mnib2m5iyej4fu.pdf",
-    "materials/archive/Lecture_25_intervention.pdf",
-    "materials/archive/Lecture_24_causaldiscovery.pdf",
-    "materials/archive/Lecture_23_backdoor.pdf",
-    "materials/archive/Lecture_22_introcausal.pdf",
-    "materials/archive/Lecture_21_diffusion.pdf",
-    "materials/archive/Lecture_20_NCE.pdf",
-    "materials/archive/Lecture_16_VAE.pdf",
-    "materials/archive/Lecture_11_advanced_MCMC.pdf",
-    "local-assets/quiz-plots/metrics-quiz-01.png",
-    "materials/archive/local-figures/normal-cone-2d-illustration.png",
-    "materials/archive/local-figures/cone-polar-duality.png",
-    "materials/archive/local-figures/cone-orthant-normal-tangent.png",
-    "materials/archive/local-figures/cone-halfspace-normal-tangent.png",
-    "materials/archive/local-figures/dsep-chain-fork-collider-rules.png",
-    "materials/archive/local-figures/ve-eliminate-x-concrete.png",
-    "materials/archive/local-figures/ve-order-star-intuition.png",
-    "materials/archive/local-figures/pgm-dgm-vs-ugm-intuition.png",
-    "materials/archive/local-figures/projection-geometry-right-angle.png"
+    "topics/probabilistic-graphical-models/course-catchup/curriculum/0-to-1-plan.md"
   ]
 }

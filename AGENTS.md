@@ -14,6 +14,7 @@ Skill files may still exist under `skills/` for internal composition, but they s
 - markdown-live-chat: Create or continue lesson live-chat transcripts and mirror the actual conversation into a markdown file. (file: `.agents/skills/markdown-live-chat/SKILL.md`)
 - learner-evidence-tracker: Log topic-level doubts, incorrect answers, and recurring confusion in a queryable learner-evidence system with timestamps and concept tags. (file: `.agents/skills/learner-evidence-tracker/SKILL.md`)
 - skill-catalog-manager: Audit, create, split, merge, and reorganize the repo skill catalog itself. (file: `.agents/skills/skill-catalog-manager/SKILL.md`)
+- openai-image-generator: Generate images with OpenAI's `gpt-image-2` API and optionally embed local-only outputs into markdown notes. (file: `.agents/skills/openai-image-generator/SKILL.md`)
 
 ### Routing rules
 - Startup help, recent topics, and resume requests -> `learning-startup-resume`
@@ -23,6 +24,7 @@ Skill files may still exist under `skills/` for internal composition, but they s
 - Live chat transcript creation/continuation, markdown chat requests, or requests to mirror chat contents into an `.md` file -> `markdown-live-chat`
 - Tracking learner doubts, logging mistakes over time, or building reusable evidence for future adaptation -> `learner-evidence-tracker`
 - Skill audit, skill creation, skill splitting/merging, and catalog cleanup -> `skill-catalog-manager`
+- OpenAI image generation, local-only note illustration, or markdown image embeds backed by OpenAI-generated assets -> `openai-image-generator`
 
 ### Catalog hygiene
 - Every public skill listed here must map to an existing `.agents/skills/<name>/SKILL.md`.

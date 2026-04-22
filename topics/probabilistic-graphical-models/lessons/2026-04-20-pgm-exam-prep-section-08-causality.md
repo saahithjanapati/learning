@@ -2,131 +2,411 @@
 
 ## Table of Contents
 
-- [[#0. How To Read This Section]]
-- [[#8.0 Why Causality Is Not Just Another Inference Topic]]
-- [[#8.1 Conditioning vs Intervention]]
-- [[#8.2 Backdoor Intuition]]
-- [[#8.3 Frontdoor and Do-Calculus: High-Level View]]
-- [[#8.4 Causal Discovery]]
-- [[#8.5 The PC Algorithm]]
-- [[#8.6 What the Practice Exam Suggests Is Important]]
-- [[#8.7 What To Remember]]
+- [[#Big Picture]]
+- [[#0. How To Use This Section]]
+- [[#8.0 Observing Is Not the Same as Intervening]]
+- [[#8.1 Conditioning Versus Intervention, Slowly]]
+- [[#8.2 Backdoor, Slowly]]
+- [[#8.3 Front-Door, Slowly]]
+- [[#8.4 Do-Calculus at a High Level]]
+- [[#8.5 Causal Discovery and Markov Equivalence]]
+- [[#8.6 SGS and PC, Slowly]]
+- [[#8.7 What Interventions Buy You for Discovery]]
+- [[#8.8 What You Should Be Able To Say Out Loud]]
+- [[#Formal Anchors]]
+- [[#Worked Problems]]
 
-## 0. How To Read This Section
+## Big Picture
 
-This section is easiest to understand if you remember that it is not just “more inference.”
+This section introduces a genuinely new kind of question.
 
-The central shift is:
+Earlier in the course, most questions were observational:
 
-- probabilistic inference asks what follows from observations
-- causal inference asks what would happen under interventions
+- if I observe some variables, what can I infer about other variables?
 
-If that distinction is solid, then backdoor adjustment, causal discovery, and the PC algorithm all have a much clearer purpose.
+Causality asks a different question:
 
-## 8.0 Why Causality Is Not Just Another Inference Topic
+- what would happen if I actively changed part of the system?
 
-Ordinary probabilistic inference asks:
+That is why this section matters.
 
-- what happens to probabilities when we condition on observations?
+It is not “just more probabilistic inference.”
+It is a shift from:
 
-Causal inference asks a different question:
+- seeing
 
-- what happens if we actively intervene in the system?
+to
 
-That is why the notation
-$$
-do(T=t)
-$$
-matters. It is not the same thing as conditioning on
-$$
-T=t.
-$$
+- doing
 
-## 8.1 Conditioning vs Intervention
+## 0. How To Use This Section
+
+Primary lecture coverage:
+
+- `Lecture 22`
+- `Lecture 23`
+- `Lecture 24`
+- `Lecture 25`
+
+This section uses a lot of graph language.
+
+If you feel lost, always ask:
+
+- am I merely observing a variable?
+- or am I forcing it to a value?
+
+That one distinction clears up a huge amount of confusion.
+
+## 8.0 Observing Is Not the Same as Intervening
+
+Suppose you observe that a patient took a treatment.
+
+That does **not** mean the same thing as you randomly assigning that treatment yourself.
+
+Why not?
+
+Because in the observational world, the reasons the patient took the treatment may themselves be related to the outcome.
+
+That is confounding.
+
+So causal inference begins from a warning:
+
+correlation is not automatically intervention effect.
+
+## 8.1 Conditioning Versus Intervention, Slowly
 
 Conditioning means:
 
-- observe that a variable took a value
-- update beliefs accordingly
+- you observe `T=t`
+- you update beliefs about everything else
 
 Intervention means:
 
-- actively set the variable
-- break the mechanism that normally determines it
+- you set `T=t`
+- you break the normal causal mechanism that would have chosen `T`
 
-This distinction is the entire reason causal graphs matter.
+This is why the notation
+$$
+P(Y \mid T=t)
+$$
+is different from
+$$
+P(Y \mid do(T=t)).
+$$
 
-If you blur these together, the whole causality unit becomes confusing.
+In words:
 
-## 8.2 Backdoor Intuition
+- `P(Y | T=t)` = what outcomes are associated with treatment level `t` in the observational world
+- `P(Y | do(T=t))` = what outcomes would happen if we forced treatment to `t`
 
-The backdoor criterion tells you when a set of variables is sufficient to adjust for confounding between treatment $T$ and outcome $Y$.
+The two only match under special conditions.
 
-The intuitive goal is:
+That is the whole reason causal graphs matter.
 
-- block spurious noncausal paths from $T$ to $Y$
-- without blocking the causal effect you actually want to estimate
+## 8.2 Backdoor, Slowly
 
-So the exam-level game is often:
+Backdoor is the friendliest causal-identification criterion in the course.
 
-- inspect a graph
-- decide whether a highlighted set blocks the right backdoor paths
+Suppose you want the causal effect of treatment `T` on outcome `Y`.
 
-## 8.3 Frontdoor and Do-Calculus: High-Level View
+A set `W` satisfies the backdoor criterion if:
 
-Backdoor is the friendliest identification tool.
-Frontdoor is more delicate and uses a mediator structure.
-Do-calculus is the more general symbolic toolkit for manipulating intervention expressions.
+- no variable in `W` is a descendant of `T`
+- `W` blocks all backdoor paths from `T` to `Y`
 
-You do not need to start from full abstraction. The right beginner progression is:
+What is a backdoor path?
 
-1. distinguish observation from intervention
-2. understand backdoor
-3. then see frontdoor and do-calculus as more advanced identification tools
+Any path that starts by going **into** `T`.
 
-## 8.4 Causal Discovery
+Why do we care about those paths?
 
-Causal discovery asks:
+Because they are the paths along which confounding sneaks in.
 
-- can we recover graph structure from observational data and independence information?
+So the practical meaning of backdoor is:
 
-This is much harder than ordinary probabilistic modeling because multiple graphs can encode similar observational behavior.
+find variables that block the noncausal routes from treatment to outcome, without blocking the effect you actually want.
 
-So the algorithms often recover:
+If `W` satisfies the criterion, then
+$$
+P(Y \mid do(T=t))
+=
+\sum_w P(Y \mid T=t, W=w)P(W=w).
+$$
 
-- an equivalence class
-- partial orientation information
+That formula is adjustment.
 
-rather than one perfectly identified DAG.
+### Important beginner warning
 
-## 8.5 The PC Algorithm
+Not every “related variable” is a good thing to condition on.
 
-The PC algorithm is a constraint-based causal-discovery algorithm.
+For example:
 
-At high level, it:
+- conditioning on a confounder can help
+- conditioning on a mediator may destroy the total causal effect you wanted
+- conditioning on a collider can create spurious dependence
 
-1. uses conditional independence tests to remove edges
-2. orients edges when certain separating-set patterns imply collider structure
-3. continues orienting what is logically forced
+So do not think “more conditioning is always safer.”
+That is false.
 
-The important beginner point is not every implementation detail. It is:
+## 8.3 Front-Door, Slowly
 
-- it uses independence structure, not likelihood optimization
-- it often identifies only what is justified by the observed independencies
+Front-door is more delicate than backdoor.
 
-## 8.6 What the Practice Exam Suggests Is Important
+It uses a mediator `M` between `T` and `Y`.
 
-From the practice material, the likely high-yield ideas are:
+The rough story is:
 
-- backdoor criterion on concrete graphs
-- what the PC algorithm can and cannot identify
-- intervention versus conditioning
-- diffusion/causal sections being tested conceptually rather than through long derivations
+- treatment affects mediator
+- mediator affects outcome
+- the graph is arranged so that this mediator pathway can be used to identify the causal effect, even when simple backdoor adjustment is unavailable
 
-## 8.7 What To Remember
+The front-door criterion has several technical conditions, but the most important beginner idea is:
 
-- conditioning is not intervention
-- backdoor adjustment is about blocking confounding paths
-- causal discovery often gives partial structure, not complete certainty
-- PC is a constraint-based algorithm using conditional independencies
-- for graph questions, always reason path-by-path rather than by visual impression
+front-door works by using a clean mediator pathway to reconstruct the effect of treatment on outcome.
+
+So if backdoor is:
+
+- “block the bad noncausal paths”
+
+then front-door is more like:
+
+- “exploit the right mediator structure when direct confounding blocks the easy route”
+
+## 8.4 Do-Calculus at a High Level
+
+Do-calculus is the general symbolic toolkit for manipulating intervention expressions.
+
+You do **not** need to think of it as mystical formula pushing.
+
+At a high level, it is:
+
+- graph surgery
+- plus conditional-independence reasoning
+- plus rules for when observation and intervention expressions can be transformed
+
+Backdoor and front-door are the friendliest special cases.
+
+So if full do-calculus feels intimidating, that is okay.
+The main conceptual point is:
+
+there is a systematic graphical logic for transforming causal quantities, not just ad hoc tricks.
+
+## 8.5 Causal Discovery and Markov Equivalence
+
+Now a different question:
+
+what if you do **not** know the graph?
+
+Causal discovery tries to infer causal structure from conditional independences in the data.
+
+But there is a fundamental obstacle:
+
+different DAGs can imply the same observational independence structure.
+
+This is called **Markov equivalence**.
+
+So observational data does not usually identify one unique causal DAG.
+Instead it identifies an equivalence class.
+
+This is why the PC algorithm often returns a partially directed graph rather than a completely directed one.
+
+## 8.6 SGS and PC, Slowly
+
+The course presents two related discovery algorithms.
+
+### SGS
+
+This is the conceptually simple but expensive version.
+
+High-level plan:
+
+1. start with a complete graph
+2. test conditional independences
+3. remove edges when independence evidence says they should not be there
+4. orient some edges using collider logic
+
+### PC
+
+PC is the more efficient practical version of the same style of idea.
+
+It still uses conditional-independence tests, but it organizes them more cleverly.
+
+The key beginner point is:
+
+PC is not a likelihood-based learning algorithm.
+It is a **constraint-based** discovery algorithm.
+
+It learns from which conditional independences appear to hold.
+
+## 8.7 What Interventions Buy You for Discovery
+
+Observational data alone often leaves edge directions ambiguous because of Markov equivalence.
+
+Interventions can break those ambiguities.
+
+Why?
+
+Because when you actively manipulate one variable, the resulting changes in the rest of the system reveal asymmetries that plain observation cannot.
+
+So interventions are useful in two different ways:
+
+- to estimate causal effects once a graph is known
+- to help learn the graph itself
+
+That second role is easy to overlook, but it is a major conceptual point of the later lectures.
+
+## 8.8 What You Should Be Able To Say Out Loud
+
+By the end of this section, you should be able to say:
+
+> Causal inference is different from ordinary probabilistic inference because observing a variable is not the same as intervening on it. Backdoor adjustment blocks confounding paths. Front-door uses a mediator structure when simple adjustment is not available. Causal discovery from observational data is limited by Markov equivalence, which is why algorithms like PC often identify only partial orientation. Interventions can help both estimate effects and resolve discovery ambiguity.
+
+If you can say that clearly, you have the real conceptual backbone of the section.
+
+## Formal Anchors
+
+These are the causal statements worth being able to recognize and write cleanly.
+
+### Observation versus intervention
+
+Observing
+$$
+P(Y\mid T=t)
+$$
+is not the same as intervening:
+$$
+P(Y\mid do(T=t)).
+$$
+
+An intervention breaks the original structural mechanism for `T` and sets it externally.
+In graph language, you can think of `do(T=t)` as cutting the incoming edges into `T` and forcing the treatment node to the chosen value.
+
+### Backdoor adjustment
+
+If a set `W` blocks all backdoor paths from treatment `T` to outcome `Y` and contains no descendants of `T`, then
+$$
+P(Y\mid do(T=t))=\sum_w P(Y\mid T=t,W=w)P(W=w).
+$$
+
+This is the standard adjustment formula.
+
+### Front-door identification
+
+Under the front-door conditions, the causal effect can be expressed through mediator adjustment terms.
+The standard front-door formula is
+$$
+P(Y\mid do(T=t))
+=
+\sum_m P(m\mid T=t)\sum_{t'} P(Y\mid m,T=t')P(T=t').
+$$
+
+At course level, the key point is that mediator structure can identify effects even when simple backdoor adjustment fails.
+
+### Do-calculus
+
+Do-calculus gives graphical rules for transforming intervention expressions into other expressions when the graph structure licenses those manipulations.
+
+Backdoor and front-door are important friendly special cases of this broader logic.
+
+### Markov equivalence
+
+Different DAGs can imply the same observational conditional independences.
+At a high level, observational equivalence is tied to sharing the same skeleton and the same unshielded collider structure.
+
+This is why observational data alone often identifies an equivalence class rather than a unique DAG.
+
+### Constraint-based discovery
+
+Algorithms like SGS and PC use conditional-independence tests to remove and orient edges.
+They are not primarily likelihood-based fitting procedures.
+
+## Worked Problems
+
+### Problem 8.1
+
+Why is
+$$
+P(Y\mid T=t)
+$$
+not automatically equal to
+$$
+P(Y\mid do(T=t))?
+$$
+
+### Solution
+
+Because observing `T=t` leaves intact whatever factors caused treatment assignment in the observational world.
+Those factors may also affect `Y`, creating confounding.
+
+An intervention `do(T=t)` instead forces `T` to the chosen value and breaks its usual causes.
+
+So the observational association and the causal effect can differ.
+
+### Problem 8.2
+
+What is the purpose of a backdoor adjustment set?
+
+### Solution
+
+Its purpose is to block all noncausal paths from treatment to outcome that begin by entering the treatment node.
+By conditioning on such a set, you remove confounding influence without blocking the causal pathway you want to estimate.
+
+### Problem 8.3
+
+Why is conditioning on "more variables" not always safer in causal inference?
+
+### Solution
+
+Because different variables play different causal roles.
+
+- conditioning on a confounder can help
+- conditioning on a mediator can change the effect being estimated
+- conditioning on a collider can create spurious dependence
+
+So causal adjustment is about choosing the right variables, not the largest possible set.
+
+### Problem 8.4
+
+At a high level, how does front-door identification differ from backdoor adjustment?
+
+### Solution
+
+Backdoor adjustment blocks noncausal confounding paths between treatment and outcome.
+
+Front-door identification instead uses a mediator pathway with the right graphical structure to reconstruct the causal effect, even when a simple confounder-blocking adjustment is unavailable.
+
+### Problem 8.5
+
+Why can observational data fail to identify a unique causal DAG?
+
+### Solution
+
+Because different DAGs can imply exactly the same set of observational conditional independences.
+Such DAGs are Markov equivalent.
+
+So conditional-independence information alone often determines only an equivalence class, not one uniquely oriented graph.
+
+### Problem 8.6
+
+What kind of method is the PC algorithm?
+
+### Solution
+
+PC is a constraint-based causal discovery algorithm.
+It uses conditional-independence tests to:
+
+- remove edges that are not supported
+- orient some remaining edges using collider and consistency logic
+
+It is not primarily a likelihood-maximization algorithm.
+
+### Problem 8.7
+
+Why do interventions help with causal discovery as well as causal-effect estimation?
+
+### Solution
+
+Observational data often leaves directions ambiguous because multiple DAGs are Markov equivalent.
+Interventions break some of those symmetries by actively perturbing one part of the system and observing asymmetric downstream changes.
+
+That extra asymmetry provides orientation information that pure observation cannot always supply.

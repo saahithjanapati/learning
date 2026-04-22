@@ -1,10 +1,14 @@
 # Probabilistic Graphical Models Full-PDF Ingest Report
 
-Model: `mixed (legacy gemini-3-flash-preview + local-pymupdf)`
-Files: 25
+Model: `mixed (legacy gemini-3-flash-preview + gemini-2.5-flash + local-pymupdf)`
+Files: 30
 
 ## Files
 
+- `Course_recap_review.pdf` -> `Course_recap_review.md` (finish: `STOP`)
+- `HW3_graded_submission.pdf` -> `HW3_graded_submission.md` (finish: `MIXED`)
+- `HW4_prompt.pdf` -> `HW4_prompt.md` (finish: `STOP`)
+- `HW4_recitation_beyond_likelihood.pdf` -> `HW4_recitation_beyond_likelihood.md` (finish: `STOP`)
 - `Lecture_11_advanced_MCMC.pdf` -> `Lecture_11_advanced_MCMC.md` (finish: `STOP`)
 - `Lecture_13_variational.pdf` -> `Lecture_13_variational.md` (finish: `STOP`)
 - `Lecture_15_EM.pdf` -> `Lecture_15_EM.md` (finish: `STOP`)
@@ -25,7 +29,8 @@ Files: 25
 - `Lecture_6_7_beliefprop (2).pdf` -> `Lecture_6_7_beliefprop.md` (finish: `STOP`)
 - `Lecture_8_GNNs.pdf` -> `Lecture_8_GNNs.md` (finish: `STOP`)
 - `Lecture_9_MCMC_intro.pdf` -> `Lecture_9_MCMC_intro.md` (finish: `STOP`)
-- `mnib2m5iyej4fu.pdf` -> `mnib2m5iyej4fu.md` (finish: `STOP`)
+- `Midterm_1_graded_submission.pdf` -> `Midterm_1_graded_submission.md` (finish: `STOP`)
+- `Practice_Exam_Solutions.pdf` -> `Practice_Exam_Solutions.md` (finish: `STOP`)
 - `S2610708_HW1_Final_prob_graph_model.pdf` -> `HW1_prompt.md` (finish: `COMPLETE`)
 - `S26_10708_HW3_2__1_.pdf` -> `HW3_prompt.md` (finish: `MIXED`)
 - `submission_388360398.pdf` -> `HW1_graded_submission.md` (finish: `STOP`)

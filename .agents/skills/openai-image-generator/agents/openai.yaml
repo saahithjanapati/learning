@@ -1,0 +1,7 @@
+interface:
+  display_name: "OpenAI Image Generator"
+  short_description: "Generate OpenAI images and embed local-only note assets."
+  default_prompt: "Use $openai-image-generator to create a local-only image for this note and embed it in the markdown file."
+
+policy:
+  allow_implicit_invocation: true

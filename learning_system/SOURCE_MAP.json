@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-20",
+  "generated_on": "2026-04-22",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -954,6 +954,15 @@
       "ingest_report": "materials/processed/optimization-for-ml/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Course_recap_review.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Course_recap_review.pdf",
+      "duplicate_equivalents": [
+        "Course_recap_review.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/probabilistic-graphical-models/HW1_graded_submission.md",
       "root_topic": "probabilistic-graphical-models",
       "source_pdf": "materials/archive/submission_388360398.pdf",
@@ -981,11 +990,38 @@
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/HW3_graded_submission.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/HW3_graded_submission.pdf",
+      "duplicate_equivalents": [
+        "HW3_graded_submission.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/probabilistic-graphical-models/HW3_prompt.md",
       "root_topic": "probabilistic-graphical-models",
       "source_pdf": "materials/archive/S26_10708_HW3_2__1_.pdf",
       "duplicate_equivalents": [
         "S26_10708_HW3_2__1_.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/HW4_prompt.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/HW4_prompt.pdf",
+      "duplicate_equivalents": [
+        "HW4_prompt.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/HW4_recitation_beyond_likelihood.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/HW4_recitation_beyond_likelihood.pdf",
+      "duplicate_equivalents": [
+        "HW4_recitation_beyond_likelihood.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
@@ -1175,11 +1211,20 @@
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     },
     {
-      "transcript_path": "materials/processed/probabilistic-graphical-models/mnib2m5iyej4fu.md",
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Midterm_1_graded_submission.md",
       "root_topic": "probabilistic-graphical-models",
-      "source_pdf": "materials/archive/mnib2m5iyej4fu.pdf",
+      "source_pdf": "materials/archive/Midterm_1_graded_submission.pdf",
       "duplicate_equivalents": [
-        "mnib2m5iyej4fu.pdf"
+        "Midterm_1_graded_submission.pdf"
+      ],
+      "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/probabilistic-graphical-models/Practice_Exam_Solutions.md",
+      "root_topic": "probabilistic-graphical-models",
+      "source_pdf": "materials/archive/Practice_Exam_Solutions.pdf",
+      "duplicate_equivalents": [
+        "Practice_Exam_Solutions.pdf"
       ],
       "ingest_report": "materials/processed/probabilistic-graphical-models/_INGEST_REPORT.md"
     }

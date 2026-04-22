@@ -2,14 +2,8 @@
   "items": [
     {
       "type": "file",
-      "ctime": 1776350637614,
-      "path": "topics/optimization-for-ml/lessons/2026-04-14-exam-2-comprehensive-notes.md",
-      "title": "convex optimization - exam 2 comprehensive notes"
-    },
-    {
-      "type": "file",
-      "ctime": 1776719084119,
-      "path": "topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md"
+      "ctime": 1776880476908,
+      "path": "topics/probabilistic-graphical-models/lessons/2026-04-20-pgm-exam-prep-comprehensive-notes.md"
     }
   ]
 }
