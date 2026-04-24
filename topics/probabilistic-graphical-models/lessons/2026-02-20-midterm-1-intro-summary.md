@@ -47,7 +47,7 @@ $$
 $$
 p_\theta(x) \propto \exp(-E_\theta(x))
 $$
-- Key extra object: partition function \(Z\), usually hard to compute exactly.
+- Key extra object: partition function $Z$, usually hard to compute exactly.
 
 Core intuition:
 - DGM: "who directly conditions on whom"
@@ -109,7 +109,7 @@ Core conditions/concepts:
 ## 6) Metropolis-Hastings (MH)
 
 MH update:
-1. Propose \(j\) from \(q(i,j)\).
+1. Propose $j$ from $q(i,j)$.
 2. Accept with
 $$
 \alpha(i,j)=\min\left(1,\frac{\pi_j q(j,i)}{\pi_i q(i,j)}\right)
@@ -117,7 +117,7 @@ $$
 3. If rejected, stay at current state.
 
 Key practical point:
-- Works with unnormalized target scores \(b(x)\) since normalization constants cancel.
+- Works with unnormalized target scores $b(x)$ since normalization constants cancel.
 
 
 
@@ -126,8 +126,8 @@ Key practical point:
 ## 7) Gibbs Sampling
 
 Gibbs update:
-1. Pick coordinate \(i\).
-2. Sample \(x_i\) from full conditional \(p(x_i \mid x_{-i})\).
+1. Pick coordinate $i$.
+2. Sample $x_i$ from full conditional $p(x_i \mid x_{-i})$.
 3. Replace only that coordinate; keep others fixed.
 
 Important relation:
@@ -172,7 +172,7 @@ Z=\sum_{\mathbf{x}}\prod_C \psi_C(\mathbf{x}_C)
 $$
 
 2. VE reminder
-- Eliminate variable \(\to\) multiply incident factors \(\to\) sum out variable \(\to\) new factor on neighbors.
+- Eliminate variable $\to$ multiply incident factors $\to$ sum out variable $\to$ new factor on neighbors.
 - Order matters; complexity tied to largest induced clique (treewidth).
 
 3. BP reminder (tree factor graph)
@@ -188,7 +188,7 @@ $$
 
 5. High-yield contrasts
 - DGM: local conditionals and DAG semantics.
-- UGM: compatibility/potentials and \(Z\).
+- UGM: compatibility/potentials and $Z$.
 - Exact inference can be exponential; MCMC is approximate sampling.
 - GNN message passing is analogous in structure, not identical in objective.
 
