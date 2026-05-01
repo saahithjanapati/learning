@@ -223,7 +223,7 @@ function topicSortDate(summary) {
   return latestDate(summary.lessons) || latestDate(summary.liveChats)
 }
 
-function topicSummaryParts(summary) {
+function topicSummaryParts(summary, { includeLatest = true } = {}) {
   const parts = []
   const latestReading = latestDate(summary.lessons)
 
@@ -233,7 +233,7 @@ function topicSummaryParts(summary) {
   if (summary.liveChats.length > 0) {
     parts.push(pluralize(summary.liveChats.length, "live chat"))
   }
-  if (latestReading) {
+  if (includeLatest && latestReading) {
     parts.push(`latest reading: ${latestReading}`)
   }
 
@@ -242,6 +242,10 @@ function topicSummaryParts(summary) {
 
 function topicListLine(topicPath, summary) {
   return `- [${topicLinkLabel(topicPath)}](${topicHref(topicPath)}) - ${topicSummaryParts(summary).join(", ")}`
+}
+
+function topicOverviewLine(topicPath, summary) {
+  return `- [${topicLinkLabel(topicPath)}](${topicHref(topicPath)}) - ${topicSummaryParts(summary, { includeLatest: false }).join(", ")}`
 }
 
 async function writeGeneratedPage(filePath, lines) {
@@ -304,20 +308,32 @@ const indexLines = [
   "",
   "Default reader: [Minimal](/). Alternate view: [Quartz](/quartz/).",
   "",
-  "## Recent Lessons",
+  "Browse by topic. For a chronological archive, use [Recent Lessons](recent-lessons.md).",
   "",
 ]
 
-for (const lesson of allLessons.slice(0, 10)) {
-  indexLines.push(`- ${lesson.date} - [${lesson.title}](${lesson.href}) (${lesson.topicTitle})`)
-}
-
-indexLines.push("", "[View all recent lessons](recent-lessons.md)")
-
-indexLines.push("", "## Topics", "")
-
 for (const topicPath of sortedChildTopicPaths("")) {
-  indexLines.push(topicListLine(topicPath, topicSummaries.get(topicPath)))
+  const summary = topicSummaries.get(topicPath)
+  const childTopicPaths = sortedChildTopicPaths(topicPath)
+
+  indexLines.push(`## ${topicLabel(topicPath)}`, "")
+  indexLines.push(`[Open ${topicLabel(topicPath)}](${topicHref(topicPath)})`)
+  indexLines.push("")
+  indexLines.push(`${topicSummaryParts(summary, { includeLatest: false }).join(", ")}.`, "")
+
+  if (childTopicPaths.length > 0) {
+    indexLines.push("### Subtopics", "")
+
+    for (const childTopicPath of childTopicPaths.slice(0, 8)) {
+      indexLines.push(topicOverviewLine(childTopicPath, topicSummaries.get(childTopicPath)))
+    }
+
+    if (childTopicPaths.length > 8) {
+      indexLines.push(`- [View all ${topicLabel(topicPath)} sections](${topicHref(topicPath)})`)
+    }
+
+    indexLines.push("")
+  }
 }
 
 const topicsIndexLines = [
@@ -447,14 +463,6 @@ for (const lesson of allLessons) {
 }
 
 await writeGeneratedPage(path.join(contentDir, "recent-lessons.md"), recentLessonLines)
-
-if (allLiveChats.length > 0) {
-  indexLines.push("", "## Recent Live Chats", "")
-
-  for (const liveChat of allLiveChats.slice(0, 5)) {
-    indexLines.push(`- ${liveChat.date} - [${liveChat.title}](${liveChat.href}) (${liveChat.topicTitle})`)
-  }
-}
 
 await writeGeneratedPage(path.join(contentDir, "index.md"), indexLines)
 
