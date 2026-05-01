@@ -32,8 +32,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Paper Lesson: pi0.7 steerable generalist robotic foundation model
 - AI / Collection -> Paper Lesson: RePro faithful web recycling for pretraining
 - Probabilistic Graphical Models -> Live Chat: PP6.3 EM, Easy
 - Probabilistic Graphical Models -> Late-Course Module Map (Variational Inference, EM, GANs, and Score Matching)
 - Optimization for ML -> Live Chat 03: Cumulative All-Topics Problem Walkthrough (Jan13-Feb19)
-- Optimization for ML -> Full Lecture-by-Lecture Expository Series (Jan13-Feb19, all processed lectures)
