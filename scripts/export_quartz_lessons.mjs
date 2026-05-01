@@ -306,9 +306,11 @@ const indexLines = [
   "",
 ]
 
-for (const lesson of allLessons.slice(0, 5)) {
+for (const lesson of allLessons.slice(0, 10)) {
   indexLines.push(`- ${lesson.date} - [${lesson.title}](${lesson.href}) (${lesson.topicTitle})`)
 }
+
+indexLines.push("", "[View all recent lessons](recent-lessons.md)")
 
 indexLines.push("", "## Topics", "")
 
@@ -417,6 +419,32 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
     ])
   }
 }
+
+const recentLessonLines = [
+  "---",
+  "title: Recent Lessons",
+  "cssclasses: lessons-topic-index",
+  "---",
+  "",
+  "# Recent Lessons",
+  "",
+  "[Lessons](index.md)",
+  "",
+  "All reading lessons, newest to oldest.",
+]
+
+let currentLessonDate = ""
+
+for (const lesson of allLessons) {
+  if (lesson.date !== currentLessonDate) {
+    currentLessonDate = lesson.date
+    recentLessonLines.push("", `## ${currentLessonDate}`, "")
+  }
+
+  recentLessonLines.push(`- [${lesson.title}](${lesson.href}) (${lesson.topicTitle})`)
+}
+
+await writeGeneratedPage(path.join(contentDir, "recent-lessons.md"), recentLessonLines)
 
 if (allLiveChats.length > 0) {
   indexLines.push("", "## Recent Live Chats", "")
