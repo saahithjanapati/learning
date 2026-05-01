@@ -17,7 +17,6 @@ import { visit } from "unist-util-visit"
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
 const publicDir = path.join(repoRoot, "web", "lessons", "public")
-const outputRoot = path.join(publicDir, "minimal")
 
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/")
@@ -73,7 +72,17 @@ function splitHref(href) {
   }
 }
 
-function markdownRelativeToUrl(markdownRelative) {
+function routeWithPrefix(urlPrefix, route) {
+  const prefix = urlPrefix.replace(/\/$/, "")
+
+  if (!route) {
+    return prefix ? `${prefix}/` : "/"
+  }
+
+  return prefix ? `${prefix}/${route}/` : `/${route}/`
+}
+
+function markdownRelativeToRoute(markdownRelative) {
   const relativeWithoutExt = markdownRelative.replace(/\.md$/i, "")
   const parts = relativeWithoutExt.split("/")
 
@@ -81,36 +90,25 @@ function markdownRelativeToUrl(markdownRelative) {
     parts.pop()
   }
 
-  const route = parts.filter(Boolean).join("/")
+  return parts.filter(Boolean).join("/")
+}
 
-  return route ? `/minimal/${route}/` : "/minimal/"
+function markdownRelativeToUrl(markdownRelative, urlPrefix) {
+  return routeWithPrefix(urlPrefix, markdownRelativeToRoute(markdownRelative))
 }
 
 function markdownRelativeToQuartzUrl(markdownRelative) {
-  const relativeWithoutExt = markdownRelative.replace(/\.md$/i, "")
-  const parts = relativeWithoutExt.split("/")
-
-  if (parts.at(-1) === "index") {
-    parts.pop()
-  }
-
-  const route = parts.filter(Boolean).join("/")
-
-  return route ? `/${route}/` : "/"
+  return routeWithPrefix("/quartz", markdownRelativeToRoute(markdownRelative))
 }
 
-function markdownRelativeToOutputPath(markdownRelative) {
-  const relativeWithoutExt = markdownRelative.replace(/\.md$/i, "")
-  const parts = relativeWithoutExt.split("/")
-
-  if (parts.at(-1) === "index") {
-    parts.pop()
-  }
+function markdownRelativeToOutputPath(markdownRelative, outputRoot) {
+  const route = markdownRelativeToRoute(markdownRelative)
+  const parts = route ? route.split("/") : []
 
   return path.join(outputRoot, ...parts, "index.html")
 }
 
-function rewriteMarkdownHref(href, sourceRelative) {
+function rewriteMarkdownHref(href, sourceRelative, urlPrefix) {
   if (!href || href.startsWith("#") || href.startsWith("/") || isExternalHref(href)) {
     return href
   }
@@ -124,21 +122,21 @@ function rewriteMarkdownHref(href, sourceRelative) {
   const sourceDir = path.posix.dirname(sourceRelative)
   const resolved = path.posix.normalize(path.posix.join(sourceDir, pathname))
 
-  return `${markdownRelativeToUrl(resolved)}${suffix}`
+  return `${markdownRelativeToUrl(resolved, urlPrefix)}${suffix}`
 }
 
-function rewriteInternalLinks(sourceRelative) {
+function rewriteInternalLinks(sourceRelative, urlPrefix) {
   return (tree) => {
     visit(tree, "element", (node) => {
       const properties = node.properties ?? {}
 
       if (node.tagName === "a" && typeof properties.href === "string") {
-        properties.href = rewriteMarkdownHref(properties.href, sourceRelative)
+        properties.href = rewriteMarkdownHref(properties.href, sourceRelative, urlPrefix)
         node.properties = properties
       }
 
       if (node.tagName === "img" && typeof properties.src === "string") {
-        properties.src = rewriteMarkdownHref(properties.src, sourceRelative)
+        properties.src = rewriteMarkdownHref(properties.src, sourceRelative, urlPrefix)
         node.properties = properties
       }
     })
@@ -153,7 +151,10 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
 }
 
-function renderPage({ title, body, sourceRelative }) {
+function renderPage({ title, body, sourceRelative, urlPrefix }) {
+  const homeHref = routeWithPrefix(urlPrefix, "")
+  const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
+  const topicsHref = routeWithPrefix(urlPrefix, "topics")
   const quartzHref = markdownRelativeToQuartzUrl(sourceRelative)
 
   return `<!doctype html>
@@ -166,25 +167,19 @@ function renderPage({ title, body, sourceRelative }) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #fbfbf8;
-      --text: #171717;
-      --muted: #666;
-      --line: #ddd9cf;
-      --link: #174ea6;
-      --code-bg: #f0eee8;
-      --max: 760px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #101114;
-        --text: #e8e8e3;
-        --muted: #aaa7a0;
-        --line: #2e3035;
-        --link: #8ab4f8;
-        --code-bg: #1c1f24;
-      }
+      color-scheme: dark;
+      --bg: #050506;
+      --surface: #0d0d10;
+      --surface-soft: #151318;
+      --text: #f4eee8;
+      --muted: #a99a91;
+      --line: #28232a;
+      --line-strong: #3b3033;
+      --link: #ffb38a;
+      --accent: #ffc6a1;
+      --code-bg: #121116;
+      --code-border: #2a252c;
+      --max: 820px;
     }
 
     * {
@@ -199,35 +194,65 @@ function renderPage({ title, body, sourceRelative }) {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-      font-size: 18px;
-      line-height: 1.68;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.72;
     }
 
     .shell {
       width: min(100% - 32px, var(--max));
       margin: 0 auto;
-      padding: 28px 0 72px;
+      padding: 26px 0 80px;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      align-items: baseline;
-      margin-bottom: 40px;
-      padding-bottom: 14px;
+      align-items: center;
+      margin-bottom: 46px;
+      padding-bottom: 16px;
       border-bottom: 1px solid var(--line);
       color: var(--muted);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 14px;
+      font-size: 13px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .brand::before {
+      content: "";
+      display: inline-block;
+      width: 0.68em;
+      height: 0.68em;
+      margin-right: 0.55em;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgb(255 198 161 / 0.28);
     }
 
     header nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
       justify-content: flex-end;
+    }
+
+    header nav a {
+      padding: 0.28rem 0.56rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    header nav a:hover {
+      border-color: var(--line-strong);
+      color: var(--accent);
+      background: var(--surface);
     }
 
     article {
@@ -241,18 +266,28 @@ function renderPage({ title, body, sourceRelative }) {
       line-height: 1.2;
       letter-spacing: 0;
       margin: 2.2em 0 0.55em;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
     }
 
     h1 {
       margin-top: 0;
-      font-size: clamp(2rem, 6vw, 3.25rem);
+      font-size: 3.1rem;
+      font-weight: 720;
+      line-height: 1.05;
+      max-width: 20ch;
     }
 
     h2 {
-      font-size: 1.65rem;
+      font-size: 1.55rem;
       border-top: 1px solid var(--line);
       padding-top: 1.1em;
+    }
+
+    h2 a,
+    h3 a,
+    h4 a {
+      color: inherit;
+      text-decoration: none;
     }
 
     h3 {
@@ -271,13 +306,17 @@ function renderPage({ title, body, sourceRelative }) {
     a {
       color: var(--link);
       text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.18em;
+      text-underline-offset: 0.22em;
+    }
+
+    a:hover {
+      color: var(--accent);
     }
 
     blockquote {
       margin-left: 0;
       padding-left: 1rem;
-      border-left: 3px solid var(--line);
+      border-left: 2px solid var(--accent);
       color: var(--muted);
     }
 
@@ -287,6 +326,7 @@ function renderPage({ title, body, sourceRelative }) {
       background: var(--code-bg);
       padding: 0.12em 0.32em;
       border-radius: 4px;
+      border: 1px solid var(--code-border);
     }
 
     pre {
@@ -302,6 +342,7 @@ function renderPage({ title, body, sourceRelative }) {
       background: transparent;
       padding: 0;
       border-radius: 0;
+      border: 0;
     }
 
     table {
@@ -329,15 +370,49 @@ function renderPage({ title, body, sourceRelative }) {
       overflow-y: hidden;
       padding: 0.5rem 0;
     }
+
+    hr {
+      border: 0;
+      border-top: 1px solid var(--line);
+      margin: 2.5rem 0;
+    }
+
+    ::selection {
+      background: rgb(255 179 138 / 0.24);
+      color: var(--text);
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 24px, var(--max));
+        padding-top: 18px;
+      }
+
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      header nav {
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+        max-width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <main class="shell">
     <header>
-      <a href="/minimal/">Minimal Lessons</a>
-      <nav>
-        <a href="/">Quartz</a>
-        <a href="${quartzHref}">Quartz version</a>
+      <a class="brand" href="${homeHref}">Learning Machine</a>
+      <nav aria-label="Reader navigation">
+        <a href="${recentHref}">Recent</a>
+        <a href="${topicsHref}">Topics</a>
+        <a href="${quartzHref}">Quartz</a>
       </nav>
     </header>
     <article>
@@ -349,33 +424,70 @@ ${body}
 `
 }
 
-const markdownFiles = (await walk(contentDir)).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
+async function cleanOutputRoot(outputRoot, preserveNames = new Set()) {
+  await fs.mkdir(outputRoot, { recursive: true })
 
-await fs.rm(outputRoot, { recursive: true, force: true })
-await fs.mkdir(outputRoot, { recursive: true })
+  const entries = await fs.readdir(outputRoot, { withFileTypes: true })
 
-for (const markdownPath of markdownFiles) {
-  const markdownRelative = toPosix(path.relative(contentDir, markdownPath))
-  const markdown = await fs.readFile(markdownPath, "utf8")
-  const title = extractTitle(markdown, markdownRelative)
-  const body = String(
-    await unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkMath)
-      .use(remarkRehype, { allowDangerousHtml: true })
-      .use(rehypeRaw)
-      .use(rehypeSlug)
-      .use(rehypeAutolinkHeadings, { behavior: "wrap" })
-      .use(rewriteInternalLinks, markdownRelative)
-      .use(rehypeKatex, { strict: "warn" })
-      .use(rehypeStringify)
-      .process(stripFrontmatter(markdown)),
-  )
-  const outputPath = markdownRelativeToOutputPath(markdownRelative)
+  for (const entry of entries) {
+    if (preserveNames.has(entry.name)) {
+      continue
+    }
 
-  await fs.mkdir(path.dirname(outputPath), { recursive: true })
-  await fs.writeFile(outputPath, renderPage({ title, body, sourceRelative: markdownRelative }))
+    await fs.rm(path.join(outputRoot, entry.name), { recursive: true, force: true })
+  }
 }
 
-console.log(`Rendered ${markdownFiles.length} minimalist lesson pages to ${path.relative(repoRoot, outputRoot)}`)
+async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
+  await cleanOutputRoot(outputRoot, preserveNames)
+
+  for (const markdownPath of markdownFiles) {
+    const markdownRelative = toPosix(path.relative(contentDir, markdownPath))
+    const markdown = await fs.readFile(markdownPath, "utf8")
+    const title = extractTitle(markdown, markdownRelative)
+    const body = String(
+      await unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkMath)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeRaw)
+        .use(rehypeSlug)
+        .use(rehypeAutolinkHeadings, { behavior: "wrap" })
+        .use(rewriteInternalLinks, markdownRelative, urlPrefix)
+        .use(rehypeKatex, { strict: "warn" })
+        .use(rehypeStringify)
+        .process(stripFrontmatter(markdown)),
+    )
+    const outputPath = markdownRelativeToOutputPath(markdownRelative, outputRoot)
+
+    await fs.mkdir(path.dirname(outputPath), { recursive: true })
+    await fs.writeFile(outputPath, renderPage({ title, body, sourceRelative: markdownRelative, urlPrefix }))
+  }
+
+  await fs.writeFile(
+    path.join(outputRoot, "404.html"),
+    renderPage({
+      title: "Not Found",
+      body: "<h1>Not found</h1>\n<p>This reader could not find that lesson route.</p>",
+      sourceRelative: "index.md",
+      urlPrefix,
+    }),
+  )
+}
+
+const markdownFiles = (await walk(contentDir)).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
+const targets = [
+  { outputRoot: publicDir, urlPrefix: "", preserveNames: new Set(["quartz"]) },
+  { outputRoot: path.join(publicDir, "minimal"), urlPrefix: "/minimal", preserveNames: new Set() },
+]
+
+for (const target of targets) {
+  await renderTarget(target)
+}
+
+console.log(
+  `Rendered ${markdownFiles.length} minimalist lesson pages to ${targets
+    .map((target) => path.relative(repoRoot, target.outputRoot))
+    .join(" and ")}`,
+)
