@@ -6,6 +6,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ```text
 ├─ ai
+├─ biology
+│  └─ core
 ├─ interviews
 │  └─ ml-system-design
 ├─ optimization-for-ml
@@ -34,6 +36,6 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 - AI / Collection -> Paper Lesson: reliable weak-to-strong monitoring of LLM agents
 - AI / Collection -> Paper Lesson: pi0.7 steerable generalist robotic foundation model
-- AI / Collection -> Paper Lesson: RePro faithful web recycling for pretraining
-- Probabilistic Graphical Models -> Live Chat: PP6.3 EM, Easy
-- Probabilistic Graphical Models -> Late-Course Module Map (Variational Inference, EM, GANs, and Score Matching)
+- Biology / Core -> Ecology: behavior, energy flow, populations, communities, biodiversity, disruption
+- Biology / Core -> Evolution and Natural Selection: variation, fitness, drift, phylogeny, speciation
+- Biology / Core -> Gene Expression and Biotechnology: DNA, RNA, protein, regulation, mutation, tools
