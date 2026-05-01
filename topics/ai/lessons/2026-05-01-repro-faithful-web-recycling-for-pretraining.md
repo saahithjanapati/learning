@@ -2,6 +2,83 @@
 
 Source note: Zichun Yu and Chenyan Xiong, "RePro: Training Language Models to Faithfully Recycle the Web for Pretraining," arXiv preprint, submitted October 12, 2025. Source: [arXiv:2510.10681](https://arxiv.org/abs/2510.10681).
 
+## Table of Contents
+
+- [Medium-Length Version](#medium-length-version)
+- [Full-Length Version](#full-length-version)
+- [What Question Are The Authors Trying To Answer?](#what-question-are-the-authors-trying-to-answer)
+- [The Core Idea](#the-core-idea)
+- [The Data Recycling Setup](#the-data-recycling-setup)
+- [How The Rephraser Is Trained](#how-the-rephraser-is-trained)
+- [Main Results](#main-results)
+- [Ablation Studies: What Actually Matters?](#ablation-studies-what-actually-matters)
+- [What Should We Be Careful About?](#what-should-we-be-careful-about)
+- [The Takeaway](#the-takeaway)
+- [Memory Checklist](#memory-checklist)
+
+## Medium-Length Version
+
+### Medium Thesis
+
+RePro is a paper about getting more value out of the messy web text we already have. The authors start from a practical observation: high-quality pretraining data is valuable, finite, and increasingly expensive to find. Large web crawls contain a lot of low- and medium-quality text, but discarding all of it wastes useful information. The question is whether we can "recycle" that text into better pretraining data without inventing new facts, collapsing formats, or turning everything into generic synthetic prose.
+
+The paper's answer is yes, but only if rewriting is constrained carefully. RePro trains a small rephraser to improve data quality while staying faithful to the source document. The key is that "better" does not mean "more polished at all costs." A useful recycled document should preserve meaning, preserve structure, and stay roughly aligned in length. Otherwise the system can drift into summarization, hallucination, or homogenized model-style writing.
+
+### Why This Matters
+
+Pretraining progress depends heavily on data quality. If two language models use the same architecture and compute budget, the one trained on better data can perform much better. This has made data curation a major lever in language model development.
+
+But traditional filtering has a hard tradeoff. If the filter is strict, it keeps only the best documents and throws away a lot of potentially useful long-tail content. If the filter is loose, the model trains on more noise. Synthetic data is another option, but fully synthetic pretraining data can become too teacher-model-shaped and may not preserve the diversity of real web text.
+
+RePro sits between filtering and free-form generation. It keeps an original web document as the anchor, then uses a learned rewriting policy to improve that document. The object being optimized is not a polished answer for a user. It is a future pretraining corpus.
+
+### The Method
+
+RePro starts with organic web documents and a 4B rephraser initialized from Qwen3-4B. For each source document `x`, the rephraser produces a rewritten document `x'`. The rephraser is trained with reinforcement learning, and the central design choice is the reward.
+
+The reward has one quality component and three faithfulness components:
+
+| Component | Purpose |
+| --- | --- |
+| DataMan quality reward | Push the output toward higher estimated pretraining-data quality |
+| BERTScore semantic similarity | Keep the rewritten text close in meaning to the source |
+| Structure preservation | Preserve markdown, lists, paragraphs, and document shape |
+| Length alignment | Prevent the rephraser from turning everything into short summaries or bloated rewrites |
+
+This reward design is the paper's core contribution. A quality-only reward would invite reward hacking: the rephraser could sound more professional while changing facts, compressing documents, or standardizing everything into one style. The faithfulness rewards keep the output tied to the original.
+
+### The Training Loop
+
+The rephraser is first supervised to produce reasonable rewrites, then optimized with reinforcement learning against the combined reward. The final output is not a single rewritten dataset, but a reusable rewriting policy. That matters because the policy can be applied to large quantities of web data without paying the cost of a huge proprietary teacher model for every document.
+
+The downstream test is straightforward: train language models on mixtures that include recycled text, then evaluate whether those models perform better than models trained on filtered organic data, prompted rewrites, or other baselines.
+
+### What The Experiments Show
+
+The main result is that RePro-recycled data improves downstream pretraining outcomes. The recycled corpus helps models trained on it outperform several comparison datasets and rewriting baselines. The paper also studies data efficiency: recycled low- or medium-quality web data can substitute for some amount of high-quality organic data, which is exactly what you would want if high-quality tokens are scarce.
+
+The ablations are especially important. Prompting a model to rewrite helps somewhat, but it does not match the trained RePro rephraser. Supervised fine-tuning alone is not enough either. The paper's best results come from optimizing the rephraser with the combined reward.
+
+Faithfulness also matters. If the system optimizes mostly for quality, it can learn to change the source too aggressively. RePro's gains come from making documents cleaner and more useful without losing their identity as web documents.
+
+### What To Be Careful About
+
+The paper is convincing as a data-recycling method, but there are caveats.
+
+First, the reward models are proxies. DataMan, BERTScore, structure overlap, and length similarity are all imperfect measures of what makes pretraining data useful. A rephraser could still exploit those proxies.
+
+Second, the method depends on having recoverable value in the input data. If a document is too corrupted, misleading, or content-free, rewriting may not help. Recycling is not magic; it is refinement.
+
+Third, the best mixture is not "all recycled data." The paper finds that recycling has a finite useful ratio. Too much rewritten text can reduce diversity or introduce distributional artifacts.
+
+Fourth, the approach is evaluated through a particular suite of downstream tasks and model scales. The direction is strong, but it is still worth asking how it behaves for larger models, different domains, multilingual corpora, code, math, and long-context data.
+
+### Medium Takeaway
+
+RePro's durable lesson is that web data should not be viewed as only keep-or-discard. Some lower-quality web text can be upgraded into better pretraining data if the rewriting system is trained to improve quality while preserving semantic content, structure, and length. The method is strongest because it treats faithfulness as a first-class constraint, not as an optional cleanup check after generation.
+
+## Full-Length Version
+
 ## The Paper In One Sentence
 
 RePro asks whether low- or medium-quality web text can be rewritten into useful pretraining data by a small, trainable rephraser, and the answer is: yes, if the rephraser is optimized for both higher data quality and strict faithfulness to the original text.
