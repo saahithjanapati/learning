@@ -34,7 +34,7 @@ Hints: `hints-first`
 
 **Assistant response:**
 
-Yes. I created a live markdown quiz at [topics/interviews/ml-system-design/lessons/2026-04-07-live-chat-quiz.md](2026-04-07-live-chat-quiz.md), and I’m using the ingested content from [materials/processed/interviews/system_design.md](../../../../materials/processed/interviews/system_design.md).
+Yes. I created a live markdown quiz at [topics/interviews/ml-system-design/live-chats/2026-04-07-live-chat-quiz.md](2026-04-07-live-chat-quiz.md), and I’m using the ingested content from [materials/processed/interviews/system_design.md](../../../../materials/processed/interviews/system_design.md).
 
 We’ll do this one question at a time and keep the transcript in this file as we go.
 

@@ -51,7 +51,7 @@ Generate for a note and then patch the note with the returned embed path:
 
 ```bash
 python3 .agents/skills/openai-image-generator/scripts/generate_openai_image.py \
-  --note topics/probabilistic-graphical-models/lessons/2026-02-20-live-chat.md \
+  --note topics/probabilistic-graphical-models/live-chats/2026-02-20-live-chat.md \
   --prompt "A hand-drawn style comparison of DGM vs UGM" \
   --quality medium \
   --size 1536x1024

@@ -63,9 +63,9 @@ On startup/help requests:
 
 ## Lesson Transcript Logging Policy (Default)
 
-For every lesson session (math or non-math):
-1. create or continue a live chat transcript under the active topic lessons folder:
-- `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`
+For every live tutoring session (math or non-math):
+1. create or continue a live chat transcript under the active topic live-chats folder:
+- `topics/<root>/<topic>/live-chats/YYYY-MM-DD-live-chat.md`
 2. append each entry in this format:
 - `---`
 - `## Response N`
@@ -96,7 +96,7 @@ When using colors in markdown output (equations, spans, callouts, or legends):
 - `topics/optimization-for-ml`
 - `topics/probabilistic-graphical-models`
 
-## Latest Logged Lesson Snapshot
+## Latest Logged Learning Snapshot
 
 - Use [learning_system/LESSON_INDEX.md](LESSON_INDEX.md) as the source of truth for recency.
-- Latest logged lesson entry: [topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md](../topics/optimization-for-ml/lessons/2026-02-26-live-chat-all-topics-cumulative.md)
+- Latest logged live-chat entry: [topics/optimization-for-ml/live-chats/2026-02-26-live-chat-all-topics-cumulative.md](../topics/optimization-for-ml/live-chats/2026-02-26-live-chat-all-topics-cumulative.md)

@@ -1,6 +1,13 @@
 __pycache__/
 *.pyc
 .DS_Store
+node_modules/
+.npm-cache/
+
+# Quartz web build/runtime outputs.
+/quartz
+/.quartz-cache/
+/web/lessons/public/
 
 # Local secrets/env vars
 .env
@@ -16,3 +23,4 @@ materials/archive/*
 # Local-only generated assets for interactive sessions.
 .local/
 local-assets/
+.vercel

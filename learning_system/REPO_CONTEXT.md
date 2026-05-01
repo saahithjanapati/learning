@@ -52,10 +52,10 @@ The assistant should help the learner:
   - `lessons/2026-02-15-kv-caching-session-01.md`
 - `topics/optimization-for-ml/`
   - `curriculum/0-to-1-master-plan.md`
-  - `lessons/2026-02-26-live-chat-all-topics-cumulative.md`
+  - `live-chats/2026-02-26-live-chat-all-topics-cumulative.md`
 - `topics/probabilistic-graphical-models/`
   - `curriculum/0-to-1-master-plan.md`
-  - `lessons/2026-02-22-live-chat-02-lecture-3-4.md`
+  - `live-chats/2026-02-22-live-chat-02-lecture-3-4.md`
 
 ## Session Style Preferences
 
@@ -63,7 +63,7 @@ The assistant should help the learner:
 - Review style should be hint-driven before giving exact fixes.
 - Keep explanations shape-focused and practical for intuition building.
 - Learner may explicitly choose per-session mode: `learn`, `practice`, or `mixed`.
-- Persist all lessons as markdown chat transcripts (math and non-math) for future mining and adaptation.
+- Persist interactive tutoring transcripts separately from reading lessons for future mining and adaptation.
 
 ## Operating Conventions
 
@@ -83,7 +83,7 @@ The assistant should help the learner:
    - store normalized markdown under `materials/processed/<root>/`,
    - preserve provenance with the source URL in the processed markdown header.
 8. By default for every lesson session:
-   - create or continue `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`,
+   - create or continue `topics/<root>/<topic>/live-chats/YYYY-MM-DD-live-chat.md`,
    - append turns with separators and explicit `User asked` + `Assistant response`,
    - keep logging enabled unless user explicitly asks to stop for that session.
 9. For markdown that uses color styling:

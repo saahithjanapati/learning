@@ -28,7 +28,7 @@ I created a dedicated live-chat transcript for the Exam 2 materials so we can us
 
 Use this file for the session:
 
-[topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md](2026-04-14-exam-2-live-chat.md)
+[topics/optimization-for-ml/live-chats/2026-04-14-exam-2-live-chat.md](2026-04-14-exam-2-live-chat.md)
 
 You can start asking questions about any section of the comprehensive notes, and I’ll continue appending both your prompt and my response here.
 

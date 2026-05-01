@@ -3,7 +3,7 @@
 Date: `2026-02-17` (learner local day)
 Topic Path: `topics/optimization-for-ml`
 Lesson IDs:
-- [topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md](2026-02-17-live-chat-02-review.md)
+- [topics/optimization-for-ml/live-chats/2026-02-17-live-chat-02-review.md](../live-chats/2026-02-17-live-chat-02-review.md)
 - [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-problem-set-01.md](2026-02-17-quiz-2-problem-set-01.md)
 
 ## Scope In This Session

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lesson Writer"
+  short_description: "Write thorough scholarly lessons"
+  default_prompt: "Use $lesson-writer to create an in-depth lesson from this material."

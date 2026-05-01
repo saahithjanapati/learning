@@ -9,7 +9,7 @@ Examples:
   python scripts/learning_cli.py reindex --write-skill-tree
   python scripts/learning_cli.py audit-skills --write-report
   python scripts/learning_cli.py post-ingest
-  python scripts/learning_cli.py log-evidence --topic optimization-for-ml --subtopic proximal-gradient --concept indicator-function --event-type doubt --summary "Asked what I_C means in prox-GD." --source-path topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md
+  python scripts/learning_cli.py log-evidence --topic optimization-for-ml --subtopic proximal-gradient --concept indicator-function --event-type doubt --summary "Asked what I_C means in prox-GD." --source-path topics/optimization-for-ml/live-chats/2026-04-14-exam-2-live-chat.md
   python scripts/learning_cli.py evidence-index
   python scripts/learning_cli.py show-evidence --topic optimization-for-ml --limit 10
   python scripts/learning_cli.py reorganize --write-report

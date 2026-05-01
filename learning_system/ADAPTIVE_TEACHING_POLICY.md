@@ -67,7 +67,7 @@ Use one primary tag per missed item:
 ## Session Transcript Logging
 
 - By default, every lesson session should also be logged as a markdown chat transcript under:
-  - `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`
+  - `topics/<root>/<topic>/live-chats/YYYY-MM-DD-live-chat.md`
 - Include both user prompt and assistant response so future instances can mine confusion patterns.
 - Keep this logging on for math and non-math lessons unless learner explicitly opts out for that session.
 

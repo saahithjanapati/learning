@@ -324,4 +324,4 @@ Answer each in one sentence or one formula.
 - [topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-interactive.md](2026-02-17-session-recap-quiz2-interactive.md)
 - [topics/optimization-for-ml/lessons/2026-02-17-session-recap-quiz2-review-02.md](2026-02-17-session-recap-quiz2-review-02.md)
 - [topics/optimization-for-ml/lessons/2026-02-19-quiz-2-study-guide-concise-and-deep.md](2026-02-19-quiz-2-study-guide-concise-and-deep.md)
-- [topics/optimization-for-ml/lessons/2026-02-19-chat-clarification-smoothness-descent.md](2026-02-19-chat-clarification-smoothness-descent.md)
+- [topics/optimization-for-ml/live-chats/2026-02-19-chat-clarification-smoothness-descent.md](../live-chats/2026-02-19-chat-clarification-smoothness-descent.md)

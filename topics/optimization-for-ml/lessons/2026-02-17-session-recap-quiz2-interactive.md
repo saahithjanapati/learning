@@ -3,7 +3,7 @@
 Date: `2026-02-17`  
 Topic Path: `topics/optimization-for-ml`  
 Lesson IDs:
-- [topics/optimization-for-ml/lessons/2026-02-16-live-chat.md](2026-02-16-live-chat.md)
+- [topics/optimization-for-ml/live-chats/2026-02-16-live-chat.md](../live-chats/2026-02-16-live-chat.md)
 - [topics/optimization-for-ml/lessons/2026-02-16-quiz-2-mini-textbook.md](2026-02-16-quiz-2-mini-textbook.md)
 
 ## Scope Locked For Quiz 2

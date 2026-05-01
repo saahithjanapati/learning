@@ -4608,7 +4608,7 @@ The latest Q8 correction and counterexample are now in this interactive chat log
 ## Response 180
 
 User asked:
-> /Users/saahithjanapati/Desktop/learning-machine/topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md
+> /Users/saahithjanapati/Desktop/learning-machine/topics/optimization-for-ml/live-chats/2026-02-17-live-chat-02-review.md
 
 Assistant response:
 Confirmed this is the active interactive chat file.

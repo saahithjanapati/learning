@@ -47,7 +47,7 @@ User asked:
 
 Assistant response:
 Created this file:
-[topics/optimization-for-ml/lessons/2026-02-23-live-chat-03-affine-hull-weights.md](2026-02-23-live-chat-03-affine-hull-weights.md)
+[topics/optimization-for-ml/live-chats/2026-02-23-live-chat-03-affine-hull-weights.md](2026-02-23-live-chat-03-affine-hull-weights.md)
 
 ---
 

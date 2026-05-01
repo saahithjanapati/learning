@@ -1,6 +1,6 @@
 ---
 name: markdown-live-chat
-description: Create or continue lesson live-chat transcripts and mirror the actual conversation into a markdown file. Use when the learner asks for a live chat, markdown chat, transcript logging, or wants the chat contents shown in an `.md` file.
+description: Create or continue topic live-chat transcripts and mirror the actual conversation into a markdown file. Use when the learner asks for a live chat, markdown chat, transcript logging, or wants the chat contents shown in an `.md` file.
 ---
 
 # Markdown Live Chat
@@ -10,7 +10,7 @@ description: Create or continue lesson live-chat transcripts and mirror the actu
 Use this skill when learner asks for:
 - a live chat
 - a markdown chat
-- answers written into a lesson `.md` file
+- answers written into a live-chat `.md` file
 - transcript logging for the current teaching session
 - continued turn-by-turn updates in an existing live-chat file
 
@@ -28,7 +28,7 @@ If the learner asks to "show the contents in the MD file," then each turn should
 
 1. Identify or infer the active topic.
 - default transcript location:
-  - `topics/<root>/<topic>/lessons/YYYY-MM-DD-live-chat.md`
+  - `topics/<root>/<topic>/live-chats/YYYY-MM-DD-live-chat.md`
 - if the session is scoped to a specific artifact, use a more specific suffix when helpful, for example:
   - `YYYY-MM-DD-hw3-live-chat-problem-1.md`
 

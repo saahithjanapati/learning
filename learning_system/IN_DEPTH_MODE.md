@@ -12,11 +12,12 @@ Use when learner requests deep coverage of a specific topic.
 
 For topic path `topics/<root>/<topic>/`:
 
-1. `topics/<root>/<topic>/lessons/` (most recent first)
-2. `topics/<root>/<topic>/curriculum/`
-3. `topics/<root>/<topic>/practice/` (completed exercises and known bugs)
-4. [learning_system/PROGRESS_LOG.md](PROGRESS_LOG.md) rows for this topic
-5. [learning_system/SKILL_GRAPH.md](SKILL_GRAPH.md) nodes related to this topic
+1. `topics/<root>/<topic>/lessons/` (pedagogical readings, most recent first)
+2. `topics/<root>/<topic>/live-chats/` (interactive transcripts, most recent first)
+3. `topics/<root>/<topic>/curriculum/`
+4. `topics/<root>/<topic>/practice/` (completed exercises and known bugs)
+5. [learning_system/PROGRESS_LOG.md](PROGRESS_LOG.md) rows for this topic
+6. [learning_system/SKILL_GRAPH.md](SKILL_GRAPH.md) nodes related to this topic
 
 ## Adaptation Rules
 
@@ -31,4 +32,3 @@ For topic path `topics/<root>/<topic>/`:
 - Include focused objectives tied to prior mistakes.
 - Use dynamic question generation based on requested style/difficulty.
 - End with next-step recommendations tied to observed performance.
-

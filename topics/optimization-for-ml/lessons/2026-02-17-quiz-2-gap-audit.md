@@ -14,7 +14,7 @@ Topic: `topics/optimization-for-ml`
   - [topics/optimization-for-ml/lessons/2026-02-15-quiz-2-core-concepts.md](2026-02-15-quiz-2-core-concepts.md)
   - [topics/optimization-for-ml/lessons/2026-02-16-quiz-2-mini-textbook.md](2026-02-16-quiz-2-mini-textbook.md)
   - [topics/optimization-for-ml/lessons/2026-02-17-quiz-2-problem-set-01.md](2026-02-17-quiz-2-problem-set-01.md)
-  - [topics/optimization-for-ml/lessons/2026-02-17-live-chat-02-review.md](2026-02-17-live-chat-02-review.md)
+  - [topics/optimization-for-ml/live-chats/2026-02-17-live-chat-02-review.md](../live-chats/2026-02-17-live-chat-02-review.md)
 
 ## What Looks Solid
 

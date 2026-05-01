@@ -1,0 +1,16 @@
+.obsidian/
+.trash/
+.quartz-cache/
+.npm-cache/
+node_modules/
+quartz/
+web/lessons/content/
+web/lessons/public/
+Users/
+learning_system/
+materials/
+skills/
+.agents/
+topics/**/materials/
+topics/**/practice/
+topics/**/curriculum/

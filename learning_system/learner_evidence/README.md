@@ -47,7 +47,7 @@ python3 scripts/learning_cli.py log-evidence \
   --concept indicator-function \
   --event-type doubt \
   --summary "Asked what I_C means in prox-GD." \
-  --source-path topics/optimization-for-ml/lessons/2026-04-14-exam-2-live-chat.md
+  --source-path topics/optimization-for-ml/live-chats/2026-04-14-exam-2-live-chat.md
 ```
 
 Notes:

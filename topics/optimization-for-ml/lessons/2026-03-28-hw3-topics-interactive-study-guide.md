@@ -3,7 +3,7 @@
 Source prompt: [materials/processed/optimization-for-ml/HW3_prompt.md](../../../materials/processed/optimization-for-ml/HW3_prompt.md)
 
 Companion live chat:
-- [topics/optimization-for-ml/lessons/2026-03-28-hw3-live-chat-problem-1.md](2026-03-28-hw3-live-chat-problem-1.md)
+- [topics/optimization-for-ml/live-chats/2026-03-28-hw3-live-chat-problem-1.md](../live-chats/2026-03-28-hw3-live-chat-problem-1.md)
 
 Primary lecture links:
 - [materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md](../../../materials/processed/optimization-for-ml/Feb17+24_proximal_gd.md)

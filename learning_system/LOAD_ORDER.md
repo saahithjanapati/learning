@@ -21,6 +21,7 @@ Then load topic-specific files as needed:
 - `topics/<root>/<topic>/README.md`
 - `topics/<root>/<topic>/curriculum/*.md`
 - `topics/<root>/<topic>/lessons/*.md`
+- `topics/<root>/<topic>/live-chats/*.md`
 - `topics/<root>/<topic>/practice/*`
 
 For startup UX:
