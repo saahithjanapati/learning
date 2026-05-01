@@ -1,6 +1,6 @@
 ---
 name: lesson-writer
-description: Create a single thorough, readable, scholarly lesson from a paper, website, blog post, uploaded material, or requested topic. Use whenever Codex is asked to write, generate, expand, or save a lesson note; for papers, use the paper-analysis workflow covering the research question, method, experiments, results, critique, and open questions.
+description: Create a thorough, readable, scholarly lesson from a paper, website, blog post, uploaded material, or requested topic. Use whenever Codex is asked to write, generate, expand, or save a lesson note; include a table of contents, and for papers include medium-length and full-length versions covering the research question, method, experiments, results, critique, and open questions.
 ---
 
 # Lesson Writer
@@ -16,6 +16,7 @@ The lesson must:
 - include examples, intuitions, mechanisms, and caveats
 - preserve the source's actual claims and uncertainty
 - avoid overclaiming beyond the source
+- include a `## Table of Contents` near the top, after the source note or short introduction
 
 ## Workflow
 
@@ -36,6 +37,16 @@ This skill is for pedagogical reading lessons. Do not classify live chats, inter
 ## Paper Mode
 
 For papers, structure the lesson like a very good PhD student reading memo plus a polished teaching note.
+
+By default, keep each paper lesson as one public page to avoid duplicating the lesson index. Put both versions inside that page:
+
+1. `## Table of Contents`
+2. `## Medium-Length Version`
+3. `## Full-Length Version`
+
+The medium-length version should be a complete standalone reading path: thesis, motivation, method, experiments, main findings, limitations, and takeaway. It should be substantially shorter than the full version but not merely an abstract.
+
+The full-length version should be the exhaustive teaching note.
 
 Include:
 - the central research question

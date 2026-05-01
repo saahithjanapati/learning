@@ -2,6 +2,77 @@
 
 Source note: Physical Intelligence, "pi0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities." Source PDF: [pi.website/download/pi07.pdf](https://www.pi.website/download/pi07.pdf). The paper stylizes the model name with the Greek letter pi; this lesson uses `pi0.7` for plain-text readability.
 
+## Table of Contents
+
+- [Medium-Length Version](#medium-length-version)
+- [Full-Length Version](#full-length-version)
+- [The Central Research Question](#the-central-research-question)
+- [The Main Idea: Diverse Context Conditioning](#the-main-idea-diverse-context-conditioning)
+- [The Prompt Components](#the-prompt-components)
+- [The Model Architecture](#the-model-architecture)
+- [Training Data](#training-data)
+- [Experimental Setup](#experimental-setup)
+- [Result 4: Cross-Embodiment Transfer](#result-4-cross-embodiment-transfer)
+- [Result 6: Scaling With Mixed-Quality Data](#result-6-scaling-with-mixed-quality-data)
+- [What Should We Be Careful About?](#what-should-we-be-careful-about)
+- [The Takeaway](#the-takeaway)
+- [Memory Checklist](#memory-checklist)
+
+## Medium-Length Version
+
+### Medium Thesis
+
+pi0.7 is a paper about making robot foundation models more general by making their context richer. The model is a roughly 5B-parameter vision-language-action system from Physical Intelligence. It is trained on a broad mixture of robot and non-robot data, but the important idea is not simply "more data." The important idea is that diverse robot data is ambiguous unless the model knows what kind of episode it is seeing.
+
+The paper's core claim is that robot data scales better when the policy is conditioned on useful context: task language, current subtask language, visual subgoals, quality metadata, speed labels, mistake labels, and control-mode labels. These signals let the model distinguish successful demonstrations from messy attempts, fast behavior from slow behavior, one strategy from another strategy, and one robot embodiment from another.
+
+### Why This Matters
+
+Robot learning has a harder data problem than language modeling. Text is abundant and naturally self-describing. Robot trajectories are expensive and depend on many hidden conditions: the robot body, cameras, gripper, workspace, control mode, operator quality, object poses, and task strategy. If we mix all trajectories together with only a short task instruction, the model may learn an average of incompatible behaviors.
+
+That is why pi0.7 emphasizes steerability. The authors want a single policy that can absorb heterogeneous data and then be prompted toward the desired behavior mode at test time. For example, a laundry dataset may include clean folds, messy folds, slow folds, failed attempts, and different arm strategies. With metadata, the model can learn which trajectories correspond to high-quality, no-mistake, appropriately fast behavior.
+
+### The Model
+
+pi0.7 follows the vision-language-action template. It observes camera images, proprioception, and language context, then predicts continuous robot action chunks. Architecturally, it combines:
+
+- a Gemma 3-based vision-language backbone,
+- a memory-style visual history encoder,
+- an 860M-parameter flow-matching action expert,
+- a total system size of roughly 5B parameters.
+
+The model can condition on several prompt components. Task language gives the overall goal. Subtask language gives the current step. Subgoal images show a desired near-future visual state. Metadata describes quality, speed, mistakes, and control mode. Prompt dropout during training prevents the model from becoming dependent on any single prompt field.
+
+### Subgoal Images
+
+One of the most interesting pieces is visual subgoal conditioning. Language is often too coarse for manipulation. "Fold the shirt" or "open the fridge" does not specify the exact intermediate geometry of cloth, grippers, handles, or objects. pi0.7 can use generated multi-view subgoal images as additional context.
+
+The paper uses a lightweight world model initialized from BAGEL to generate these subgoal images. The world model takes the current observation, subtask instruction, and metadata, then proposes visual targets. The policy can then act toward those targets.
+
+This is a useful bridge between high-level intent and low-level physical action. Instead of asking language alone to specify the next manipulation state, the system can show the robot what progress should look like.
+
+### What The Experiments Show
+
+The experiments test whether pi0.7 behaves like a genuine generalist rather than a weak average of many specialists.
+
+The paper reports strong out-of-box dexterity on several manipulation tasks, including tasks where specialist policies are strong baselines. It also evaluates memory-dependent behavior, language following, referential instructions, cross-embodiment transfer, and compositional generalization.
+
+The cross-embodiment result is especially important. pi0.7 transfers laundry folding behavior to a UR5e bimanual setup without UR5e folding data. In a zero-shot shirt-folding human study, expert teleoperators achieved 90.9% progress and 80.6% success, while pi0.7 with generated subgoals achieved 85.6% progress and 80% success. That does not mean the robot is generally human-level, but it is a strong example of skill transfer through context and subgoals.
+
+The scaling result is also central. With metadata, adding mixed-quality laundry data helps. Without metadata, adding mixed-quality data can hurt. That supports the paper's core thesis: data diversity becomes useful when the model can condition on the latent mode of the episode.
+
+### What To Be Careful About
+
+The paper shows impressive generalization, but the system is not a solved household robot. The evaluations are broad but still curated. The definition of an "unseen" task is hard when the training mixture is large. Visual subgoal generation adds cost and another possible failure point. Metadata labels require infrastructure, and noisy labels could become a source of shortcut learning.
+
+Safety and reliability also remain open. A steerable robot model can be prompted toward better behavior, but real deployments need constraints, verification, recovery, and robust failure handling. The paper is best read as a strong step in making robot data scale, not as proof that general robotics is solved.
+
+### Medium Takeaway
+
+pi0.7's durable lesson is that generalist robotics needs context-rich data, not just more trajectories. The model learns from heterogeneous demonstrations, failures, autonomous rollouts, and cross-robot data by conditioning on task state, visual goals, metadata, and control mode. The strongest empirical support is that metadata makes mixed-quality data useful, and generated subgoals help transfer difficult skills across embodiments.
+
+## Full-Length Version
+
 ## The Paper In One Sentence
 
 pi0.7 is a 5B-parameter vision-language-action robot model that tries to make robot behavior more general by training on highly diverse robot and non-robot data, but with much richer context in the prompt: subtask language, generated subgoal images, episode quality metadata, speed labels, mistake labels, and control-mode labels.
