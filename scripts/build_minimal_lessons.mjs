@@ -168,17 +168,17 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
   <style>
     :root {
       color-scheme: dark;
-      --bg: #050506;
-      --surface: #0d0d10;
-      --surface-soft: #151318;
-      --text: #f4eee8;
-      --muted: #a99a91;
-      --line: #28232a;
-      --line-strong: #3b3033;
-      --link: #ffb38a;
-      --accent: #ffc6a1;
-      --code-bg: #121116;
-      --code-border: #2a252c;
+      --bg: #050507;
+      --surface: #0c0e13;
+      --surface-soft: #121622;
+      --text: #f3f7ff;
+      --muted: #9aa7bf;
+      --line: #20283a;
+      --line-strong: #30405f;
+      --link: #6ea3ff;
+      --accent: #8bb8ff;
+      --code-bg: #10131c;
+      --code-border: #222b40;
       --max: 820px;
     }
 
@@ -231,7 +231,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
       margin-right: 0.55em;
       border: 1px solid var(--accent);
       border-radius: 50%;
-      box-shadow: 0 0 18px rgb(255 198 161 / 0.28);
+      box-shadow: 0 0 18px rgb(110 163 255 / 0.3);
     }
 
     header nav {
@@ -378,7 +378,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix }) {
     }
 
     ::selection {
-      background: rgb(255 179 138 / 0.24);
+      background: rgb(110 163 255 / 0.24);
       color: var(--text);
     }
 
