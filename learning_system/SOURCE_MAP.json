@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-04-22",
+  "generated_on": "2026-05-01",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -17,6 +17,32 @@
           "curriculum_path": null,
           "curriculum_paths": [],
           "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
+      "root_topic": "biology",
+      "processed_material_dir": "materials/processed/biology",
+      "materials_index_path": "topics/biology/materials/INDEX.md",
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/biology/core",
+          "root_topic": "biology",
+          "topic_key": "core",
+          "readme_path": "topics/biology/core/README.md",
+          "curriculum_path": "topics/biology/core/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/biology/core/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/biology/college-board-course-framework-2025.md",
+            "materials/processed/biology/khan-academy-college-biology-map.md",
+            "materials/processed/biology/openstax-biology-2e-map.md"
+          ],
           "source_pdfs": [],
           "transcript_anchors": [],
           "unresolved_source_materials": []
@@ -611,6 +637,27 @@
       "source_pdf": "https://alignment.openai.com/confessions/",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/biology/college-board-course-framework-2025.md",
+      "root_topic": "biology",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": null
+    },
+    {
+      "transcript_path": "materials/processed/biology/khan-academy-college-biology-map.md",
+      "root_topic": "biology",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": null
+    },
+    {
+      "transcript_path": "materials/processed/biology/openstax-biology-2e-map.md",
+      "root_topic": "biology",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": null
     },
     {
       "transcript_path": "materials/processed/interviews/system_design.md",
