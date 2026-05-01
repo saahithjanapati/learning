@@ -302,6 +302,8 @@ const indexLines = [
   "",
   "Pedagogical reading lessons from the Learning Machine vault. Live-chat transcripts are grouped separately.",
   "",
+  "[Open minimalist reader](/minimal/)",
+  "",
   "## Recent Lessons",
   "",
 ]
