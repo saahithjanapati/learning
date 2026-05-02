@@ -1,12 +1,13 @@
 # Lessons Web Deploy
 
-This native reader publishes lesson markdown from:
+This native reader publishes public reading markdown from:
 
 ```text
 topics/**/lessons/*.md
+materials/processed/ai/*.md entries listed in learning_system/SOURCE_MAP.json with public HTTP sources
 ```
 
-Live-chat transcripts stay in the repo for local desktop and agent workflows, but they are not exported to the public reader.
+Live-chat transcripts stay in the repo for local desktop and agent workflows, but they are not exported to the public reader. AI processed-source notes are routed under `topics/ai/papers/` at build time so newly ingested public papers appear without manually copying them into `topics/ai/lessons/`.
 
 Generated folders are intentionally not committed:
 

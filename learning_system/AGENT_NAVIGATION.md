@@ -49,7 +49,7 @@ Apply topic merges only after an explicit user confirmation of the exact source 
 - Do not scan `node_modules/`, `.npm-cache/`, `.vercel/`, or `web/lessons/public/` unless debugging generated output.
 - Do not stage `.obsidian/` workspace changes unless the user explicitly asks.
 - Treat untracked course/material folders as user work until their scope is confirmed.
-- For web reader changes, edit generator scripts under `scripts/` and verify via `npm run lessons:build`; generated public output is ignored.
+- For web reader changes, edit generator scripts under `scripts/` and verify via `npm run lessons:build`; generated public output is ignored. Public AI source notes are discovered from `learning_system/SOURCE_MAP.json` and rendered under `topics/ai/papers/`.
 
 ## Current Reorg Boundary
 

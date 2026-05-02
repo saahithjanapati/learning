@@ -41,6 +41,7 @@ This repo is organized so you can:
    - `materials/inbox/` -> `materials/archive/` for processed sources
    - transcript `Source:` path updates
    - `learning_system/SOURCE_MAP.json` refresh
+   - public AI source notes listed in `SOURCE_MAP.json` appear in the web reader under `/topics/ai/papers/` on the next build/deploy
 4. Build/update curriculum and lessons under:
    - `topics/<root>/<topic>/...`
 5. Work in `practice/` for exercises, save summaries in `lessons/`.

@@ -183,7 +183,7 @@ function escapeScriptJson(value) {
 }
 
 function isIndividualReading(markdownRelative) {
-  return /(^|\/)lessons\/(?!index\.md$)[^/]+\.md$/i.test(markdownRelative)
+  return /(^|\/)(?:lessons|papers)\/(?!index\.md$)[^/]+\.md$/i.test(markdownRelative)
 }
 
 function buildCopyContext(markdown, title) {

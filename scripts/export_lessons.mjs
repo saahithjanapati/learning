@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url"
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const topicsDir = path.join(repoRoot, "topics")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
+const sourceMapPath = path.join(repoRoot, "learning_system", "SOURCE_MAP.json")
 const contentPathPattern = /(^|[/\\])lessons[/\\][^/\\]+\.md$/i
+const publishedProcessedRootTopics = new Map([["ai", "papers"]])
 
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/")
@@ -63,10 +65,19 @@ function extractTitle(markdown, fallback) {
   return humanizeSlug(path.basename(fallback, ".md"))
 }
 
-function extractDate(repoRelative, stat) {
+function extractMetadataDate(markdown) {
+  return markdown.match(/^(?:Published|Submitted|Date):\s*`?(\d{4}-\d{2}-\d{2})`?\s*$/im)?.[1] ?? null
+}
+
+function extractDate(repoRelative, stat, markdown = "") {
   const filenameDate = path.basename(repoRelative).match(/^(\d{4}-\d{2}-\d{2})-/)?.[1]
   if (filenameDate) {
     return filenameDate
+  }
+
+  const metadataDate = extractMetadataDate(markdown)
+  if (metadataDate) {
+    return metadataDate
   }
 
   return new Date(stat.mtimeMs).toISOString().slice(0, 10)
@@ -111,6 +122,59 @@ async function walk(dir) {
   }
 
   return files
+}
+
+async function publicProcessedSourceReadings() {
+  let sourceMap
+
+  try {
+    sourceMap = JSON.parse(await fs.readFile(sourceMapPath, "utf8"))
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      return []
+    }
+
+    throw error
+  }
+
+  const readings = []
+  const seen = new Set()
+
+  for (const entry of sourceMap.transcripts ?? []) {
+    const publicCollection = publishedProcessedRootTopics.get(entry.root_topic)
+    const transcriptPath = typeof entry.transcript_path === "string" ? toPosix(entry.transcript_path) : ""
+    const sourceUrl = typeof entry.source_pdf === "string" ? entry.source_pdf : ""
+
+    if (!publicCollection || !transcriptPath.endsWith(".md") || !sourceUrl.startsWith("http")) {
+      continue
+    }
+    if (path.posix.basename(transcriptPath).startsWith("_") || seen.has(transcriptPath)) {
+      continue
+    }
+
+    const sourcePath = path.resolve(repoRoot, transcriptPath)
+    const stat = await fs.stat(sourcePath).catch((error) => {
+      if (error.code === "ENOENT") {
+        return null
+      }
+
+      throw error
+    })
+
+    if (!stat?.isFile()) {
+      continue
+    }
+
+    seen.add(transcriptPath)
+    readings.push({
+      sourcePath,
+      repoRelative: transcriptPath,
+      outputRelative: `topics/${entry.root_topic}/${publicCollection}/${path.posix.basename(transcriptPath)}`,
+      topicPath: `${entry.root_topic}/${publicCollection}`,
+    })
+  }
+
+  return readings.sort((a, b) => a.repoRelative.localeCompare(b.repoRelative))
 }
 
 function sanitizeGeneratedMarkdown(markdown) {
@@ -204,33 +268,46 @@ function pluralize(count, singular, plural = `${singular}s`) {
 }
 
 const lessonFiles = (await walk(topicsDir)).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
+const publicReadings = [
+  ...lessonFiles.map((sourcePath) => {
+    const repoRelative = path.relative(repoRoot, sourcePath)
+    const repoRelativePosix = toPosix(repoRelative)
+    const relativeParts = repoRelativePosix.split("/")
+    const collectionIndex = relativeParts.findIndex((part) => part === "lessons")
+
+    return {
+      sourcePath,
+      repoRelative: repoRelativePosix,
+      outputRelative: repoRelativePosix,
+      topicPath: relativeParts.slice(1, collectionIndex).join("/"),
+      collectionIndexRelative: toPosix(path.join("topics", ...relativeParts.slice(1, collectionIndex), "lessons", "index.md")),
+    }
+  }),
+  ...(await publicProcessedSourceReadings()),
+]
 
 await fs.rm(contentDir, { recursive: true, force: true })
 await fs.mkdir(contentDir, { recursive: true })
 
 const itemsByTopic = new Map()
+const collectionIndexes = new Map()
 const publicPathByRepoRelative = new Map()
 const exportRecords = []
 
-for (const sourcePath of lessonFiles) {
-  const repoRelative = path.relative(repoRoot, sourcePath)
-  const repoRelativePosix = toPosix(repoRelative)
+for (const reading of publicReadings) {
+  const { sourcePath, repoRelative: repoRelativePosix, outputRelative, topicPath, collectionIndexRelative } = reading
   const stat = await fs.stat(sourcePath)
   const markdown = await fs.readFile(sourcePath, "utf8")
   const sanitizedMarkdown = sanitizeGeneratedMarkdown(markdown)
-  const title = extractTitle(sanitizedMarkdown, repoRelative)
-  const relativeParts = repoRelativePosix.split("/")
-  const collectionIndex = relativeParts.findIndex((part) => part === "lessons")
+  const title = extractTitle(sanitizedMarkdown, repoRelativePosix)
 
-  if (isLiveChat(repoRelative, sanitizedMarkdown, title)) {
+  if (isLiveChat(repoRelativePosix, sanitizedMarkdown, title)) {
     continue
   }
 
-  const outputRelative = repoRelative
-  const topicPath = relativeParts.slice(1, collectionIndex).join("/")
   const topicItems = itemsByTopic.get(topicPath) ?? { lessons: [] }
   const item = {
-    date: extractDate(repoRelative, stat),
+    date: extractDate(repoRelativePosix, stat, sanitizedMarkdown),
     title,
     href: toPosix(outputRelative),
     topicPath,
@@ -239,6 +316,12 @@ for (const sourcePath of lessonFiles) {
 
   topicItems.lessons.push(item)
   itemsByTopic.set(topicPath, topicItems)
+
+  if (collectionIndexRelative) {
+    const collectionItems = collectionIndexes.get(collectionIndexRelative) ?? { topicPath, lessons: [] }
+    collectionItems.lessons.push(item)
+    collectionIndexes.set(collectionIndexRelative, collectionItems)
+  }
 
   publicPathByRepoRelative.set(repoRelativePosix, toPosix(outputRelative))
   exportRecords.push({
@@ -283,13 +366,13 @@ function topicSummaryParts(summary, { includeLatest = true } = {}) {
   const latestReading = latestDate(summary.lessons)
 
   if (summary.lessons.length > 0) {
-    parts.push(pluralize(summary.lessons.length, "reading lesson"))
+    parts.push(pluralize(summary.lessons.length, "reading"))
   }
   if (includeLatest && latestReading) {
     parts.push(`latest reading: ${latestReading}`)
   }
 
-  return parts.length > 0 ? parts : ["no public lessons yet"]
+  return parts.length > 0 ? parts : ["no public readings yet"]
 }
 
 function topicListLine(topicPath, summary, fromMarkdownRelative) {
@@ -347,14 +430,14 @@ const allLessons = sortedDatedItems(rootTopicSummary.lessons)
 
 const indexLines = [
   "---",
-  "title: Lessons",
+  "title: Readings",
   "---",
   "",
-  "# Lessons",
+  "# Readings",
   "",
-  "Pedagogical reading lessons from the Learning Machine vault.",
+  "Pedagogical lessons, paper notes, and source readings from the Learning Machine vault.",
   "",
-  `Browse by topic. For a chronological archive, use [Recent Lessons](${relativeMarkdownLink("index.md", "recent-lessons.md")}).`,
+  `Browse by topic. For a chronological archive, use [Recent Readings](${relativeMarkdownLink("index.md", "recent-lessons.md")}).`,
   "",
 ]
 
@@ -433,7 +516,7 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
   }
 
   if (directItems.lessons.length > 0) {
-    topicLines.push("## Lessons", "")
+    topicLines.push("## Readings", "")
 
     for (const lesson of directItems.lessons) {
       topicLines.push(`- ${lesson.date} - [${lesson.title}](${relativeMarkdownLink(topicIndexRelative, lesson.href)})`)
@@ -441,39 +524,39 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
   }
 
   await writeGeneratedPage(topicIndexPath, topicLines)
+}
 
-  if (directItems.lessons.length > 0) {
-    const lessonsIndexRelative = toPosix(path.join("topics", ...topicPath.split("/"), "lessons", "index.md"))
+for (const [collectionIndexRelative, collection] of [...collectionIndexes.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+  const sortedLessons = sortedDatedItems(collection.lessons)
+  const collectionIndexPath = path.join(contentDir, ...collectionIndexRelative.split("/"))
 
-    await writeGeneratedPage(path.join(contentDir, "topics", ...topicPath.split("/"), "lessons", "index.md"), [
+  await writeGeneratedPage(collectionIndexPath, [
       "---",
-      `title: ${topicLabel(topicPath)} Reading Lessons`,
+      `title: ${topicLabel(collection.topicPath)} Reading Lessons`,
       "cssclasses: lessons-topic-index",
       "---",
       "",
-      `# ${topicLabel(topicPath)} Reading Lessons`,
+      `# ${topicLabel(collection.topicPath)} Reading Lessons`,
       "",
-      `[${topicLabel(topicPath)}](${relativeMarkdownLink(lessonsIndexRelative, topicHref(topicPath))})`,
+      `[${topicLabel(collection.topicPath)}](${relativeMarkdownLink(collectionIndexRelative, topicHref(collection.topicPath))})`,
       "",
-      "## Lessons",
+      "## Readings",
       "",
-      ...directItems.lessons.map((lesson) => `- ${lesson.date} - [${lesson.title}](${relativeMarkdownLink(lessonsIndexRelative, lesson.href)})`),
-    ])
-  }
-
+      ...sortedLessons.map((lesson) => `- ${lesson.date} - [${lesson.title}](${relativeMarkdownLink(collectionIndexRelative, lesson.href)})`),
+  ])
 }
 
 const recentLessonLines = [
   "---",
-  "title: Recent Lessons",
+  "title: Recent Readings",
   "cssclasses: lessons-topic-index",
   "---",
   "",
-  "# Recent Lessons",
+  "# Recent Readings",
   "",
-  `[Lessons](${relativeMarkdownLink("recent-lessons.md", "index.md")})`,
+  `[Readings](${relativeMarkdownLink("recent-lessons.md", "index.md")})`,
   "",
-  "All reading lessons, newest to oldest.",
+  "All public readings, newest to oldest.",
 ]
 
 let currentLessonDate = ""
@@ -492,5 +575,5 @@ await writeGeneratedPage(path.join(contentDir, "recent-lessons.md"), recentLesso
 await writeGeneratedPage(path.join(contentDir, "index.md"), indexLines)
 
 console.log(
-  `Exported ${allLessons.length} reading lessons to ${path.relative(repoRoot, contentDir)}`,
+  `Exported ${allLessons.length} public readings to ${path.relative(repoRoot, contentDir)}`,
 )
