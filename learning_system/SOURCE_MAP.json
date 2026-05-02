@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-01",
+  "generated_on": "2026-05-02",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -628,6 +628,13 @@
       "transcript_path": "materials/processed/ai/vibe-physics-the-ai-grad-student.md",
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/research/vibe-physics",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/where-the-goblins-came-from.md",
+      "root_topic": "ai",
+      "source_pdf": "https://openai.com/index/where-the-goblins-came-from/",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

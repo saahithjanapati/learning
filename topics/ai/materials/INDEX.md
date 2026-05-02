@@ -22,5 +22,6 @@ Policy:
 - [materials/processed/ai/machines-of-faithful-obedience.md](../../../materials/processed/ai/machines-of-faithful-obedience.md)
 - [materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md](../../../materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md)
 - [materials/processed/ai/openai-stargate-where-the-us-sites-stand.md](../../../materials/processed/ai/openai-stargate-where-the-us-sites-stand.md)
+- [materials/processed/ai/where-the-goblins-came-from.md](../../../materials/processed/ai/where-the-goblins-came-from.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)
