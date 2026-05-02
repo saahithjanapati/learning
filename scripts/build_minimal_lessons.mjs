@@ -146,6 +146,23 @@ function rewriteInternalLinks(sourceRelative, urlPrefix) {
   }
 }
 
+function wrapResponsiveTables() {
+  return (tree) => {
+    visit(tree, "element", (node, index, parent) => {
+      if (node.tagName !== "table" || typeof index !== "number" || !parent) {
+        return
+      }
+
+      parent.children[index] = {
+        type: "element",
+        tagName: "div",
+        properties: { className: ["table-scroll"] },
+        children: [node],
+      }
+    })
+  }
+}
+
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -386,6 +403,19 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       overflow-wrap: anywhere;
     }
 
+    article img,
+    article video,
+    article canvas,
+    article iframe {
+      max-width: 100%;
+    }
+
+    article img,
+    article video,
+    article canvas {
+      height: auto;
+    }
+
     h1,
     h2,
     h3,
@@ -432,7 +462,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
     ol,
     blockquote,
     pre,
-    table {
+    .table-scroll {
       margin: 1rem 0;
     }
 
@@ -460,15 +490,18 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       padding: 0.12em 0.32em;
       border-radius: 4px;
       border: 1px solid var(--code-border);
+      overflow-wrap: break-word;
     }
 
     pre {
+      max-width: 100%;
       overflow-x: auto;
       background: var(--code-bg);
       padding: 1rem;
       border-radius: 8px;
       border: 1px solid var(--line);
       line-height: 1.45;
+      -webkit-overflow-scrolling: touch;
     }
 
     pre code {
@@ -476,14 +509,26 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       padding: 0;
       border-radius: 0;
       border: 0;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: inset -18px 0 18px -18px rgb(139 184 255 / 0.28);
+      -webkit-overflow-scrolling: touch;
     }
 
     table {
-      width: 100%;
+      width: max-content;
+      min-width: 100%;
       border-collapse: collapse;
       font-size: 0.95em;
-      display: block;
-      overflow-x: auto;
+      margin: 0;
     }
 
     th,
@@ -491,17 +536,27 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       border-bottom: 1px solid var(--line);
       padding: 0.5rem 0.65rem;
       vertical-align: top;
+      max-width: 24rem;
+      overflow-wrap: break-word;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
     }
 
     th {
       text-align: left;
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--heading-strong);
+      background: var(--surface-soft);
     }
 
     .katex-display {
+      max-width: 100%;
       overflow-x: auto;
       overflow-y: hidden;
       padding: 0.5rem 0;
+      -webkit-overflow-scrolling: touch;
     }
 
     hr {
@@ -521,10 +576,16 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
         padding-top: 18px;
       }
 
+      body {
+        font-size: 16px;
+        line-height: 1.68;
+      }
+
       header {
         align-items: flex-start;
         flex-direction: column;
         gap: 12px;
+        margin-bottom: 34px;
       }
 
       header nav {
@@ -538,6 +599,43 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       h1 {
         font-size: 2.25rem;
         max-width: 100%;
+      }
+
+      h2 {
+        font-size: 1.34rem;
+      }
+
+      ul,
+      ol {
+        padding-left: 1.35rem;
+      }
+
+      blockquote {
+        padding-left: 0.85rem;
+      }
+
+      pre {
+        padding: 0.85rem;
+      }
+
+      .table-scroll {
+        width: calc(100vw - 24px);
+        margin-left: calc(50% - 50vw + 12px);
+        margin-right: calc(50% - 50vw + 12px);
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      table {
+        font-size: 0.9em;
+      }
+
+      th,
+      td {
+        min-width: 8rem;
+        max-width: 14rem;
+        padding: 0.62rem 0.72rem;
       }
     }
   </style>
@@ -597,6 +695,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
         .use(rehypeSlug)
         .use(rehypeAutolinkHeadings, { behavior: "wrap" })
         .use(rewriteInternalLinks, markdownRelative, urlPrefix)
+        .use(wrapResponsiveTables)
         .use(rehypeKatex, { strict: "warn" })
         .use(rehypeStringify)
         .process(stripFrontmatter(markdown)),
