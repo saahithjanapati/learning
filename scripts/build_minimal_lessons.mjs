@@ -281,20 +281,23 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
     :root {
       color-scheme: dark;
       --bg: #050507;
-      --surface: #0c0e13;
-      --surface-soft: #121622;
-      --text: #f3f7ff;
-      --muted: #9aa7bf;
-      --line: #20283a;
-      --line-strong: #30405f;
-      --link: #6ea3ff;
-      --accent: #8bb8ff;
-      --heading-strong: #c7dcff;
-      --heading: #8bb8ff;
-      --heading-soft: #6ea3ff;
-      --heading-rule: rgb(110 163 255 / 0.24);
-      --code-bg: #10131c;
-      --code-border: #222b40;
+      --surface: #0b0d10;
+      --surface-soft: #11151b;
+      --text: #f1f4f8;
+      --muted: #a2acba;
+      --line: #242b36;
+      --line-strong: #3a4657;
+      --link: #86adf3;
+      --accent: #a8c2f6;
+      --heading-strong: #d7e4ff;
+      --heading: #aac4f7;
+      --heading-soft: #8faddf;
+      --heading-rule: rgb(143 173 223 / 0.24);
+      --code-bg: #101319;
+      --code-border: #283141;
+      --serif-font: Charter, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+      --sans-font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono-font: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       --max: 820px;
     }
 
@@ -310,7 +313,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--serif-font);
       font-size: 17px;
       line-height: 1.72;
     }
@@ -330,12 +333,13 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       padding-bottom: 16px;
       border-bottom: 1px solid var(--line);
       color: var(--muted);
+      font-family: var(--sans-font);
       font-size: 13px;
     }
 
     .brand {
       color: var(--text);
-      font-weight: 650;
+      font-weight: 700;
       text-decoration: none;
     }
 
@@ -347,7 +351,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       margin-right: 0.55em;
       border: 1px solid var(--accent);
       border-radius: 50%;
-      box-shadow: 0 0 18px rgb(110 163 255 / 0.3);
+      background: var(--surface);
     }
 
     header nav {
@@ -360,7 +364,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
     header nav a {
       padding: 0.28rem 0.56rem;
       border: 1px solid transparent;
-      border-radius: 999px;
+      border-radius: 4px;
       color: var(--muted);
       text-decoration: none;
     }
@@ -383,10 +387,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       min-height: 32px;
       padding: 0.34rem 0.7rem;
       border: 1px solid var(--line-strong);
-      border-radius: 6px;
+      border-radius: 4px;
       background: var(--surface);
       color: var(--text);
-      font: inherit;
+      font-family: var(--sans-font);
       font-size: 13px;
       line-height: 1.2;
       cursor: pointer;
@@ -424,12 +428,13 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       letter-spacing: 0;
       margin: 2.2em 0 0.55em;
       color: var(--heading);
+      font-family: var(--serif-font);
     }
 
     h1 {
       margin-top: 0;
       font-size: 3.1rem;
-      font-weight: 720;
+      font-weight: 700;
       line-height: 1.05;
       max-width: 20ch;
       color: var(--heading-strong);
@@ -439,8 +444,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       font-size: 1.55rem;
       border-top: 1px solid var(--heading-rule);
       padding-top: 1.1em;
+      font-weight: 680;
     }
 
+    h1 a,
     h2 a,
     h3 a,
     h4 a {
@@ -451,6 +458,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
     h3 {
       font-size: 1.2rem;
       color: var(--heading-soft);
+      font-weight: 680;
     }
 
     h4 {
@@ -468,7 +476,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
 
     a {
       color: var(--link);
-      text-decoration-thickness: 0.08em;
+      text-decoration-thickness: 0.06em;
       text-underline-offset: 0.22em;
     }
 
@@ -481,10 +489,11 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       padding-left: 1rem;
       border-left: 2px solid var(--accent);
       color: var(--muted);
+      font-style: italic;
     }
 
     code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-family: var(--mono-font);
       font-size: 0.9em;
       background: var(--code-bg);
       padding: 0.12em 0.32em;
@@ -501,6 +510,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       border-radius: 8px;
       border: 1px solid var(--line);
       line-height: 1.45;
+      color: var(--text);
       -webkit-overflow-scrolling: touch;
     }
 
@@ -517,9 +527,9 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       max-width: 100%;
       overflow-x: auto;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 4px;
       background: var(--surface);
-      box-shadow: inset -18px 0 18px -18px rgb(139 184 255 / 0.28);
+      box-shadow: inset -18px 0 18px -18px rgb(168 194 246 / 0.22);
       -webkit-overflow-scrolling: touch;
     }
 
@@ -546,7 +556,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
 
     th {
       text-align: left;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: var(--sans-font);
       color: var(--heading-strong);
       background: var(--surface-soft);
     }
@@ -566,7 +576,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
     }
 
     ::selection {
-      background: rgb(110 163 255 / 0.24);
+      background: rgb(134 173 243 / 0.22);
       color: var(--text);
     }
 
