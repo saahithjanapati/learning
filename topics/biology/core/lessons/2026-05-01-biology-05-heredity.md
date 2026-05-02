@@ -2,159 +2,116 @@
 
 Source note: Grounded in the College Board 2025-26 biology framework Unit 5, Khan Academy's heredity unit, and OpenStax Biology 2e Chapters 11-13.
 
-## The Big Question
+## Table of Contents
 
-Why do offspring resemble their parents but not copy them exactly?
+- [Before We Start](#before-we-start)
+- [The Big Picture](#the-big-picture)
+- [The Words You Actually Need](#the-words-you-actually-need)
+- [Meiosis Solves A Counting Problem](#meiosis-solves-a-counting-problem)
+- [Why Siblings Are Similar But Not Copies](#why-siblings-are-similar-but-not-copies)
+- [Mendel's Model: Traits As Inherited Factors](#mendels-model-traits-as-inherited-factors)
+- [A Gentle Punnett Square Example](#a-gentle-punnett-square-example)
+- [Inheritance Is Often More Than One Gene](#inheritance-is-often-more-than-one-gene)
+- [The Unit In One Story](#the-unit-in-one-story)
+- [Pause And Check](#pause-and-check)
 
-Heredity is the transmission of biological information across generations. The reason it feels both orderly and unpredictable is that heredity is built from two things at once:
+## Before We Start
 
-- physical chromosome behavior,
-- probability.
+Heredity can feel like a pile of vocabulary: genes, alleles, genotypes, phenotypes, meiosis, chromosomes, dominance, segregation. Underneath the terms, the story is straightforward.
 
-Meiosis sorts chromosomes. Fertilization combines gametes. Genes and alleles influence traits. The environment can modify outcomes. Once you see heredity as cell biology plus chance, the unit becomes much less mysterious.
+Offspring resemble parents because biological information is passed from one generation to the next. Offspring are not exact copies because that information is shuffled, combined, and sometimes changed.
 
-## Key Vocabulary
+## The Big Picture
 
-A gene is a segment of DNA that contributes to a product or trait.
+Heredity is cell biology plus probability.
 
-An allele is a version of a gene.
+The cell biology part is chromosome movement. Chromosomes carry DNA, and DNA contains genes. During meiosis, chromosome sets are separated into gametes, such as sperm or eggs.
 
-A genotype is the allele combination an organism has.
+The probability part is chance. Which chromosome copy goes into a gamete? Which gamete joins with which other gamete? Which allele combination does the offspring receive? Heredity feels predictable in patterns but unpredictable in individual outcomes because chance is built into the process.
 
-A phenotype is the observable trait or state.
+## The Words You Actually Need
 
-Haploid cells have one set of chromosomes. Diploid cells have two sets. Gametes are haploid reproductive cells. A zygote forms when gametes fuse.
+A gene is a stretch of DNA that helps produce a functional product, often a protein or RNA.
 
-These words are small, but they carry the whole unit.
+An allele is a version of a gene. For example, a gene involved in flower color might have one allele associated with purple flowers and another associated with white flowers.
 
-## Meiosis Reduces Chromosome Number
+A genotype is the allele combination an organism has. A phenotype is the observable trait or state.
 
-Meiosis produces haploid gametes from diploid cells. It has two divisions:
+Diploid cells have two sets of chromosomes, one set from each parent. Haploid cells have one set. Gametes are haploid reproductive cells. A zygote forms when two gametes fuse during fertilization.
 
-- Meiosis I separates homologous chromosomes.
-- Meiosis II separates sister chromatids.
+These terms are not random labels. They describe how information is stored, sorted, and expressed.
 
-That distinction matters. Homologous chromosomes are the two versions of each chromosome pair, one inherited from each parent. Sister chromatids are duplicated copies of one chromosome.
+## Meiosis Solves A Counting Problem
 
-Meiosis solves a counting problem. If gametes were diploid, chromosome number would double every generation. By making haploid gametes, sexual reproduction can restore diploidy at fertilization.
+Sexual reproduction has a chromosome-count problem. If two parents each passed a full diploid set into every offspring, chromosome number would double every generation. Meiosis prevents that by making haploid gametes.
 
-## Meiosis Creates Genetic Diversity
+Meiosis has two divisions. In meiosis I, homologous chromosomes separate. Homologous chromosomes are the matching chromosome pair, one from each parent. In meiosis II, sister chromatids separate. Sister chromatids are duplicated copies of one chromosome.
 
-Meiosis does more than reduce chromosome number. It creates variation.
+![Stages of meiosis](https://upload.wikimedia.org/wikipedia/commons/7/74/Meiosis_Stages.svg)
 
-Major sources:
+*Image source: [Wikimedia Commons file page for meiosis stages](https://commons.wikimedia.org/wiki/File:Meiosis_Stages.svg).*
 
-- Crossing over: homologous chromosomes exchange segments during prophase I.
-- Independent assortment: homologous chromosome pairs line up independently during metaphase I.
-- Random fertilization: any sperm can fuse with any egg.
+The result is four haploid cells. In animals, these can become gametes. The key idea is that meiosis halves the chromosome number so fertilization can restore the diploid number.
 
-Crossing over shuffles alleles along chromosomes. Independent assortment shuffles whole chromosome combinations. Fertilization combines two independently generated gametes.
+## Why Siblings Are Similar But Not Copies
 
-This is why siblings can share parents and still differ genetically.
+Meiosis also creates variation. This is why siblings can share parents but not be genetically identical, except in the special case of identical twins.
 
-## Mendel's Clean Starting Cases
+There are three major sources of variation in sexual reproduction.
 
-Gregor Mendel studied traits in pea plants and inferred basic inheritance patterns before DNA was known.
+Crossing over happens when homologous chromosomes exchange DNA sections during meiosis I. This creates chromosomes that are mixtures of the versions inherited from each parent.
 
-Two classic laws:
+Independent assortment means chromosome pairs line up independently during meiosis I. The maternal and paternal versions of different chromosomes can be mixed into gametes in many combinations.
 
-- Law of segregation: the two alleles for a gene separate during gamete formation.
-- Law of independent assortment: alleles of different genes assort independently if the genes are unlinked or far apart.
+Random fertilization means any one gamete from one parent can combine with any one gamete from the other parent.
 
-Punnett squares are a bookkeeping tool for allele combinations. They are not magic boxes. They simply organize the possible gametes from each parent and show possible offspring genotypes.
+The result is not chaos. It is structured shuffling.
 
-Probability is central. A 3:1 ratio does not mean every four offspring must include exactly three with one trait and one with another. It means that over many offspring, the expected pattern approaches that ratio.
+## Mendel's Model: Traits As Inherited Factors
 
-## Dominance Does Not Mean Stronger
+Gregor Mendel studied pea plants and noticed patterns in how traits passed across generations. His work helped establish that inherited information comes in discrete units, which we now connect to genes and alleles.
 
-Dominant alleles are expressed in heterozygotes. Recessive alleles are masked in heterozygotes and expressed when two copies are present.
+Two classic ideas are segregation and independent assortment. Segregation means the two alleles for a gene separate when gametes form. Independent assortment means alleles for different genes often sort independently, especially when the genes are on different chromosomes or far apart on the same chromosome.
 
-Dominance is about phenotype in a genotype context. It does not mean:
+Dominance describes how alleles affect phenotype when paired. A dominant allele can show its effect with one copy. A recessive allele may show its effect only when two copies are present. Dominant does not mean better, stronger, or more common. It only describes phenotype expression in a specific allele pairing.
 
-- more common,
-- better,
-- stronger,
-- more evolutionarily advanced.
+## A Gentle Punnett Square Example
 
-A harmful allele can be dominant. A beneficial allele can be recessive. Frequency depends on population history and selection, not the vocabulary label.
+Imagine a gene with two alleles: `A` and `a`. Suppose each parent has genotype `Aa`. Each parent can make gametes carrying either `A` or `a`.
 
-## Non-Mendelian Patterns
+The possible offspring combinations are:
 
-Real inheritance is richer than simple dominant/recessive cases.
+- `AA`
+- `Aa`
+- `Aa`
+- `aa`
 
-Incomplete dominance:
-- heterozygotes show an intermediate phenotype.
+So the genotype ratio is 1 `AA` : 2 `Aa` : 1 `aa`.
 
-Codominance:
-- both alleles are visibly expressed.
+If `A` is dominant and `a` is recessive, then `AA` and `Aa` show the dominant phenotype, while `aa` shows the recessive phenotype. That gives a phenotype ratio of 3 dominant : 1 recessive.
 
-Multiple alleles:
-- more than two allele versions exist in the population, even though one individual carries at most two for a diploid gene.
+This does not mean four children will always come out exactly in that pattern. It means each child has probabilities based on the same underlying possibilities.
 
-Polygenic traits:
-- many genes influence one trait, often producing continuous variation.
+## Inheritance Is Often More Than One Gene
 
-Pleiotropy:
-- one gene affects multiple traits.
+Mendel's model is a clean starting point, but real traits can be more complex. Some traits show incomplete dominance, where the heterozygote has an intermediate phenotype. Some show codominance, where both alleles are visibly expressed. Some traits involve multiple alleles in a population.
 
-Epistasis:
-- one gene affects the expression of another gene.
+Many traits are polygenic, meaning they are influenced by many genes. Height, skin pigmentation, and many disease risks are examples. The environment can also affect phenotype. Nutrition, temperature, stress, toxins, and experience can all matter depending on the trait.
 
-Sex-linked inheritance:
-- genes on sex chromosomes show distinctive patterns because males and females may differ in chromosome copy number.
-
-These cases are not exceptions that break genetics. They are what genetics looks like after the clean starting model is expanded.
-
-## Linked Genes And Mapping
-
-Genes on the same chromosome can be inherited together. These are linked genes. Crossing over can separate linked alleles, and the frequency of recombination gives clues about distance.
-
-If two genes recombine often, they are likely farther apart. If they rarely recombine, they are likely close together.
-
-This is the intuition behind genetic mapping: chromosome distance can be inferred from inheritance patterns.
-
-## Chromosomal Inheritance And Errors
-
-The chromosomal theory of inheritance connects Mendel's patterns to chromosome behavior during meiosis.
-
-Sometimes chromosome separation fails. Nondisjunction can produce gametes with missing or extra chromosomes. After fertilization, this can produce aneuploidy, an abnormal chromosome number.
-
-Chromosomal rearrangements can also affect inheritance:
-
-- deletion,
-- duplication,
-- inversion,
-- translocation.
-
-These changes may have no effect, harmful effects, or occasionally useful consequences depending on what genetic material is changed and how.
-
-## Environment And Phenotype
-
-Genotype is not destiny in the simplistic sense. Phenotype often depends on gene-environment interaction.
-
-Examples:
-
-- nutrition affects height,
-- temperature can affect sex determination in some reptiles,
-- environment can influence gene expression,
-- polygenic traits often vary continuously because many genes and conditions contribute.
-
-The better phrase is: genotype sets a range of possibilities, and environment helps shape the outcome.
-
-## Extranuclear Inheritance
-
-Not all inherited DNA is nuclear DNA. Mitochondria and chloroplasts have their own genomes. In many organisms, mitochondrial DNA is inherited mostly from the egg.
-
-This connects heredity back to cell biology and endosymbiosis. Organelles are not just structures; they carry evolutionary history and genetic information.
+So heredity is not destiny in a simplistic way. Genes influence possibilities and tendencies. Environments interact with those inherited instructions.
 
 ## The Unit In One Story
 
-Heredity is information transmission through chromosomes, gametes, and probability. Meiosis creates haploid cells and genetic diversity. Mendelian patterns are the simplest inheritance cases. Non-Mendelian patterns, linkage, chromosome errors, extranuclear inheritance, and environmental effects show how real traits emerge from layered biological causes.
+Heredity passes biological information across generations. Meiosis creates haploid gametes and shuffles chromosomes. Fertilization combines gametes and restores diploidy. Genes come in alleles, and allele combinations influence traits. Some inheritance patterns are simple enough for Punnett squares, while many real traits involve multiple genes and environmental effects.
 
-## Check Yourself
+Heredity is orderly because chromosomes follow rules. It is variable because chance is built into the rules.
 
-1. Why does meiosis need two divisions?
-2. How do crossing over and independent assortment differ?
-3. Why does dominant not mean common or beneficial?
-4. What does recombination frequency tell you about genes on a chromosome?
-5. How can the same genotype produce different phenotypes in different environments?
+## Pause And Check
+
+Try answering these in plain language:
+
+1. Why does meiosis make haploid cells?
+2. What is the difference between a gene and an allele?
+3. Why are siblings genetically different from each other?
+4. What does dominant mean, and what does it not mean?
+5. Why are many real traits more complicated than one Punnett square?

@@ -2,163 +2,114 @@
 
 Source note: Grounded in the College Board 2025-26 biology framework Unit 8, Khan Academy's ecology unit, and OpenStax Biology 2e Chapters 44-47.
 
-## The Big Question
+## Table of Contents
 
-How do living systems behave when organisms interact with each other and the environment?
+- [Before We Start](#before-we-start)
+- [The Big Picture](#the-big-picture)
+- [Ecology Studies Levels Of Organization](#ecology-studies-levels-of-organization)
+- [Organisms Respond To Their Environments](#organisms-respond-to-their-environments)
+- [Populations Grow, Shrink, And Spread](#populations-grow-shrink-and-spread)
+- [Communities Are Networks Of Interaction](#communities-are-networks-of-interaction)
+- [Energy Flows Through Food Webs](#energy-flows-through-food-webs)
+- [Matter Cycles Through Ecosystems](#matter-cycles-through-ecosystems)
+- [Disturbance And Human Impact](#disturbance-and-human-impact)
+- [The Unit In One Story](#the-unit-in-one-story)
+- [Pause And Check](#pause-and-check)
 
-Ecology is biology at system scale. It studies organisms, populations, communities, ecosystems, and the biosphere. It is where energy, information, evolution, behavior, and environment all meet.
+## Before We Start
 
-The challenge is that ecological systems often have indirect effects. Remove one predator, add one invasive species, warm one habitat, or change one nutrient flow, and consequences can move through the system in surprising ways.
+Ecology is where biology zooms out. Instead of focusing on one molecule or one cell, ecology asks how organisms interact with each other and with the physical environment.
 
-## Responses To The Environment
+The hard part is that ecological effects are often indirect. Change one species, nutrient, temperature pattern, or habitat, and the consequences can ripple through the system.
 
-Organisms respond to environmental cues through physiology and behavior.
+## The Big Picture
 
-Behavior can be:
+Ecology is systems biology at the scale of organisms, populations, communities, ecosystems, and the biosphere. It studies energy flow, matter cycling, behavior, population change, species interactions, biodiversity, and disturbance.
 
-- innate: strongly genetically influenced and present without extensive learning,
-- learned: modified by experience,
-- fixed in pattern,
-- flexible in context.
+The central question is:
 
-Behavior affects survival and reproduction. Foraging, migration, mating displays, communication, parental care, territoriality, and social behavior all have ecological and evolutionary consequences.
+How do living things affect each other and the places they live?
 
-The key question is not "is the behavior cute or interesting?" It is: How does this behavior affect energy use, risk, survival, or reproduction in this environment?
+## Ecology Studies Levels Of Organization
 
-## Energy Flow Through Ecosystems
+An organism is one individual living thing. A population is a group of individuals of the same species in the same area. A community is all the populations of different species interacting in an area. An ecosystem includes the community plus nonliving factors such as sunlight, water, soil, temperature, and nutrients. The biosphere is the global sum of living systems.
 
-Energy enters most ecosystems through photosynthesis. Producers capture light energy and build organic molecules. Consumers obtain energy by eating producers or other consumers. Decomposers break down dead organic matter and recycle nutrients.
+These levels are nested. A single fish belongs to a population, which belongs to a community, which lives in an ecosystem, which is part of the biosphere.
 
-Energy flows through trophic levels:
+When reading ecology, ask which level the question is about. A behavior question may focus on organisms. A carrying-capacity question may focus on populations. A food-web question may focus on communities or ecosystems.
 
-- producers,
-- primary consumers,
-- secondary consumers,
-- tertiary consumers,
-- decomposers.
+## Organisms Respond To Their Environments
 
-Energy transfer is inefficient. Much energy is lost as heat through metabolism, so higher trophic levels usually contain less available energy and biomass.
+Organisms respond to environmental cues through physiology and behavior. Behavior can be strongly innate, shaped by learning, or a mixture of both.
 
-Food chains are simplified paths. Food webs are more realistic networks.
+Examples include foraging, migration, mating displays, communication, parental care, territoriality, and cooperation. These behaviors matter because they affect energy use, risk, survival, and reproduction.
 
-## Matter Cycles, Energy Flows
+The key question is not whether a behavior is interesting in a casual sense. The ecological question is: how does this behavior affect the organism's ability to survive and reproduce in this environment?
 
-Energy flows through ecosystems and eventually leaves as heat. Matter cycles.
+## Populations Grow, Shrink, And Spread
 
-Important cycles include:
+Population size changes through births, deaths, immigration, and emigration.
 
-- water cycle,
-- carbon cycle,
-- nitrogen cycle,
-- phosphorus cycle.
+If resources are abundant and limits are weak, a population may grow rapidly. This is exponential growth. In real environments, resources are limited, predators exist, disease spreads, and space runs out. Growth often slows as the population approaches carrying capacity, the number of individuals an environment can support over time.
 
-This distinction matters. Ecosystems need ongoing energy input, but atoms are reused. Decomposers are essential because they return nutrients to forms other organisms can use.
+Population patterns can also be affected by density-dependent factors, which become stronger when population density is high, such as disease or competition. Density-independent factors, such as storms or fires, can affect populations regardless of density.
 
-## Population Ecology
+## Communities Are Networks Of Interaction
 
-A population is a group of individuals of the same species in an area.
+Species in a community interact in many ways.
 
-Population size changes through:
+Competition happens when organisms use the same limited resource. Predation happens when one organism eats another. Herbivory is eating plants or algae. Parasitism benefits one organism while harming the host. Mutualism benefits both partners. Commensalism benefits one partner without strongly affecting the other.
 
-- births,
-- deaths,
-- immigration,
-- emigration.
+These categories are useful, but real interactions can shift with context. A relationship may be beneficial in one environment and costly in another. Ecology often asks you to think in terms of costs, benefits, and conditions.
 
-Exponential growth occurs when a population grows at a constant per-capita rate under abundant resources. It produces a J-shaped curve.
+## Energy Flows Through Food Webs
 
-Logistic growth includes carrying capacity, the maximum population size the environment can sustain under given conditions. It produces an S-shaped curve.
+Energy usually enters ecosystems through producers, such as plants, algae, and some bacteria. Producers capture energy, often from sunlight, and build organic molecules. Consumers get energy by eating producers or other consumers. Decomposers break down dead organisms and waste.
 
-Real populations can overshoot, crash, fluctuate, or be regulated by many interacting factors.
+Food chains show simplified paths of energy transfer. Food webs show more realistic networks.
 
-## Density Effects
+![Freshwater and terrestrial food web](https://upload.wikimedia.org/wikipedia/commons/a/a7/FoodWeb.svg)
 
-Density-dependent factors change with population density:
+*Image source: [Wikimedia Commons file page for FoodWeb.svg](https://commons.wikimedia.org/wiki/File:FoodWeb.svg).*
 
-- competition,
-- disease transmission,
-- predation,
-- waste accumulation,
-- limited food or space.
+Energy transfer is inefficient. Much energy is lost as heat through metabolism at each trophic level. This is why higher trophic levels usually have less available energy and less biomass than lower levels.
 
-Density-independent factors affect populations regardless of density:
+The practical reading move is to follow the arrows. Ask who eats whom, where energy enters, and what might happen if one population changes.
 
-- storms,
-- fires,
-- floods,
-- sudden freezes,
-- some human disturbances.
+## Matter Cycles Through Ecosystems
 
-This distinction helps explain why population growth does not continue forever.
+Energy flows through ecosystems, but matter cycles. Atoms are reused.
 
-## Community Ecology
+The carbon cycle moves carbon among the atmosphere, organisms, oceans, rocks, and soils. Photosynthesis pulls carbon dioxide into organic molecules. Respiration releases carbon dioxide. Decomposition, combustion, ocean exchange, and geological processes also move carbon.
 
-A community includes interacting populations of different species.
+The nitrogen cycle matters because organisms need nitrogen for proteins and nucleic acids, but atmospheric nitrogen gas is not directly usable by most organisms. Bacteria play key roles in converting nitrogen into usable forms and returning it to the atmosphere.
 
-Major interactions:
+The water cycle moves water through evaporation, condensation, precipitation, runoff, infiltration, and transpiration.
 
-- competition: species use overlapping limited resources.
-- predation: one organism eats another.
-- herbivory: animals eat plants or algae.
-- parasitism: one benefits while harming a host.
-- mutualism: both species benefit.
-- commensalism: one benefits with little effect on the other.
+Cycles connect organisms to chemistry and climate. Ecology is not separate from the chemistry lessons at the beginning of the course.
 
-The niche is a species' ecological role: resources used, conditions tolerated, and interactions with other species. When niches overlap strongly, competition can shape distribution, behavior, or evolution.
+## Disturbance And Human Impact
 
-## Food Webs And Indirect Effects
+Disturbance is a change that disrupts an ecosystem. Fires, storms, floods, droughts, disease outbreaks, invasive species, and human activities can all disturb ecosystems.
 
-Ecological effects can be indirect.
+Some ecosystems are adapted to certain disturbance patterns. For example, some forests depend on periodic fire. But rapid or repeated disturbance can overwhelm recovery.
 
-If a predator declines, prey may increase. If prey increase, their food source may decline. If plants decline, soil stability, nutrient cycling, or other herbivores may change. These cascading effects are why ecology often requires system thinking.
+Human activity changes ecosystems through habitat loss, pollution, climate change, overharvesting, nutrient runoff, invasive species introductions, and land-use change. Conservation biology studies how to protect biodiversity, ecosystem function, and evolutionary potential.
 
-Keystone species have effects larger than their abundance might suggest. Removing them can reorganize a community.
-
-## Biodiversity
-
-Biodiversity includes genetic diversity, species diversity, and ecosystem diversity.
-
-Why biodiversity matters:
-
-- It can increase ecosystem resilience.
-- It provides functional redundancy.
-- It supports food webs and nutrient cycling.
-- It preserves evolutionary potential.
-- It has practical, cultural, and ethical importance.
-
-Species richness counts how many species are present. Evenness asks how balanced their abundances are. A community with many species dominated by one species is different from a community where species are more evenly represented.
-
-## Ecosystem Disruptions
-
-Ecosystems can be disrupted by:
-
-- habitat loss,
-- invasive species,
-- pollution,
-- climate change,
-- overharvesting,
-- altered nutrient cycles,
-- disease,
-- changed disturbance regimes.
-
-Invasive species can spread rapidly when they escape predators, competitors, or pathogens from their original range. Climate change can shift ranges, alter timing, stress organisms, and increase extreme events. Nutrient runoff can cause algal blooms and oxygen depletion.
-
-The key habit is to trace the mechanism. "Humans hurt ecosystems" is too vague. Better: fertilizer runoff increases nutrient levels, algae bloom, decomposition consumes oxygen, low oxygen kills aquatic organisms.
-
-## Ecology And Evolution Together
-
-Ecology and evolution are linked. Environments create selection pressures. Evolution changes traits that affect ecological interactions. A prey species evolving better defenses can change predator populations. A plant evolving different flowering time can affect pollinators.
-
-Ecology is the theater. Evolution is one long-running plot inside it.
+Biodiversity matters because it can support resilience, ecosystem services, genetic resources, and intrinsic value. But the exact effect of biodiversity depends on the system and the kind of disturbance.
 
 ## The Unit In One Story
 
-Ecology studies living systems in context. Organisms respond to environments through behavior and physiology. Energy flows through trophic networks while matter cycles. Populations grow, shrink, and respond to density. Communities form through species interactions. Biodiversity supports resilience. Disturbances can move through ecosystems in indirect ways.
+Ecology studies living systems in context. Organisms respond to environments. Populations change through births, deaths, movement, and limits. Communities form networks of interaction. Energy flows through food webs and is lost as heat. Matter cycles through ecosystems. Disturbances and human activity can alter relationships across many levels at once.
 
-## Check Yourself
+Ecology teaches you to think in systems: one change rarely stays in one place.
 
-1. Why does energy decrease at higher trophic levels?
-2. How is logistic growth different from exponential growth?
-3. What is the difference between density-dependent and density-independent regulation?
-4. Why can removing one species change an entire food web?
-5. How can a human-caused disturbance create an indirect ecological effect?
+## Pause And Check
+
+Try answering these in plain language:
+
+1. What is the difference between a population, community, and ecosystem?
+2. What does carrying capacity mean?
+3. How is a food web different from a food chain?
+4. Why does energy flow but matter cycle?
+5. Why can one ecological disturbance have indirect effects?

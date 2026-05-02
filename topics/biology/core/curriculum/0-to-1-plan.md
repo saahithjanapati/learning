@@ -16,7 +16,7 @@ Topic Path: `topics/biology/core`
 
 ## Starting Assumption
 
-You took biology before and do not need to be treated like a total beginner, but you want the ideas reassembled into a coherent story that is easy to read in small sessions. The goal is not exam cramming. The goal is to rebuild a durable biology map that can later expand into deeper molecular biology, physiology, ecology, evolution, genomics, and biochemistry.
+You may be coming back to biology and chemistry after several years away, so the lessons should teach like calm introductory lectures rather than final-exam review notes. The goal is not exam cramming. The goal is to rebuild a durable biology map from plain-language intuition, diagrams, and carefully staged vocabulary so deeper molecular biology, physiology, ecology, evolution, genomics, and biochemistry can make sense later.
 
 ## Target Outcome (What "1" Means)
 

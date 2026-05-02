@@ -2,145 +2,112 @@
 
 Source note: Grounded in the College Board 2025-26 biology framework Unit 3, Khan Academy's cellular energetics unit, and OpenStax Biology 2e Chapters 6-8.
 
-## The Big Question
+## Table of Contents
 
-How do cells get useful work out of energy without burning themselves up?
+- [Before We Start](#before-we-start)
+- [The Big Picture](#the-big-picture)
+- [Energy In Biology Means Usable Change](#energy-in-biology-means-usable-change)
+- [ATP Is The Cell's Spendable Energy Currency](#atp-is-the-cells-spendable-energy-currency)
+- [Enzymes Make Reactions Fast Enough For Life](#enzymes-make-reactions-fast-enough-for-life)
+- [Cellular Respiration Harvests Energy From Food](#cellular-respiration-harvests-energy-from-food)
+- [Photosynthesis Captures Energy From Light](#photosynthesis-captures-energy-from-light)
+- [Fermentation Keeps Glycolysis Running](#fermentation-keeps-glycolysis-running)
+- [The Unit In One Story](#the-unit-in-one-story)
+- [Pause And Check](#pause-and-check)
 
-Cells need energy to build molecules, move substances, maintain gradients, divide, and respond to signals. But cells cannot simply release energy explosively. They need controlled pathways, catalysts, and energy carriers.
+## Before We Start
+
+"Energy" can sound vague, so make it concrete. A cell needs energy to build molecules, move substances, change shape, send signals, copy DNA, divide, and repair damage. The cell cannot simply set food on fire inside itself. It has to release energy in controlled steps and capture some of it in useful forms.
 
 This unit is about controlled energy flow.
 
-## Energy, Entropy, And Metabolism
+## The Big Picture
 
-The first law of thermodynamics says energy is conserved. The second law says energy transformations increase entropy overall. Living systems maintain local order by taking in energy and releasing waste heat or lower-quality energy to the surroundings.
+Living things maintain order, but order is not free. Cells stay organized by taking in energy and matter, transforming them, and releasing waste heat and waste molecules. This does not violate thermodynamics. Cells create local order by increasing disorder in the surroundings.
 
-Metabolism is the total set of chemical reactions in a cell or organism.
+Metabolism is the total set of chemical reactions in a cell or organism. Catabolic pathways break molecules down and release energy. Anabolic pathways build molecules and require energy. Cells connect these pathways through energy coupling, where energy released by one process helps drive another.
 
-- Catabolic pathways break molecules down and release energy.
-- Anabolic pathways build molecules and require energy.
+## Energy In Biology Means Usable Change
 
-Cells connect these pathways through energy coupling. Energy released by one process can power another process that would not occur on its own.
+A useful way to think about energy is: can this process be used to make something happen?
 
-## ATP: The Useful Middle Currency
+Food molecules contain chemical energy in their bonds and electron arrangements. Sunlight contains energy that photosynthetic organisms can capture. ATP stores energy in a form that cells can spend quickly. Ion gradients across membranes store energy because the ions "want" to move down their gradients.
 
-ATP, adenosine triphosphate, is a common energy carrier. Its phosphate bonds can be hydrolyzed, and the released free energy can be coupled to cellular work.
+Cells constantly convert energy between forms. The important question is not "where is the energy?" but "how is the energy being transferred, and what work does it make possible?"
 
-ATP powers work by phosphorylation, shape changes, transport, and chemical coupling. It is not "stored energy" in the vague battery sense. It is a molecule whose reactions can be linked to other reactions.
+## ATP Is The Cell's Spendable Energy Currency
 
-The cycle matters:
+ATP stands for adenosine triphosphate. It is a small molecule cells use again and again to connect energy-releasing processes to energy-requiring work.
+
+The basic cycle is:
 
 ATP -> ADP + phosphate + usable energy
+
 ADP + phosphate + energy -> ATP
 
-Cells constantly spend and regenerate ATP.
+ATP can help power transport pumps, chemical synthesis, movement, and shape changes in proteins. It is not a magical battery. It is useful because its breakdown can be coupled to other processes.
 
-## Enzymes Make Life Chemically Possible
+You can picture ATP as a cell's spendable cash. Food is more like a large paycheck or stored value. Cells break food down gradually, convert part of that energy into ATP, and then spend ATP on immediate jobs.
 
-Many reactions that are energetically favorable still happen too slowly to sustain life. Enzymes solve the speed problem.
+## Enzymes Make Reactions Fast Enough For Life
 
-An enzyme is a biological catalyst. It lowers activation energy, often by binding substrates in an active site, orienting them, stressing bonds, creating a favorable microenvironment, or stabilizing the transition state.
+Many reactions that are energetically possible still happen too slowly. Enzymes solve that speed problem. An enzyme is a biological catalyst, usually a protein, that lowers the activation energy needed for a reaction.
 
-Important enzyme ideas:
+Activation energy is the "start-up push" a reaction needs. Enzymes reduce that push by holding molecules in useful positions, stressing certain bonds, creating a favorable chemical environment, or stabilizing a temporary transition state.
 
-- Enzymes are specific because shape and chemistry matter.
-- Enzymes are not consumed by the reaction.
-- Enzymes do not change the overall free-energy difference between reactants and products.
-- Enzymes speed up the approach to equilibrium.
+Enzymes are specific because shape and chemistry matter. A substrate binds to an enzyme's active site, the reaction becomes easier, and products leave. The enzyme is not used up.
 
-The active site is not a passive pocket. It is a chemical workspace.
+Enzyme activity can change when temperature, pH, concentration, inhibitors, or activators change. This matters because cells regulate metabolism by regulating enzymes.
 
-## Conditions Affect Enzyme Function
+## Cellular Respiration Harvests Energy From Food
 
-Enzymes have conditions under which they work best. Temperature, pH, salt concentration, substrate concentration, and inhibitors can all change reaction rate.
+Cellular respiration is how many cells harvest energy from food molecules, especially glucose, and convert some of it into ATP. It does not happen in one explosive step. It happens through a pathway.
 
-High temperature can increase molecular motion at first, but excessive heat can denature the enzyme. pH changes can alter charge interactions and protein shape. Competitive inhibitors occupy the active site. Noncompetitive inhibitors bind elsewhere and change enzyme function.
+![Overview of cellular respiration](https://upload.wikimedia.org/wikipedia/commons/7/74/CellRespiration.svg)
 
-Regulation matters because cells do not want every reaction running at maximum speed all the time. Metabolism is managed, not merely accelerated.
+*Image source: [Wikimedia Commons file page for cellular respiration](https://commons.wikimedia.org/wiki/File:CellRespiration.svg).*
 
-## Photosynthesis: Capturing Light Into Chemical Form
+The common overview is:
 
-Photosynthesis converts light energy into chemical energy. In plants and algae, it occurs in chloroplasts.
+1. Glycolysis breaks glucose into smaller molecules in the cytoplasm and makes a small amount of ATP.
+2. Pyruvate oxidation and the citric acid cycle continue breaking down carbon molecules and load high-energy electrons onto carriers.
+3. The electron transport chain uses those electrons to build a hydrogen ion gradient.
+4. ATP synthase uses that gradient to make ATP.
 
-The simplified overall story:
+The details can get heavy quickly. For a first pass, focus on the story: food is broken down step by step, electrons carry energy, the mitochondrion builds a gradient, and the gradient powers ATP production.
 
-carbon dioxide + water + light -> sugar + oxygen
+## Photosynthesis Captures Energy From Light
 
-But the mechanism has two linked stages.
+Photosynthesis is how plants, algae, and some bacteria capture light energy and store it in sugars. It is not simply "plants eating sunlight." It is a two-part energy conversion process.
 
-### Light-Dependent Reactions
+![Simple photosynthesis overview](https://upload.wikimedia.org/wikipedia/commons/0/0c/Simple_photosynthesis_overview.svg)
 
-These occur in the thylakoid membranes. Chlorophyll and other pigments absorb light. Excited electrons move through an electron transport chain. Their movement helps build a proton gradient. ATP synthase uses that gradient to make ATP. Electrons also reduce NADP+ to NADPH.
+*Image source: [Wikimedia Commons file page for a simple photosynthesis overview](https://commons.wikimedia.org/wiki/File:Simple_photosynthesis_overview.svg).*
 
-Outputs:
+In the light reactions, chlorophyll and other molecules capture light energy. Water is split, oxygen is released, and energy is stored in ATP and electron carriers.
 
-- ATP,
-- NADPH,
-- oxygen as a byproduct from splitting water.
+In the Calvin cycle, carbon dioxide is used to build sugar molecules. The sugar can later be used for energy, structure, storage, or as raw material for other molecules.
 
-### Calvin Cycle
+Photosynthesis and cellular respiration connect deeply. Photosynthesis builds energy-rich molecules using light. Respiration breaks energy-rich molecules down to make ATP.
 
-The Calvin cycle uses ATP and NADPH to fix carbon dioxide into organic molecules. The enzyme RuBisCO attaches carbon dioxide to RuBP, and the cycle eventually produces G3P, a small sugar that can contribute to glucose and other molecules.
+## Fermentation Keeps Glycolysis Running
 
-The important distinction:
+When oxygen is not available, some cells use fermentation. Fermentation does not make as much ATP as aerobic respiration. Its main job is to regenerate electron carriers so glycolysis can keep running.
 
-- light reactions capture energy,
-- Calvin cycle uses that captured energy to build carbon compounds.
-
-## Cellular Respiration: Harvesting Energy From Food
-
-Cellular respiration extracts energy from organic molecules and transfers much of it to ATP.
-
-The simplified overall story:
-
-glucose + oxygen -> carbon dioxide + water + ATP
-
-Again, the mechanism happens in stages.
-
-### Glycolysis
-
-Glycolysis occurs in the cytosol. One glucose molecule is split into two pyruvate molecules. A small amount of ATP is made, and NAD+ is reduced to NADH.
-
-Glycolysis does not require oxygen directly.
-
-### Pyruvate Oxidation And Citric Acid Cycle
-
-In eukaryotes, pyruvate enters the mitochondrion and is converted to acetyl-CoA. The citric acid cycle then oxidizes acetyl-CoA, releasing carbon dioxide and loading electron carriers such as NADH and FADH2.
-
-The cycle itself makes a little ATP, but its main job is to collect high-energy electrons.
-
-### Oxidative Phosphorylation
-
-NADH and FADH2 deliver electrons to the electron transport chain in the inner mitochondrial membrane. Electron movement helps pump protons across the membrane, building a proton gradient.
-
-ATP synthase lets protons flow back down the gradient and uses that flow to make ATP.
-
-This is chemiosmosis: using a proton gradient to power ATP synthesis.
-
-## Fermentation And Anaerobic Options
-
-When oxygen is unavailable, cells still need to regenerate NAD+ so glycolysis can continue. Fermentation does that.
-
-Common types:
-
-- Lactic acid fermentation, used by some bacteria and muscle cells under low oxygen.
-- Alcohol fermentation, used by yeast and some microbes.
-
-Fermentation makes far less ATP per glucose than aerobic respiration, but it keeps glycolysis running.
-
-## Energy And Fitness
-
-Energetics connects to evolution. Molecular variation can affect enzyme function, metabolism, photosynthetic efficiency, or respiration. If that variation changes survival or reproduction in a particular environment, it can affect fitness.
-
-This is where cellular biology starts to scale up. A tiny protein change can alter organism performance, and organism performance can alter allele frequencies.
+In muscle cells under intense activity, lactic acid fermentation can occur. Yeast can use alcoholic fermentation, producing ethanol and carbon dioxide. The point is survival under limited oxygen, not maximum efficiency.
 
 ## The Unit In One Story
 
-Cells transform energy through controlled chemical pathways. Enzymes make reactions fast enough. ATP couples energy release to work. Photosynthesis captures light into chemical bonds. Respiration harvests chemical energy into ATP. Gradients, membranes, and electron carriers are the hidden infrastructure that make energy flow useful.
+Cells need energy, but they need it in controlled forms. Enzymes make reactions fast and regulated. ATP gives cells a spendable energy currency. Cellular respiration harvests energy from food, often using mitochondria and oxygen. Photosynthesis captures light energy and stores it in sugars. Fermentation is a backup strategy that keeps some ATP production going when oxygen is limited.
 
-## Check Yourself
+Energy is not a separate topic from life. It is what lets cells maintain order.
 
-1. Why can a reaction be energetically favorable but still too slow for life?
-2. What does ATP actually do in coupled reactions?
-3. Why are proton gradients so important in both photosynthesis and respiration?
-4. What is the difference between the light reactions and the Calvin cycle?
-5. Why does fermentation help glycolysis continue?
+## Pause And Check
+
+Try answering these in plain language:
+
+1. Why do cells need controlled energy release instead of one big release?
+2. What does ATP do for the cell?
+3. How does an enzyme help a reaction happen faster?
+4. What is the basic story of cellular respiration?
+5. What is the basic story of photosynthesis?

@@ -2,145 +2,124 @@
 
 Source note: Grounded in the College Board 2025-26 biology framework Unit 4, Khan Academy's cell communication and cell cycle materials, and OpenStax Biology 2e Chapters 9-10.
 
-## The Big Question
+## Table of Contents
 
-How do cells decide what to do?
+- [Before We Start](#before-we-start)
+- [The Big Picture](#the-big-picture)
+- [Why Cells Need Signals](#why-cells-need-signals)
+- [The Basic Signaling Pattern](#the-basic-signaling-pattern)
+- [Different Ways Signals Travel](#different-ways-signals-travel)
+- [Feedback Keeps Systems Stable](#feedback-keeps-systems-stable)
+- [The Cell Cycle Is Controlled Growth And Division](#the-cell-cycle-is-controlled-growth-and-division)
+- [Mitosis Divides The Nucleus](#mitosis-divides-the-nucleus)
+- [When Control Fails](#when-control-fails)
+- [The Unit In One Story](#the-unit-in-one-story)
+- [Pause And Check](#pause-and-check)
 
-Cells are not isolated machines. They receive signals, interpret context, change behavior, and decide whether to divide. In multicellular organisms, this coordination is everything. A liver cell, neuron, immune cell, and skin cell can contain the same genome but behave differently because they receive and process different signals.
+## Before We Start
 
-This unit is about biological decision-making.
+Cells are not isolated little machines. They live in context. They receive signals from nearby cells, distant organs, nutrients, pathogens, temperature changes, and internal damage. Then they change behavior.
 
-## Why Cells Communicate
+This lesson is about how cells decide what to do next.
 
-Cells communicate to coordinate:
+## The Big Picture
 
-- development,
-- immune responses,
-- metabolism,
-- reproduction,
-- growth,
-- repair,
-- behavior,
-- homeostasis.
+A multicellular body works because cells coordinate. A skin cell, neuron, immune cell, and liver cell can contain nearly the same DNA, but they act differently because different genes are active and because they receive different signals.
 
-Communication can happen through direct contact, local signals, long-distance hormones, neurotransmitters, or environmental cues. The details differ, but the pattern is similar:
+Cell communication usually follows a simple pattern:
 
-signal -> receptor -> transduction -> response
+signal -> receptor -> internal relay -> response
 
-## Types Of Cell Signaling
+The exact molecules vary, but the logic repeats constantly.
 
-Direct contact:
-- Cells touch through membrane proteins or junctions.
-- Important in immune recognition and tissue organization.
+## Why Cells Need Signals
 
-Paracrine signaling:
-- A cell releases local regulators that affect nearby cells.
-- Common in inflammation, development, and tissue repair.
+Cells use communication to coordinate development, growth, repair, immune defense, metabolism, reproduction, and homeostasis. Without signaling, cells would act as separate units instead of as tissues and organisms.
 
-Synaptic signaling:
-- Neurons release neurotransmitters across a short synapse.
-- Fast and targeted.
+Imagine a cut in your skin. Nearby cells release local signals. Immune cells respond. Blood vessels change. Cells divide to replace damaged tissue. Eventually, signals slow the response down. Healing is not just "cells doing repair." It is communication, timing, and control.
 
-Endocrine signaling:
-- Hormones travel through the bloodstream to distant target cells.
-- Slower but broad-reaching.
+## The Basic Signaling Pattern
 
-Autocrine signaling:
-- A cell responds to signals it releases itself.
-- Common in immune signaling and some cancer contexts.
+A signal is a molecule or cue that carries information. A receptor is a molecule that detects the signal. Many receptors are proteins.
 
-## Receptors Give Signals Meaning
+When a signal binds a receptor, the receptor changes shape or activity. That starts transduction, which means the message is passed through internal steps. The final response might be a change in gene expression, enzyme activity, cell movement, secretion, or cell division.
 
-A signal only matters to a cell that has the right receptor.
+The important part is that the signal does not need to physically enter the nucleus or personally "do" everything. It can trigger a chain of events. This lets cells amplify signals: one signal molecule can lead to many internal changes.
 
-This explains why the same molecule can cause different responses in different tissues. The signal is not the whole message; the receiving cell's receptor and internal pathway determine meaning.
+## Different Ways Signals Travel
 
-Receptors can be:
+Some signals require direct contact. Cells may touch through membrane proteins or junctions. This is important in tissue organization and immune recognition.
 
-- membrane receptors for hydrophilic signals that cannot cross the membrane easily,
-- intracellular receptors for hydrophobic signals such as steroid hormones.
+Some signals are local. In paracrine signaling, a cell releases molecules that affect nearby cells. In synaptic signaling, neurons release neurotransmitters across a tiny gap to a specific target cell.
 
-Ligand binding often changes receptor shape, activates a protein, opens a channel, or starts a phosphorylation cascade.
+Some signals travel long distances. In endocrine signaling, hormones move through the bloodstream and affect distant target cells. The target cell responds only if it has the right receptor.
 
-## Signal Transduction Pathways
+That last point matters: a signal is only meaningful to a cell that can detect it. The same hormone can affect one tissue strongly and another tissue barely at all.
 
-Signal transduction is the process of converting an outside signal into an internal response.
+## Feedback Keeps Systems Stable
 
-Common pathway features:
+Feedback is when the result of a process affects the process itself.
 
-- reception: ligand binds receptor,
-- transduction: relay molecules pass the message,
-- amplification: one activated molecule activates many downstream molecules,
-- response: gene expression, enzyme activation, ion movement, secretion, movement, growth, or division changes.
+Negative feedback reduces a change and helps maintain stability. Body temperature regulation is a common example. If temperature rises too much, cooling responses increase. If temperature falls too much, warming responses increase.
 
-Second messengers such as cyclic AMP or calcium ions can spread and amplify signals inside the cell. Protein kinases can phosphorylate target proteins, changing their activity.
+Positive feedback amplifies a change. It is useful when a process needs to move decisively toward an endpoint, such as childbirth contractions or blood clotting.
 
-The key habit: trace the pathway in order. Do not skip from "hormone" to "response" without explaining the molecular relay.
+Negative feedback is more common in homeostasis because living systems need stability. Positive feedback is powerful but must be controlled.
 
-## Feedback And Homeostasis
+## The Cell Cycle Is Controlled Growth And Division
 
-Feedback loops help biological systems regulate themselves.
+Cell division is not just splitting in half whenever a cell feels like it. Eukaryotic cells move through a cell cycle.
 
-Negative feedback reduces a change and helps return a system toward a set point. Body temperature regulation and blood glucose regulation are classic examples.
+Interphase includes growth, normal cell function, DNA replication, and preparation for division. The M phase includes mitosis, which divides the nucleus, and cytokinesis, which divides the cytoplasm.
 
-Positive feedback amplifies a change. It is useful when a process needs to run to completion, such as childbirth contractions or blood clotting.
+Checkpoints are control points in the cell cycle. They ask questions like:
 
-Negative feedback is stabilizing. Positive feedback is escalating. Both are useful in the right context and dangerous in the wrong context.
+- Is the DNA damaged?
+- Has DNA been copied correctly?
+- Is the cell large enough?
+- Are chromosomes attached properly before separation?
 
-## Cell Cycle Basics
+These checkpoints protect the organism. A cell that divides with damaged DNA can create serious problems.
 
-The cell cycle is the ordered sequence by which a cell grows, copies DNA, and divides.
+## Mitosis Divides The Nucleus
 
-Major phases:
+Mitosis is the process that separates duplicated chromosomes into two new nuclei. The result is two daughter cells with matching genetic information, assuming everything goes correctly.
 
-- G1: growth and normal activity.
-- S: DNA replication.
-- G2: preparation for mitosis.
-- M: mitosis and cytokinesis.
+![Stages of mitosis](https://upload.wikimedia.org/wikipedia/commons/c/c9/Mitosis_Stages.svg)
 
-Cells can also enter G0, a nondividing state. Some cells remain there long-term; others can re-enter the cycle under the right conditions.
+*Image source: [Wikimedia Commons file page for mitosis stages](https://commons.wikimedia.org/wiki/File:Mitosis_Stages.svg).*
 
-## Mitosis And Cytokinesis
+You will often see mitosis divided into stages: prophase, metaphase, anaphase, and telophase. The names help organize the process, but the simple story is enough for now:
 
-Mitosis divides the nucleus so each daughter cell gets a complete set of chromosomes. Cytokinesis divides the cytoplasm.
+1. Chromosomes condense so they can be moved.
+2. The cell builds a spindle to pull chromosomes.
+3. Chromosomes line up.
+4. Sister chromatids separate.
+5. New nuclei form.
+6. Cytokinesis separates the cell into two cells.
 
-Mitosis stages:
+The point of mitosis is accurate distribution. Each new cell needs a complete set of genetic instructions.
 
-- Prophase: chromosomes condense and spindle begins forming.
-- Metaphase: chromosomes line up.
-- Anaphase: sister chromatids separate.
-- Telophase: nuclei reform.
+## When Control Fails
 
-The point is not to memorize stage names as a chant. The point is accurate chromosome distribution. A dividing cell must copy DNA once, separate copies once, and avoid giving daughter cells missing or extra chromosomes.
+Cancer is connected to failures in cell communication and cell-cycle control. Cells may ignore stop signals, divide when they should not, fail to repair DNA, avoid programmed cell death, or stimulate blood vessel growth.
 
-## Checkpoints
+Cancer is not one disease with one cause. It is a family of diseases involving cells that have accumulated changes allowing uncontrolled growth and survival.
 
-The cell cycle is regulated by checkpoints.
-
-Important checkpoints:
-
-- G1 checkpoint: Is the cell large enough? Are nutrients available? Is DNA intact? Are growth signals present?
-- G2 checkpoint: Was DNA fully and accurately replicated?
-- Spindle checkpoint: Are chromosomes properly attached before sister chromatids separate?
-
-If damage is detected, the cell can pause for repair. If damage is too severe, the cell may undergo apoptosis, programmed cell death. This is not failure; it is protective.
-
-## Cyclins, CDKs, And Cancer
-
-Cyclins and cyclin-dependent kinases help control cell-cycle progression. Cyclin levels rise and fall. CDKs become active when bound to cyclins. Together they phosphorylate target proteins that push the cell through cycle transitions.
-
-Cancer often involves loss of cell-cycle control. Mutations can activate growth-promoting pathways, disable tumor suppressors, block apoptosis, or remove checkpoint restraint.
-
-This is why cell communication and division belong together. A cell divides because signals and internal checks tell it to. When those signals are distorted, growth can become dangerous.
+This is why signaling and division belong in the same unit. A cell's decision to divide should depend on signals, checkpoints, and context.
 
 ## The Unit In One Story
 
-Cells receive signals through receptors, relay them through internal pathways, and produce responses. Feedback loops regulate stability and amplification. Cell division is controlled by checkpoints and molecular regulators. Multicellular life depends on cells making the right decision at the right time.
+Cells receive signals, detect them with receptors, relay the message internally, and change behavior. Feedback helps stabilize or amplify responses. Cell division is a highly controlled process because copying and distributing DNA is risky. Mitosis gives daughter cells matching genetic information, and checkpoints reduce the chance of harmful errors.
 
-## Check Yourself
+Communication lets cells act as parts of a larger living system.
 
-1. Why can the same hormone cause different effects in different tissues?
-2. What is signal amplification, and why is it useful?
-3. How is negative feedback different from positive feedback?
-4. Why does the cell cycle need checkpoints?
-5. How can a mutation in a signaling pathway contribute to cancer?
+## Pause And Check
+
+Try answering these in plain language:
+
+1. Why does a cell need receptors?
+2. What does signal transduction mean?
+3. How are local signals different from hormones?
+4. Why do cell-cycle checkpoints matter?
+5. Why is cancer connected to both signaling and division?

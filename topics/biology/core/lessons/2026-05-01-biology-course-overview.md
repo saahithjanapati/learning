@@ -2,9 +2,18 @@
 
 Source note: Grounded in the College Board 2025-26 biology course framework, Khan Academy's college biology unit map, and OpenStax Biology 2e. Local course label: Biology.
 
+## Table of Contents
+
+- [How To Read This Course](#how-to-read-this-course)
+- [The Four Big Threads](#the-four-big-threads)
+- [The Course Arc](#the-course-arc)
+- [What Makes A Good Biology Explanation](#what-makes-a-good-biology-explanation)
+- [How To Study This Casually](#how-to-study-this-casually)
+- [Pause And Check](#pause-and-check)
+
 ## How To Read This Course
 
-Use this note as the map before the territory.
+Use this note as the map before the territory. You are not supposed to memorize everything here on first read. The goal is to know what kind of story the course is telling so each later lesson has a place to attach.
 
 Biology can look like a pile of disconnected facts: water is polar, mitochondria make ATP, Mendel had peas, enzymes denature, ecosystems collapse, DNA is transcribed, allele frequencies change. The trick is to stop treating those as separate trivia cards. They are all versions of the same question:
 
@@ -123,7 +132,7 @@ Read one lesson at a time. Do not try to memorize every term on the first pass. 
 
 After each lesson, close the file and explain the unit in five sentences. If you can do that, the details have somewhere to attach.
 
-## Check Yourself
+## Pause And Check
 
 1. Why is "structure determines function" such a useful phrase in biology?
 2. How are energy and information different threads in the course?

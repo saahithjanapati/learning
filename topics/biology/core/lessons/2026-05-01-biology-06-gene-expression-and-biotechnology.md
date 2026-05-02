@@ -2,174 +2,123 @@
 
 Source note: Grounded in the College Board 2025-26 biology framework Unit 6, Khan Academy's gene-expression unit, and OpenStax Biology 2e Chapters 14-17.
 
-## The Big Question
+## Table of Contents
 
-How does stored genetic information become living cell behavior?
+- [Before We Start](#before-we-start)
+- [The Big Picture](#the-big-picture)
+- [DNA Stores Information, RNA Helps Use It](#dna-stores-information-rna-helps-use-it)
+- [Replication Copies DNA](#replication-copies-dna)
+- [Transcription Makes RNA](#transcription-makes-rna)
+- [Translation Builds Protein](#translation-builds-protein)
+- [Gene Regulation Controls Timing And Amount](#gene-regulation-controls-timing-and-amount)
+- [Mutations Change DNA](#mutations-change-dna)
+- [Biotechnology Uses The Same Molecular Logic](#biotechnology-uses-the-same-molecular-logic)
+- [The Unit In One Story](#the-unit-in-one-story)
+- [Pause And Check](#pause-and-check)
 
-DNA is stable information storage, but cells are dynamic. They need to copy DNA, read selected genes, build proteins, regulate timing, respond to environment, repair mistakes, and sometimes pass changes to offspring.
+## Before We Start
 
-This unit follows the information flow:
+DNA is often described as a blueprint, but that metaphor can be misleading. A blueprint just sits there. DNA is more like a stored instruction library that cells selectively copy, read, regulate, repair, and pass on.
 
-DNA -> RNA -> protein -> regulated cell function
+This lesson is about how stored genetic information becomes cell behavior.
 
-That arrow is useful, but it is not the whole story. The interesting biology is in the control points.
+## The Big Picture
 
-## DNA And RNA Structure
+The central flow of information is:
 
-DNA and RNA are nucleic acids made from nucleotides.
+DNA -> RNA -> protein
 
-DNA:
+![Central dogma of molecular biology](https://upload.wikimedia.org/wikipedia/commons/d/dc/Central_dogma.svg)
 
-- usually double-stranded,
-- contains deoxyribose sugar,
-- uses bases A, T, C, and G,
-- stores genetic information.
+*Image source: [Wikimedia Commons file page for central dogma](https://commons.wikimedia.org/wiki/File:Central_dogma.svg).*
 
-RNA:
+This flow is sometimes called the central dogma of molecular biology. It is a useful first map: DNA stores information, RNA carries or helps process information, and proteins perform many cell functions.
 
-- usually single-stranded,
-- contains ribose sugar,
-- uses bases A, U, C, and G,
-- participates in expression, regulation, structure, and catalysis.
+The map is not the whole story. Cells also regulate which genes are used, how much product is made, when products are destroyed, and how errors are repaired.
 
-DNA strands are antiparallel. Bases pair specifically: A with T in DNA, A with U in RNA, and C with G. This pairing makes copying and transcription possible.
+## DNA Stores Information, RNA Helps Use It
 
-## DNA Replication
+DNA and RNA are nucleic acids made from nucleotides. Each nucleotide has a sugar, a phosphate group, and a nitrogen-containing base.
 
-DNA replication is semiconservative: each new DNA molecule has one old strand and one newly synthesized strand.
+DNA usually has two strands. Its bases are A, T, C, and G. The strands pair by base-pairing rules: A pairs with T, and C pairs with G.
 
-Basic steps:
+RNA is usually single-stranded. Its bases are A, U, C, and G. In RNA, U plays a role similar to T in DNA pairing.
 
-1. The double helix opens.
-2. Each original strand serves as a template.
-3. DNA polymerase builds new strands using complementary base pairing.
-4. Proofreading and repair reduce errors.
+DNA is stable information storage. RNA is more flexible. Some RNA carries messages, some helps build proteins, some regulates genes, and some has structural or catalytic roles.
 
-Because DNA strands are antiparallel and DNA polymerase builds in one direction, replication differs on the two strands:
+## Replication Copies DNA
 
-- leading strand: built continuously,
-- lagging strand: built in fragments that are later joined.
+Before a cell divides, it needs to copy its DNA. DNA replication is semiconservative, meaning each new DNA double helix contains one old strand and one newly made strand.
 
-The big idea is template-based copying. Complementarity turns one strand into instructions for another.
+The logic is elegant. The two DNA strands separate. Each original strand acts as a template. DNA polymerase adds matching nucleotides according to base-pairing rules.
 
-## Transcription
+Because the strands run in opposite directions, copying is smooth on one strand and more piece-by-piece on the other. You do not need every enzyme name for a first pass. What matters is the template idea: base pairing lets the cell copy information.
 
-Transcription makes RNA from a DNA template.
+## Transcription Makes RNA
 
-RNA polymerase binds near a gene, opens the DNA locally, and builds an RNA strand complementary to the template strand. The resulting RNA sequence matches the coding strand except that RNA uses U instead of T.
+Transcription is the process of making RNA from a DNA template. If DNA is the stored library, transcription is making a working copy of one useful section.
 
-In eukaryotes, messenger RNA is processed before translation:
+RNA polymerase binds near a gene, opens part of the DNA, and builds an RNA strand using one DNA strand as a template. In eukaryotic cells, the first RNA copy is often processed before it is used. Processing can include adding protective ends and removing introns through splicing.
 
-- a 5' cap is added,
-- a poly-A tail is added,
-- introns are removed,
-- exons are spliced together.
+The result can be messenger RNA, or mRNA, which carries information from a gene toward protein production.
 
-Alternative splicing can let one gene contribute to multiple protein products.
+## Translation Builds Protein
 
-## Translation
+Translation is the process of building a protein from an mRNA sequence. Ribosomes read the mRNA in three-letter units called codons. Each codon corresponds to an amino acid or a stop signal.
 
-Translation builds a polypeptide from an mRNA sequence.
+Transfer RNAs, or tRNAs, bring amino acids to the ribosome. The ribosome links amino acids together into a chain. That chain then folds into a protein.
 
-Key players:
+The sequence matters because amino acid order affects protein shape, and protein shape affects function.
 
-- mRNA carries codons.
-- tRNA brings amino acids.
-- ribosomes coordinate codon recognition and peptide-bond formation.
+So the information path is not just symbolic. A DNA sequence can influence an RNA sequence, which can influence an amino acid sequence, which can influence protein shape, which can influence cell behavior.
 
-A codon is a three-nucleotide sequence. Each codon corresponds to an amino acid or a stop signal. Translation begins at a start codon and proceeds codon by codon until a stop codon is reached.
+## Gene Regulation Controls Timing And Amount
 
-The genetic code is redundant: multiple codons can specify the same amino acid. That redundancy affects how mutations behave.
+Cells do not use every gene all the time. A neuron and a skin cell have much of the same DNA, but they express different genes. Gene expression means using a gene to make a functional product.
 
-## Proteins Connect Genes To Traits
+Regulation can happen at many points:
 
-Genes influence traits largely by influencing RNA and protein products. Proteins can be enzymes, receptors, transporters, structural fibers, hormones, transcription factors, or signaling molecules.
+- whether DNA is accessible
+- whether transcription begins
+- how RNA is processed
+- how long RNA lasts
+- how efficiently translation happens
+- whether the protein is modified or destroyed
 
-A DNA sequence change can alter:
+This is one reason multicellular life is possible. Different cells can use the same genome in different ways.
 
-- whether a protein is made,
-- how much is made,
-- where it is made,
-- when it is made,
-- what amino acid sequence it has,
-- whether it folds and functions properly.
+## Mutations Change DNA
 
-This is why gene expression, not just gene presence, matters.
+A mutation is a change in DNA sequence. Mutations can happen through copying errors, environmental damage, mobile genetic elements, or other processes.
 
-## Gene Regulation
+Some mutations have little or no effect. Some change a protein. Some change regulation. Some are harmful, some are beneficial in a certain environment, and many are neutral.
 
-Cells regulate gene expression because not every gene should be active in every cell at every time.
+The effect depends on where the mutation happens and what it changes. A single base change can be meaningless, mild, or severe. A large chromosomal change can affect many genes at once.
 
-Prokaryotes often regulate genes through operons. An operon groups related genes under shared control, letting bacteria quickly respond to environmental conditions.
+Mutations matter because they can cause disease, create variation for evolution, and provide raw material for biotechnology.
 
-Eukaryotes regulate expression at many layers:
+## Biotechnology Uses The Same Molecular Logic
 
-- chromatin accessibility,
-- transcription factors,
-- enhancers and silencers,
-- RNA processing,
-- mRNA stability,
-- translation,
-- protein modification,
-- protein degradation.
+Biotechnology is not separate from gene expression. It uses the same molecular principles intentionally.
 
-Cell specialization depends on differential gene expression. A neuron and muscle cell can contain the same genome but express different gene sets.
+Polymerase chain reaction, or PCR, copies DNA regions. Gel electrophoresis separates DNA fragments by size. DNA sequencing reads nucleotide order. Recombinant DNA methods combine DNA from different sources. CRISPR-based tools can target specific DNA sequences for editing or regulation.
 
-## Mutations
+These tools are powerful because DNA has predictable base pairing and because cells can copy, read, and express genetic information.
 
-A mutation is a heritable change in genetic material.
-
-Types include:
-
-- substitution,
-- insertion,
-- deletion,
-- duplication,
-- inversion,
-- translocation.
-
-At the protein-coding level, substitutions can be:
-
-- silent: codon changes but amino acid does not,
-- missense: one amino acid changes,
-- nonsense: a stop codon appears early.
-
-Mutations can be harmful, neutral, or beneficial depending on context. The same mutation may matter differently in different environments.
-
-Mutation is also the raw material for evolution. Without genetic variation, natural selection has little to act on.
-
-## Biotechnology
-
-Biotechnology uses biological molecules and systems as tools.
-
-Core methods:
-
-- PCR amplifies DNA.
-- Gel electrophoresis separates DNA fragments by size.
-- Restriction enzymes cut DNA at specific sequences.
-- Plasmids can carry inserted genes.
-- Sequencing reads nucleotide order.
-- Genetic engineering changes DNA.
-- CRISPR-based tools can target and edit specific sequences.
-
-The practical questions are:
-
-- How do we find the DNA sequence?
-- How do we copy it?
-- How do we cut or edit it?
-- How do we compare it?
-- How do we express it?
-
-Biotechnology is gene expression made usable as a toolkit.
+Power also creates responsibility. Biotechnology raises questions about safety, consent, access, ecological effects, medical tradeoffs, and how society should use biological control.
 
 ## The Unit In One Story
 
-DNA stores information. Replication copies it. Transcription makes RNA. Translation builds proteins. Regulation controls which information is used in which cells and conditions. Mutations change information. Biotechnology lets humans read, amplify, modify, and apply genetic material.
+DNA stores information. Replication copies it. Transcription makes RNA working copies. Translation builds proteins. Regulation controls when and how strongly genes are used. Mutations change the information, sometimes with no effect and sometimes with major consequences. Biotechnology uses this molecular logic to read, copy, modify, and apply genetic information.
 
-## Check Yourself
+Gene expression is the bridge from stored information to living action.
 
-1. Why does complementary base pairing make DNA replication possible?
-2. What is the difference between transcription and translation?
-3. Why can one gene produce different products in eukaryotic cells?
-4. Why are some mutations silent?
-5. How are PCR and gel electrophoresis useful in different ways?
+## Pause And Check
+
+Try answering these in plain language:
+
+1. Why is DNA good for information storage?
+2. What is the difference between replication and transcription?
+3. How does an mRNA sequence become a protein?
+4. Why do different cell types behave differently if they share much of the same DNA?
+5. Why can a mutation have different kinds of effects?

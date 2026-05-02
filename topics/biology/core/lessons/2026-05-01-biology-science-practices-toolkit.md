@@ -2,13 +2,26 @@
 
 Source note: Grounded in the College Board 2025-26 biology science practices, Khan Academy's practice-oriented unit structure, and OpenStax Biology 2e inquiry features.
 
+## Table of Contents
+
+- [Why This Toolkit Exists](#why-this-toolkit-exists)
+- [Practice 1: Explain A Process In Order](#practice-1-explain-a-process-in-order)
+- [Practice 2: Read Diagrams As Claims](#practice-2-read-diagrams-as-claims)
+- [Practice 3: Separate Observation, Claim, And Mechanism](#practice-3-separate-observation-claim-and-mechanism)
+- [Practice 4: Think In Controls](#practice-4-think-in-controls)
+- [Practice 5: Read Graphs Mechanistically](#practice-5-read-graphs-mechanistically)
+- [Practice 6: Use Statistics As A Humility Tool](#practice-6-use-statistics-as-a-humility-tool)
+- [Practice 7: Build Evidence-Based Arguments](#practice-7-build-evidence-based-arguments)
+- [Practice 8: Scale Up And Down](#practice-8-scale-up-and-down)
+- [Pause And Check](#pause-and-check)
+
 ## Why This Toolkit Exists
 
 Biology is not just remembering terms. It is learning how to look at a living system and ask what would count as evidence.
 
-That matters because biological explanations are easy to make too smooth. A textbook diagram can make a process look inevitable: ligand binds receptor, pathway activates, response happens. But real biological systems are noisy. Experiments have controls. Graphs have variation. Correlation can masquerade as causation. A mutation can matter in one environment and barely matter in another.
+That matters because biological explanations are easy to make too smooth. A textbook diagram can make a process look inevitable: ligand binds receptor, pathway activates, response happens. Real biological systems are noisier. Experiments need controls. Graphs have variation. Correlation can masquerade as causation. A mutation can matter in one environment and barely matter in another.
 
-This toolkit gives you the habits that turn reading into understanding.
+This toolkit gives you the habits that turn reading into understanding. You do not need to master every habit at once. Use them as reading moves when a lesson, diagram, or graph starts to feel slippery.
 
 ## Practice 1: Explain A Process In Order
 
@@ -137,7 +150,7 @@ Ecosystem:
 
 Not every question needs every scale, but practicing scale shifts makes the course feel connected.
 
-## Check Yourself
+## Pause And Check
 
 1. In one sentence, what is the difference between an observation and a mechanism?
 2. Why does every experiment need a comparison group?

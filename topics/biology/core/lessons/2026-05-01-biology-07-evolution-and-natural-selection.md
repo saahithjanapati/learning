@@ -2,187 +2,124 @@
 
 Source note: Grounded in the College Board 2025-26 biology framework Unit 7, Khan Academy's natural-selection unit, and OpenStax Biology 2e Chapters 18-20.
 
-## The Big Question
+## Table of Contents
 
-How does life change over time?
+- [Before We Start](#before-we-start)
+- [The Big Picture](#the-big-picture)
+- [Populations Evolve, Not Individuals](#populations-evolve-not-individuals)
+- [Variation Is The Starting Material](#variation-is-the-starting-material)
+- [Natural Selection Is Not Random, But It Needs Random Variation](#natural-selection-is-not-random-but-it-needs-random-variation)
+- [Other Forces Also Change Populations](#other-forces-also-change-populations)
+- [Evidence For Evolution](#evidence-for-evolution)
+- [Speciation: How Lineages Split](#speciation-how-lineages-split)
+- [Evolution Is Not A Ladder](#evolution-is-not-a-ladder)
+- [The Unit In One Story](#the-unit-in-one-story)
+- [Pause And Check](#pause-and-check)
 
-Evolution is one of the great organizing ideas in biology. It explains why organisms share deep similarities, why they differ so dramatically, why adaptations fit environments imperfectly but powerfully, and why populations can change faster than intuition expects.
+## Before We Start
 
-The first correction is essential: individuals do not evolve. Populations evolve as allele frequencies change across generations.
+Evolution is one of the main organizing ideas in biology, but it is often misunderstood. It is not about individuals deciding to change. It is not about progress toward perfection. It is not a ladder from "lower" to "higher" life.
+
+Evolution means populations change over generations.
+
+## The Big Picture
+
+The clearest definition is: evolution is change in allele frequencies in a population over time. An allele frequency is how common a version of a gene is in a population.
+
+That definition sounds technical, but the idea is simple. If a trait-related allele becomes more or less common across generations, the population has evolved.
+
+Natural selection is one important mechanism of evolution. It explains how heritable traits that affect survival or reproduction can become more common in a particular environment.
+
+## Populations Evolve, Not Individuals
+
+An individual organism can grow, learn, heal, or change behavior. But in the evolutionary sense, an individual does not evolve. A population evolves when the genetic makeup of the population changes across generations.
+
+This distinction prevents a lot of confusion. A single insect does not evolve pesticide resistance during its life because it "needs" resistance. Instead, some insects may already have genetic variants that make them more resistant. If pesticide use kills susceptible insects, resistant insects leave more offspring, and resistance becomes more common in the population.
 
 ## Variation Is The Starting Material
 
-Natural selection cannot create useful traits on demand. It acts on variation that already exists or appears through mutation and recombination.
+Natural selection cannot create traits on demand. It acts on variation that exists or appears.
 
-Sources of variation:
+Variation comes from mutation, recombination during meiosis, independent assortment, random fertilization, and gene flow between populations. Some variation affects phenotype. Some does not.
 
-- mutation,
-- crossing over,
-- independent assortment,
-- random fertilization,
-- gene flow between populations.
+For selection to occur, three things need to line up:
 
-Variation can affect phenotype. If phenotypic differences influence survival or reproduction and are heritable, evolution can occur.
-
-## Natural Selection
-
-Natural selection has a simple logic:
-
-1. Individuals in a population vary.
+1. Individuals vary.
 2. Some variation is heritable.
-3. More individuals are produced than can survive and reproduce equally.
-4. Some heritable variants lead to higher reproductive success in a particular environment.
-5. Those variants become more common over generations.
+3. Some heritable variation affects survival or reproduction in that environment.
 
-Fitness means relative reproductive success, not strength, speed, or moral superiority. A trait is fit if it helps leave more viable offspring in a given environment.
+If a trait is not heritable, selection cannot pass it to future generations. If it does not affect reproductive success, selection may not strongly favor it.
 
-Selection depends on context. A trait useful in one environment may be neutral or harmful in another.
+## Natural Selection Is Not Random, But It Needs Random Variation
 
-## Forms Of Selection
+Mutation is often random with respect to what the organism needs. Natural selection is not random in the same way. Some variants leave more offspring than others because of environmental conditions.
 
-Selection can shape trait distributions in different ways.
+Fitness means relative reproductive success. It does not mean strength, speed, beauty, or moral value. A trait is "fit" if it helps organisms leave more viable offspring in a particular environment.
 
-Directional selection:
-- one extreme phenotype has higher fitness,
-- the population average shifts.
+![Darwin's finches illustrated by John Gould](https://upload.wikimedia.org/wikipedia/commons/a/ae/Darwin%27s_finches_by_Gould.jpg)
 
-Stabilizing selection:
-- intermediate phenotypes have higher fitness,
-- variation narrows.
+*Image source: [Wikimedia Commons file page for Darwin's finches by Gould](https://commons.wikimedia.org/wiki/File:Darwin%27s_finches_by_Gould.jpg).*
 
-Disruptive selection:
-- both extremes have higher fitness than intermediates,
-- variation can split into two peaks.
+The famous finch example is useful because beak shape relates to food. In an environment where certain seeds are common or scarce, beak differences can affect feeding success, survival, and reproduction.
 
-Sexual selection:
-- traits increase mating success, even if they carry survival costs.
+Selection depends on context. A helpful trait in one environment can be neutral or harmful in another.
 
-Artificial selection:
-- humans choose which individuals reproduce, shaping traits in crops, livestock, pets, and laboratory organisms.
-
-## Genetic Drift And Gene Flow
+## Other Forces Also Change Populations
 
 Natural selection is not the only mechanism of evolution.
 
-Genetic drift is random change in allele frequencies due to chance. It is strongest in small populations.
+Genetic drift is random change in allele frequencies, especially in small populations. A random event can remove individuals with certain alleles even if those alleles were not worse.
 
-Two common drift cases:
+Gene flow is movement of alleles between populations when individuals migrate and reproduce.
 
-- Bottleneck effect: population size sharply decreases, leaving a nonrepresentative sample of alleles.
-- Founder effect: a small group starts a new population with allele frequencies that differ from the original population.
+Mutation introduces new genetic variation.
 
-Gene flow is movement of alleles between populations through migration and reproduction. It can introduce variation and make populations more similar.
+Nonrandom mating can change genotype patterns in a population.
 
-Selection is nonrandom differential reproduction. Drift is random sampling. Gene flow is allele movement. Keeping these separate helps a lot.
-
-## Hardy-Weinberg Equilibrium
-
-Hardy-Weinberg is a null model for allele and genotype frequencies when evolution is not occurring at a gene.
-
-For two alleles:
-
-$$
-p + q = 1
-$$
-
-$$
-p^2 + 2pq + q^2 = 1
-$$
-
-Where:
-
-- p is the frequency of one allele,
-- q is the frequency of the other allele,
-- p^2, 2pq, and q^2 are expected genotype frequencies.
-
-The model assumes:
-
-- no mutation,
-- random mating,
-- no natural selection,
-- very large population,
-- no gene flow.
-
-Real populations often violate these assumptions. That is the point. Hardy-Weinberg gives you a baseline so deviations can reveal evolutionary forces.
+These forces can act together. A real population may be shaped by selection, drift, gene flow, mutation, and mating patterns at the same time.
 
 ## Evidence For Evolution
 
-Evolution is supported by many independent lines of evidence:
+Evolution is supported by many independent lines of evidence.
 
-- fossil record,
-- homologous structures,
-- vestigial structures,
-- embryological similarities,
-- molecular sequence similarities,
-- biogeography,
-- observed evolution in real time,
-- artificial selection.
+Fossils show that life has changed over deep time. Comparative anatomy shows homologous structures, which are body parts that share underlying structure because of common ancestry. Embryology can reveal shared developmental patterns. Molecular biology shows deep similarities in DNA, RNA, proteins, and genetic code. Biogeography shows how geography and isolation shape life's distribution.
 
-No single line carries the whole argument alone. The strength is convergence. Different kinds of evidence point to common ancestry and descent with modification.
+Phylogenetic trees are diagrams that represent hypotheses about evolutionary relationships.
 
-## Common Ancestry
+![A phylogenetic tree diagram](https://upload.wikimedia.org/wikipedia/commons/7/70/Phylogenetic_tree.svg)
 
-Common ancestry means organisms share ancestors at different depths in the tree of life. Humans and chimpanzees share a relatively recent common ancestor. Humans and plants share a much older one. All known life shares core molecular features such as DNA/RNA information systems, ribosomes, and genetic coding logic.
+*Image source: [Wikimedia Commons file page for a phylogenetic tree](https://commons.wikimedia.org/wiki/File:Phylogenetic_tree.svg).*
 
-Common ancestry explains both unity and diversity:
+A branch point represents a common ancestor. The tips are current or sampled lineages. Closely related lineages share more recent common ancestry.
 
-- unity because related organisms inherit shared features,
-- diversity because lineages change over time in different environments.
+## Speciation: How Lineages Split
 
-## Phylogeny
+Speciation is the formation of new species. A common route begins with isolation. If populations stop exchanging genes, they can accumulate differences through mutation, selection, and drift.
 
-A phylogenetic tree represents hypotheses about evolutionary relationships.
+Geographic isolation is one kind of isolation. A river, mountain range, island, or distance can separate populations. Reproductive isolation can also come from differences in mating behavior, timing, anatomy, genetics, or ecology.
 
-Important habits:
+Over time, populations may become different enough that they no longer interbreed successfully. At that point, we may call them separate species, depending on the species concept being used.
 
-- Read branching patterns, not left-to-right "progress."
-- A node represents a common ancestor.
-- Closely related species share a more recent common ancestor.
-- Traits can be ancestral or derived.
-- Similar traits may arise from shared ancestry or convergent evolution.
+## Evolution Is Not A Ladder
 
-Phylogenies are models built from evidence, including morphology, DNA, proteins, fossils, and development.
+Evolution is branching, not ladder-like. Modern bacteria are not "primitive versions" waiting to become animals. They are modern organisms with their own long evolutionary histories. Humans are not the goal of evolution. We are one branch on a much larger tree.
 
-## Speciation
+Adaptations are also not perfect. Evolution works with existing variation, history, constraints, and tradeoffs. A trait can be good enough to increase reproductive success without being elegantly designed.
 
-Speciation is the formation of new species. It often begins when gene flow between populations is reduced.
-
-Common isolating mechanisms:
-
-- geographic isolation,
-- behavioral isolation,
-- temporal isolation,
-- mechanical isolation,
-- gametic isolation,
-- reduced hybrid viability or fertility.
-
-Allopatric speciation involves geographic separation. Sympatric speciation can occur without geographic separation, often through ecological separation, behavioral shifts, or polyploidy in plants.
-
-Speciation is not always instant. It can be gradual, messy, and incomplete.
-
-## Origins Of Life
-
-The origin of life is not the same question as evolution by natural selection after life exists.
-
-Origin-of-life hypotheses ask how nonliving chemistry produced self-replicating, evolving systems. Important ideas include:
-
-- early Earth chemistry,
-- formation of organic molecules,
-- protocells,
-- RNA world hypotheses,
-- self-replication,
-- metabolism-first possibilities.
-
-You do not need a single settled story to understand the evolutionary logic that follows. Once heritable variation and differential reproduction exist, evolution can begin.
+This makes evolution more interesting, not less. It explains both the fit and the messiness of living things.
 
 ## The Unit In One Story
 
-Evolution is change in populations over generations. Variation arises through mutation, recombination, and gene flow. Natural selection changes populations when heritable traits affect reproductive success. Drift changes populations through chance. Hardy-Weinberg provides a baseline. Evidence from fossils, molecules, anatomy, geography, and observed change supports common ancestry. Over time, separated or diverging populations can become new species.
+Populations contain variation. Some variation is heritable. In particular environments, some variants leave more offspring, so those alleles become more common. Drift, gene flow, mutation, and mating patterns also change populations. Over long periods, lineages can split and diversify. Evidence from fossils, anatomy, molecules, geography, and phylogenetic trees all supports this branching history of life.
 
-## Check Yourself
+Evolution explains both unity and diversity: life is connected by ancestry and diversified by change.
+
+## Pause And Check
+
+Try answering these in plain language:
 
 1. Why do populations evolve but individuals do not?
-2. How is genetic drift different from natural selection?
-3. What does Hardy-Weinberg equilibrium help you test?
-4. Why is common ancestry compatible with enormous biological diversity?
-5. How can geographic isolation lead to speciation?
+2. What does fitness mean in biology?
+3. Why does natural selection need heritable variation?
+4. How is genetic drift different from natural selection?
+5. Why is evolution better pictured as a tree than a ladder?

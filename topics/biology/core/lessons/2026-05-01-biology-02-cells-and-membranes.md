@@ -2,137 +2,114 @@
 
 Source note: Grounded in the College Board 2025-26 biology framework Unit 2, Khan Academy's cell-structure unit, and OpenStax Biology 2e Chapters 4-5.
 
-## The Big Question
+## Table of Contents
 
-How does a cell stay alive as a tiny, organized chemical world?
+- [Before We Start](#before-we-start)
+- [The Big Picture](#the-big-picture)
+- [A Cell Is A Controlled Room](#a-cell-is-a-controlled-room)
+- [Prokaryotic And Eukaryotic Cells](#prokaryotic-and-eukaryotic-cells)
+- [Organelles As Workspaces](#organelles-as-workspaces)
+- [Membranes Make Selective Boundaries](#membranes-make-selective-boundaries)
+- [Transport: How Things Cross The Boundary](#transport-how-things-cross-the-boundary)
+- [Why Cells Stay Small](#why-cells-stay-small)
+- [The Unit In One Story](#the-unit-in-one-story)
+- [Pause And Check](#pause-and-check)
 
-A cell has to do two opposite things at once. It must be separate enough from the environment to control its internal chemistry, but open enough to exchange matter, energy, and information. That tension explains membranes, transport, organelles, compartmentalization, and cell-size limits.
+## Before We Start
 
-Cells are not bags of fluid. They are managed spaces.
+If chemistry of life was about the parts, this lesson is about the first organized living space: the cell. A cell is not just a bag of liquid. It is a small compartment that controls what enters, what leaves, where reactions happen, and how information and energy are handled.
+
+The easiest way to read this unit is to keep asking: how does the cell stay organized while still exchanging things with the outside world?
+
+## The Big Picture
+
+Every cell has a boundary. That boundary lets the cell keep an internal environment different from the outside environment. Without a boundary, useful molecules would drift away, harmful molecules would drift in, and chemical reactions would be much harder to control.
+
+But the boundary cannot be a sealed wall. Cells need nutrients, water, ions, oxygen, waste removal, and signals. So a living cell has to be both separated and connected.
+
+That tension explains most of this lesson:
+
+separation + controlled exchange = cell life
+
+## A Cell Is A Controlled Room
+
+Picture a cell as a crowded room with many jobs happening at once. Some molecules are being built. Some are being broken down. Some signals are being interpreted. Some proteins are being shipped. The room has rules: certain molecules can enter easily, some need help, and some are kept out.
+
+![A labeled animal cell diagram](https://upload.wikimedia.org/wikipedia/commons/4/48/Animal_cell_structure_en.svg)
+
+*Image source: [Wikimedia Commons file page for animal cell structure](https://commons.wikimedia.org/wiki/File:Animal_cell_structure_en.svg).*
+
+All cells share a few basic features:
+
+- a plasma membrane
+- cytoplasm, the watery interior
+- genetic material
+- ribosomes, which build proteins
+
+Those features are enough to make something recognizably cellular, but cells vary a lot in how much internal organization they have.
 
 ## Prokaryotic And Eukaryotic Cells
 
-All cells have a plasma membrane, cytoplasm, genetic material, and ribosomes. But cells differ in internal organization.
+Prokaryotic cells include bacteria and archaea. They are usually smaller and do not have membrane-bound organelles. Their DNA is usually found in a region called the nucleoid. Prokaryotes can still be highly successful and complex in behavior. "No nucleus" does not mean "not sophisticated."
 
-Prokaryotic cells, such as bacteria and archaea, are usually smaller and lack membrane-bound organelles. Their DNA is typically found in a nucleoid region rather than a nucleus.
+Eukaryotic cells include animal, plant, fungal, and protist cells. They have a nucleus and other membrane-bound organelles. The benefit of organelles is compartmentalization: different chemical jobs can happen in different spaces.
 
-Eukaryotic cells, such as plant, animal, fungal, and protist cells, contain membrane-bound organelles. The nucleus separates genetic information from much of the cytoplasm. Other organelles create specialized spaces for specific jobs.
+Compartmentalization is like having separate rooms for cooking, storage, repair, and communication. The separation makes each job easier to control.
 
-This difference is not about "simple" versus "advanced" in a moral sense. It is about organization. Eukaryotic cells use internal membranes to divide labor.
+## Organelles As Workspaces
 
-## Organelles As Specialized Workspaces
+You do not need to memorize organelles as isolated flashcards. Instead, connect each organelle to the problem it helps solve.
 
-Major eukaryotic organelles:
+The nucleus stores DNA and helps control which genes are used. Ribosomes build proteins. The rough endoplasmic reticulum helps make and fold proteins that will be secreted, placed in membranes, or sent to some organelles. The smooth endoplasmic reticulum makes lipids, helps detoxify molecules, and stores calcium in some cells. The Golgi apparatus modifies, sorts, and ships proteins and lipids.
 
-- Nucleus: stores DNA and coordinates gene expression.
-- Ribosomes: build proteins.
-- Rough endoplasmic reticulum: helps make and fold proteins destined for membranes, secretion, or certain organelles.
-- Smooth endoplasmic reticulum: synthesizes lipids, detoxifies molecules, and stores calcium in some cells.
-- Golgi apparatus: modifies, sorts, and ships proteins and lipids.
-- Lysosomes: digest macromolecules and worn-out cell parts.
-- Vacuoles: store materials; plant central vacuoles also help maintain pressure.
-- Mitochondria: harvest energy from food molecules into ATP.
-- Chloroplasts: capture light energy in photosynthetic cells.
+Mitochondria help convert energy from food into ATP, the cell's common energy-transfer molecule. Chloroplasts in plants and algae capture light energy and build sugars. Lysosomes break down large molecules and worn-out cell parts. Vacuoles store materials, and the large central vacuole in plant cells also helps maintain pressure.
 
-The endomembrane system is the connected shipping-and-processing system involving the nuclear envelope, ER, Golgi, vesicles, lysosomes, vacuoles, and plasma membrane. Think of it as a cellular logistics network, not a pile of separate bubbles.
+The point is not the list. The point is that a cell can run many processes at once because it organizes space.
 
-## Cell Size Has A Physical Limit
+## Membranes Make Selective Boundaries
 
-Cells cannot grow indefinitely because surface area and volume scale differently.
+Cell membranes are built mainly from phospholipids. A phospholipid has a water-loving head and water-avoiding tails. In water, phospholipids naturally arrange into a bilayer: heads face the water, tails hide inside.
 
-As a cell gets larger:
+![Detailed cell membrane diagram](https://upload.wikimedia.org/wikipedia/commons/d/da/Cell_membrane_detailed_diagram_en.svg)
 
-- volume increases quickly,
-- surface area increases more slowly,
-- exchange across the membrane becomes less efficient relative to internal demand.
+*Image source: [Wikimedia Commons file page for the cell membrane diagram](https://commons.wikimedia.org/wiki/File:Cell_membrane_detailed_diagram_en.svg).*
 
-The surface area-to-volume ratio matters because nutrients, gases, waste, and signals cross the membrane, while metabolic demand comes from the cell's volume. Small cells have more surface area per unit volume, making exchange easier.
+This bilayer is not a rigid shell. It is more like a moving, flexible film with proteins embedded in it. Some proteins act as channels. Some act as pumps. Some act as receptors. Some connect cells to each other or to internal support structures.
 
-This is why many cells stay small, fold membranes, or use internal transport systems. Biology often solves problems with geometry.
+The membrane is selectively permeable. Small nonpolar molecules can often pass through easily. Charged particles and large polar molecules usually need proteins to help them cross.
 
-## The Plasma Membrane
+## Transport: How Things Cross The Boundary
 
-The plasma membrane is a phospholipid bilayer with embedded proteins, cholesterol, and carbohydrate groups.
+Transport is the movement of substances across membranes. The simplest kind is passive transport, where substances move down a concentration gradient. A concentration gradient means there is more of a substance on one side than the other. Diffusion is movement from high concentration toward low concentration.
 
-Phospholipids arrange themselves with hydrophilic heads facing water and hydrophobic tails tucked inward. This creates a flexible barrier. It is not a rigid wall. The fluid mosaic model describes a membrane as a dynamic mixture of moving lipids and proteins.
+Osmosis is the diffusion of water across a membrane. Water tends to move toward the side with more dissolved substances. This matters because cells can swell, shrink, or stay balanced depending on the surrounding solution.
 
-Membrane components:
+Facilitated diffusion is passive transport with help from a membrane protein. The cell does not spend ATP directly because the substance is still moving down its gradient.
 
-- Phospholipids create the barrier.
-- Proteins transport molecules, receive signals, catalyze reactions, and anchor structures.
-- Cholesterol helps tune fluidity in animal cells.
-- Carbohydrate chains help with recognition and cell identity.
+Active transport moves substances against a gradient. That requires energy, often from ATP. This is how cells build and maintain differences between inside and outside.
 
-## Selective Permeability
+Bulk transport handles large materials. Endocytosis brings material into the cell using membrane vesicles. Exocytosis sends material out. These processes are especially important for secretion, immune defense, and membrane recycling.
 
-The membrane lets some substances cross more easily than others.
+## Why Cells Stay Small
 
-Small nonpolar molecules, such as oxygen and carbon dioxide, cross relatively easily. Small uncharged polar molecules may cross slowly. Ions and large polar molecules usually need proteins because the hydrophobic membrane interior is energetically unfavorable for them.
+Cells cannot grow indefinitely because volume and surface area do not scale the same way. As a cell gets bigger, its volume increases faster than its surface area. The inside needs more exchange, but the membrane surface does not keep up.
 
-Selective permeability is the key phrase. Cells are not sealed shut. They are selective.
+Small cells have more surface area relative to volume, which makes transport easier. Larger eukaryotic cells partly solve this problem with internal membranes and organelles, but they still face physical limits.
 
-## Passive Transport
-
-Passive transport moves substances down their concentration gradient, from higher concentration to lower concentration, without direct energy input.
-
-Types:
-
-- Simple diffusion: molecules cross the membrane directly.
-- Facilitated diffusion: molecules move through channel or carrier proteins.
-- Osmosis: water moves across a membrane, often through aquaporins.
-
-The driving idea is not that molecules "want" to spread out. It is that random motion plus unequal concentration produces net movement from high to low concentration.
-
-## Tonicity And Osmoregulation
-
-Tonicity describes how a solution affects cell volume through water movement.
-
-- Hypotonic solution: lower solute outside than inside; water tends to enter the cell.
-- Hypertonic solution: higher solute outside than inside; water tends to leave the cell.
-- Isotonic solution: no net water movement.
-
-Animal cells can burst in hypotonic conditions or shrink in hypertonic conditions. Plant cells handle water differently because cell walls resist expansion; turgor pressure helps support the plant.
-
-Osmoregulation is the broader process of managing water and solute balance. It appears in cells, kidneys, freshwater organisms, saltwater organisms, and plants.
-
-## Active Transport
-
-Active transport moves substances against a gradient. That requires energy.
-
-Primary active transport uses ATP directly. The sodium-potassium pump is the classic example: it helps maintain ion gradients across animal cell membranes.
-
-Secondary active transport uses the energy stored in one gradient to move another substance. For example, a sodium gradient can help drive glucose uptake through a symporter.
-
-Gradients are stored potential energy. Cells spend energy to build them, then use them to do work.
-
-## Bulk Transport
-
-Large materials can move through vesicle-based processes:
-
-- Endocytosis brings material into the cell.
-- Exocytosis releases material from the cell.
-- Phagocytosis engulfs large particles.
-- Pinocytosis brings in extracellular fluid.
-- Receptor-mediated endocytosis brings in specific molecules after receptor binding.
-
-These processes show that membranes are active participants in cell life. They bend, fuse, pinch, and recycle.
-
-## Compartmentalization And Its Origins
-
-Compartmentalization lets eukaryotic cells run incompatible or specialized processes in different places. The nucleus protects and organizes DNA. Mitochondria maintain gradients for ATP production. Chloroplasts organize photosynthesis. Lysosomes keep digestive enzymes contained.
-
-Mitochondria and chloroplasts have evidence of bacterial ancestry: double membranes, their own DNA, bacterial-like ribosomes, and division by a process resembling binary fission. This supports the endosymbiotic theory: ancestral eukaryotic cells incorporated bacteria that became energy-transforming organelles.
-
-This is a beautiful bridge between cell biology and evolution.
+This is a useful pattern in biology: form follows constraint. Cell shape, size, and internal organization are not random. They reflect what the cell needs to move, exchange, and control.
 
 ## The Unit In One Story
 
-Cells are bounded chemical systems. Membranes create selective borders. Organelles divide labor. Transport manages exchange. Gradients store useful energy. Cell size is constrained by geometry. Eukaryotic compartmentalization likely has evolutionary roots in endosymbiosis.
+A cell is a bounded, organized chemical space. Its membrane separates inside from outside while still allowing controlled exchange. Organelles create specialized workspaces. Transport systems move substances in useful directions. Cell size stays limited because exchange has physical constraints.
 
-## Check Yourself
+If Unit 1 taught that molecules have chemical behavior, Unit 2 shows how cells organize that behavior into a living system.
 
-1. Why does a larger cell have a harder exchange problem than a smaller cell?
-2. Why do ions usually need proteins to cross membranes?
-3. What is the difference between facilitated diffusion and active transport?
-4. Why can a plant cell tolerate water entry better than an animal cell?
-5. What evidence supports the idea that mitochondria and chloroplasts came from bacteria?
+## Pause And Check
+
+Try answering these in plain language:
+
+1. Why does a cell need a membrane?
+2. What problem does compartmentalization solve?
+3. Why can some molecules cross the membrane easily while others need proteins?
+4. What is the difference between passive and active transport?
+5. Why does cell size matter?

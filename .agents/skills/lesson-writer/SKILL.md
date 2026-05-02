@@ -26,6 +26,7 @@ The lesson must:
    - **Paper mode** for research papers, arXiv links, conference papers, or technical reports.
    - **Article mode** for blog posts, web pages, essays, documentation, or news-like sources.
    - **Topic mode** for a requested topic without a single source.
+   - **Beginner lecture mode** when the learner says the material is dense, rusty, introductory, or should teach rather than review.
 4. Write the lesson as a markdown file under `topics/<root>/<topic>/lessons/YYYY-MM-DD-<slug>.md`.
 5. Add a concise source note near the top with the source title, authors/site when available, date when available, and link.
 6. Update `learning_system/LESSON_INDEX.md` with a concise row for the new lesson when the repo uses that registry.
@@ -83,6 +84,20 @@ For topic-only requests, build a coherent lesson from first principles:
 - develop the ideas in a natural learning order
 - include worked examples or mental models
 - end with a memory checklist and next-step questions
+
+## Beginner Lecture Mode
+
+Use this mode for introductory warm-up lessons, rusty learners, or any request to make lessons feel like lectures rather than exam notes.
+
+In beginner lecture mode:
+- assume low prerequisite fluency and rebuild the context gently
+- start each major section from an intuition, ordinary example, or "what to picture" description
+- introduce vocabulary only after the learner has a reason to need it
+- prefer narrative explanation over dense term lists
+- reduce exhaustive detail when it would obscure the main conceptual map
+- include short "pause and check" prompts that test understanding without feeling like a quiz dump
+- use remote inline images or diagrams when they materially help the learner see the concept; cite the image page in the caption
+- do not commit local image files unless the user explicitly asks for local assets
 
 ## Style
 
