@@ -46,7 +46,7 @@ Apply topic merges only after an explicit user confirmation of the exact source 
 ## Traversal Rules
 
 - Prefer `rg` and `rg --files` for discovery.
-- Do not scan `node_modules/`, `.npm-cache/`, `.vercel/`, `web/lessons/public/`, or `quartz/` unless debugging generated output.
+- Do not scan `node_modules/`, `.npm-cache/`, `.vercel/`, or `web/lessons/public/` unless debugging generated output.
 - Do not stage `.obsidian/` workspace changes unless the user explicitly asks.
 - Treat untracked course/material folders as user work until their scope is confirmed.
 - For web reader changes, edit generator scripts under `scripts/` and verify via `npm run lessons:build`; generated public output is ignored.

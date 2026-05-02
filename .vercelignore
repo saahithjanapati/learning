@@ -1,9 +1,7 @@
 .obsidian/
 .trash/
-.quartz-cache/
 .npm-cache/
 node_modules/
-quartz/
 web/lessons/content/
 web/lessons/public/
 Users/

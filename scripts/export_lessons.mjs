@@ -354,8 +354,6 @@ const indexLines = [
   "",
   "Pedagogical reading lessons from the Learning Machine vault.",
   "",
-  "Default reader: [Minimal](/). Alternate view: [Quartz](/quartz/).",
-  "",
   `Browse by topic. For a chronological archive, use [Recent Lessons](${relativeMarkdownLink("index.md", "recent-lessons.md")}).`,
   "",
 ]

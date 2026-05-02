@@ -4,9 +4,7 @@ __pycache__/
 node_modules/
 .npm-cache/
 
-# Quartz web build/runtime outputs.
-/quartz
-/.quartz-cache/
+# Native reader build outputs.
 /web/lessons/public/
 
 # Local secrets/env vars

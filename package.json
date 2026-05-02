@@ -4,17 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "postinstall": "node scripts/link_quartz.mjs",
-    "quartz:link": "node scripts/link_quartz.mjs",
-    "lessons:export": "node scripts/export_quartz_lessons.mjs",
-    "lessons:minimal": "node scripts/build_minimal_lessons.mjs",
-    "lessons:clean": "node scripts/clean_quartz_lessons.mjs",
-    "lessons:build": "npm run quartz:link && npm run lessons:export && node quartz/bootstrap-cli.mjs build -d web/lessons/content -o web/lessons/public/quartz && npm run lessons:minimal && npm run lessons:clean",
+    "lessons:export": "node scripts/export_lessons.mjs",
+    "lessons:native": "node scripts/build_native_lessons.mjs",
+    "lessons:clean": "node scripts/clean_lessons.mjs",
+    "lessons:build": "npm run lessons:export && npm run lessons:native && npm run lessons:clean",
     "lessons:serve": "npm run lessons:build && node scripts/serve_static.mjs web/lessons/public 8080",
     "lessons:dev": "npm run lessons:serve"
   },
   "dependencies": {
-    "@jackyzha0/quartz": "https://github.com/jackyzha0/quartz/archive/d25a6eabf96751ffca56f8a8139272def7a65041.tar.gz",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-katex": "^7.0.1",
     "rehype-raw": "^7.0.0",

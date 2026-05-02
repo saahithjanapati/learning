@@ -104,10 +104,6 @@ function markdownRelativeToUrl(markdownRelative, urlPrefix) {
   return routeWithPrefix(urlPrefix, markdownRelativeToRoute(markdownRelative))
 }
 
-function markdownRelativeToQuartzUrl(markdownRelative) {
-  return routeWithPrefix("/quartz", markdownRelativeToRoute(markdownRelative))
-}
-
 function markdownRelativeToOutputPath(markdownRelative, outputRoot) {
   const route = markdownRelativeToRoute(markdownRelative)
   const parts = route ? route.split("/") : []
@@ -205,7 +201,6 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
   const homeHref = routeWithPrefix(urlPrefix, "")
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
-  const quartzHref = markdownRelativeToQuartzUrl(sourceRelative)
   const faviconHref = assetWithPrefix(urlPrefix, "favicon.svg")
   const lessonNavigatorButton = enableLessonNavigator
     ? '<button class="lesson-navigator-button" type="button" data-lesson-navigator-button><span>Sections</span></button>'
@@ -393,7 +388,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${escapeHtml(title)} - Minimal Lessons</title>
+  <title>${escapeHtml(title)} - Learning Machine</title>
   <link rel="icon" type="image/svg+xml" href="${faviconHref}" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
@@ -967,7 +962,6 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         <nav aria-label="Reader navigation">
           <a href="${recentHref}">Recent</a>
           <a href="${topicsHref}">Topics</a>
-          <a href="${quartzHref}">Quartz</a>
         </nav>
         ${lessonNavigatorButton}
         ${copyContextButton}
@@ -1054,8 +1048,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
 const markdownFiles = (await walk(contentDir)).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
 markdownRelativeSet = new Set(markdownFiles.map((markdownPath) => toPosix(path.relative(contentDir, markdownPath))))
 const targets = [
-  { outputRoot: publicDir, urlPrefix: "", preserveNames: new Set(["quartz"]) },
-  { outputRoot: path.join(publicDir, "minimal"), urlPrefix: "/minimal", preserveNames: new Set() },
+  { outputRoot: publicDir, urlPrefix: "", preserveNames: new Set() },
 ]
 
 for (const target of targets) {
@@ -1063,7 +1056,7 @@ for (const target of targets) {
 }
 
 console.log(
-  `Rendered ${markdownFiles.length} minimalist lesson pages to ${targets
+  `Rendered ${markdownFiles.length} native lesson pages to ${targets
     .map((target) => path.relative(repoRoot, target.outputRoot))
     .join(" and ")}`,
 )
