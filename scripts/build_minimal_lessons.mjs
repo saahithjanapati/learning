@@ -201,12 +201,124 @@ function buildCopyContext(markdown, title) {
   return /^#\s+/.test(body.trimStart()) ? body : `# ${trimmedTitle}\n\n${body}`
 }
 
-function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }) {
+function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", enableLessonNavigator = false }) {
   const homeHref = routeWithPrefix(urlPrefix, "")
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
   const quartzHref = markdownRelativeToQuartzUrl(sourceRelative)
   const faviconHref = assetWithPrefix(urlPrefix, "favicon.svg")
+  const lessonNavigatorButton = enableLessonNavigator
+    ? '<button class="lesson-navigator-button" type="button" data-lesson-navigator-button><span>Sections</span></button>'
+    : ""
+  const lessonNavigatorMarkup = enableLessonNavigator
+    ? `
+  <div class="lesson-navigator" data-lesson-navigator hidden role="dialog" aria-modal="true" aria-labelledby="lesson-navigator-title">
+    <div class="lesson-navigator-panel">
+      <div class="lesson-navigator-header">
+        <div>
+          <p class="lesson-navigator-kicker">Contents</p>
+          <h2 id="lesson-navigator-title">Lesson Sections</h2>
+        </div>
+        <button class="lesson-navigator-close" type="button" data-lesson-navigator-close aria-label="Close section navigator">Close</button>
+      </div>
+      <label class="lesson-navigator-search">
+        <span>Find section</span>
+        <input type="search" data-lesson-navigator-search autocomplete="off" />
+      </label>
+      <nav class="lesson-navigator-nav" aria-label="Lesson sections">
+        <ol data-lesson-navigator-list></ol>
+      </nav>
+    </div>
+  </div>`
+    : ""
+  const lessonNavigatorScript = enableLessonNavigator
+    ? `
+  <script>
+    (() => {
+      const button = document.querySelector("[data-lesson-navigator-button]")
+      const overlay = document.querySelector("[data-lesson-navigator]")
+      const closeButton = document.querySelector("[data-lesson-navigator-close]")
+      const search = document.querySelector("[data-lesson-navigator-search]")
+      const list = document.querySelector("[data-lesson-navigator-list]")
+      const article = document.querySelector("article")
+
+      if (!button || !overlay || !closeButton || !search || !list || !article) {
+        return
+      }
+
+      const headings = Array.from(article.querySelectorAll("h2, h3, h4"))
+        .filter((heading) => heading.id && heading.textContent?.trim())
+        .map((heading) => ({
+          id: heading.id,
+          level: Number.parseInt(heading.tagName.slice(1), 10),
+          text: heading.textContent.trim().replace(/\\s+/g, " "),
+        }))
+        .filter((heading) => heading.text.toLowerCase() !== "table of contents")
+
+      if (headings.length === 0) {
+        button.hidden = true
+        return
+      }
+
+      const rows = headings.map((heading) => {
+        const item = document.createElement("li")
+        item.className = "lesson-navigator-item"
+        item.dataset.searchText = heading.text.toLowerCase()
+        item.dataset.level = String(heading.level)
+
+        const link = document.createElement("a")
+        link.href = "#" + encodeURIComponent(heading.id)
+        link.textContent = heading.text
+        link.addEventListener("click", () => {
+          closeNavigator({ restoreFocus: false })
+        })
+
+        item.append(link)
+        list.append(item)
+        return item
+      })
+
+      function filterRows() {
+        const query = search.value.trim().toLowerCase()
+
+        for (const row of rows) {
+          row.hidden = query ? !row.dataset.searchText.includes(query) : false
+        }
+      }
+
+      function openNavigator() {
+        overlay.hidden = false
+        document.body.classList.add("lesson-navigator-open")
+        search.value = ""
+        filterRows()
+        window.setTimeout(() => search.focus(), 0)
+      }
+
+      function closeNavigator({ restoreFocus = true } = {}) {
+        overlay.hidden = true
+        document.body.classList.remove("lesson-navigator-open")
+
+        if (restoreFocus) {
+          button.focus()
+        }
+      }
+
+      button.addEventListener("click", openNavigator)
+      closeButton.addEventListener("click", () => closeNavigator())
+      search.addEventListener("input", filterRows)
+      overlay.addEventListener("click", (event) => {
+        if (event.target === overlay) {
+          closeNavigator()
+        }
+      })
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !overlay.hidden) {
+          closeNavigator()
+        }
+      })
+    })()
+  </script>`
+    : ""
   const copyContextButton = copyContext
     ? '<button class="copy-context-button" type="button" data-copy-context-button><span class="copy-context-label">Copy context for AI</span></button>'
     : ""
@@ -404,11 +516,177 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
       cursor: pointer;
     }
 
+    .lesson-navigator-button {
+      min-height: 32px;
+      padding: 0.34rem 0.7rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--sans-font);
+      font-size: 13px;
+      line-height: 1.2;
+      cursor: pointer;
+    }
+
     .copy-context-button:hover,
-    .copy-context-button:focus-visible {
+    .copy-context-button:focus-visible,
+    .lesson-navigator-button:hover,
+    .lesson-navigator-button:focus-visible {
       border-color: var(--accent);
       color: var(--accent);
       outline: none;
+    }
+
+    .lesson-navigator-open {
+      overflow: hidden;
+    }
+
+    .lesson-navigator[hidden] {
+      display: none;
+    }
+
+    .lesson-navigator {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      background: rgb(5 5 7 / 0.94);
+      color: var(--text);
+    }
+
+    .lesson-navigator-panel {
+      width: min(100%, 920px);
+      min-height: 100vh;
+      padding: 34px clamp(18px, 4vw, 44px) 48px;
+      background: var(--bg);
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .lesson-navigator-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--sans-font);
+    }
+
+    .lesson-navigator-kicker {
+      margin: 0 0 0.35rem;
+      color: var(--muted);
+      font-family: var(--sans-font);
+      font-size: 0.78rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .lesson-navigator-header h2 {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      color: var(--heading-strong);
+      font-family: var(--serif-font);
+      font-size: clamp(1.9rem, 6vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .lesson-navigator-close {
+      flex: 0 0 auto;
+      min-height: 36px;
+      padding: 0.42rem 0.72rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--sans-font);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .lesson-navigator-close:hover,
+    .lesson-navigator-close:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+      outline: none;
+    }
+
+    .lesson-navigator-search {
+      display: block;
+      margin: 22px 0 18px;
+      font-family: var(--sans-font);
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.3;
+    }
+
+    .lesson-navigator-search span {
+      display: block;
+      margin-bottom: 0.42rem;
+    }
+
+    .lesson-navigator-search input {
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--surface);
+      color: var(--text);
+      padding: 0.62rem 0.75rem;
+      font: inherit;
+      font-size: 1rem;
+    }
+
+    .lesson-navigator-search input:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .lesson-navigator-nav ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .lesson-navigator-item {
+      margin: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lesson-navigator-item a {
+      display: block;
+      padding: 0.8rem 0;
+      color: var(--text);
+      font-family: var(--serif-font);
+      font-size: 1.05rem;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .lesson-navigator-item a:hover,
+    .lesson-navigator-item a:focus-visible {
+      color: var(--accent);
+      outline: none;
+    }
+
+    .lesson-navigator-item[data-level="3"] a {
+      padding-left: 1.25rem;
+      color: var(--heading-soft);
+      font-size: 0.98rem;
+    }
+
+    .lesson-navigator-item[data-level="4"] a {
+      padding-left: 2.2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     article {
@@ -614,6 +892,29 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
         justify-content: flex-start;
       }
 
+      .lesson-navigator-panel {
+        border-left: 0;
+        border-right: 0;
+        padding: 22px 18px 40px;
+      }
+
+      .lesson-navigator-header {
+        align-items: flex-start;
+      }
+
+      .lesson-navigator-item a {
+        padding: 0.9rem 0;
+        font-size: 1rem;
+      }
+
+      .lesson-navigator-item[data-level="3"] a {
+        padding-left: 0.85rem;
+      }
+
+      .lesson-navigator-item[data-level="4"] a {
+        padding-left: 1.45rem;
+      }
+
       h1 {
         font-size: 2.25rem;
         max-width: 100%;
@@ -668,6 +969,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
           <a href="${topicsHref}">Topics</a>
           <a href="${quartzHref}">Quartz</a>
         </nav>
+        ${lessonNavigatorButton}
         ${copyContextButton}
       </div>
     </header>
@@ -675,7 +977,9 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "" }
 ${body}
     </article>
   </main>
+${lessonNavigatorMarkup}
 ${copyContextScript}
+${lessonNavigatorScript}
 </body>
 </html>
 `
@@ -703,7 +1007,8 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     const markdownRelative = toPosix(path.relative(contentDir, markdownPath))
     const markdown = await fs.readFile(markdownPath, "utf8")
     const title = extractTitle(markdown, markdownRelative)
-    const copyContext = isIndividualReading(markdownRelative) ? buildCopyContext(markdown, title) : ""
+    const isReading = isIndividualReading(markdownRelative)
+    const copyContext = isReading ? buildCopyContext(markdown, title) : ""
     const body = String(
       await unified()
         .use(remarkParse)
@@ -724,7 +1029,14 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     await fs.mkdir(path.dirname(outputPath), { recursive: true })
     await fs.writeFile(
       outputPath,
-      renderPage({ title, body, sourceRelative: markdownRelative, urlPrefix, copyContext }),
+      renderPage({
+        title,
+        body,
+        sourceRelative: markdownRelative,
+        urlPrefix,
+        copyContext,
+        enableLessonNavigator: isReading,
+      }),
     )
   }
 
