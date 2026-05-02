@@ -16,17 +16,13 @@ web/lessons/content/
 web/lessons/public/
 Users/
 
-learning_system/*
-!learning_system/SOURCE_MAP.json
-
-materials/*
-!materials/processed/
-materials/processed/*
-!materials/processed/ai/
-materials/processed/ai/*
-!materials/processed/ai/*.md
-!materials/processed/ai/**/
-!materials/processed/ai/**/*.md
+materials/inbox/
+materials/archive/
+materials/processed/biology/
+materials/processed/interviews/
+materials/processed/optimization-for-ml/
+materials/processed/probabilistic-graphical-models/
+materials/processed/probability-and-statistics-36-700-cmu/
 
 skills/
 .agents/
