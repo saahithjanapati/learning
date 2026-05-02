@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url"
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const topicsDir = path.join(repoRoot, "topics")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
-const contentPathPattern = /(^|[/\\])(lessons|live-chats)[/\\][^/\\]+\.md$/i
+const contentPathPattern = /(^|[/\\])lessons[/\\][^/\\]+\.md$/i
 
 function toPosix(filePath) {
   return filePath.split(path.sep).join("/")
@@ -82,21 +82,6 @@ function isLiveChat(repoRelative, markdown, title) {
     /\blive chat\b/.test(titleLower) ||
     (/^## Transcript\s*$/m.test(markdown) && /^### Turn \d+\s*$/m.test(markdown))
   )
-}
-
-function publicContentPath(repoRelative, kind) {
-  if (kind !== "liveChat") {
-    return repoRelative
-  }
-
-  const parts = toPosix(repoRelative).split("/")
-  const lessonsIndex = parts.indexOf("lessons")
-
-  if (lessonsIndex >= 0) {
-    parts[lessonsIndex] = "live-chats"
-  }
-
-  return parts.join("/")
 }
 
 function isExternalHref(href) {
@@ -235,12 +220,15 @@ for (const sourcePath of lessonFiles) {
   const sanitizedMarkdown = sanitizeGeneratedMarkdown(markdown)
   const title = extractTitle(sanitizedMarkdown, repoRelative)
   const relativeParts = repoRelativePosix.split("/")
-  const collectionIndex = relativeParts.findIndex((part) => part === "lessons" || part === "live-chats")
-  const sourceCollection = relativeParts[collectionIndex]
-  const kind = sourceCollection === "live-chats" || isLiveChat(repoRelative, sanitizedMarkdown, title) ? "liveChat" : "lesson"
-  const outputRelative = publicContentPath(repoRelative, kind)
+  const collectionIndex = relativeParts.findIndex((part) => part === "lessons")
+
+  if (isLiveChat(repoRelative, sanitizedMarkdown, title)) {
+    continue
+  }
+
+  const outputRelative = repoRelative
   const topicPath = relativeParts.slice(1, collectionIndex).join("/")
-  const topicItems = itemsByTopic.get(topicPath) ?? { lessons: [], liveChats: [] }
+  const topicItems = itemsByTopic.get(topicPath) ?? { lessons: [] }
   const item = {
     date: extractDate(repoRelative, stat),
     title,
@@ -249,11 +237,7 @@ for (const sourcePath of lessonFiles) {
     topicTitle: topicLabel(topicPath),
   }
 
-  if (kind === "liveChat") {
-    topicItems.liveChats.push(item)
-  } else {
-    topicItems.lessons.push(item)
-  }
+  topicItems.lessons.push(item)
   itemsByTopic.set(topicPath, topicItems)
 
   publicPathByRepoRelative.set(repoRelativePosix, toPosix(outputRelative))
@@ -285,13 +269,13 @@ function latestDate(items) {
 }
 
 function getTopicSummary(topicSummaries, topicPath) {
-  const summary = topicSummaries.get(topicPath) ?? { lessons: [], liveChats: [], childTopicPaths: new Set() }
+  const summary = topicSummaries.get(topicPath) ?? { lessons: [], childTopicPaths: new Set() }
   topicSummaries.set(topicPath, summary)
   return summary
 }
 
 function topicSortDate(summary) {
-  return latestDate(summary.lessons) || latestDate(summary.liveChats)
+  return latestDate(summary.lessons)
 }
 
 function topicSummaryParts(summary, { includeLatest = true } = {}) {
@@ -300,9 +284,6 @@ function topicSummaryParts(summary, { includeLatest = true } = {}) {
 
   if (summary.lessons.length > 0) {
     parts.push(pluralize(summary.lessons.length, "reading lesson"))
-  }
-  if (summary.liveChats.length > 0) {
-    parts.push(pluralize(summary.liveChats.length, "live chat"))
   }
   if (includeLatest && latestReading) {
     parts.push(`latest reading: ${latestReading}`)
@@ -329,16 +310,14 @@ const directTopics = new Map(
     topicPath,
     {
       lessons: sortedDatedItems(items.lessons),
-      liveChats: sortedDatedItems(items.liveChats),
     },
   ]),
 )
 const topicSummaries = new Map()
 const rootTopicSummary = getTopicSummary(topicSummaries, "")
 
-for (const [topicPath, { lessons, liveChats }] of directTopics) {
+for (const [topicPath, { lessons }] of directTopics) {
   rootTopicSummary.lessons.push(...lessons)
-  rootTopicSummary.liveChats.push(...liveChats)
 
   const parts = topicPath.split("/")
 
@@ -348,7 +327,6 @@ for (const [topicPath, { lessons, liveChats }] of directTopics) {
     const summary = getTopicSummary(topicSummaries, currentTopicPath)
 
     summary.lessons.push(...lessons)
-    summary.liveChats.push(...liveChats)
     getTopicSummary(topicSummaries, parentTopicPath).childTopicPaths.add(currentTopicPath)
   }
 }
@@ -366,7 +344,6 @@ function sortedChildTopicPaths(topicPath) {
 }
 
 const allLessons = sortedDatedItems(rootTopicSummary.lessons)
-const allLiveChats = sortedDatedItems(rootTopicSummary.liveChats)
 
 const indexLines = [
   "---",
@@ -375,7 +352,7 @@ const indexLines = [
   "",
   "# Lessons",
   "",
-  "Pedagogical reading lessons from the Learning Machine vault. Live-chat transcripts are grouped separately.",
+  "Pedagogical reading lessons from the Learning Machine vault.",
   "",
   "Default reader: [Minimal](/). Alternate view: [Quartz](/quartz/).",
   "",
@@ -415,7 +392,7 @@ const topicsIndexLines = [
   "",
   "# Topics",
   "",
-  "Sections are ordered by latest reading date. Live-chat transcripts are counted separately from lessons.",
+  "Sections are ordered by latest reading date.",
   "",
   "## Sections",
   "",
@@ -429,7 +406,7 @@ await writeGeneratedPage(path.join(contentDir, "topics", "index.md"), topicsInde
 
 for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareTopicPathsByRecency)) {
   const summary = topicSummaries.get(topicPath)
-  const directItems = directTopics.get(topicPath) ?? { lessons: [], liveChats: [] }
+  const directItems = directTopics.get(topicPath) ?? { lessons: [] }
   const childTopicPaths = sortedChildTopicPaths(topicPath)
   const topicIndexRelative = toPosix(path.join("topics", ...topicPath.split("/"), "index.md"))
   const topicIndexPath = path.join(contentDir, "topics", ...topicPath.split("/"), "index.md")
@@ -452,7 +429,7 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
       topicLines.push(topicListLine(childTopicPath, topicSummaries.get(childTopicPath), topicIndexRelative))
     }
 
-    if (directItems.lessons.length > 0 || directItems.liveChats.length > 0) {
+    if (directItems.lessons.length > 0) {
       topicLines.push("")
     }
   }
@@ -462,14 +439,6 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
 
     for (const lesson of directItems.lessons) {
       topicLines.push(`- ${lesson.date} - [${lesson.title}](${relativeMarkdownLink(topicIndexRelative, lesson.href)})`)
-    }
-  }
-
-  if (directItems.liveChats.length > 0) {
-    topicLines.push("", "## Live Chats", "", "Interactive transcripts and problem-solving sessions.", "")
-
-    for (const liveChat of directItems.liveChats) {
-      topicLines.push(`- ${liveChat.date} - [${liveChat.title}](${relativeMarkdownLink(topicIndexRelative, liveChat.href)})`)
     }
   }
 
@@ -494,24 +463,6 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
     ])
   }
 
-  if (directItems.liveChats.length > 0) {
-    const liveChatsIndexRelative = toPosix(path.join("topics", ...topicPath.split("/"), "live-chats", "index.md"))
-
-    await writeGeneratedPage(path.join(contentDir, "topics", ...topicPath.split("/"), "live-chats", "index.md"), [
-      "---",
-      `title: ${topicLabel(topicPath)} Live Chats`,
-      "cssclasses: lessons-topic-index",
-      "---",
-      "",
-      `# ${topicLabel(topicPath)} Live Chats`,
-      "",
-      `[${topicLabel(topicPath)}](${relativeMarkdownLink(liveChatsIndexRelative, topicHref(topicPath))})`,
-      "",
-      "## Live Chats",
-      "",
-      ...directItems.liveChats.map((liveChat) => `- ${liveChat.date} - [${liveChat.title}](${relativeMarkdownLink(liveChatsIndexRelative, liveChat.href)})`),
-    ])
-  }
 }
 
 const recentLessonLines = [
@@ -543,5 +494,5 @@ await writeGeneratedPage(path.join(contentDir, "recent-lessons.md"), recentLesso
 await writeGeneratedPage(path.join(contentDir, "index.md"), indexLines)
 
 console.log(
-  `Exported ${allLessons.length} reading lessons and ${allLiveChats.length} live chats to ${path.relative(repoRoot, contentDir)}`,
+  `Exported ${allLessons.length} reading lessons to ${path.relative(repoRoot, contentDir)}`,
 )
