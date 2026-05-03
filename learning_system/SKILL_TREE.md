@@ -40,8 +40,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Talk Lesson: Rishabh Agarwal on scaling RL at the frontier
 - AI / Collection -> Developer Lesson: OpenAI Agents SDK code-first agent apps
 - Probability and Statistics - 36-700 (CMU) -> Estimation and Testing Roadmap
 - Probability and Statistics - 36-700 (CMU) -> Probability Foundations and Random Variables
 - Probability and Statistics - 36-700 (CMU) -> Course Roadmap: probability into statistical inference
-- Advanced Machine Learning - 10-715 (CMU) -> Homework, Exam, and Proof-Repair Loop

@@ -1610,6 +1610,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/rishabh-agarwal-iclr-2026-scaling-rl-frontier-llms-periodic-labs-talk.md",
+      "root_topic": "ai",
+      "source_pdf": "https://x.com/agarwl_/status/2049263264249368906",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/scale-labs-papers-2025-2026/brief.md",
       "root_topic": "ai",
       "source_pdf": null,
