@@ -5,6 +5,11 @@
   "outputDirectory": "web/lessons/public",
   "redirects": [
     {
+      "source": "/topics/ai/papers/:path*/",
+      "destination": "/topics/ai/lessons/:path*",
+      "permanent": true
+    },
+    {
       "source": "/topics/ai/papers/:path*",
       "destination": "/topics/ai/lessons/:path*",
       "permanent": true
