@@ -43,5 +43,5 @@ Hierarchical topic tree discovered from `topics/` paths.
 - Probability and Statistics - 36-700 (CMU) -> Estimation and Testing Roadmap
 - Probability and Statistics - 36-700 (CMU) -> Probability Foundations and Random Variables
 - Probability and Statistics - 36-700 (CMU) -> Course Roadmap: probability into statistical inference
-- Advanced Machine Learning - 10-715 (CMU) -> Linear Classifiers, SVMs, and Kernels
-- Advanced Machine Learning - 10-715 (CMU) -> Supervised Learning, Loss, Risk, and ERM
+- Advanced Machine Learning - 10-715 (CMU) -> Homework, Exam, and Proof-Repair Loop
+- Advanced Machine Learning - 10-715 (CMU) -> Diffusion, Score Matching, and Generative Modeling

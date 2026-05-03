@@ -96,6 +96,8 @@ Core sources:
 Lessons:
 
 - `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-linear-classifiers-svm-kernels.md`
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-perceptron-margin-geometry.md`
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-svm-duality-kernels.md`
 
 Exit check:
 
@@ -121,10 +123,18 @@ Content targets:
 
 - tail bounds and concentration,
 - finite-class uniform convergence,
+- VC dimension and shattering,
+- Sauer's lemma and no-free-lunch reasoning,
 - bias-complexity tradeoff,
 - capacity control,
 - train/test gap reasoning,
 - proof templates for generalization statements.
+
+Lessons:
+
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-pac-learning-finite-classes.md`
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-vc-dimension-sauer-no-free-lunch.md`
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-concentration-generalization-proof-patterns.md`
 
 Exit check:
 
@@ -143,11 +153,16 @@ Core sources:
 Content targets:
 
 - multilayer perceptrons,
+- nonlinear representation learning,
 - representation power,
 - CNN and residual-network motifs,
 - model selection,
 - interpolation-regime intuition,
 - where classical theory strains under modern practice.
+
+Lessons:
+
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-neural-networks-function-classes.md`
 
 Exit check:
 
@@ -168,9 +183,16 @@ Content targets:
 
 - exploration vs exploitation,
 - regret,
+- Markov decision processes,
+- Bellman backups,
+- Q-learning,
 - value functions and policies,
 - policy-gradient intuition,
 - the difference between supervised labels and reward feedback.
+
+Lessons:
+
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-bandits-mdps-rl.md`
 
 Exit check:
 
@@ -191,8 +213,14 @@ Content targets:
 - variables as nodes,
 - conditional independence,
 - directed graphical models,
+- undirected graphical models,
+- clique potentials,
 - inference vs learning,
 - causal graph intuition and caution.
+
+Lessons:
+
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-graphical-models-directed-undirected.md`
 
 Exit check:
 
@@ -217,10 +245,15 @@ Core sources:
 Content targets:
 
 - score functions,
+- exact score matching,
 - denoising score matching,
 - forward noising and reverse denoising,
 - diffusion as distribution estimation,
 - how paper assumptions connect to course theory.
+
+Lessons:
+
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-diffusion-score-matching.md`
 
 Exit check:
 
@@ -242,6 +275,10 @@ Cadence:
 - After each content module, solve at least two representative homework/exam problems.
 - For every missed proof, write a two-part correction: the false move and the reusable proof pattern.
 - Use prior exams only after the concept lesson is complete, not as the first exposure.
+
+Lessons:
+
+- `topics/advanced-machine-learning-10-715-cmu/lessons/2026-05-03-10-715-homework-exam-proof-loop.md`
 
 Exit check:
 
