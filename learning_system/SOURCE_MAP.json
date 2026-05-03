@@ -1463,6 +1463,15 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/posttrainbench-can-llm-agents-automate-llm-post-training.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2603.08640",
+      "duplicate_equivalents": [
+        "posttrainbench-can-llm-agents-automate-llm-post-training.pdf"
+      ],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/scale-labs-papers-2025-2026/brief.md",
       "root_topic": "ai",
       "source_pdf": null,

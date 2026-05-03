@@ -37,8 +37,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Paper Lesson: PostTrainBench LLM agents automate post-training
 - AI / Collection -> Paper Lesson: Who's in Charge? disempowerment patterns in real-world LLM usage
 - AI / Collection -> Paper Lesson: GDPval real-world economically valuable tasks
 - AI / Collection -> Paper Lesson: Generative meta-models of LLM activations
 - AI / Collection -> Paper Lesson: Digital Ecosystems interactive multi-agent neural cellular automata
-- AI / Collection -> Paper Lesson: AI Scientist end-to-end automation of AI research
