@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-02",
+  "generated_on": "2026-05-03",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1359,6 +1359,47 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/denoising-diffusion-probabilistic-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2006.11239",
+      "duplicate_equivalents": [
+        "relevant-papers-04-Denoising Diffusion Probabilistic Models.pdf"
+      ],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/diffusion-models-are-minimax-optimal-distribution-estimators.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2303.01861",
+      "duplicate_equivalents": [
+        "relevant-papers-02-Diffusion Models are Minimax Optimal Distribution Estimators.pdf"
+      ],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/dnahnet-scalable-hierarchical-foundation-model-for-genomic-sequence-learning.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2602.10603v3",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/estimation-of-non-normalized-statistical-models-by-score-matching.md",
+      "root_topic": "ai",
+      "source_pdf": "https://jmlr.org/papers/v6/hyvarinen05a.html",
+      "duplicate_equivalents": [
+        "relevant-papers-01-Estimation of Non-Normalized Statistical Models by Score Matching.pdf"
+      ],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/group-level-data-selection-for-efficient-pretraining.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2502.14709",
@@ -1373,6 +1414,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/learning-to-orchestrate-agents-in-natural-language-with-the-conductor.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2512.04388",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/machines-of-faithful-obedience.md",
       "root_topic": "ai",
       "source_pdf": "https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/",
@@ -1383,6 +1431,13 @@
       "transcript_path": "materials/processed/ai/mates-model-aware-data-selection-for-efficient-pretraining-with-data-influence-models.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2406.06046",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/memorybench-benchmark-for-memory-and-continual-learning-in-llm-systems.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2510.17281",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1408,9 +1463,25 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/score-based-generative-modeling-through-stochastic-differential-equations.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2011.13456",
+      "duplicate_equivalents": [
+        "relevant-papers-05-Score-Based Generative Modeling through Stochastic Differential Equations.pdf"
+      ],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/skillweaver-web-agents-can-self-improve-by-discovering-and-honing-skills.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2504.07079",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/state-space-duality-mamba-2-part-i-the-model.md",
+      "root_topic": "ai",
+      "source_pdf": "https://goombalab.github.io/blog/2024/mamba2-part1-model/",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1436,6 +1507,20 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/the-last-human-written-paper-agent-native-research-artifacts.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2604.24658",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/towards-end-to-end-automation-of-ai-research.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/trading-inference-time-compute-for-adversarial-robustness.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2501.18841",
@@ -1447,6 +1532,15 @@
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/research/trustworthy-agents",
       "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/unveil-conditional-diffusion-models-with-classifier-free-guidance-a-sharp-statistical-theory.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2403.11968",
+      "duplicate_equivalents": [
+        "relevant-papers-03-Unveil Conditional Diffusion Models with Classifier-free Guidance- A Sharp Statistical Theory.pdf"
+      ],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {

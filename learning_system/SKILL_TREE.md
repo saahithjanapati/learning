@@ -1,10 +1,11 @@
 # Skill Tree
 
-Last generated: 2026-05-02
+Last generated: 2026-05-03
 
 Hierarchical topic tree discovered from `topics/` paths.
 
 ```text
+├─ advanced-machine-learning-10-715-cmu
 ├─ ai
 ├─ biology
 │  └─ core
@@ -28,14 +29,16 @@ Hierarchical topic tree discovered from `topics/` paths.
 │  ├─ score-matching-and-energy-based-models
 │  ├─ undirected-graphical-models
 │  └─ variational-inference-and-em
+├─ probability-and-statistics-36-700-cmu
+├─ survey-of-algebra
 └─ transformers
    └─ kv-caching
 ```
 
 ## Recent Topics
 
-- AI / Collection -> Paper Lesson: Golden Goose RLVR from unverifiable internet text
-- AI / Collection -> Paper Lesson: reliable weak-to-strong monitoring of LLM agents
-- AI / Collection -> Paper Lesson: pi0.7 steerable generalist robotic foundation model
-- Biology / Core -> Ecology: behavior, energy flow, populations, communities, biodiversity, disruption
-- Biology / Core -> Evolution and Natural Selection: variation, fitness, drift, phylogeny, speciation
+- AI / Collection -> Paper Lesson: Digital Ecosystems interactive multi-agent neural cellular automata
+- AI / Collection -> Paper Lesson: AI Scientist end-to-end automation of AI research
+- AI / Collection -> Paper Lesson: Learning to orchestrate agents with the Conductor
+- AI / Collection -> Paper Lesson: Agent-native research artifacts
+- AI / Collection -> Paper Lesson: Mamba-2 state space duality step by step

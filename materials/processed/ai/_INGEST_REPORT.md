@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + manual repo ingest`
-Files: 17
+Files: 31
 
 ## Files
 
@@ -18,7 +18,19 @@ Files: 17
 - `https://alignment.anthropic.com/2025/bloom-auto-evals/` -> `bloom-an-open-source-tool-for-automated-behavioral-evaluations.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/` -> `machines-of-faithful-obedience.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://arxiv.org/pdf/2501.18841` -> `trading-inference-time-compute-for-adversarial-robustness.md` (strategy: `canonical PDF extraction and collection-oriented normalization`)
+- `https://jmlr.org/papers/v6/hyvarinen05a.html` -> `estimation-of-non-normalized-statistical-models-by-score-matching.md` (strategy: `course PDF transcript mirrored into AI collection`)
+- `https://arxiv.org/abs/2303.01861` -> `diffusion-models-are-minimax-optimal-distribution-estimators.md` (strategy: `course PDF transcript mirrored into AI collection`)
+- `https://arxiv.org/abs/2403.11968` -> `unveil-conditional-diffusion-models-with-classifier-free-guidance-a-sharp-statistical-theory.md` (strategy: `course PDF transcript mirrored into AI collection`)
+- `https://arxiv.org/abs/2006.11239` -> `denoising-diffusion-probabilistic-models.md` (strategy: `course PDF transcript mirrored into AI collection`)
+- `https://arxiv.org/abs/2011.13456` -> `score-based-generative-modeling-through-stochastic-differential-equations.md` (strategy: `course PDF transcript mirrored into AI collection`)
 - `https://arxiv.org/pdf/2406.06046` -> `mates-model-aware-data-selection-for-efficient-pretraining-with-data-influence-models.md` (strategy: `canonical PDF extraction and curriculum-oriented normalization`)
-- `https://arxiv.org/pdf/2502.14709` -> `group-level-data-selection-for-efficient-pretraining.md` (strategy: `canonical PDF extraction and curriculum-oriented normalization`)
+- `https://arxiv.org/pdf/2502.14709` -> `group-level-data-selection-for-efficient-pretraining.md` + `group-mates-method-equations.md` (strategy: `canonical PDF extraction and curriculum-oriented normalization`)
+- `https://arxiv.org/pdf/2602.10603v3` -> `dnahnet-scalable-hierarchical-foundation-model-for-genomic-sequence-learning.md` (strategy: `canonical PDF extraction and curriculum-oriented normalization`)
+- `https://arxiv.org/pdf/2510.17281` -> `memorybench-benchmark-for-memory-and-continual-learning-in-llm-systems.md` (strategy: `canonical PDF extraction and curriculum-oriented normalization`)
+- `https://goombalab.github.io/blog/2024/mamba2-part1-model/` -> `state-space-duality-mamba-2-part-i-the-model.md` (strategy: `canonical blog extraction and beginner-oriented paper normalization`)
+- `https://arxiv.org/pdf/2604.24658` -> `the-last-human-written-paper-agent-native-research-artifacts.md` (strategy: `canonical PDF extraction and beginner-oriented research-systems normalization`)
+- `https://arxiv.org/pdf/2512.04388` -> `learning-to-orchestrate-agents-in-natural-language-with-the-conductor.md` (strategy: `canonical PDF extraction and beginner-oriented multi-agent/RL normalization`)
+- `https://www.nature.com/articles/s41586-026-10265-5` -> `towards-end-to-end-automation-of-ai-research.md` (strategy: `canonical Nature article extraction and beginner-oriented autonomous-science normalization`)
+- `https://pub.sakana.ai/digital-ecosystem/` -> `digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md` (strategy: `canonical paper and interactive article extraction with beginner-oriented artificial-life normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)

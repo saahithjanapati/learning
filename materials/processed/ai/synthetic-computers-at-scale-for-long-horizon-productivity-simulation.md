@@ -11,13 +11,15 @@ Comments: `Preview version; work in progress`
 Extraction engine: `arXiv HTML review + manual structured ingest`
 Strategy: `canonical paper extraction and curriculum-oriented normalization`
 
-## Summary
+## Medium-Length Version
 
 This paper introduces `Synthetic Computers at Scale`, a method for generating full user-specific computer environments and using them as the substrate for long-horizon productivity-agent simulations.
 
 The central idea is that realistic productivity work is not just a task prompt. It is grounded in a user's files, directory structure, prior work, collaborator context, naming habits, project history, and evolving artifacts. If synthetic agent training only creates generic tasks, it misses the environmental context that makes real work hard. The paper therefore proposes synthesizing the computer itself: a persona becomes a detailed user profile, the profile becomes a filesystem plan, the plan becomes a populated computer full of documents, spreadsheets, presentations, PDFs, and related artifacts, and then agents perform month-scale work inside that environment.
 
 In preliminary experiments, the authors create 1,000 synthetic computers. For each computer, a setup agent defines realistic productivity objectives and collaborator context, and a work agent acts as the user over about a month of simulated work. The resulting runs are long: the average simulation takes 2,272 turns and 8.59 hours of runtime. The main empirical claim is that these trajectories contain useful experiential learning signals. When retrospective reports from prior simulations are distilled into occupation-specific skills, they improve agent performance both on held-out synthetic computers and on the out-of-domain GDPVal productivity benchmark.
+
+## Full-Length Version
 
 ## Core Claim
 

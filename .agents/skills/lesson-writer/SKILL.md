@@ -32,6 +32,7 @@ The lesson must:
 6. Update `learning_system/LESSON_INDEX.md` with a concise row for the new lesson when the repo uses that registry.
 7. Reindex after adding the lesson: `python scripts/learning_cli.py reindex --write-skill-tree`.
 8. If the Quartz lesson site exists, rebuild with `npm run lessons:build` before claiming the web view is updated.
+9. After a new lesson is successfully written and verified, push the in-scope lesson changes to GitHub by default unless the user explicitly asks not to. In a mixed worktree, stage only the lesson/source/index files that belong to the lesson work and leave unrelated local changes unstaged.
 
 This skill is for pedagogical reading lessons. Do not classify live chats, interactive tutoring transcripts, or problem-solving sessions as lessons; those belong in `live-chats/` and should use the live-chat workflow instead.
 
@@ -45,9 +46,9 @@ By default, keep each paper lesson as one public page to avoid duplicating the l
 2. `## Medium-Length Version`
 3. `## Full-Length Version`
 
-The medium-length version should be a complete standalone reading path: thesis, motivation, method, experiments, main findings, limitations, and takeaway. It should be substantially shorter than the full version but not merely an abstract.
+The medium-length version should be a complete standalone reading path: thesis, motivation, method, experiments, main findings, limitations, and takeaway. It should be substantially shorter than the full-length version but not merely an abstract.
 
-The full-length version should be the exhaustive teaching note.
+The full-length version should be the exhaustive teaching note. Use the exact headings above for paper lessons so readers can find both versions reliably.
 
 Include:
 - the central research question
