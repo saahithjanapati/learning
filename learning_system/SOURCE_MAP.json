@@ -1483,6 +1483,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/claudes-constitution.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.anthropic.com/constitution",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2406.11794",
