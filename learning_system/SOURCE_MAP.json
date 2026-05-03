@@ -105,6 +105,26 @@
       ]
     },
     {
+      "root_topic": "information-theory",
+      "processed_material_dir": "materials/processed/information-theory",
+      "materials_index_path": "topics/information-theory/materials/INDEX.md",
+      "topic_count": 1,
+      "topics": [
+        {
+          "topic_path": "topics/information-theory",
+          "root_topic": "information-theory",
+          "topic_key": "information-theory",
+          "readme_path": "topics/information-theory/README.md",
+          "curriculum_path": null,
+          "curriculum_paths": [],
+          "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [],
+          "unresolved_source_materials": []
+        }
+      ]
+    },
+    {
       "root_topic": "interviews",
       "processed_material_dir": "materials/processed/interviews",
       "materials_index_path": null,
@@ -1661,6 +1681,13 @@
       "transcript_path": "materials/processed/biology/openstax-biology-2e-map.md",
       "root_topic": "biology",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": null
+    },
+    {
+      "transcript_path": "materials/processed/information-theory/information-theory-intro-source-overview.md",
+      "root_topic": "information-theory",
+      "source_pdf": "https://en.wikipedia.org/wiki/Information_theory",
       "duplicate_equivalents": [],
       "ingest_report": null
     },

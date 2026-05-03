@@ -9,6 +9,7 @@ Canonical topic paths and aliases used for matching new requests.
 | art-and-aesthetics | art-and-aesthetics | `topics/art-and-aesthetics` |  |
 | biology | biology | `topics/biology` |  |
 | core | biology | `topics/biology/core` |  |
+| information-theory | information-theory | `topics/information-theory` |  |
 | interviews | interviews | `topics/interviews` |  |
 | ml-system-design | interviews | `topics/interviews/ml-system-design` |  |
 | learning-and-study-skills | learning-and-study-skills | `topics/learning-and-study-skills` |  |
