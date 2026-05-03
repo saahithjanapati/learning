@@ -35,11 +35,11 @@ The lesson must:
 9. For AI lessons, verify the public reader keeps both generated AI collection sections visible: lesson pages under `topics/ai/lessons/*.md` should appear under `AI / Lessons`, while processed source notes from `materials/processed/ai/**/*.md` should appear under `AI / Papers`.
 10. After a new lesson is successfully written and verified, push the in-scope lesson changes to GitHub by default unless the user explicitly asks not to. In a mixed worktree, stage only the lesson/source/index files that belong to the lesson work and leave unrelated local changes unstaged.
 
-This skill is for pedagogical reading lessons. Do not classify live chats, interactive tutoring transcripts, or problem-solving sessions as lessons; those belong in `live-chats/` and should use the live-chat workflow instead.
+This skill is for public pedagogical lessons. Do not classify live chats, interactive tutoring transcripts, or problem-solving sessions as lessons; those belong in `live-chats/` and should use the live-chat workflow instead.
 
 ## Paper Mode
 
-For papers, structure the lesson like a very good PhD student reading memo plus a polished teaching note.
+For papers, structure the lesson like a very good PhD student study memo plus a polished teaching note.
 
 By default, keep each paper lesson as one public page to avoid duplicating the lesson index. Put both versions inside that page:
 
@@ -47,7 +47,7 @@ By default, keep each paper lesson as one public page to avoid duplicating the l
 2. `## Medium-Length Version`
 3. `## Full-Length Version`
 
-The medium-length version should be a complete standalone reading path: thesis, motivation, method, experiments, main findings, limitations, and takeaway. It should be substantially shorter than the full-length version but not merely an abstract.
+The medium-length version should be a complete standalone learning path: thesis, motivation, method, experiments, main findings, limitations, and takeaway. It should be substantially shorter than the full-length version but not merely an abstract.
 
 The full-length version should be the exhaustive teaching note. Use the exact headings above for paper lessons so readers can find both versions reliably.
 

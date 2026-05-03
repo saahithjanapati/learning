@@ -64,7 +64,7 @@ Use this skill when user asks:
 6. Verify public reader placement when publishing AI material:
 - `materials/processed/ai/**/*.md` should publish under `AI / Papers`
 - `topics/ai/lessons/*.md` should publish under `AI / Lessons`
-- the root `AI` count should be explainable from visible child collection sections plus any intentionally direct readings
+- the root `AI` lesson count should be explainable from visible child collection sections plus any intentionally direct lessons
 
 ## Git Policy
 

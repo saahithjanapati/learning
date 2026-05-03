@@ -479,13 +479,13 @@ function topicSummaryParts(summary, { includeLatest = true } = {}) {
   const latestReading = latestDate(summary.lessons)
 
   if (summary.lessons.length > 0) {
-    parts.push(pluralize(summary.lessons.length, "reading"))
+    parts.push(pluralize(summary.lessons.length, "lesson"))
   }
   if (includeLatest && latestReading) {
-    parts.push(`latest reading: ${latestReading}`)
+    parts.push(`latest lesson: ${latestReading}`)
   }
 
-  return parts.length > 0 ? parts : ["no public readings yet"]
+  return parts.length > 0 ? parts : ["no public lessons yet"]
 }
 
 function topicListLine(topicPath, summary, fromMarkdownRelative) {
@@ -543,14 +543,14 @@ const allLessons = sortedDatedItems(rootTopicSummary.lessons)
 
 const indexLines = [
   "---",
-  "title: Readings",
+  "title: Lessons",
   "---",
   "",
-  "# Readings",
+  "# Lessons",
   "",
-  "Pedagogical lessons, paper notes, and source readings from the Learning Machine vault.",
+  "Pedagogical lessons, paper notes, and source notes from the Learning Machine vault.",
   "",
-  `Browse by topic. For a chronological archive, use [Recent Readings](${relativeMarkdownLink("index.md", "recent-lessons.md")}).`,
+  `Browse by topic. For a chronological archive, use [Recent Lessons](${relativeMarkdownLink("index.md", "recent-lessons.md")}).`,
   "",
 ]
 
@@ -586,7 +586,7 @@ const topicsIndexLines = [
   "",
   "# Topics",
   "",
-  "Sections are ordered by latest reading date.",
+  "Sections are ordered by latest lesson date.",
   "",
   "## Sections",
   "",
@@ -629,7 +629,7 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
   }
 
   if (topicReadings.length > 0) {
-    topicLines.push("## Readings", "")
+    topicLines.push("## Lessons", "")
 
     for (const lesson of topicReadings) {
       const topicSuffix = lesson.topicPath !== topicPath ? ` (${topicLinkLabel(lesson.topicPath)})` : ""
@@ -646,15 +646,15 @@ for (const [collectionIndexRelative, collection] of [...collectionIndexes.entrie
 
   await writeGeneratedPage(collectionIndexPath, [
       "---",
-      `title: ${topicLabel(collection.topicPath)} Reading Lessons`,
+      `title: ${topicLabel(collection.topicPath)} Lessons`,
       "cssclasses: lessons-topic-index",
       "---",
       "",
-      `# ${topicLabel(collection.topicPath)} Reading Lessons`,
+      `# ${topicLabel(collection.topicPath)} Lessons`,
       "",
       `[${topicLabel(collection.topicPath)}](${relativeMarkdownLink(collectionIndexRelative, topicHref(collection.topicPath))})`,
       "",
-      "## Readings",
+      "## Lessons",
       "",
       ...sortedLessons.map((lesson) => `- ${lesson.date} - [${lesson.title}](${relativeMarkdownLink(collectionIndexRelative, lesson.href)})`),
   ])
@@ -662,15 +662,15 @@ for (const [collectionIndexRelative, collection] of [...collectionIndexes.entrie
 
 const recentLessonLines = [
   "---",
-  "title: Recent Readings",
+  "title: Recent Lessons",
   "cssclasses: lessons-topic-index",
   "---",
   "",
-  "# Recent Readings",
+  "# Recent Lessons",
   "",
-  `[Readings](${relativeMarkdownLink("recent-lessons.md", "index.md")})`,
+  `[Lessons](${relativeMarkdownLink("recent-lessons.md", "index.md")})`,
   "",
-  "All public readings, newest to oldest.",
+  "All public lessons, newest to oldest.",
 ]
 
 let currentLessonDate = ""
@@ -689,5 +689,5 @@ await writeGeneratedPage(path.join(contentDir, "recent-lessons.md"), recentLesso
 await writeGeneratedPage(path.join(contentDir, "index.md"), indexLines)
 
 console.log(
-  `Exported ${allLessons.length} public readings to ${path.relative(repoRoot, contentDir)}`,
+  `Exported ${allLessons.length} public lessons to ${path.relative(repoRoot, contentDir)}`,
 )

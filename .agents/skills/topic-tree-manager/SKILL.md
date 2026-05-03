@@ -26,7 +26,7 @@ Do not use this skill for:
 2. For public reader count mismatches, fix the generator rather than generated output:
 - inspect `scripts/export_lessons.mjs` topic summary construction
 - rebuild with `npm run lessons:build`
-- verify parent counts are explainable from visible child sections plus any direct readings
+- verify parent lesson counts are explainable from visible child sections plus any direct lessons
 - for AI, keep both generated collection sections visible:
   - `AI / Lessons` for `topics/ai/lessons/*.md`
   - `AI / Papers` for recursive `materials/processed/ai/**/*.md`

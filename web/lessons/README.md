@@ -1,6 +1,6 @@
 # Lessons Web Deploy
 
-This native reader publishes public reading markdown from:
+This native reader publishes public lesson markdown from:
 
 ```text
 topics/**/lessons/*.md
