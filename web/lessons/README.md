@@ -7,7 +7,7 @@ topics/**/lessons/*.md
 materials/processed/ai/**/*.md except local underscore-prefixed maintenance files
 ```
 
-Live-chat transcripts stay in the repo for local desktop and agent workflows, but they are not exported to the public reader. AI processed-source notes are discovered recursively and routed under `topics/ai/papers/` at build time so newly ingested public papers appear without manually copying them into `topics/ai/lessons/` or waiting for `learning_system/SOURCE_MAP.json` to be manually refreshed.
+Live-chat transcripts stay in the repo for local desktop and agent workflows, but they are not exported to the public reader. AI processed-source notes are discovered recursively and routed into the same public `AI / Lessons` section as authored AI lesson notes, so newly ingested public papers appear without manually copying them into `topics/ai/lessons/` or waiting for `learning_system/SOURCE_MAP.json` to be manually refreshed. Public lesson order is based on ingest/add time, not the source's publication, submission, or revision date.
 
 Generated folders are intentionally not committed:
 

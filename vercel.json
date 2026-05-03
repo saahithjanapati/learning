@@ -2,5 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "buildCommand": "npm run lessons:build",
-  "outputDirectory": "web/lessons/public"
+  "outputDirectory": "web/lessons/public",
+  "redirects": [
+    {
+      "source": "/topics/ai/papers/:path*",
+      "destination": "/topics/ai/lessons/:path*",
+      "permanent": true
+    }
+  ]
 }

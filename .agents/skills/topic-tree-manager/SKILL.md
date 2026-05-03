@@ -28,8 +28,8 @@ Do not use this skill for:
 - rebuild with `npm run lessons:build`
 - verify parent lesson counts are explainable from visible child sections plus any direct lessons
 - for AI, keep both generated collection sections visible:
-  - `AI / Lessons` for `topics/ai/lessons/*.md`
-  - `AI / Papers` for recursive `materials/processed/ai/**/*.md`
+  - `AI / Lessons` includes both `topics/ai/lessons/*.md` and recursive `materials/processed/ai/**/*.md`
+- public lesson order must use ingest/add time, not source publication, submission, or revision time
 
 3. Generate reorg suggestions:
 - `python scripts/learning_cli.py reorganize --write-report`

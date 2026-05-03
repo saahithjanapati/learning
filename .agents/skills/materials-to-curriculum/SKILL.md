@@ -49,7 +49,7 @@ Use this skill when user asks:
 - for links/URLs:
   - keep the transcript `Source:` as the canonical URL
   - include site/title/publish metadata near the top of the processed markdown when available
-  - use ingestion date, not source publication date, for lesson filenames, `learning_system/LESSON_INDEX.md`, and public reader chronology
+  - use ingestion date/time, not source publication, submission, or revision date, for lesson filenames, `learning_system/LESSON_INDEX.md`, and public reader chronology
   - if a local snapshot is saved for debugging, keep it in local-only storage and do not require it for committed provenance
 
 4. Build curriculum and session plan using templates:
@@ -62,9 +62,9 @@ Use this skill when user asks:
 - [learning_system/TOPIC_INDEX.md](../../../learning_system/TOPIC_INDEX.md) (if new topic)
 
 6. Verify public reader placement when publishing AI material:
-- `materials/processed/ai/**/*.md` should publish under `AI / Papers`
-- `topics/ai/lessons/*.md` should publish under `AI / Lessons`
+- `materials/processed/ai/**/*.md` and `topics/ai/lessons/*.md` should both publish under one `AI / Lessons` section
 - the root `AI` lesson count should be explainable from visible child collection sections plus any intentionally direct lessons
+- newest/oldest ordering should follow ingest/add time, never source publication, submission, or revision time
 
 ## Git Policy
 

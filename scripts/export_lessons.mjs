@@ -9,9 +9,9 @@ const processedDir = path.join(repoRoot, "materials", "processed")
 const lessonIndexPath = path.join(repoRoot, "learning_system", "LESSON_INDEX.md")
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
 const contentPathPattern = /(^|[/\\])lessons[/\\][^/\\]+\.md$/i
-const publishedProcessedRootTopics = new Map([["ai", "papers"]])
+const publishedProcessedRootTopics = new Map([["ai", "lessons"]])
 const publishedLessonCollectionRootTopics = new Set(["ai"])
-const gitAddedDateByRepoRelative = new Map()
+const gitAddedInstantByRepoRelative = new Map()
 let ingestDatesByRepoRelative = new Map()
 
 function toPosix(filePath) {
@@ -70,63 +70,58 @@ function extractTitle(markdown, fallback) {
   return humanizeSlug(path.basename(fallback, ".md"))
 }
 
-function extractMetadataDate(markdown) {
-  return markdown.match(/^(?:Published|Submitted|Date):\s*`?(\d{4}-\d{2}-\d{2})`?\s*$/im)?.[1] ?? null
-}
-
 function extractIngestedMetadataDate(markdown) {
   return markdown.match(/^(?:Ingested|Ingested on|Ingest date|Date ingested):\s*`?(\d{4}-\d{2}-\d{2})`?\s*$/im)?.[1] ?? null
 }
 
-function gitAddedDate(repoRelative) {
-  if (gitAddedDateByRepoRelative.has(repoRelative)) {
-    return gitAddedDateByRepoRelative.get(repoRelative)
+function gitAddedInstant(repoRelative) {
+  if (gitAddedInstantByRepoRelative.has(repoRelative)) {
+    return gitAddedInstantByRepoRelative.get(repoRelative)
   }
 
-  let addedDate = null
+  let addedInstant = null
 
   try {
     const output = execFileSync(
       "git",
-      ["log", "--diff-filter=A", "--follow", "--format=%cs", "--", repoRelative],
+      ["log", "--diff-filter=A", "--follow", "--format=%cI", "--", repoRelative],
       { cwd: repoRoot, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
     )
       .trim()
       .split(/\r?\n/)
       .filter(Boolean)
 
-    addedDate = output.at(-1) ?? null
+    addedInstant = output.at(-1) ?? null
   } catch {
-    addedDate = null
+    addedInstant = null
   }
 
-  gitAddedDateByRepoRelative.set(repoRelative, addedDate)
-  return addedDate
+  gitAddedInstantByRepoRelative.set(repoRelative, addedInstant)
+  return addedInstant
 }
 
-function extractDate(repoRelative, stat, markdown = "", { preferIngestDate = false } = {}) {
-  if (preferIngestDate) {
-    const ingestedDate =
-      extractIngestedMetadataDate(markdown) ??
-      ingestDatesByRepoRelative.get(repoRelative) ??
-      gitAddedDate(repoRelative)
-
-    if (ingestedDate) {
-      return ingestedDate
-    }
-  }
-
+function extractIngestDate(repoRelative, stat, markdown = "") {
   const filenameDate = path.basename(repoRelative).match(/^(\d{4}-\d{2}-\d{2})-/)?.[1]
-  if (filenameDate) {
-    return filenameDate
+  const gitInstant = gitAddedInstant(repoRelative)
+  const fallbackDate = new Date(stat.mtimeMs).toISOString().slice(0, 10)
+
+  return (
+    ingestDatesByRepoRelative.get(repoRelative) ??
+    filenameDate ??
+    extractIngestedMetadataDate(markdown) ??
+    gitInstant?.slice(0, 10) ??
+    fallbackDate
+  )
+}
+
+function extractIngestSortKey(repoRelative, stat, markdown = "") {
+  const date = extractIngestDate(repoRelative, stat, markdown)
+  const gitInstant = gitAddedInstant(repoRelative)
+  if (gitInstant) {
+    return `${date}T${gitInstant.slice(11)}`
   }
 
-  const metadataDate = extractMetadataDate(markdown)
-  if (metadataDate) {
-    return metadataDate
-  }
-
-  return new Date(stat.mtimeMs).toISOString().slice(0, 10)
+  return new Date(stat.mtimeMs).toISOString()
 }
 
 async function lessonIndexIngestDates() {
@@ -418,9 +413,8 @@ for (const reading of publicReadings) {
 
   const topicItems = itemsByTopic.get(topicPath) ?? { lessons: [] }
   const item = {
-    date: extractDate(repoRelativePosix, stat, sanitizedMarkdown, {
-      preferIngestDate: reading.dateMode === "ingested",
-    }),
+    date: extractIngestDate(repoRelativePosix, stat, sanitizedMarkdown),
+    sortKey: extractIngestSortKey(repoRelativePosix, stat, sanitizedMarkdown),
     title,
     href: toPosix(outputRelative),
     topicPath,
@@ -453,7 +447,7 @@ for (const record of exportRecords) {
 }
 
 function compareDatedItems(a, b) {
-  return b.date.localeCompare(a.date) || a.title.localeCompare(b.title) || a.href.localeCompare(b.href)
+  return b.sortKey.localeCompare(a.sortKey) || a.title.localeCompare(b.title) || a.href.localeCompare(b.href)
 }
 
 function sortedDatedItems(items) {
