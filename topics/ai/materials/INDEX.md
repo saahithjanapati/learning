@@ -50,5 +50,6 @@ Policy:
 - [materials/processed/ai/scaling-laws-for-neural-language-models.md](../../../materials/processed/ai/scaling-laws-for-neural-language-models.md)
 - [materials/processed/ai/training-compute-optimal-large-language-models.md](../../../materials/processed/ai/training-compute-optimal-large-language-models.md)
 - [materials/processed/ai/gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md](../../../materials/processed/ai/gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md)
+- [materials/processed/ai/uncovering-gaps-humans-llms-interpret-subjective-language.md](../../../materials/processed/ai/uncovering-gaps-humans-llms-interpret-subjective-language.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)

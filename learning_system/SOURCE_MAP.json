@@ -1731,6 +1731,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/uncovering-gaps-humans-llms-interpret-subjective-language.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2503.04113",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/unveil-conditional-diffusion-models-with-classifier-free-guidance-a-sharp-statistical-theory.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2403.11968",
