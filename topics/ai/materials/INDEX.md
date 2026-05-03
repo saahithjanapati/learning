@@ -41,5 +41,6 @@ Policy:
 - [materials/processed/ai/digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md](../../../materials/processed/ai/digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md)
 - [materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md](../../../materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md)
 - [materials/processed/ai/gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks.md](../../../materials/processed/ai/gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks.md)
+- [materials/processed/ai/whos-in-charge-disempowerment-patterns-real-world-llm-usage.md](../../../materials/processed/ai/whos-in-charge-disempowerment-patterns-real-world-llm-usage.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/brief.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md](../../../materials/processed/ai/scale-labs-papers-2025-2026/paper_summaries.md)

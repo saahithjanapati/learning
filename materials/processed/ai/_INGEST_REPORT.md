@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
-Model: `direct web scrape + manual repo ingest`
-Files: 33
+Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
+Files: 34
 
 ## Files
 
@@ -34,5 +34,6 @@ Files: 33
 - `https://pub.sakana.ai/digital-ecosystem/` -> `digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md` (strategy: `canonical paper and interactive article extraction with beginner-oriented artificial-life normalization`)
 - `https://arxiv.org/pdf/2602.06964` -> `learning-a-generative-meta-model-of-llm-activations.md` (strategy: `canonical PDF extraction and beginner-oriented interpretability/meta-model normalization`)
 - `https://arxiv.org/abs/2510.04374` -> `gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks.md` (strategy: `canonical PDF extraction and beginner-oriented economic evaluation normalization`)
+- `https://arxiv.org/pdf/2601.19062` -> `whos-in-charge-disempowerment-patterns-real-world-llm-usage.md` (strategy: `Gemini PDF conversion and medium/full lesson normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)

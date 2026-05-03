@@ -1565,6 +1565,15 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/whos-in-charge-disempowerment-patterns-real-world-llm-usage.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2601.19062",
+      "duplicate_equivalents": [
+        "whos-in-charge-disempowerment-patterns-real-world-llm-usage.pdf"
+      ],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/why-we-are-excited-about-confessions.md",
       "root_topic": "ai",
       "source_pdf": "https://alignment.openai.com/confessions/",
