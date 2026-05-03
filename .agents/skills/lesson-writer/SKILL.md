@@ -32,7 +32,8 @@ The lesson must:
 6. Update `learning_system/LESSON_INDEX.md` with a concise row for the new lesson when the repo uses that registry. Use the lesson ingestion date for the filename date and index `Date` column; keep the source's publication date only inside the source note/provenance text.
 7. Reindex after adding the lesson: `python scripts/learning_cli.py reindex --write-skill-tree`.
 8. If the Quartz lesson site exists, rebuild with `npm run lessons:build` before claiming the web view is updated.
-9. After a new lesson is successfully written and verified, push the in-scope lesson changes to GitHub by default unless the user explicitly asks not to. In a mixed worktree, stage only the lesson/source/index files that belong to the lesson work and leave unrelated local changes unstaged.
+9. For AI lessons, verify the public reader keeps both generated AI collection sections visible: lesson pages under `topics/ai/lessons/*.md` should appear under `AI / Lessons`, while processed source notes from `materials/processed/ai/**/*.md` should appear under `AI / Papers`.
+10. After a new lesson is successfully written and verified, push the in-scope lesson changes to GitHub by default unless the user explicitly asks not to. In a mixed worktree, stage only the lesson/source/index files that belong to the lesson work and leave unrelated local changes unstaged.
 
 This skill is for pedagogical reading lessons. Do not classify live chats, interactive tutoring transcripts, or problem-solving sessions as lessons; those belong in `live-chats/` and should use the live-chat workflow instead.
 

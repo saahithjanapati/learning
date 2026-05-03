@@ -10,6 +10,7 @@ const lessonIndexPath = path.join(repoRoot, "learning_system", "LESSON_INDEX.md"
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
 const contentPathPattern = /(^|[/\\])lessons[/\\][^/\\]+\.md$/i
 const publishedProcessedRootTopics = new Map([["ai", "papers"]])
+const publishedLessonCollectionRootTopics = new Set(["ai"])
 const gitAddedDateByRepoRelative = new Map()
 let ingestDatesByRepoRelative = new Map()
 
@@ -379,13 +380,18 @@ const publicReadings = [
     const repoRelativePosix = toPosix(repoRelative)
     const relativeParts = repoRelativePosix.split("/")
     const collectionIndex = relativeParts.findIndex((part) => part === "lessons")
+    const baseTopicParts = relativeParts.slice(1, collectionIndex)
+    const rootTopic = baseTopicParts[0]
+    const topicPath = publishedLessonCollectionRootTopics.has(rootTopic)
+      ? [...baseTopicParts, "lessons"].join("/")
+      : baseTopicParts.join("/")
 
     return {
       sourcePath,
       repoRelative: repoRelativePosix,
       outputRelative: repoRelativePosix,
-      topicPath: relativeParts.slice(1, collectionIndex).join("/"),
-      collectionIndexRelative: toPosix(path.join("topics", ...relativeParts.slice(1, collectionIndex), "lessons", "index.md")),
+      topicPath,
+      collectionIndexRelative: toPosix(path.join("topics", ...baseTopicParts, "lessons", "index.md")),
     }
   }),
   ...processedReadings,
@@ -424,7 +430,7 @@ for (const reading of publicReadings) {
   topicItems.lessons.push(item)
   itemsByTopic.set(topicPath, topicItems)
 
-  if (collectionIndexRelative) {
+  if (collectionIndexRelative && collectionIndexRelative !== topicHref(topicPath)) {
     const collectionItems = collectionIndexes.get(collectionIndexRelative) ?? { topicPath, lessons: [] }
     collectionItems.lessons.push(item)
     collectionIndexes.set(collectionIndexRelative, collectionItems)

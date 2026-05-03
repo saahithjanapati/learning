@@ -61,6 +61,11 @@ Use this skill when user asks:
 - [learning_system/PROGRESS_LOG.md](../../../learning_system/PROGRESS_LOG.md)
 - [learning_system/TOPIC_INDEX.md](../../../learning_system/TOPIC_INDEX.md) (if new topic)
 
+6. Verify public reader placement when publishing AI material:
+- `materials/processed/ai/**/*.md` should publish under `AI / Papers`
+- `topics/ai/lessons/*.md` should publish under `AI / Lessons`
+- the root `AI` count should be explainable from visible child collection sections plus any intentionally direct readings
+
 ## Git Policy
 
 - Raw uploads in `materials/inbox/` and `materials/archive/` remain uncommitted.
