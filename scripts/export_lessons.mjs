@@ -594,8 +594,8 @@ await writeGeneratedPage(path.join(contentDir, "topics", "index.md"), topicsInde
 
 for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareTopicPathsByRecency)) {
   const summary = topicSummaries.get(topicPath)
-  const directItems = directTopics.get(topicPath) ?? { lessons: [] }
   const childTopicPaths = sortedChildTopicPaths(topicPath)
+  const topicReadings = sortedDatedItems(summary.lessons)
   const topicIndexRelative = toPosix(path.join("topics", ...topicPath.split("/"), "index.md"))
   const topicIndexPath = path.join(contentDir, "topics", ...topicPath.split("/"), "index.md")
   const topicLines = [
@@ -617,16 +617,17 @@ for (const topicPath of [...topicSummaries.keys()].filter(Boolean).sort(compareT
       topicLines.push(topicListLine(childTopicPath, topicSummaries.get(childTopicPath), topicIndexRelative))
     }
 
-    if (directItems.lessons.length > 0) {
+    if (topicReadings.length > 0) {
       topicLines.push("")
     }
   }
 
-  if (directItems.lessons.length > 0) {
+  if (topicReadings.length > 0) {
     topicLines.push("## Readings", "")
 
-    for (const lesson of directItems.lessons) {
-      topicLines.push(`- ${lesson.date} - [${lesson.title}](${relativeMarkdownLink(topicIndexRelative, lesson.href)})`)
+    for (const lesson of topicReadings) {
+      const topicSuffix = lesson.topicPath !== topicPath ? ` (${topicLinkLabel(lesson.topicPath)})` : ""
+      topicLines.push(`- ${lesson.date} - [${lesson.title}](${relativeMarkdownLink(topicIndexRelative, lesson.href)})${topicSuffix}`)
     }
   }
 
