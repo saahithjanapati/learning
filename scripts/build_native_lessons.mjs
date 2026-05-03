@@ -202,8 +202,26 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
   const faviconHref = assetWithPrefix(urlPrefix, "favicon.svg")
-  const lessonNavigatorButton = enableLessonNavigator
-    ? '<button class="lesson-navigator-button" type="button" data-lesson-navigator-button><span>Sections</span></button>'
+  const lessonNavigatorControls = enableLessonNavigator
+    ? `<button class="lesson-navigator-toggle" type="button" data-lesson-navigator-toggle aria-pressed="false"><span data-lesson-navigator-toggle-label>Hide sections</span></button>
+        <button class="lesson-navigator-button" type="button" data-lesson-navigator-open><span>Sections</span></button>`
+    : ""
+  const lessonNavigatorSidebar = enableLessonNavigator
+    ? `
+    <aside class="lesson-navigator-sidebar" data-lesson-navigator-sidebar aria-label="Lesson sections">
+      <div class="lesson-navigator-sidebar-header">
+        <p>Contents</p>
+        <button class="lesson-navigator-sidebar-hide" type="button" data-lesson-navigator-toggle aria-pressed="false">
+          <span data-lesson-navigator-toggle-label>Hide</span>
+        </button>
+      </div>
+      <nav class="lesson-navigator-sidebar-nav" aria-label="Lesson sections">
+        <ol data-lesson-navigator-list></ol>
+      </nav>
+    </aside>`
+    : ""
+  const lessonNavigatorFab = enableLessonNavigator
+    ? '<button class="lesson-navigator-fab" type="button" data-lesson-navigator-open><span>Sections</span></button>'
     : ""
   const lessonNavigatorMarkup = enableLessonNavigator
     ? `
@@ -230,17 +248,25 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     ? `
   <script>
     (() => {
-      const button = document.querySelector("[data-lesson-navigator-button]")
+      const openButtons = Array.from(document.querySelectorAll("[data-lesson-navigator-open]"))
+      const toggleButtons = Array.from(document.querySelectorAll("[data-lesson-navigator-toggle]"))
+      const toggleLabels = Array.from(document.querySelectorAll("[data-lesson-navigator-toggle-label]"))
+      const sidebar = document.querySelector("[data-lesson-navigator-sidebar]")
       const overlay = document.querySelector("[data-lesson-navigator]")
       const closeButton = document.querySelector("[data-lesson-navigator-close]")
       const search = document.querySelector("[data-lesson-navigator-search]")
-      const list = document.querySelector("[data-lesson-navigator-list]")
+      const lists = Array.from(document.querySelectorAll("[data-lesson-navigator-list]"))
       const article = document.querySelector("article")
+      const storageKey = "learning-machine:lesson-navigator-hidden"
 
-      if (!button || !overlay || !closeButton || !search || !list || !article) {
+      if (openButtons.length === 0 || !overlay || !closeButton || !search || lists.length === 0 || !article) {
         return
       }
 
+      const allHeadingElements = Array.from(article.querySelectorAll("h2, h3, h4"))
+        .filter((heading) => heading.id && heading.textContent?.trim())
+      const headingElements = allHeadingElements
+        .filter((heading) => heading.textContent.trim().replace(/\\s+/g, " ").toLowerCase() !== "table of contents")
       const headings = Array.from(article.querySelectorAll("h2, h3, h4"))
         .filter((heading) => heading.id && heading.textContent?.trim())
         .map((heading) => ({
@@ -251,27 +277,84 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         .filter((heading) => heading.text.toLowerCase() !== "table of contents")
 
       if (headings.length === 0) {
-        button.hidden = true
+        openButtons.forEach((button) => {
+          button.hidden = true
+        })
+        toggleButtons.forEach((button) => {
+          button.hidden = true
+        })
+        if (sidebar) {
+          sidebar.hidden = true
+        }
         return
       }
 
-      const rows = headings.map((heading) => {
-        const item = document.createElement("li")
-        item.className = "lesson-navigator-item"
-        item.dataset.searchText = heading.text.toLowerCase()
-        item.dataset.level = String(heading.level)
+      for (const heading of allHeadingElements) {
+        if (heading.textContent.trim().replace(/\\s+/g, " ").toLowerCase() !== "table of contents") {
+          continue
+        }
 
-        const link = document.createElement("a")
-        link.href = "#" + encodeURIComponent(heading.id)
-        link.textContent = heading.text
-        link.addEventListener("click", () => {
-          closeNavigator({ restoreFocus: false })
-        })
+        heading.classList.add("inline-table-of-contents")
+        let sibling = heading.nextElementSibling
 
-        item.append(link)
-        list.append(item)
-        return item
-      })
+        while (sibling && !/^H[1-4]$/.test(sibling.tagName)) {
+          sibling.classList.add("inline-table-of-contents-body")
+          sibling = sibling.nextElementSibling
+        }
+      }
+
+      const rows = []
+
+      for (const list of lists) {
+        for (const heading of headings) {
+          const item = document.createElement("li")
+          item.className = "lesson-navigator-item"
+          item.dataset.searchText = heading.text.toLowerCase()
+          item.dataset.level = String(heading.level)
+          item.dataset.headingId = heading.id
+
+          const link = document.createElement("a")
+          link.href = "#" + encodeURIComponent(heading.id)
+          link.textContent = heading.text
+          link.addEventListener("click", () => {
+            closeNavigator({ restoreFocus: false })
+          })
+
+          item.append(link)
+          list.append(item)
+          rows.push(item)
+        }
+      }
+
+      function storedSidebarHidden() {
+        try {
+          return window.localStorage?.getItem(storageKey) === "true"
+        } catch {
+          return false
+        }
+      }
+
+      let sidebarHidden = storedSidebarHidden()
+
+      function applySidebarState() {
+        document.body.classList.toggle("lesson-navigator-sidebar-hidden", sidebarHidden)
+
+        for (const button of toggleButtons) {
+          button.setAttribute("aria-pressed", String(sidebarHidden))
+        }
+
+        for (const label of toggleLabels) {
+          label.textContent = sidebarHidden ? "Show sections" : label.closest(".lesson-navigator-sidebar-hide") ? "Hide" : "Hide sections"
+        }
+      }
+
+      function toggleSidebar() {
+        sidebarHidden = !sidebarHidden
+        try {
+          window.localStorage?.setItem(storageKey, String(sidebarHidden))
+        } catch {}
+        applySidebarState()
+      }
 
       function filterRows() {
         const query = search.value.trim().toLowerCase()
@@ -294,13 +377,75 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         document.body.classList.remove("lesson-navigator-open")
 
         if (restoreFocus) {
-          button.focus()
+          openButtons[0]?.focus()
         }
       }
 
-      button.addEventListener("click", openNavigator)
+      let activeHeadingId = ""
+      let scrollQueued = false
+
+      function setActiveHeading(id) {
+        if (!id || id === activeHeadingId) {
+          return
+        }
+
+        activeHeadingId = id
+
+        for (const row of rows) {
+          const isActive = row.dataset.headingId === id
+          row.classList.toggle("is-active", isActive)
+          const link = row.querySelector("a")
+
+          if (link) {
+            if (isActive) {
+              link.setAttribute("aria-current", "true")
+            } else {
+              link.removeAttribute("aria-current")
+            }
+          }
+        }
+      }
+
+      function updateActiveHeading() {
+        scrollQueued = false
+        const anchorLine = Math.max(120, window.innerHeight * 0.28)
+        let current = headingElements[0]
+
+        for (const heading of headingElements) {
+          if (heading.getBoundingClientRect().top <= anchorLine) {
+            current = heading
+          } else {
+            break
+          }
+        }
+
+        if (current) {
+          setActiveHeading(current.id)
+        }
+      }
+
+      function queueActiveHeadingUpdate() {
+        if (scrollQueued) {
+          return
+        }
+
+        scrollQueued = true
+        window.requestAnimationFrame(updateActiveHeading)
+      }
+
+      applySidebarState()
+      updateActiveHeading()
+
+      for (const button of openButtons) {
+        button.addEventListener("click", openNavigator)
+      }
+      for (const button of toggleButtons) {
+        button.addEventListener("click", toggleSidebar)
+      }
       closeButton.addEventListener("click", () => closeNavigator())
       search.addEventListener("input", filterRows)
+      window.addEventListener("scroll", queueActiveHeadingUpdate, { passive: true })
+      window.addEventListener("resize", queueActiveHeadingUpdate)
       overlay.addEventListener("click", (event) => {
         if (event.target === overlay) {
           closeNavigator()
@@ -439,6 +584,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       padding: 26px 0 80px;
     }
 
+    .reader-column {
+      min-width: 0;
+    }
+
     header {
       display: flex;
       justify-content: space-between;
@@ -511,7 +660,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       cursor: pointer;
     }
 
-    .lesson-navigator-button {
+    .lesson-navigator-button,
+    .lesson-navigator-toggle,
+    .lesson-navigator-sidebar-hide,
+    .lesson-navigator-fab {
       min-height: 32px;
       padding: 0.34rem 0.7rem;
       border: 1px solid var(--line-strong);
@@ -527,10 +679,61 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     .copy-context-button:hover,
     .copy-context-button:focus-visible,
     .lesson-navigator-button:hover,
-    .lesson-navigator-button:focus-visible {
+    .lesson-navigator-button:focus-visible,
+    .lesson-navigator-toggle:hover,
+    .lesson-navigator-toggle:focus-visible,
+    .lesson-navigator-sidebar-hide:hover,
+    .lesson-navigator-sidebar-hide:focus-visible,
+    .lesson-navigator-fab:hover,
+    .lesson-navigator-fab:focus-visible {
       border-color: var(--accent);
       color: var(--accent);
       outline: none;
+    }
+
+    .lesson-navigator-fab {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 20;
+      display: none;
+      min-height: 44px;
+      padding: 0.62rem 0.86rem;
+      box-shadow: 0 14px 36px rgb(0 0 0 / 0.35);
+    }
+
+    .lesson-navigator-sidebar {
+      display: none;
+    }
+
+    .lesson-navigator-sidebar[hidden] {
+      display: none;
+    }
+
+    .lesson-navigator-sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--sans-font);
+    }
+
+    .lesson-navigator-sidebar-header p {
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--sans-font);
+      font-size: 0.78rem;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .lesson-navigator-sidebar-hide {
+      min-height: 30px;
+      padding: 0.28rem 0.55rem;
+      font-size: 12px;
     }
 
     .lesson-navigator-open {
@@ -644,11 +847,16 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       outline: none;
     }
 
-    .lesson-navigator-nav ol {
+    .lesson-navigator-nav ol,
+    .lesson-navigator-sidebar-nav ol {
       list-style: none;
       margin: 0;
       padding: 0;
       border-top: 1px solid var(--line);
+    }
+
+    .lesson-navigator-sidebar-nav ol {
+      border-top: 0;
     }
 
     .lesson-navigator-item {
@@ -672,6 +880,13 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       outline: none;
     }
 
+    .lesson-navigator-item.is-active a,
+    .lesson-navigator-item a[aria-current="true"] {
+      color: var(--heading-strong);
+      background: rgb(134 173 243 / 0.12);
+      box-shadow: inset 3px 0 0 var(--accent);
+    }
+
     .lesson-navigator-item[data-level="3"] a {
       padding-left: 1.25rem;
       color: var(--heading-soft);
@@ -684,8 +899,18 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       font-size: 0.92rem;
     }
 
+    .lesson-navigator-item[data-level="3"].is-active a,
+    .lesson-navigator-item[data-level="4"].is-active a {
+      color: var(--heading-strong);
+    }
+
     article {
       overflow-wrap: anywhere;
+    }
+
+    .inline-table-of-contents,
+    .inline-table-of-contents-body {
+      display: none;
     }
 
     article img,
@@ -861,6 +1086,78 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       color: var(--text);
     }
 
+    @media (min-width: 1100px) {
+      .shell.has-lesson-navigator {
+        width: min(100% - 48px, 1180px);
+        display: grid;
+        grid-template-columns: minmax(190px, 250px) minmax(0, var(--max));
+        gap: clamp(30px, 4vw, 56px);
+        align-items: start;
+      }
+
+      .lesson-navigator-sidebar {
+        position: sticky;
+        top: 18px;
+        display: block;
+        max-height: calc(100vh - 36px);
+        padding: 4px 0 18px;
+        overflow-y: auto;
+        color: var(--text);
+        scrollbar-width: thin;
+        scrollbar-color: var(--line-strong) transparent;
+      }
+
+      .lesson-navigator-sidebar .lesson-navigator-item a {
+        padding: 0.58rem 0.6rem 0.58rem 0.72rem;
+        border-radius: 4px;
+        color: var(--muted);
+        font-family: var(--sans-font);
+        font-size: 0.88rem;
+        line-height: 1.32;
+      }
+
+      .lesson-navigator-sidebar .lesson-navigator-item[data-level="3"] a {
+        padding-left: 1.25rem;
+        font-size: 0.82rem;
+      }
+
+      .lesson-navigator-sidebar .lesson-navigator-item[data-level="4"] a {
+        padding-left: 1.85rem;
+        font-size: 0.78rem;
+      }
+
+      .lesson-navigator-sidebar-hidden .shell.has-lesson-navigator {
+        width: min(100% - 32px, var(--max));
+        display: block;
+      }
+
+      .lesson-navigator-sidebar-hidden .lesson-navigator-sidebar {
+        display: none;
+      }
+
+      .lesson-navigator-sidebar-hidden .lesson-navigator-toggle {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .lesson-navigator-button {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1099px) {
+      .lesson-navigator-toggle,
+      .lesson-navigator-sidebar {
+        display: none;
+      }
+
+      .lesson-navigator-fab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 640px) {
       .shell {
         width: min(100% - 24px, var(--max));
@@ -955,22 +1252,26 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
   </style>
 </head>
 <body>
-  <main class="shell">
-    <header>
-      <a class="brand" href="${homeHref}">Learning Machine</a>
-      <div class="reader-actions">
-        <nav aria-label="Reader navigation">
-          <a href="${recentHref}">Recent</a>
-          <a href="${topicsHref}">Topics</a>
-        </nav>
-        ${lessonNavigatorButton}
-        ${copyContextButton}
-      </div>
-    </header>
-    <article>
+  <main class="shell${enableLessonNavigator ? " has-lesson-navigator" : ""}">
+${lessonNavigatorSidebar}
+    <div class="reader-column">
+      <header>
+        <a class="brand" href="${homeHref}">Learning Machine</a>
+        <div class="reader-actions">
+          <nav aria-label="Reader navigation">
+            <a href="${recentHref}">Recent</a>
+            <a href="${topicsHref}">Topics</a>
+          </nav>
+          ${lessonNavigatorControls}
+          ${copyContextButton}
+        </div>
+      </header>
+      <article>
 ${body}
-    </article>
+      </article>
+    </div>
   </main>
+${lessonNavigatorFab}
 ${lessonNavigatorMarkup}
 ${copyContextScript}
 ${lessonNavigatorScript}
