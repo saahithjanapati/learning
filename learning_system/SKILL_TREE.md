@@ -40,8 +40,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Paper Lesson: Creative limits of next-token prediction
 - AI / Collection -> Paper Lesson: TED subjective-language operational semantics
 - AI / Collection -> Paper Lesson: Gemini Robotics 1.5 embodied reasoning and Motion Transfer
 - AI / Collection -> Paper Lesson: Training Compute-Optimal Large Language Models
 - AI / Collection -> Paper Lesson: Scaling Laws for Neural Language Models
-- AI / Collection -> Talk Lesson: Rishabh Agarwal on scaling RL at the frontier

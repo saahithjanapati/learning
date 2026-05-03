@@ -1624,6 +1624,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2504.15266",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/scale-labs-papers-2025-2026/brief.md",
       "root_topic": "ai",
       "source_pdf": null,
