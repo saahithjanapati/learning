@@ -1777,6 +1777,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/why-tool-ais-want-to-be-agent-ais.md",
+      "root_topic": "ai",
+      "source_pdf": "https://gwern.net/tool-ai",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/why-we-are-excited-about-confessions.md",
       "root_topic": "ai",
       "source_pdf": "https://alignment.openai.com/confessions/",
