@@ -121,7 +121,7 @@ function extractIngestSortKey(repoRelative, stat, markdown = "") {
     return `${date}T${gitInstant.slice(11)}`
   }
 
-  return new Date(stat.mtimeMs).toISOString()
+  return `${date}T00:00:00.000Z`
 }
 
 async function lessonIndexIngestDates() {
