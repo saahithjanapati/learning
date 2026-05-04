@@ -54,6 +54,7 @@ Policy:
 - [materials/processed/ai/uncovering-gaps-humans-llms-interpret-subjective-language.md](../../../materials/processed/ai/uncovering-gaps-humans-llms-interpret-subjective-language.md)
 - [materials/processed/ai/roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md](../../../materials/processed/ai/roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md)
 - [materials/processed/ai/claudes-constitution.md](../../../materials/processed/ai/claudes-constitution.md)
+- [materials/processed/ai/thoughts-on-claudes-constitution.md](../../../materials/processed/ai/thoughts-on-claudes-constitution.md)
 - [materials/processed/ai/why-tool-ais-want-to-be-agent-ais.md](../../../materials/processed/ai/why-tool-ais-want-to-be-agent-ais.md)
 - [materials/processed/ai/sft-rl-on-policy-distillation.md](../../../materials/processed/ai/sft-rl-on-policy-distillation.md)
 - [materials/processed/ai/prime-intellect-company-overview.md](../../../materials/processed/ai/prime-intellect-company-overview.md)

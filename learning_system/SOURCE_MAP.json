@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-03",
+  "generated_on": "2026-05-04",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1504,6 +1504,20 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/composer-2-technical-report.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2603.24477",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/compute-optimal-tokenization.md",
+      "root_topic": "ai",
+      "source_pdf": "https://co-tok.github.io/paper.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2406.11794",
@@ -1566,6 +1580,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/from-entropy-to-epiplexity-rethinking-information-for-computationally-bounded-intelligence.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2601.03220",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks.md",
       "root_topic": "ai",
       "source_pdf": null,
@@ -1597,6 +1618,13 @@
       "transcript_path": "materials/processed/ai/group-mates-method-equations.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2502.14709",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/how-go-players-disempower-themselves-to-ai.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.lesswrong.com/posts/nR3DkyivzF4ve97oM/how-go-players-disempower-themselves-to-ai",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1636,6 +1664,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/maxrl-maximum-likelihood-reinforcement-learning.md",
+      "root_topic": "ai",
+      "source_pdf": "https://zanette-labs.github.io/MaxRL/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/memorybench-benchmark-for-memory-and-continual-learning-in-llm-systems.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2510.17281",
@@ -1662,6 +1697,20 @@
       "transcript_path": "materials/processed/ai/prime-intellect-company-overview.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/qwen-scope-turning-sparse-features-into-development-tools-for-large-language-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://qianwen-res.oss-accelerate.aliyuncs.com/qwen-scope/Qwen_Scope.pdf?spm=a2ty_o06.30285417.0.0.165ec921LHeJpi&file=Qwen_Scope.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/rethinking-the-trust-region-in-llm-reinforcement-learning.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2602.04879",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1766,6 +1815,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/thoughts-on-claudes-constitution.md",
+      "root_topic": "ai",
+      "source_pdf": "https://windowsontheory.org/2026/01/27/thoughts-on-claudes-constitution/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/towards-end-to-end-automation-of-ai-research.md",
       "root_topic": "ai",
       "source_pdf": null,
@@ -1813,6 +1869,13 @@
       "transcript_path": "materials/processed/ai/vibe-physics-the-ai-grad-student.md",
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/research/vibe-physics",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/what-we-learned-from-letting-ai-posttrain-ai.md",
+      "root_topic": "ai",
+      "source_pdf": "https://thoughtfullab.com/letting-ai-posttrain-ai.html",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-03
+Last generated: 2026-05-04
 
 Hierarchical topic tree discovered from `topics/` paths.
 
@@ -40,8 +40,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Article Lesson: Boaz Barak on Claude's Constitution
 - AI / Collection -> Company Lesson: Prime Intellect overview
 - AI / Collection -> Article Lesson: SFT, RL, and on-policy distillation
 - AI / Collection -> Article Lesson: Tool AIs want to be Agent AIs
 - AI / Collection -> Article Lesson: Claude's Constitution
-- AI / Collection -> Paper Lesson: Creative limits of next-token prediction

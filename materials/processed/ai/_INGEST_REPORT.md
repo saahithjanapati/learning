@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 52
+Files: 61
 
 ## Files
 
@@ -46,6 +46,7 @@ Files: 52
 - `https://arxiv.org/abs/2503.04113` -> `uncovering-gaps-humans-llms-interpret-subjective-language.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2504.15266` -> `roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://www.anthropic.com/constitution` -> `claudes-constitution.md` (strategy: `canonical article extraction and governance-oriented lesson normalization`)
+- `https://windowsontheory.org/2026/01/27/thoughts-on-claudes-constitution/` -> `thoughts-on-claudes-constitution.md` (strategy: `canonical article extraction and governance-oriented lesson normalization`)
 - `https://gwern.net/tool-ai` -> `why-tool-ais-want-to-be-agent-ais.md` (strategy: `canonical article extraction and AI-safety / AI-economics lesson normalization`)
 - `https://x.com/willccbb/status/2050038277454143918` -> `sft-rl-on-policy-distillation.md` (strategy: `X article extraction and post-training lesson normalization`)
 - `https://www.primeintellect.ai/` + official Prime Intellect blog/docs sources -> `prime-intellect-company-overview.md` (strategy: `multi-source company overview and recent-advancement lesson normalization`)
@@ -55,3 +56,11 @@ Files: 52
 - `https://www.youtube.com/watch?v=JNyuX1zoOgU` -> `demis-hassabis-agents-agi-next-scientific-breakthrough-yc-2026.md` (strategy: `YouTube auto-caption extraction and transcript digest normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)
+- `https://www.lesswrong.com/posts/nR3DkyivzF4ve97oM/how-go-players-disempower-themselves-to-ai` -> `how-go-players-disempower-themselves-to-ai.md` (strategy: `canonical article extraction and AI-disempowerment lesson normalization`)
+- `https://arxiv.org/abs/2601.03220` -> `from-entropy-to-epiplexity-rethinking-information-for-computationally-bounded-intelligence.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://arxiv.org/abs/2602.04879` -> `rethinking-the-trust-region-in-llm-reinforcement-learning.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://zanette-labs.github.io/MaxRL/` -> `maxrl-maximum-likelihood-reinforcement-learning.md` (strategy: `project page extraction and RL-method lesson normalization`)
+- `https://qianwen-res.oss-accelerate.aliyuncs.com/qwen-scope/Qwen_Scope.pdf?spm=a2ty_o06.30285417.0.0.165ec921LHeJpi&file=Qwen_Scope.pdf` -> `qwen-scope-turning-sparse-features-into-development-tools-for-large-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://arxiv.org/abs/2603.24477` -> `composer-2-technical-report.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://co-tok.github.io/paper.pdf` -> `compute-optimal-tokenization.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://thoughtfullab.com/letting-ai-posttrain-ai.html` -> `what-we-learned-from-letting-ai-posttrain-ai.md` (strategy: `canonical article extraction and research-process lesson normalization`)
