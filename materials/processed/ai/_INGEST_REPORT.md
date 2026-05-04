@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 47
+Files: 52
 
 ## Files
 
@@ -11,6 +11,7 @@ Files: 47
 - `https://www.anthropic.com/research/trustworthy-agents` -> `trustworthy-agents-in-practice.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://www.anthropic.com/engineering/building-effective-agents` -> `building-effective-agents.md` (strategy: `canonical article extraction and curriculum-oriented normalization`)
 - `https://alignment.openai.com/confessions/` -> `why-we-are-excited-about-confessions.md` (strategy: `canonical article extraction and curriculum-oriented normalization`)
+- `https://alignment.openai.com/auto-review` -> `auto-review-of-agent-actions-without-synchronous-human-oversight.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://www.anthropic.com/research/diff-tool` -> `a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md` (strategy: `canonical article extraction and curriculum-oriented normalization`)
 - `https://scale.com/blog/text-universal-interface` -> `text-is-the-universal-interface.md` (strategy: `canonical article extraction and curriculum-oriented normalization`)
 - `https://alignment.anthropic.com/2026/hot-mess-of-ai/` -> `the-hot-mess-of-ai-how-does-misalignment-scale-with-model-intelligence-and-task-complexity.md` (strategy: `canonical article extraction and collection-oriented normalization`)
@@ -48,5 +49,9 @@ Files: 47
 - `https://gwern.net/tool-ai` -> `why-tool-ais-want-to-be-agent-ais.md` (strategy: `canonical article extraction and AI-safety / AI-economics lesson normalization`)
 - `https://x.com/willccbb/status/2050038277454143918` -> `sft-rl-on-policy-distillation.md` (strategy: `X article extraction and post-training lesson normalization`)
 - `https://www.primeintellect.ai/` + official Prime Intellect blog/docs sources -> `prime-intellect-company-overview.md` (strategy: `multi-source company overview and recent-advancement lesson normalization`)
+- `https://www.youtube.com/watch?v=bBS93A0BeNI` -> `greg-brockman-human-attention-new-bottleneck-sequoia-ai-ascent-2026.md` (strategy: `YouTube auto-caption extraction and transcript digest normalization`)
+- `https://www.youtube.com/watch?v=96jN2OCOfLs` -> `andrej-karpathy-vibe-coding-agentic-engineering-sequoia-ai-ascent-2026.md` (strategy: `YouTube auto-caption extraction and transcript digest normalization`)
+- `https://www.youtube.com/watch?v=AFpeWo1GTeg` -> `demis-hassabis-three-quarters-way-to-agi-sequoia-ai-ascent-2026.md` (strategy: `YouTube auto-caption extraction and transcript digest normalization`)
+- `https://www.youtube.com/watch?v=JNyuX1zoOgU` -> `demis-hassabis-agents-agi-next-scientific-breakthrough-yc-2026.md` (strategy: `YouTube auto-caption extraction and transcript digest normalization`)
 - `https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand` -> `openai-stargate-where-the-us-sites-stand.md` (strategy: `canonical article extraction and collection-oriented normalization`)
 - `https://labs.scale.com/papers` -> `scale-labs-papers-2025-2026/brief.md` + `scale-labs-papers-2025-2026/paper_summaries.md` (strategy: `scale research collection normalization under AI`)

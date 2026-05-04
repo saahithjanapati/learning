@@ -1462,9 +1462,23 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/andrej-karpathy-vibe-coding-agentic-engineering-sequoia-ai-ascent-2026.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.youtube.com/watch?v=96jN2OCOfLs",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/are-the-last-3-months-the-start-of-an-ai-acceleration.md",
       "root_topic": "ai",
       "source_pdf": "https://benjamintodd.substack.com/p/is-ai-accelerating",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/auto-review-of-agent-actions-without-synchronous-human-oversight.md",
+      "root_topic": "ai",
+      "source_pdf": "https://alignment.openai.com/auto-review",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1493,6 +1507,20 @@
       "transcript_path": "materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2406.11794",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/demis-hassabis-agents-agi-next-scientific-breakthrough-yc-2026.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.youtube.com/watch?v=JNyuX1zoOgU",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/demis-hassabis-three-quarters-way-to-agi-sequoia-ai-ascent-2026.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.youtube.com/watch?v=AFpeWo1GTeg",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1548,6 +1576,13 @@
       "transcript_path": "materials/processed/ai/gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2510.03342",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/greg-brockman-human-attention-new-bottleneck-sequoia-ai-ascent-2026.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.youtube.com/watch?v=bBS93A0BeNI",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
