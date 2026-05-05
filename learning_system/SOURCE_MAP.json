@@ -1491,6 +1491,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/ai-wellbeing-functional-pleasure-and-pain-of-ais.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.ai-wellbeing.org/paper.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/andrej-karpathy-vibe-coding-agentic-engineering-sequoia-ai-ascent-2026.md",
       "root_topic": "ai",
       "source_pdf": "https://www.youtube.com/watch?v=96jN2OCOfLs",
@@ -1547,6 +1554,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/continually-improving-agent-harness.md",
+      "root_topic": "ai",
+      "source_pdf": "https://cursor.com/blog/continually-improving-agent-harness",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/datacomp-lm-in-search-of-the-next-generation-of-training-sets-for-language-models.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2406.11794",
@@ -1589,6 +1603,13 @@
       "transcript_path": "materials/processed/ai/digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/dive-into-claude-code-design-space-of-ai-agent-systems.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2604.14228",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1658,6 +1679,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/improving-composer-through-real-time-rl.md",
+      "root_topic": "ai",
+      "source_pdf": "https://cursor.com/blog/real-time-rl-for-composer",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/jukebox-a-generative-model-for-music.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2005.00341",
@@ -1721,9 +1749,23 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/online-rubrics-elicitation-from-pairwise-comparisons.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2510.07284",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/openai-stargate-where-the-us-sites-stand.md",
       "root_topic": "ai",
       "source_pdf": "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/pipelinerl.md",
+      "root_topic": "ai",
+      "source_pdf": "https://huggingface.co/blog/ServiceNow/pipelinerl",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1744,9 +1786,23 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/proximal-coding-intelligence-overview.md",
+      "root_topic": "ai",
+      "source_pdf": "https://proximal.ai/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/qwen-scope-turning-sparse-features-into-development-tools-for-large-language-models.md",
       "root_topic": "ai",
       "source_pdf": "https://qianwen-res.oss-accelerate.aliyuncs.com/qwen-scope/Qwen_Scope.pdf?spm=a2ty_o06.30285417.0.0.165ec921LHeJpi&file=Qwen_Scope.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/reiner-pope-how-gpt-claude-and-gemini-are-trained-and-served.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.youtube.com/watch?v=xmkSf5IS-zw",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

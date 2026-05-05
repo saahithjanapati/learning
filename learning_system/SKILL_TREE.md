@@ -43,6 +43,6 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 - AI / AI For Art -> Paper Lesson: Neural Discrete Representation Learning and VQ-VAE foundations
 - AI / AI For Art -> Paper Lesson: Jukebox raw-audio music generation
-- AI / Collection -> Paper Lesson: AI Choreographer and AIST++ music-conditioned 3D dance generation
-- AI / Collection -> Company Lesson: Andon Labs overview
-- AI / Collection -> Company Lesson: Goodfire AI overview
+- AI / Collection -> Company Lesson: Proximal overview
+- AI / Collection -> Talk Lesson: Reiner Pope on frontier model training and serving
+- AI / Collection -> Foundation Lesson: PipelineRL for LLM post-training
