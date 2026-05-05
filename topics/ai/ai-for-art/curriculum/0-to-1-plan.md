@@ -12,12 +12,14 @@ Topic Path: `topics/ai/ai-for-art`
 - `materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md`
 - `materials/processed/ai/live-music-models.md`
 - `materials/processed/ai/jukebox-a-generative-model-for-music.md`
+- `materials/processed/ai/neural-discrete-representation-learning.md`
 
 ## Transcript Anchors
 
 - music-conditioned generation
 - live controllable music models
 - raw-audio music generation
+- discrete latent representations and VQ-VAE foundations
 - creative evaluation and taste
 
 ## Outcome

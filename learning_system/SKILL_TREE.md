@@ -41,8 +41,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / AI For Art -> Paper Lesson: Neural Discrete Representation Learning and VQ-VAE foundations
 - AI / AI For Art -> Paper Lesson: Jukebox raw-audio music generation
 - AI / Collection -> Paper Lesson: AI Choreographer and AIST++ music-conditioned 3D dance generation
 - AI / Collection -> Company Lesson: Andon Labs overview
 - AI / Collection -> Company Lesson: Goodfire AI overview
-- AI / Collection -> Foundation Lesson: Transformer MoE architecture basics

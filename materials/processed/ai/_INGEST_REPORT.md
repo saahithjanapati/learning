@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 63
+Files: 64
 
 ## Files
 
@@ -41,6 +41,7 @@ Files: 63
 - `https://thinkingmachines.ai/blog/tinker/` -> `thinking-machines-lab-tinker-api.md` (strategy: `official docs article extraction and developer-oriented lesson normalization`)
 - `https://arxiv.org/abs/2508.04651` -> `live-music-models.md` (strategy: `arXiv HTML extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2005.00341` -> `jukebox-a-generative-model-for-music.md` (strategy: `canonical PDF extraction and AI-for-art paper lesson normalization`)
+- `https://arxiv.org/abs/1711.00937` -> `neural-discrete-representation-learning.md` (strategy: `canonical PDF extraction and AI-for-art foundation paper lesson normalization`)
 - `https://arxiv.org/abs/2001.08361` -> `scaling-laws-for-neural-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2203.15556` -> `training-compute-optimal-large-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2510.03342` -> `gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)

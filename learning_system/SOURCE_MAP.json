@@ -113,9 +113,11 @@
           "source_materials": [
             "materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md",
             "materials/processed/ai/jukebox-a-generative-model-for-music.md",
-            "materials/processed/ai/live-music-models.md"
+            "materials/processed/ai/live-music-models.md",
+            "materials/processed/ai/neural-discrete-representation-learning.md"
           ],
           "source_pdfs": [
+            "https://arxiv.org/abs/1711.00937",
             "https://arxiv.org/abs/2005.00341",
             "https://arxiv.org/abs/2101.08779",
             "https://arxiv.org/abs/2508.04651"
@@ -124,6 +126,7 @@
             "music-conditioned generation",
             "live controllable music models",
             "raw-audio music generation",
+            "discrete latent representations and VQ-VAE foundations",
             "creative evaluation and taste"
           ],
           "unresolved_source_materials": []
@@ -1707,6 +1710,13 @@
       "transcript_path": "materials/processed/ai/memorybench-benchmark-for-memory-and-continual-learning-in-llm-systems.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2510.17281",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/neural-discrete-representation-learning.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/1711.00937",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
