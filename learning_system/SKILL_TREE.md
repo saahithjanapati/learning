@@ -7,6 +7,7 @@ Hierarchical topic tree discovered from `topics/` paths.
 ```text
 ├─ advanced-machine-learning-10-715-cmu
 ├─ ai
+│  ├─ ai-for-art
 │  └─ transformers
 │     └─ kv-caching
 ├─ art-and-aesthetics
@@ -40,8 +41,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / AI For Art -> Paper Lesson: Jukebox raw-audio music generation
 - AI / Collection -> Paper Lesson: AI Choreographer and AIST++ music-conditioned 3D dance generation
 - AI / Collection -> Company Lesson: Andon Labs overview
 - AI / Collection -> Company Lesson: Goodfire AI overview
 - AI / Collection -> Foundation Lesson: Transformer MoE architecture basics
-- AI / Collection -> Paper Lesson: AI co-scientist

@@ -47,6 +47,7 @@ Policy:
 - [materials/processed/ai/are-the-last-3-months-the-start-of-an-ai-acceleration.md](../../../materials/processed/ai/are-the-last-3-months-the-start-of-an-ai-acceleration.md)
 - [materials/processed/ai/thinking-machines-lab-tinker-api.md](../../../materials/processed/ai/thinking-machines-lab-tinker-api.md)
 - [materials/processed/ai/live-music-models.md](../../../materials/processed/ai/live-music-models.md)
+- [materials/processed/ai/jukebox-a-generative-model-for-music.md](../../../materials/processed/ai/jukebox-a-generative-model-for-music.md)
 - [materials/processed/ai/rishabh-agarwal-iclr-2026-scaling-rl-frontier-llms-periodic-labs-talk.md](../../../materials/processed/ai/rishabh-agarwal-iclr-2026-scaling-rl-frontier-llms-periodic-labs-talk.md)
 - [materials/processed/ai/scaling-laws-for-neural-language-models.md](../../../materials/processed/ai/scaling-laws-for-neural-language-models.md)
 - [materials/processed/ai/training-compute-optimal-large-language-models.md](../../../materials/processed/ai/training-compute-optimal-large-language-models.md)

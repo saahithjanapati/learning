@@ -87,7 +87,7 @@
       "root_topic": "ai",
       "processed_material_dir": "materials/processed/ai",
       "materials_index_path": "topics/ai/materials/INDEX.md",
-      "topic_count": 2,
+      "topic_count": 3,
       "topics": [
         {
           "topic_path": "topics/ai",
@@ -99,6 +99,33 @@
           "source_materials": [],
           "source_pdfs": [],
           "transcript_anchors": [],
+          "unresolved_source_materials": []
+        },
+        {
+          "topic_path": "topics/ai/ai-for-art",
+          "root_topic": "ai",
+          "topic_key": "ai-for-art",
+          "readme_path": "topics/ai/ai-for-art/README.md",
+          "curriculum_path": "topics/ai/ai-for-art/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/ai/ai-for-art/curriculum/0-to-1-plan.md"
+          ],
+          "source_materials": [
+            "materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md",
+            "materials/processed/ai/jukebox-a-generative-model-for-music.md",
+            "materials/processed/ai/live-music-models.md"
+          ],
+          "source_pdfs": [
+            "https://arxiv.org/abs/2005.00341",
+            "https://arxiv.org/abs/2101.08779",
+            "https://arxiv.org/abs/2508.04651"
+          ],
+          "transcript_anchors": [
+            "music-conditioned generation",
+            "live controllable music models",
+            "raw-audio music generation",
+            "creative evaluation and taste"
+          ],
           "unresolved_source_materials": []
         },
         {
@@ -1624,6 +1651,13 @@
       "transcript_path": "materials/processed/ai/how-go-players-disempower-themselves-to-ai.md",
       "root_topic": "ai",
       "source_pdf": "https://www.lesswrong.com/posts/nR3DkyivzF4ve97oM/how-go-players-disempower-themselves-to-ai",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/jukebox-a-generative-model-for-music.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2005.00341",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
