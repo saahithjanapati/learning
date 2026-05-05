@@ -1,7 +1,7 @@
 # KV Caching Session 01
 
-Date: 2026-02-15  
-Topic: Transformers -> KV Caching  
+Date: 2026-02-15
+Topic: AI -> Transformers -> KV Caching
 Mode: Practice (code-first)
 
 ## Session Goal
@@ -12,8 +12,8 @@ Build intuition for KV caching by implementing it yourself in PyTorch:
 
 ## Artifacts Created
 
-- `topics/transformers/kv-caching/practice/kv_cache_exercise.py`
-- `topics/transformers/kv-caching/practice/kv_cache_exercise_batched_multihead.py`
+- `topics/ai/transformers/kv-caching/practice/kv_cache_exercise.py`
+- `topics/ai/transformers/kv-caching/practice/kv_cache_exercise_batched_multihead.py`
 
 ## What You Covered
 
@@ -78,4 +78,3 @@ Both exercises pass correctness checks with exact match (`max abs diff: 0.0`):
   - first pass: broad hints
   - second pass: issue checks
   - final pass: strict correctness validation.
-

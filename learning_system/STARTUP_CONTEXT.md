@@ -98,7 +98,7 @@ When using colors in markdown output (equations, spans, callouts, or legends):
 - `topics/interviews/ml-system-design`
 - `topics/optimization-for-ml`
 - `topics/probabilistic-graphical-models`
-- `topics/transformers/kv-caching`
+- `topics/ai/transformers/kv-caching`
 
 ## Latest Logged Learning Snapshot
 

@@ -1,6 +1,6 @@
 # Transformers
 
-This root contains transformer architecture topics.
+This AI subtopic contains transformer architecture topics.
 
 ## Current Topics
 
@@ -8,6 +8,6 @@ This root contains transformer architecture topics.
 
 ## Routing Notes
 
-- Add focused architecture topics under `topics/transformers/<topic>/`.
+- Add focused architecture topics under `topics/ai/transformers/<topic>/`.
 - Examples: `attention`, `rope`, `kv-caching`, `mixture-of-experts`.
 - Keep root-level lessons only when they compare several transformer subtopics.

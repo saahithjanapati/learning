@@ -13,7 +13,7 @@ Update this file as preferences or pace change.
 
 | Topic | Mode | Confidence (0-1) | Last Updated | Notes |
 |---|---|---|---|---|
-| Transformers / KV Caching | independent-practice | 0.80 | 2026-02-15 | Single-head and batched multi-head cache implementations passed. |
+| AI / Transformers / KV Caching | independent-practice | 0.80 | 2026-02-15 | Single-head and batched multi-head cache implementations passed. |
 
 ## Planning Defaults
 

@@ -1,7 +1,7 @@
 # KV Caching 0 -> 1 Curriculum
 
-Topic: `transformers/kv-caching`  
-Path: `topics/transformers/kv-caching`
+Topic: `ai/transformers/kv-caching`
+Path: `topics/ai/transformers/kv-caching`
 
 ## Target "1" Outcome
 
@@ -45,4 +45,3 @@ Path: `topics/transformers/kv-caching`
 1. Implement prefill/decode split in code.
 2. Add preallocated cache with write index.
 3. Add positional encoding interaction checks.
-

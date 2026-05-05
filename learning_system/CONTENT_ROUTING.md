@@ -44,7 +44,7 @@ Use this when new materials are uploaded or linked.
   - `topics/ai/effective-agents/...`
 
 - "This is for my own transformers study"
-  - `topics/transformers/attention/...`
+  - `topics/ai/transformers/attention/...`
 
 - "This note compares several optimization subtopics"
   - `topics/optimization-for-ml/...`

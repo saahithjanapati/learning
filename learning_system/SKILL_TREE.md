@@ -7,6 +7,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 ```text
 ├─ advanced-machine-learning-10-715-cmu
 ├─ ai
+│  └─ transformers
+│     └─ kv-caching
 ├─ art-and-aesthetics
 ├─ biology
 │  └─ core
@@ -33,15 +35,13 @@ Hierarchical topic tree discovered from `topics/` paths.
 │  ├─ undirected-graphical-models
 │  └─ variational-inference-and-em
 ├─ probability-and-statistics-36-700-cmu
-├─ survey-of-algebra
-└─ transformers
-   └─ kv-caching
+└─ survey-of-algebra
 ```
 
 ## Recent Topics
 
-- AI / Collection -> Article Lesson: Boaz Barak on Claude's Constitution
-- AI / Collection -> Company Lesson: Prime Intellect overview
-- AI / Collection -> Article Lesson: SFT, RL, and on-policy distillation
-- AI / Collection -> Article Lesson: Tool AIs want to be Agent AIs
-- AI / Collection -> Article Lesson: Claude's Constitution
+- AI / Collection -> Company Lesson: Andon Labs overview
+- AI / Collection -> Company Lesson: Goodfire AI overview
+- AI / Collection -> Foundation Lesson: Transformer MoE architecture basics
+- AI / Collection -> Paper Lesson: AI co-scientist
+- AI / Collection -> Developer Lesson: OpenClaw overview

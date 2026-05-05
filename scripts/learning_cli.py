@@ -15,7 +15,7 @@ Examples:
   python scripts/learning_cli.py reorganize --write-report
   python scripts/learning_cli.py archive-processed --apply
   python scripts/learning_cli.py new-topic --root transformers --topic attention/rope
-  python scripts/learning_cli.py merge-topic --from transformers/kv-caching --into transformers/attention
+  python scripts/learning_cli.py merge-topic --from ai/transformers/kv-caching --into ai/transformers/attention
 """
 
 from __future__ import annotations

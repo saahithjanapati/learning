@@ -1,8 +1,10 @@
 # MaxRL: Maximum Likelihood Reinforcement Learning
 
 Source: `https://zanette-labs.github.io/MaxRL/`
+Paper: `https://arxiv.org/abs/2602.02710`
 Site: `Zanette Labs project page`
 Title: `MaxRL: Maximum Likelihood Reinforcement Learning`
+Submitted: `2026-02-02`
 Ingested: `2026-05-04`
 Extraction engine: `direct project-page scrape + manual structured ingest`
 Strategy: `project page extraction and RL-method lesson normalization`

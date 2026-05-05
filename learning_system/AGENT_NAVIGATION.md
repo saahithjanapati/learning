@@ -10,7 +10,7 @@ Fast path for agents entering this repo.
 4. Read `learning_system/SOURCE_MAP.json` when mapping lessons or curricula back to processed source materials.
 5. Read the relevant `topics/<root>/README.md` or `topics/<root>/<topic>/README.md` before editing a subject area.
 
-## Subject Roots
+## Subject Roots And Notable Subtopics
 
 | Root | Purpose | Start With |
 |---|---|---|
@@ -19,7 +19,7 @@ Fast path for agents entering this repo.
 | `topics/interviews` | Interview-prep subjects. | `topics/interviews/README.md` |
 | `topics/optimization-for-ml` | Optimization course catch-up and proof/problem fluency. | `topics/optimization-for-ml/README.md` |
 | `topics/probabilistic-graphical-models` | PGM course catch-up, inference, learning, and generative modeling. | `topics/probabilistic-graphical-models/README.md` |
-| `topics/transformers` | Transformer architecture topics. | `topics/transformers/README.md` |
+| `topics/ai/transformers` | Transformer architecture topics. | `topics/ai/transformers/README.md` |
 
 ## Artifact Routing
 
@@ -49,7 +49,7 @@ Apply topic merges only after an explicit user confirmation of the exact source 
 - Do not scan `node_modules/`, `.npm-cache/`, `.vercel/`, or `web/lessons/public/` unless debugging generated output.
 - Do not stage `.obsidian/` workspace changes unless the user explicitly asks.
 - Treat untracked course/material folders as user work until their scope is confirmed.
-- For web reader changes, edit generator scripts under `scripts/` and verify via `npm run lessons:build`; generated public output is ignored. Public AI source notes from `materials/processed/ai/` and AI lesson notes from `topics/ai/lessons/` both render under one visible `AI / Lessons` section. Public chronology uses ingest/add time, not source publication, submission, or revision dates.
+- For web reader changes, edit generator scripts under `scripts/` and verify via `npm run lessons:build`; generated public output is ignored. Public AI source notes from `materials/processed/ai/` and AI lesson notes from `topics/ai/lessons/` both render under one visible `AI / Lessons` section. AI processed-source readings use exact source publication/submission dates when available; missing, partial, or inferred source dates fall back to ingest/add dates.
 
 ## Current Reorg Boundary
 

@@ -3,6 +3,7 @@
 Source: `https://qianwen-res.oss-accelerate.aliyuncs.com/qwen-scope/Qwen_Scope.pdf?spm=a2ty_o06.30285417.0.0.165ec921LHeJpi&file=Qwen_Scope.pdf`
 Title: `Qwen-Scope: Turning Sparse Features into Development Tools for Large Language Models`
 Authors: `Qwen Team`
+Published: `2026-04-30`
 Ingested: `2026-05-04`
 Extraction engine: `canonical PDF extraction + manual structured ingest`
 Strategy: `paper extraction and medium/full lesson normalization`

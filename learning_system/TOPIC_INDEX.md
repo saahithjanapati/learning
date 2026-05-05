@@ -6,6 +6,7 @@ Canonical topic paths and aliases used for matching new requests.
 |---|---|---|---|
 | advanced-machine-learning-10-715-cmu | advanced-machine-learning-10-715-cmu | `topics/advanced-machine-learning-10-715-cmu` |  |
 | ai | ai | `topics/ai` |  |
+| kv-caching | ai | `topics/ai/transformers/kv-caching` | key-value cache, key value caching, transformer cache |
 | art-and-aesthetics | art-and-aesthetics | `topics/art-and-aesthetics` |  |
 | biology | biology | `topics/biology` |  |
 | core | biology | `topics/biology/core` |  |
@@ -33,5 +34,3 @@ Canonical topic paths and aliases used for matching new requests.
 | variational-inference-and-em | probabilistic-graphical-models | `topics/probabilistic-graphical-models/variational-inference-and-em` |  |
 | probability-and-statistics-36-700-cmu | probability-and-statistics-36-700-cmu | `topics/probability-and-statistics-36-700-cmu` |  |
 | survey-of-algebra | survey-of-algebra | `topics/survey-of-algebra` |  |
-| transformers | transformers | `topics/transformers` |  |
-| kv-caching | transformers | `topics/transformers/kv-caching` | key-value cache, key value caching, transformer cache |

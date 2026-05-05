@@ -3,6 +3,7 @@
 Source: `https://co-tok.github.io/paper.pdf`
 Title: `Compute Optimal Tokenization`
 Authors: `Tomasz Limisiewicz, Artidoro Pagnoni, Srini Iyer, Mike Lewis, Sachin Mehta, Alisa Liu, Margaret Li, Gargi Ghosh, Luke Zettlemoyer`
+Published: `2026-05-04`
 Ingested: `2026-05-04`
 Extraction engine: `canonical PDF extraction + manual structured ingest`
 Strategy: `paper extraction and medium/full lesson normalization`

@@ -70,8 +70,17 @@ function extractTitle(markdown, fallback) {
   return humanizeSlug(path.basename(fallback, ".md"))
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
+function extractMetadataValue(markdown, labels) {
+  const labelPattern = labels.map(escapeRegExp).join("|")
+  return markdown.match(new RegExp(`^(?:${labelPattern}):\\s*\`?([^\`\n]+?)\`?\\s*$`, "im"))?.[1]?.trim() ?? null
+}
+
 function extractIngestedMetadataValue(markdown) {
-  return markdown.match(/^(?:Ingested|Ingested on|Ingest date|Date ingested):\s*`?([^`\n]+?)`?\s*$/im)?.[1]?.trim() ?? null
+  return extractMetadataValue(markdown, ["Ingested", "Ingested on", "Ingest date", "Date ingested"])
 }
 
 function extractIngestedMetadataDate(markdown) {
@@ -119,6 +128,120 @@ function gitAddedInstant(repoRelative) {
   return addedInstant
 }
 
+const monthNumbers = new Map([
+  ["jan", 1],
+  ["january", 1],
+  ["feb", 2],
+  ["february", 2],
+  ["mar", 3],
+  ["march", 3],
+  ["apr", 4],
+  ["april", 4],
+  ["may", 5],
+  ["jun", 6],
+  ["june", 6],
+  ["jul", 7],
+  ["july", 7],
+  ["aug", 8],
+  ["august", 8],
+  ["sep", 9],
+  ["sept", 9],
+  ["september", 9],
+  ["oct", 10],
+  ["october", 10],
+  ["nov", 11],
+  ["november", 11],
+  ["dec", 12],
+  ["december", 12],
+])
+
+function pad2(value) {
+  return String(value).padStart(2, "0")
+}
+
+function yearFromToken(value) {
+  const numeric = Number.parseInt(value, 10)
+
+  if (value.length === 2) {
+    return numeric >= 70 ? 1900 + numeric : 2000 + numeric
+  }
+
+  return numeric
+}
+
+function dateFromParts(yearValue, monthValue, dayValue = 1) {
+  const year = typeof yearValue === "number" ? yearValue : yearFromToken(yearValue)
+  const month = typeof monthValue === "number" ? monthValue : Number.parseInt(monthValue, 10)
+  const day = typeof dayValue === "number" ? dayValue : Number.parseInt(dayValue, 10)
+  const parsed = new Date(Date.UTC(year, month - 1, day))
+
+  if (
+    parsed.getUTCFullYear() !== year ||
+    parsed.getUTCMonth() !== month - 1 ||
+    parsed.getUTCDate() !== day
+  ) {
+    return null
+  }
+
+  return `${year}-${pad2(month)}-${pad2(day)}`
+}
+
+function monthNumber(value) {
+  return monthNumbers.get(value.toLowerCase().replace(/\.$/, "")) ?? null
+}
+
+function normalizeExactSourceDateValue(value) {
+  if (/\b(?:not listed|unknown|n\/a|none)\b/i.test(value)) {
+    return null
+  }
+
+  const isoDate = value.match(/\b(\d{4})-(\d{2})-(\d{2})\b/)
+  if (isoDate) {
+    return dateFromParts(isoDate[1], isoDate[2], isoDate[3])
+  }
+
+  const monthDayYear = value.match(/\b(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+(\d{1,2}),?\s+(\d{4})\b/i)
+  if (monthDayYear) {
+    return dateFromParts(monthDayYear[3], monthNumber(monthDayYear[1]), monthDayYear[2])
+  }
+
+  const dayMonthYear = value.match(/\b(\d{1,2})\s+(Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:t|tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?\s+(\d{4})\b/i)
+  if (dayMonthYear) {
+    return dateFromParts(dayMonthYear[3], monthNumber(dayMonthYear[2]), dayMonthYear[1])
+  }
+
+  return null
+}
+
+function extractMetadataDate(markdown, labels) {
+  const value = extractMetadataValue(markdown, labels)
+  return value ? normalizeExactSourceDateValue(value) : null
+}
+
+function extractInlineSourceDate(markdown) {
+  const headerLines = markdown.split(/\r?\n/).slice(0, 80)
+  const header = headerLines.join("\n")
+  const arxivLineDate = header.match(/\barXiv:\d{4}\.\d{4,5}v\d+\s+\[[^\]]+\]\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})\b/i)
+  if (arxivLineDate) {
+    return dateFromParts(arxivLineDate[3], monthNumber(arxivLineDate[2]), arxivLineDate[1])
+  }
+
+  const headerWithoutIngestDates = headerLines
+    .filter((line) => !/^(?:Ingested|Ingested on|Ingest date|Date ingested):/i.test(line.trim()))
+    .join("\n")
+
+  return normalizeExactSourceDateValue(headerWithoutIngestDates)
+}
+
+function extractSourceDate(markdown) {
+  return (
+    extractMetadataDate(markdown, ["Published", "Published on", "Publication date", "Blog date", "Release date", "Date"]) ??
+    extractMetadataDate(markdown, ["Submitted"]) ??
+    extractMetadataDate(markdown, ["Updated", "Latest version"]) ??
+    extractInlineSourceDate(markdown)
+  )
+}
+
 function extractIngestDate(repoRelative, stat, markdown = "") {
   const filenameDate = path.basename(repoRelative).match(/^(\d{4}-\d{2}-\d{2})-/)?.[1]
   const gitInstant = gitAddedInstant(repoRelative)
@@ -131,6 +254,10 @@ function extractIngestDate(repoRelative, stat, markdown = "") {
     gitInstant?.slice(0, 10) ??
     fallbackDate
   )
+}
+
+function extractDate(repoRelative, stat, markdown = "", dateMode = "ingested") {
+  return (dateMode === "source" ? extractSourceDate(markdown) : null) ?? extractIngestDate(repoRelative, stat, markdown)
 }
 
 function extractIngestSortKey(repoRelative, stat, markdown = "") {
@@ -147,6 +274,16 @@ function extractIngestSortKey(repoRelative, stat, markdown = "") {
   }
 
   return sortKeyForDateAndInstant(date, new Date(stat.mtimeMs).toISOString())
+}
+
+function extractSortKey(repoRelative, stat, markdown = "", dateMode = "ingested") {
+  const sourceDate = dateMode === "source" ? extractSourceDate(markdown) : null
+
+  if (sourceDate) {
+    return sortKeyForDateAndInstant(sourceDate, `${sourceDate}T00:00:00.000Z`)
+  }
+
+  return extractIngestSortKey(repoRelative, stat, markdown)
 }
 
 function sortKeyForDateAndInstant(date, instant) {
@@ -297,7 +434,7 @@ async function publicProcessedSourceReadings(rootTopic, publicCollection) {
       repoRelative,
       outputRelative: toPosix(path.join("topics", rootTopic, publicCollection, processedRelative)),
       topicPath: `${rootTopic}/${publicCollection}`,
-      dateMode: "ingested",
+      dateMode: "source",
     })
   }
 
@@ -448,8 +585,8 @@ for (const reading of publicReadings) {
 
   const topicItems = itemsByTopic.get(topicPath) ?? { lessons: [] }
   const item = {
-    date: extractIngestDate(repoRelativePosix, stat, sanitizedMarkdown),
-    sortKey: extractIngestSortKey(repoRelativePosix, stat, sanitizedMarkdown),
+    date: extractDate(repoRelativePosix, stat, sanitizedMarkdown, reading.dateMode),
+    sortKey: extractSortKey(repoRelativePosix, stat, sanitizedMarkdown, reading.dateMode),
     title,
     href: toPosix(outputRelative),
     topicPath,

@@ -87,7 +87,7 @@
       "root_topic": "ai",
       "processed_material_dir": "materials/processed/ai",
       "materials_index_path": "topics/ai/materials/INDEX.md",
-      "topic_count": 1,
+      "topic_count": 2,
       "topics": [
         {
           "topic_path": "topics/ai",
@@ -96,6 +96,20 @@
           "readme_path": "topics/ai/README.md",
           "curriculum_path": null,
           "curriculum_paths": [],
+          "source_materials": [],
+          "source_pdfs": [],
+          "transcript_anchors": [],
+          "unresolved_source_materials": []
+        },
+        {
+          "topic_path": "topics/ai/transformers/kv-caching",
+          "root_topic": "ai",
+          "topic_key": "kv-caching",
+          "readme_path": "topics/ai/transformers/kv-caching/README.md",
+          "curriculum_path": "topics/ai/transformers/kv-caching/curriculum/0-to-1-plan.md",
+          "curriculum_paths": [
+            "topics/ai/transformers/kv-caching/curriculum/0-to-1-plan.md"
+          ],
           "source_materials": [],
           "source_pdfs": [],
           "transcript_anchors": [],
@@ -725,28 +739,6 @@
             "Ring theory layer: rings, units, zero divisors, domains, and polynomial rings over commutative rings or fields.",
             "Source-folder extras: finite Markov chains, continuous-time Markov chains, martingales, and Brownian motion lectures that were present in the same local folder."
           ],
-          "unresolved_source_materials": []
-        }
-      ]
-    },
-    {
-      "root_topic": "transformers",
-      "processed_material_dir": null,
-      "materials_index_path": null,
-      "topic_count": 1,
-      "topics": [
-        {
-          "topic_path": "topics/transformers/kv-caching",
-          "root_topic": "transformers",
-          "topic_key": "kv-caching",
-          "readme_path": "topics/transformers/kv-caching/README.md",
-          "curriculum_path": "topics/transformers/kv-caching/curriculum/0-to-1-plan.md",
-          "curriculum_paths": [
-            "topics/transformers/kv-caching/curriculum/0-to-1-plan.md"
-          ],
-          "source_materials": [],
-          "source_pdfs": [],
-          "transcript_anchors": [],
           "unresolved_source_materials": []
         }
       ]

@@ -29,7 +29,7 @@ Do not use this skill for:
 - verify parent lesson counts are explainable from visible child sections plus any direct lessons
 - for AI, keep both generated collection sections visible:
   - `AI / Lessons` includes both `topics/ai/lessons/*.md` and recursive `materials/processed/ai/**/*.md`
-- public lesson order must use ingest/add time, not source publication, submission, or revision time
+- AI processed-source readings use exact source publication/submission dates when available; missing, partial, or inferred source dates fall back to ingest/add dates
 
 3. Generate reorg suggestions:
 - `python scripts/learning_cli.py reorganize --write-report`

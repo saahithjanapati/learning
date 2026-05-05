@@ -56,7 +56,7 @@ The assistant should help the learner:
 - `topics/interviews/ml-system-design/`
   - `curriculum/`: interview roadmap.
   - `lessons/`: ML system design lessons.
-- `topics/transformers/kv-caching/`
+- `topics/ai/transformers/kv-caching/`
   - `practice/kv_cache_exercise.py`
   - `practice/kv_cache_exercise_batched_multihead.py`
   - `lessons/2026-02-15-kv-caching-session-01.md`

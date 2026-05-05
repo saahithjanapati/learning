@@ -25,7 +25,7 @@ Generated: 2026-05-02
 - `topics/probabilistic-graphical-models/score-matching-and-energy-based-models`: OK
 - `topics/probabilistic-graphical-models/undirected-graphical-models`: OK
 - `topics/probabilistic-graphical-models/variational-inference-and-em`: OK
-- `topics/transformers/kv-caching`: OK
+- `topics/ai/transformers/kv-caching`: OK
 
 ## Potential Merge Candidates
 
