@@ -51,6 +51,7 @@ Policy:
 - [materials/processed/ai/scaling-laws-for-neural-language-models.md](../../../materials/processed/ai/scaling-laws-for-neural-language-models.md)
 - [materials/processed/ai/training-compute-optimal-large-language-models.md](../../../materials/processed/ai/training-compute-optimal-large-language-models.md)
 - [materials/processed/ai/gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md](../../../materials/processed/ai/gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md)
+- [materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md](../../../materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md)
 - [materials/processed/ai/uncovering-gaps-humans-llms-interpret-subjective-language.md](../../../materials/processed/ai/uncovering-gaps-humans-llms-interpret-subjective-language.md)
 - [materials/processed/ai/roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md](../../../materials/processed/ai/roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md)
 - [materials/processed/ai/claudes-constitution.md](../../../materials/processed/ai/claudes-constitution.md)

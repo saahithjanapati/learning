@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-04
+Last generated: 2026-05-05
 
 Hierarchical topic tree discovered from `topics/` paths.
 
@@ -40,8 +40,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection -> Paper Lesson: AI Choreographer and AIST++ music-conditioned 3D dance generation
 - AI / Collection -> Company Lesson: Andon Labs overview
 - AI / Collection -> Company Lesson: Goodfire AI overview
 - AI / Collection -> Foundation Lesson: Transformer MoE architecture basics
 - AI / Collection -> Paper Lesson: AI co-scientist
-- AI / Collection -> Developer Lesson: OpenClaw overview

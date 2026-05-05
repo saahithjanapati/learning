@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 61
+Files: 62
 
 ## Files
 
@@ -43,6 +43,7 @@ Files: 61
 - `https://arxiv.org/abs/2001.08361` -> `scaling-laws-for-neural-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2203.15556` -> `training-compute-optimal-large-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2510.03342` -> `gemini-robotics-1-5-generalist-robots-embodied-reasoning-motion-transfer.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://arxiv.org/abs/2101.08779` -> `ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2503.04113` -> `uncovering-gaps-humans-llms-interpret-subjective-language.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://arxiv.org/abs/2504.15266` -> `roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://www.anthropic.com/constitution` -> `claudes-constitution.md` (strategy: `canonical article extraction and governance-oriented lesson normalization`)

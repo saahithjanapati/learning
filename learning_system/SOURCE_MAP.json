@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-04",
+  "generated_on": "2026-05-05",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1450,6 +1450,13 @@
       "transcript_path": "materials/processed/ai/a-diff-tool-for-ai-finding-behavioral-differences-in-new-models.md",
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/research/diff-tool",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2101.08779",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
