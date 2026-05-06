@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-05",
+  "generated_on": "2026-05-06",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1484,6 +1484,20 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/abstraction-induces-brain-alignment-language-speech-models.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/accelerating-gemma-4-multi-token-prediction-drafters.md",
+      "root_topic": "ai",
+      "source_pdf": "https://blog.google/innovation-and-ai/technology/developers-tools/multi-token-prediction-gemma-4/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2101.08779",
@@ -1621,12 +1635,26 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/dyna-robotics-dyna-1-overview.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/estimation-of-non-normalized-statistical-models-by-score-matching.md",
       "root_topic": "ai",
       "source_pdf": "https://jmlr.org/papers/v6/hyvarinen05a.html",
       "duplicate_equivalents": [
         "relevant-papers-01-Estimation of Non-Normalized Statistical Models by Score Matching.pdf"
       ],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/evidence-from-fmri-supports-two-phase-abstraction-process-language-models.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
@@ -1693,6 +1721,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/kv-streams-cross-turn-continuity-chat-models.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md",
       "root_topic": "ai",
       "source_pdf": null,
@@ -1742,6 +1777,20 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/model-spec-midtraining-improving-how-alignment-training-generalizes.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.02087",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/neosigma-self-improving-agentic-systems.md",
+      "root_topic": "ai",
+      "source_pdf": "https://neosigma.ai/",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/neural-discrete-representation-learning.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/1711.00937",
@@ -1782,6 +1831,13 @@
       "transcript_path": "materials/processed/ai/prime-intellect-company-overview.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/programbench-can-language-models-rebuild-programs-from-scratch.md",
+      "root_topic": "ai",
+      "source_pdf": "https://programbench.com/",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

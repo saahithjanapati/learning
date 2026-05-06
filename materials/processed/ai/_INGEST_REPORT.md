@@ -1,7 +1,7 @@
 # AI Link Ingest Report
 
 Model: `direct web scrape + Gemini PDF conversion + manual repo ingest`
-Files: 64
+Files: 66
 
 ## Files
 
@@ -75,3 +75,11 @@ Files: 64
 - `https://huggingface.co/blog/ServiceNow/pipelinerl` -> `pipelinerl.md` (strategy: `canonical article extraction and infrastructure lesson normalization`)
 - `https://www.youtube.com/watch?v=xmkSf5IS-zw` + `https://podwise.ai/dashboard/episodes/7886446` -> `reiner-pope-how-gpt-claude-and-gemini-are-trained-and-served.md` (strategy: `talk transcript normalization into infrastructure lesson`)
 - `https://proximal.ai/` -> `proximal-coding-intelligence-overview.md` (strategy: `official site extraction and company-overview lesson normalization`)
+- `https://arxiv.org/abs/2409.05771` -> `evidence-from-fmri-supports-two-phase-abstraction-process-language-models.md` (strategy: `canonical PDF/HTML extraction and medium/full AI paper lesson normalization`)
+- `https://arxiv.org/abs/2602.04081` -> `abstraction-induces-brain-alignment-language-speech-models.md` (strategy: `canonical PDF extraction and medium/full AI paper lesson normalization`)
+- `https://arxiv.org/abs/2605.02087` -> `model-spec-midtraining-improving-how-alignment-training-generalizes.md` (strategy: `canonical arXiv extraction and medium/full AI paper lesson normalization`)
+- `https://programbench.com/` + `https://programbench.com/static/paper.pdf` -> `programbench-can-language-models-rebuild-programs-from-scratch.md` (strategy: `project site plus paper extraction and medium/full AI paper lesson normalization`)
+- `https://developers.googleblog.com/en/accelerating-gemma-4-faster-inference-with-multi-token-prediction-drafters/` -> `accelerating-gemma-4-multi-token-prediction-drafters.md` (strategy: `official engineering blog extraction and inference-systems lesson normalization`)
+- `https://neosigma.com/` + public company materials -> `neosigma-self-improving-agentic-systems.md` (strategy: `multi-source company overview and self-improving-agent lesson normalization`)
+- `https://www.dyna.co/` + public company materials -> `dyna-robotics-dyna-1-overview.md` (strategy: `multi-source robotics company overview and lesson normalization`)
+- `link-ingestion chat topic: kv streams / cross-turn continuity for chat models` -> `kv-streams-cross-turn-continuity-chat-models.md` (strategy: `topic-request research synthesis and systems-concept lesson normalization`)

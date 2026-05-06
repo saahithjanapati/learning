@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-05
+Last generated: 2026-05-06
 
 Hierarchical topic tree discovered from `topics/` paths.
 
@@ -43,6 +43,6 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 - AI / AI For Art -> Paper Lesson: Neural Discrete Representation Learning and VQ-VAE foundations
 - AI / AI For Art -> Paper Lesson: Jukebox raw-audio music generation
-- AI / Collection -> Company Lesson: Proximal overview
-- AI / Collection -> Talk Lesson: Reiner Pope on frontier model training and serving
-- AI / Collection -> Foundation Lesson: PipelineRL for LLM post-training
+- AI / Collection -> Foundation Lesson: LLM inference frameworks, SGLang, and vLLM
+- AI / Collection -> Paper Lesson: abstraction induces brain alignment in language and speech models
+- AI / Collection -> Paper Lesson: fMRI evidence for two-phase abstraction in language models
