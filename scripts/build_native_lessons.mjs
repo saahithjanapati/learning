@@ -197,11 +197,76 @@ function buildCopyContext(markdown, title) {
   return /^#\s+/.test(body.trimStart()) ? body : `# ${trimmedTitle}\n\n${body}`
 }
 
-function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", enableLessonNavigator = false, lessonId = "" }) {
+function decodeBasicMarkdownText(value) {
+  return value
+    .replaceAll("\\[", "[")
+    .replaceAll("\\]", "]")
+    .replaceAll("\\(", "(")
+    .replaceAll("\\)", ")")
+}
+
+async function readRecentLessonIndex() {
+  const recentPath = path.join(contentDir, "recent-lessons.md")
+  const markdown = await fs.readFile(recentPath, "utf8")
+  const lessons = []
+  let currentDate = ""
+
+  for (const line of markdown.split(/\r?\n/)) {
+    const dateMatch = line.match(/^##\s+(\d{4}-\d{2}-\d{2})\s*$/)
+
+    if (dateMatch) {
+      currentDate = dateMatch[1]
+      continue
+    }
+
+    const lessonMatch = line.match(/^- \[(.+?)\]\(([^)]+)\) \((.+)\)$/)
+
+    if (!currentDate || !lessonMatch) {
+      continue
+    }
+
+    const markdownRelative = path.posix.normalize(lessonMatch[2])
+    const lessonId = markdownRelativeToRoute(markdownRelative)
+
+    if (!isIndividualReading(markdownRelative)) {
+      continue
+    }
+
+    lessons.push({
+      date: currentDate,
+      href: markdownRelativeToUrl(markdownRelative, ""),
+      lessonId,
+      title: decodeBasicMarkdownText(lessonMatch[1]),
+      topicTitle: decodeBasicMarkdownText(lessonMatch[3]),
+    })
+  }
+
+  return lessons
+}
+
+function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", enableLessonNavigator = false, lessonId = "", homeLessons = [] }) {
   const homeHref = routeWithPrefix(urlPrefix, "")
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
   const faviconHref = assetWithPrefix(urlPrefix, "favicon.svg")
+  const normalizedHomeLessons = homeLessons.map((lesson) => ({
+    ...lesson,
+    href: routeWithPrefix(urlPrefix, lesson.lessonId),
+  }))
+  const homeUnreadMarkup = normalizedHomeLessons.length
+    ? `
+      <section class="home-unread" data-home-unread aria-labelledby="home-unread-title">
+        <div class="home-unread-header">
+          <div>
+            <p class="home-unread-kicker">Not Done</p>
+            <h1 id="home-unread-title">Not Done Lessons</h1>
+          </div>
+          <span class="home-unread-count" data-home-unread-count>Checking progress</span>
+        </div>
+        <ol class="home-unread-list" data-home-unread-list></ol>
+        <p class="home-unread-empty" data-home-unread-empty hidden>Everything is done.</p>
+      </section>`
+    : ""
   const lessonNavigatorControls = enableLessonNavigator
     ? '<button class="lesson-navigator-button" type="button" data-lesson-navigator-open><span>Sections</span></button>'
     : ""
@@ -588,7 +653,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     })()
   </script>`
   const readerProgressScript = `
-  <script type="application/json" id="reader-progress-config">${escapeScriptJson(JSON.stringify({ lessonId }))}</script>
+  <script type="application/json" id="reader-progress-config">${escapeScriptJson(JSON.stringify({ lessonId, homeLessons: normalizedHomeLessons }))}</script>
   <script>
     (() => {
       const configElement = document.getElementById("reader-progress-config")
@@ -598,7 +663,11 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       const progressButton = document.querySelector("[data-lesson-progress-toggle]")
       const progressLabel = document.querySelector("[data-lesson-progress-label]")
       const progressDate = document.querySelector("[data-lesson-progress-date]")
-      let config = { lessonId: "" }
+      const homeUnreadSection = document.querySelector("[data-home-unread]")
+      const homeUnreadList = document.querySelector("[data-home-unread-list]")
+      const homeUnreadCount = document.querySelector("[data-home-unread-count]")
+      const homeUnreadEmpty = document.querySelector("[data-home-unread-empty]")
+      let config = { lessonId: "", homeLessons: [] }
       let user = null
       let progressByLesson = new Map()
       let currentIsRead = false
@@ -606,7 +675,11 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       try {
         config = JSON.parse(configElement?.textContent || "{}")
       } catch {
-        config = { lessonId: "" }
+        config = { lessonId: "", homeLessons: [] }
+      }
+
+      if (!Array.isArray(config.homeLessons)) {
+        config.homeLessons = []
       }
 
       function returnPath() {
@@ -714,6 +787,89 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         }
       }
 
+      function clearNode(node) {
+        while (node?.firstChild) {
+          node.firstChild.remove()
+        }
+      }
+
+      function setHomeUnreadMessage(message, { empty = false } = {}) {
+        if (!homeUnreadSection) {
+          return
+        }
+
+        if (homeUnreadCount) {
+          homeUnreadCount.textContent = message
+        }
+
+        if (homeUnreadList) {
+          homeUnreadList.hidden = true
+          clearNode(homeUnreadList)
+        }
+
+        if (homeUnreadEmpty) {
+          homeUnreadEmpty.hidden = !empty
+        }
+      }
+
+      function renderHomeUnreadLessons() {
+        if (!homeUnreadSection || !homeUnreadList) {
+          return
+        }
+
+        if (!user) {
+          setHomeUnreadMessage("Sign in required")
+          return
+        }
+
+        const unreadLessons = config.homeLessons.filter((lesson) => {
+          if (!lesson?.lessonId || !lesson?.href || !lesson?.title) {
+            return false
+          }
+
+          const progress = progressByLesson.get(lesson.lessonId)
+          return progress?.isRead !== true
+        })
+
+        clearNode(homeUnreadList)
+        homeUnreadList.hidden = unreadLessons.length === 0
+
+        if (homeUnreadCount) {
+          homeUnreadCount.textContent = unreadLessons.length === 1 ? "1 not done" : unreadLessons.length + " not done"
+        }
+
+        if (homeUnreadEmpty) {
+          homeUnreadEmpty.hidden = unreadLessons.length !== 0
+        }
+
+        for (const lesson of unreadLessons) {
+          const item = document.createElement("li")
+          item.className = "home-unread-item"
+
+          const link = document.createElement("a")
+          link.href = lesson.href
+          link.textContent = lesson.title
+
+          const marker = document.createElement("span")
+          marker.className = "home-unread-marker"
+          marker.textContent = "Not done"
+
+          const meta = document.createElement("div")
+          meta.className = "home-unread-meta"
+
+          const date = document.createElement("time")
+          date.dateTime = lesson.date || ""
+          date.textContent = lesson.date || "No date"
+
+          const topic = document.createElement("span")
+          topic.textContent = lesson.topicTitle || "Lesson"
+
+          meta.append(date, topic)
+          item.append(link, marker, meta)
+          homeUnreadList.append(item)
+        }
+      }
+
       function markReadLinks() {
         const links = Array.from(document.querySelectorAll("article a[href]"))
 
@@ -770,6 +926,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
 
         if (!user) {
           setProgressUi(null)
+          renderHomeUnreadLessons()
           return
         }
 
@@ -779,11 +936,13 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
           user = null
           setAuthUi()
           setProgressUi(null)
+          renderHomeUnreadLessons()
           return
         }
 
         progressByLesson = new Map((progressResponse.progress || []).map((progress) => [progress.lessonId, progress]))
         markReadLinks()
+        renderHomeUnreadLessons()
         setProgressUi(progressByLesson.get(config.lessonId))
       }
 
@@ -821,6 +980,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
           })
           progressByLesson.set(result.progress.lessonId, result.progress)
           markReadLinks()
+          renderHomeUnreadLessons()
           setProgressUi(result.progress)
         } catch (error) {
           console.error(error)
@@ -832,6 +992,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       loadProgress().catch((error) => {
         console.error(error)
         setProgressUi(null)
+        setHomeUnreadMessage("Could not load progress")
       })
     })()
   </script>`
@@ -974,6 +1135,120 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       gap: 10px;
     }
 
+    .home-unread {
+      margin: 0 0 3.6rem;
+      padding-bottom: 2.1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .home-unread-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 1.25rem;
+    }
+
+    .home-unread-kicker {
+      margin: 0 0 0.28rem;
+      color: #fde68a;
+      font-family: var(--sans-font);
+      font-size: 0.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .home-unread h1 {
+      margin: 0;
+      color: var(--heading-strong);
+      font-family: var(--serif-font);
+      font-size: 4.15rem;
+      line-height: 0.98;
+    }
+
+    .home-unread-count {
+      flex: 0 0 auto;
+      padding: 0.18rem 0.46rem 0.22rem;
+      border: 1px solid rgb(234 179 8 / 0.58);
+      border-radius: 4px;
+      background: rgb(113 63 18 / 0.38);
+      color: #fde68a;
+      font-family: var(--sans-font);
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .home-unread-list {
+      display: grid;
+      gap: 0.72rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .home-unread-list[hidden],
+    .home-unread-empty[hidden] {
+      display: none;
+    }
+
+    .home-unread-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 12px;
+      row-gap: 0.18rem;
+      align-items: baseline;
+      padding: 0.62rem 0;
+      border-bottom: 1px solid rgb(36 43 54 / 0.72);
+      font-family: var(--sans-font);
+      line-height: 1.35;
+    }
+
+    .home-unread-item a {
+      color: var(--text);
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .home-unread-item a:hover,
+    .home-unread-item a:focus-visible {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+      outline: none;
+    }
+
+    .home-unread-marker {
+      padding: 0.05rem 0.34rem 0.06rem;
+      border: 1px solid rgb(234 179 8 / 0.58);
+      border-radius: 4px;
+      color: #fde68a;
+      background: rgb(113 63 18 / 0.38);
+      font-size: 0.68rem;
+      font-weight: 700;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .home-unread-meta {
+      display: flex;
+      flex-wrap: wrap;
+      grid-column: 1 / -1;
+      gap: 0.35rem 0.72rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .home-unread-empty {
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--sans-font);
+      font-size: 0.95rem;
+    }
+
     .lesson-progress-footer {
       display: flex;
       align-items: center;
@@ -1080,10 +1355,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       display: inline-block;
       margin-left: 0.46rem;
       padding: 0.05rem 0.34rem 0.06rem;
-      border: 1px solid rgb(162 172 186 / 0.34);
+      border: 1px solid rgb(234 179 8 / 0.58);
       border-radius: 4px;
-      color: var(--muted);
-      background: rgb(162 172 186 / 0.08);
+      color: #fde68a;
+      background: rgb(113 63 18 / 0.38);
       font-family: var(--sans-font);
       font-size: 0.68rem;
       font-weight: 650;
@@ -1094,9 +1369,9 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
 
     article a[data-reader-progress-link="true"][data-reader-read="true"]::after {
       content: "Done";
-      border-color: rgb(168 194 246 / 0.42);
-      color: var(--heading-strong);
-      background: rgb(134 173 243 / 0.12);
+      border-color: rgb(59 130 246 / 0.64);
+      color: #bfdbfe;
+      background: rgb(30 64 175 / 0.34);
     }
 
     .lesson-navigator-sidebar {
@@ -1577,6 +1852,29 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         justify-content: flex-start;
       }
 
+      .home-unread {
+        margin-bottom: 2.7rem;
+        padding-bottom: 1.55rem;
+      }
+
+      .home-unread-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .home-unread h1 {
+        font-size: 2.6rem;
+      }
+
+      .home-unread-item {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .home-unread-marker {
+        justify-self: start;
+      }
+
       .lesson-navigator-panel {
         border-left: 0;
         border-right: 0;
@@ -1667,6 +1965,7 @@ ${lessonNavigatorSidebar}
           ${readerAuthControls}
         </div>
       </header>
+${homeUnreadMarkup}
       <article>
 ${body}
       </article>
@@ -1708,6 +2007,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     const isReading = isIndividualReading(markdownRelative)
     const lessonId = isReading ? markdownRelativeToRoute(markdownRelative) : ""
     const copyContext = isReading ? buildCopyContext(markdown, title) : ""
+    const isHomePage = markdownRelative === "index.md"
     const body = String(
       await unified()
         .use(remarkParse)
@@ -1736,6 +2036,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
         copyContext,
         enableLessonNavigator: isReading,
         lessonId,
+        homeLessons: isHomePage ? homeLessonIndex : [],
       }),
     )
   }
@@ -1753,6 +2054,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
 
 const markdownFiles = (await walk(contentDir)).sort((a, b) => toPosix(a).localeCompare(toPosix(b)))
 markdownRelativeSet = new Set(markdownFiles.map((markdownPath) => toPosix(path.relative(contentDir, markdownPath))))
+const homeLessonIndex = await readRecentLessonIndex()
 const targets = [
   { outputRoot: publicDir, urlPrefix: "", preserveNames: new Set() },
 ]
