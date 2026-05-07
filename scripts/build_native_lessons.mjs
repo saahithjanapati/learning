@@ -203,8 +203,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
   const faviconHref = assetWithPrefix(urlPrefix, "favicon.svg")
   const lessonNavigatorControls = enableLessonNavigator
-    ? `<button class="lesson-navigator-toggle" type="button" data-lesson-navigator-toggle aria-pressed="false"><span data-lesson-navigator-toggle-label>Hide sections</span></button>
-        <button class="lesson-navigator-button" type="button" data-lesson-navigator-open><span>Sections</span></button>`
+    ? '<button class="lesson-navigator-button" type="button" data-lesson-navigator-open><span>Sections</span></button>'
     : ""
   const lessonNavigatorSidebar = enableLessonNavigator
     ? `
@@ -219,9 +218,6 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         <ol data-lesson-navigator-list></ol>
       </nav>
     </aside>`
-    : ""
-  const lessonNavigatorFab = enableLessonNavigator
-    ? '<button class="lesson-navigator-fab" type="button" data-lesson-navigator-open><span>Sections</span></button>'
     : ""
   const lessonNavigatorMarkup = enableLessonNavigator
     ? `
@@ -529,15 +525,68 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     : ""
   const lessonProgressButton = lessonId
     ? `<button class="lesson-progress-button" type="button" data-lesson-progress-toggle aria-pressed="false" hidden>
-            <span data-lesson-progress-label>Mark read</span>
+            <span data-lesson-progress-label>Mark as done</span>
           </button>
           <span class="lesson-progress-date" data-lesson-progress-date hidden></span>`
+    : ""
+  const lessonProgressFooter = lessonId
+    ? `
+      <footer class="lesson-progress-footer" data-lesson-progress-panel hidden>
+        ${lessonProgressButton}
+      </footer>`
     : ""
   const readerAuthControls = `
           <div class="reader-auth" data-reader-auth>
             <a class="reader-auth-link" href="/api/auth/google" data-reader-signin>Sign in</a>
             <button class="reader-auth-button" type="button" data-reader-logout hidden>Sign out</button>
           </div>`
+  const readerChromeScript = `
+  <script>
+    (() => {
+      const header = document.querySelector("[data-reader-header]")
+
+      if (!header) {
+        return
+      }
+
+      let previousY = window.scrollY
+      let queued = false
+
+      function setHeaderHidden(hidden) {
+        document.body.classList.toggle("reader-header-hidden", hidden)
+      }
+
+      function updateHeaderVisibility() {
+        queued = false
+        const currentY = window.scrollY
+        const delta = currentY - previousY
+        const navigatorOpen = document.body.classList.contains("lesson-navigator-open")
+
+        if (currentY < 24 || navigatorOpen || header.matches(":focus-within")) {
+          setHeaderHidden(false)
+        } else if (delta > 8 && currentY > 120) {
+          setHeaderHidden(true)
+        } else if (delta < -8) {
+          setHeaderHidden(false)
+        }
+
+        previousY = currentY
+      }
+
+      function queueHeaderUpdate() {
+        if (queued) {
+          return
+        }
+
+        queued = true
+        window.requestAnimationFrame(updateHeaderVisibility)
+      }
+
+      setHeaderHidden(false)
+      window.addEventListener("scroll", queueHeaderUpdate, { passive: true })
+      window.addEventListener("resize", queueHeaderUpdate)
+    })()
+  </script>`
   const readerProgressScript = `
   <script type="application/json" id="reader-progress-config">${escapeScriptJson(JSON.stringify({ lessonId }))}</script>
   <script>
@@ -545,6 +594,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       const configElement = document.getElementById("reader-progress-config")
       const signInLink = document.querySelector("[data-reader-signin]")
       const signOutButton = document.querySelector("[data-reader-logout]")
+      const progressPanel = document.querySelector("[data-lesson-progress-panel]")
       const progressButton = document.querySelector("[data-lesson-progress-toggle]")
       const progressLabel = document.querySelector("[data-lesson-progress-label]")
       const progressDate = document.querySelector("[data-lesson-progress-date]")
@@ -591,6 +641,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         return lessonId
       }
 
+      function isTrackableLessonId(lessonId) {
+        return /(?:^|\\/)(?:lessons|papers)\\/[^/]+/.test(lessonId) && !/(?:^|\\/)(?:lessons|papers)$/.test(lessonId)
+      }
+
       function formatReadDate(value) {
         if (!value) {
           return ""
@@ -626,6 +680,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         }
 
         if (!user) {
+          if (progressPanel) {
+            progressPanel.hidden = true
+          }
+
           progressButton.hidden = true
 
           if (progressDate) {
@@ -636,19 +694,22 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         }
 
         currentIsRead = progress?.isRead === true
+        if (progressPanel) {
+          progressPanel.hidden = false
+        }
         progressButton.hidden = false
         progressButton.disabled = false
         progressButton.classList.toggle("is-read", currentIsRead)
         progressButton.setAttribute("aria-pressed", String(currentIsRead))
 
         if (progressLabel) {
-          progressLabel.textContent = currentIsRead ? "Read" : "Mark read"
+          progressLabel.textContent = currentIsRead ? "Done" : "Mark as done"
         }
 
         const formattedDate = formatReadDate(progress?.readAt)
 
         if (progressDate) {
-          progressDate.textContent = formattedDate ? "Read " + formattedDate : ""
+          progressDate.textContent = formattedDate ? "Done " + formattedDate : ""
           progressDate.hidden = !formattedDate || !currentIsRead
         }
       }
@@ -663,7 +724,12 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
             continue
           }
 
+          if (!isTrackableLessonId(lessonId)) {
+            continue
+          }
+
           const progress = progressByLesson.get(lessonId)
+          link.dataset.readerProgressLink = "true"
           link.dataset.readerRead = progress?.isRead === true ? "true" : "false"
         }
       }
@@ -831,16 +897,35 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
       display: flex;
       justify-content: space-between;
       gap: 16px;
       align-items: center;
       margin-bottom: 46px;
-      padding-bottom: 16px;
+      padding: 12px 0 14px;
       border-bottom: 1px solid var(--line);
+      background: rgb(5 5 7 / 0.94);
       color: var(--muted);
       font-family: var(--sans-font);
       font-size: 13px;
+      backdrop-filter: blur(14px);
+      transform: translateY(0);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .reader-header-hidden header {
+      pointer-events: none;
+      transform: translateY(calc(-100% - 12px));
+    }
+
+    .reader-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
     }
 
     .brand {
@@ -887,6 +972,20 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       justify-content: flex-end;
       flex-wrap: wrap;
       gap: 10px;
+    }
+
+    .lesson-progress-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 3.2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-family: var(--sans-font);
+    }
+
+    .lesson-progress-footer[hidden] {
+      display: none;
     }
 
     .copy-context-button,
@@ -944,8 +1043,7 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
 
     .lesson-navigator-button,
     .lesson-navigator-toggle,
-    .lesson-navigator-sidebar-hide,
-    .lesson-navigator-fab {
+    .lesson-navigator-sidebar-hide {
       min-height: 32px;
       padding: 0.34rem 0.7rem;
       border: 1px solid var(--line-strong);
@@ -971,23 +1069,21 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
     .lesson-navigator-toggle:hover,
     .lesson-navigator-toggle:focus-visible,
     .lesson-navigator-sidebar-hide:hover,
-    .lesson-navigator-sidebar-hide:focus-visible,
-    .lesson-navigator-fab:hover,
-    .lesson-navigator-fab:focus-visible {
+    .lesson-navigator-sidebar-hide:focus-visible {
       border-color: var(--accent);
       color: var(--accent);
       outline: none;
     }
 
-    article a[data-reader-read="true"]::after {
-      content: "Read";
+    article a[data-reader-progress-link="true"]::after {
+      content: "Not done";
       display: inline-block;
       margin-left: 0.46rem;
-      padding: 0.05rem 0.34rem;
-      border: 1px solid rgb(168 194 246 / 0.42);
+      padding: 0.05rem 0.34rem 0.06rem;
+      border: 1px solid rgb(162 172 186 / 0.34);
       border-radius: 4px;
-      color: var(--heading-strong);
-      background: rgb(134 173 243 / 0.12);
+      color: var(--muted);
+      background: rgb(162 172 186 / 0.08);
       font-family: var(--sans-font);
       font-size: 0.68rem;
       font-weight: 650;
@@ -996,15 +1092,11 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       white-space: nowrap;
     }
 
-    .lesson-navigator-fab {
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 20;
-      display: none;
-      min-height: 44px;
-      padding: 0.62rem 0.86rem;
-      box-shadow: 0 14px 36px rgb(0 0 0 / 0.35);
+    article a[data-reader-progress-link="true"][data-reader-read="true"]::after {
+      content: "Done";
+      border-color: rgb(168 194 246 / 0.42);
+      color: var(--heading-strong);
+      background: rgb(134 173 243 / 0.12);
     }
 
     .lesson-navigator-sidebar {
@@ -1445,21 +1537,12 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         color: var(--accent);
       }
 
-      .lesson-navigator-button {
-        display: none;
-      }
     }
 
     @media (max-width: 1099px) {
       .lesson-navigator-toggle,
       .lesson-navigator-sidebar {
         display: none;
-      }
-
-      .lesson-navigator-fab {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
       }
     }
 
@@ -1475,10 +1558,15 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       }
 
       header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
         margin-bottom: 34px;
+      }
+
+      .reader-header-left {
+        width: 100%;
+        justify-content: space-between;
       }
 
       header nav {
@@ -1534,6 +1622,11 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         padding: 0.85rem;
       }
 
+      .lesson-progress-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .table-scroll {
         width: calc(100vw - 24px);
         margin-left: calc(50% - 50vw + 12px);
@@ -1560,15 +1653,16 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
   <main class="shell${enableLessonNavigator ? " has-lesson-navigator" : ""}">
 ${lessonNavigatorSidebar}
     <div class="reader-column">
-      <header>
-        <a class="brand" href="${homeHref}">Learning Machine</a>
+      <header data-reader-header>
+        <div class="reader-header-left">
+          ${lessonNavigatorControls}
+          <a class="brand" href="${homeHref}">Learning Machine</a>
+        </div>
         <div class="reader-actions">
           <nav aria-label="Reader navigation">
             <a href="${recentHref}">Recent</a>
             <a href="${topicsHref}">Topics</a>
           </nav>
-          ${lessonNavigatorControls}
-          ${lessonProgressButton}
           ${copyContextButton}
           ${readerAuthControls}
         </div>
@@ -1576,12 +1670,13 @@ ${lessonNavigatorSidebar}
       <article>
 ${body}
       </article>
+${lessonProgressFooter}
     </div>
   </main>
-${lessonNavigatorFab}
 ${lessonNavigatorMarkup}
 ${copyContextScript}
 ${lessonNavigatorScript}
+${readerChromeScript}
 ${readerProgressScript}
 </body>
 </html>
