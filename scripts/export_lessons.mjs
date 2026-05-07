@@ -658,10 +658,6 @@ function topicListLine(topicPath, summary, fromMarkdownRelative) {
   return `- [${topicLinkLabel(topicPath)}](${relativeMarkdownLink(fromMarkdownRelative, topicHref(topicPath))}) - ${topicSummaryParts(summary).join(", ")}`
 }
 
-function topicOverviewLine(topicPath, summary, fromMarkdownRelative) {
-  return `- [${topicLinkLabel(topicPath)}](${relativeMarkdownLink(fromMarkdownRelative, topicHref(topicPath))}) - ${topicSummaryParts(summary, { includeLatest: false }).join(", ")}`
-}
-
 async function writeGeneratedPage(filePath, lines) {
   await fs.mkdir(path.dirname(filePath), { recursive: true })
   await fs.writeFile(filePath, `${lines.join("\n").trimEnd()}\n`)
@@ -705,43 +701,64 @@ function sortedChildTopicPaths(topicPath) {
   return [...(topicSummaries.get(topicPath)?.childTopicPaths ?? [])].sort(compareTopicPathsByRecency)
 }
 
+const homeDateTimeZone = "America/New_York"
+
+function dateKeyInTimeZone(date, timeZone) {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+      .formatToParts(date)
+      .map((part) => [part.type, part.value]),
+  )
+
+  return `${parts.year}-${parts.month}-${parts.day}`
+}
+
+function dateKeyWithDayOffset(offsetDays, baseDate = new Date()) {
+  const [year, month, day] = dateKeyInTimeZone(baseDate, homeDateTimeZone).split("-").map(Number)
+  const shifted = new Date(Date.UTC(year, month - 1, day + offsetDays))
+
+  return shifted.toISOString().slice(0, 10)
+}
+
+function homeLessonLine(lesson) {
+  return `- [${lesson.title}](${relativeMarkdownLink("index.md", lesson.href)}) (${lesson.topicTitle})`
+}
+
 const allLessons = sortedDatedItems(rootTopicSummary.lessons)
+const homeDateSections = [
+  { label: "Today", emptyMessage: "No public lessons were ingested today.", date: dateKeyWithDayOffset(0) },
+  { label: "Yesterday", emptyMessage: "No public lessons were ingested yesterday.", date: dateKeyWithDayOffset(-1) },
+]
 
 const indexLines = [
   "---",
   "title: Lessons",
   "---",
   "",
-  "# Lessons",
+  "# Recently Ingested",
   "",
-  "Pedagogical lessons, paper notes, and source notes from the Learning Machine vault.",
+  "Public lessons, paper notes, and source notes ingested today and yesterday.",
   "",
-  `Browse by topic. For a chronological archive, use [Recent Lessons](${relativeMarkdownLink("index.md", "recent-lessons.md")}).`,
+  `[All recent lessons](${relativeMarkdownLink("index.md", "recent-lessons.md")}) | [Browse topics](${relativeMarkdownLink("index.md", "topics/index.md")})`,
   "",
 ]
 
-for (const topicPath of sortedChildTopicPaths("")) {
-  const summary = topicSummaries.get(topicPath)
-  const childTopicPaths = sortedChildTopicPaths(topicPath)
+for (const section of homeDateSections) {
+  const lessons = allLessons.filter((lesson) => lesson.date === section.date)
 
-  indexLines.push(`## ${topicLabel(topicPath)}`, "")
-  indexLines.push(`[Open ${topicLabel(topicPath)}](${relativeMarkdownLink("index.md", topicHref(topicPath))})`)
-  indexLines.push("")
-  indexLines.push(`${topicSummaryParts(summary, { includeLatest: false }).join(", ")}.`, "")
+  indexLines.push(`## ${section.label} - ${section.date}`, "")
 
-  if (childTopicPaths.length > 0) {
-    indexLines.push("### Subtopics", "")
-
-    for (const childTopicPath of childTopicPaths.slice(0, 8)) {
-      indexLines.push(topicOverviewLine(childTopicPath, topicSummaries.get(childTopicPath), "index.md"))
-    }
-
-    if (childTopicPaths.length > 8) {
-      indexLines.push(`- [View all ${topicLabel(topicPath)} sections](${relativeMarkdownLink("index.md", topicHref(topicPath))})`)
-    }
-
-    indexLines.push("")
+  if (lessons.length === 0) {
+    indexLines.push(section.emptyMessage, "")
+    continue
   }
+
+  indexLines.push(...lessons.map(homeLessonLine), "")
 }
 
 const topicsIndexLines = [

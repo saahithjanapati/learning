@@ -23,7 +23,7 @@ npm run lessons:serve
 ```
 
 `npm run lessons:serve` serves both the static reader and the local API routes under
-`/api`. Reader progress will stay signed out locally until the Google/Neon
+`/api`. Reader auth will stay signed out locally until the Google/Neon
 environment variables from `.env.example` are available in the shell.
 
 ## Vercel
@@ -34,10 +34,12 @@ The repo-level `vercel.json` is configured for Vercel:
 - Output directory: `web/lessons/public`
 - Clean URLs: enabled
 
-## Reader progress sync
+## Reader auth and progress API
 
-The reader supports Google sign-in plus per-user read/unread progress. The API
-routes create these Neon Postgres tables on first authenticated use:
+The reader uses Google sign-in. The progress API and data model still exist for
+backend use, but the static reader UI does not currently render read/unread
+controls. The API routes create these Neon Postgres tables on first
+authenticated use:
 
 - `reader_users`
 - `reader_sessions`
