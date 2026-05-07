@@ -25,10 +25,13 @@ Fast path for agents entering this repo.
 
 - Raw uploads: `materials/inbox/` and `materials/archive/` are local-only.
 - Processed sources: `materials/processed/<root>/`.
+- Personal paper/source notes: `learning_system/paper_notes/<root>/<source-slug>.md`.
 - Public lesson content: `topics/<root>/lessons/` or `topics/<root>/<topic>/lessons/`.
 - Curriculum plans: `topics/<root>/curriculum/` or `topics/<root>/<topic>/curriculum/`.
 - Exercises/checkpoints: `topics/<root>/practice/` or `topics/<root>/<topic>/practice/`.
 - Live tutoring transcripts: `topics/<root>/live-chats/` or `topics/<root>/<topic>/live-chats/`.
+
+Paper notes are internal learning artifacts, not public reader pages. Use them for the learner's own recaps, reactions, analogies, and follow-up questions about papers, articles, or processed sources. Link each note back to the processed source and lesson when available, and update `learning_system/paper_notes/INDEX.md`.
 
 When a topic could fit at both root and leaf level, prefer the leaf topic unless the artifact clearly spans several children.
 
