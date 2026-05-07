@@ -9,6 +9,7 @@ import { sanitizeNextPath } from "../api/_lib/http.js"
 import googleAuthHandler from "../api/auth/google.js"
 import meHandler from "../api/auth/me.js"
 import lessonProgressHandler from "../api/lesson-progress.js"
+import middleware from "../middleware.js"
 
 function loadDotEnvLocal() {
   if (!fs.existsSync(".env.local")) {
@@ -158,6 +159,25 @@ test("session endpoint returns signed-out state without touching the database", 
 
   assert.equal(response.statusCode, 200)
   assert.deepEqual(parseJson(response), { user: null })
+})
+
+test("reader middleware redirects signed-out page requests to Google auth", async () => {
+  const response = await middleware(
+    new Request("https://learning-machine.vercel.app/topics/ai/lessons/example/?x=1"),
+  )
+
+  assert.equal(response.status, 302)
+
+  const location = new URL(response.headers.get("location"))
+  assert.equal(location.origin, "https://learning-machine.vercel.app")
+  assert.equal(location.pathname, "/api/auth/google")
+  assert.equal(location.searchParams.get("next"), "/topics/ai/lessons/example/?x=1")
+})
+
+test("reader middleware does not gate public assets", async () => {
+  const response = await middleware(new Request("https://learning-machine.vercel.app/favicon.svg"))
+
+  assert.equal(response.status, 200)
 })
 
 test("lesson progress requires a signed-in session", async () => {

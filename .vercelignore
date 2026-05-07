@@ -2,6 +2,7 @@
 !package.json
 !package-lock.json
 !vercel.json
+!middleware.js
 !api
 !api/**
 !scripts

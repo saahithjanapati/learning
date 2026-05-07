@@ -13,7 +13,10 @@ function appendHeader(response, name, value) {
 }
 
 export function parseCookies(request) {
-  const header = request.headers.cookie ?? ""
+  const header =
+    typeof request === "string"
+      ? request
+      : request.headers?.get?.("cookie") ?? request.headers?.cookie ?? ""
   const cookies = new Map()
 
   for (const part of header.split(";")) {

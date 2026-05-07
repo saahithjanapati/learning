@@ -43,6 +43,10 @@ routes create these Neon Postgres tables on first authenticated use:
 - `reader_sessions`
 - `reader_lesson_progress`
 
+Vercel Routing Middleware gates lesson pages before static HTML is served.
+Signed-out page requests redirect to Google sign-in, while `/api/*` remains
+available for OAuth callbacks, session checks, logout, and progress writes.
+
 Required Vercel environment variables:
 
 - `DATABASE_URL`: Neon Postgres connection string from the Vercel Marketplace
