@@ -197,7 +197,7 @@ function buildCopyContext(markdown, title) {
   return /^#\s+/.test(body.trimStart()) ? body : `# ${trimmedTitle}\n\n${body}`
 }
 
-function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", enableLessonNavigator = false }) {
+function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", enableLessonNavigator = false, lessonId = "" }) {
   const homeHref = routeWithPrefix(urlPrefix, "")
   const recentHref = routeWithPrefix(urlPrefix, "recent-lessons")
   const topicsHref = routeWithPrefix(urlPrefix, "topics")
@@ -525,8 +525,250 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
         }
       })
     })()
-  </script>`
+	  </script>`
     : ""
+  const lessonProgressButton = lessonId
+    ? `<button class="lesson-progress-button" type="button" data-lesson-progress-toggle aria-pressed="false" hidden>
+            <span data-lesson-progress-label>Mark read</span>
+          </button>
+          <span class="lesson-progress-date" data-lesson-progress-date hidden></span>`
+    : ""
+  const readerAuthControls = `
+          <div class="reader-auth" data-reader-auth>
+            <a class="reader-auth-link" href="/api/auth/google" data-reader-signin>Sign in</a>
+            <button class="reader-auth-button" type="button" data-reader-logout hidden>Sign out</button>
+          </div>`
+  const readerProgressScript = `
+  <script type="application/json" id="reader-progress-config">${escapeScriptJson(JSON.stringify({ lessonId }))}</script>
+  <script>
+    (() => {
+      const configElement = document.getElementById("reader-progress-config")
+      const signInLink = document.querySelector("[data-reader-signin]")
+      const signOutButton = document.querySelector("[data-reader-logout]")
+      const progressButton = document.querySelector("[data-lesson-progress-toggle]")
+      const progressLabel = document.querySelector("[data-lesson-progress-label]")
+      const progressDate = document.querySelector("[data-lesson-progress-date]")
+      let config = { lessonId: "" }
+      let user = null
+      let progressByLesson = new Map()
+      let currentIsRead = false
+
+      try {
+        config = JSON.parse(configElement?.textContent || "{}")
+      } catch {
+        config = { lessonId: "" }
+      }
+
+      function returnPath() {
+        return window.location.pathname + window.location.search + window.location.hash
+      }
+
+      function normalizeLessonIdFromHref(anchor) {
+        const href = anchor.getAttribute("href") || ""
+
+        if (!href || href.startsWith("#")) {
+          return ""
+        }
+
+        let url
+
+        try {
+          url = new URL(href, window.location.href)
+        } catch {
+          return ""
+        }
+
+        if (url.origin !== window.location.origin) {
+          return ""
+        }
+
+        const lessonId = decodeURIComponent(url.pathname).replace(/^\\/+|\\/+$/g, "")
+
+        if (!lessonId || lessonId === "topics" || lessonId === "recent-lessons") {
+          return ""
+        }
+
+        return lessonId
+      }
+
+      function formatReadDate(value) {
+        if (!value) {
+          return ""
+        }
+
+        const date = new Date(value)
+
+        if (Number.isNaN(date.valueOf())) {
+          return ""
+        }
+
+        return date.toLocaleDateString(undefined, {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })
+      }
+
+      function setAuthUi() {
+        if (signInLink) {
+          signInLink.href = "/api/auth/google?next=" + encodeURIComponent(returnPath())
+          signInLink.hidden = Boolean(user)
+        }
+
+        if (signOutButton) {
+          signOutButton.hidden = !user
+        }
+      }
+
+      function setProgressUi(progress) {
+        if (!progressButton || !config.lessonId) {
+          return
+        }
+
+        if (!user) {
+          progressButton.hidden = true
+
+          if (progressDate) {
+            progressDate.hidden = true
+          }
+
+          return
+        }
+
+        currentIsRead = progress?.isRead === true
+        progressButton.hidden = false
+        progressButton.disabled = false
+        progressButton.classList.toggle("is-read", currentIsRead)
+        progressButton.setAttribute("aria-pressed", String(currentIsRead))
+
+        if (progressLabel) {
+          progressLabel.textContent = currentIsRead ? "Read" : "Mark read"
+        }
+
+        const formattedDate = formatReadDate(progress?.readAt)
+
+        if (progressDate) {
+          progressDate.textContent = formattedDate ? "Read " + formattedDate : ""
+          progressDate.hidden = !formattedDate || !currentIsRead
+        }
+      }
+
+      function markReadLinks() {
+        const links = Array.from(document.querySelectorAll("article a[href]"))
+
+        for (const link of links) {
+          const lessonId = normalizeLessonIdFromHref(link)
+
+          if (!lessonId) {
+            continue
+          }
+
+          const progress = progressByLesson.get(lessonId)
+          link.dataset.readerRead = progress?.isRead === true ? "true" : "false"
+        }
+      }
+
+      async function requestJson(url, options = {}) {
+        const headers = {
+          Accept: "application/json",
+          ...(options.headers || {}),
+        }
+
+        if (options.body && !headers["Content-Type"]) {
+          headers["Content-Type"] = "application/json"
+        }
+
+        const response = await fetch(url, {
+          ...options,
+          credentials: "same-origin",
+          headers,
+        })
+
+        if (response.status === 401) {
+          return { unauthorized: true }
+        }
+
+        const data = await response.json().catch(() => ({}))
+
+        if (!response.ok) {
+          throw new Error(data.error || "Request failed")
+        }
+
+        return data
+      }
+
+      async function loadProgress() {
+        const session = await requestJson("/api/auth/me")
+        user = session.user || null
+        setAuthUi()
+
+        if (!user) {
+          setProgressUi(null)
+          return
+        }
+
+        const progressResponse = await requestJson("/api/lesson-progress")
+
+        if (progressResponse.unauthorized) {
+          user = null
+          setAuthUi()
+          setProgressUi(null)
+          return
+        }
+
+        progressByLesson = new Map((progressResponse.progress || []).map((progress) => [progress.lessonId, progress]))
+        markReadLinks()
+        setProgressUi(progressByLesson.get(config.lessonId))
+      }
+
+      signOutButton?.addEventListener("click", async () => {
+        signOutButton.disabled = true
+
+        try {
+          await requestJson("/api/auth/logout", { method: "POST" })
+          window.location.reload()
+        } catch (error) {
+          console.error(error)
+          signOutButton.disabled = false
+        }
+      })
+
+      progressButton?.addEventListener("click", async () => {
+        if (!user || !config.lessonId) {
+          return
+        }
+
+        const nextIsRead = !currentIsRead
+        progressButton.disabled = true
+
+        if (progressLabel) {
+          progressLabel.textContent = nextIsRead ? "Marking..." : "Updating..."
+        }
+
+        try {
+          const result = await requestJson("/api/lesson-progress", {
+            method: "PUT",
+            body: JSON.stringify({
+              lessonId: config.lessonId,
+              isRead: nextIsRead,
+            }),
+          })
+          progressByLesson.set(result.progress.lessonId, result.progress)
+          markReadLinks()
+          setProgressUi(result.progress)
+        } catch (error) {
+          console.error(error)
+          setProgressUi(progressByLesson.get(config.lessonId))
+        }
+      })
+
+      setAuthUi()
+      loadProgress().catch((error) => {
+        console.error(error)
+        setProgressUi(null)
+      })
+    })()
+  </script>`
 
   return `<!doctype html>
 <html lang="en">
@@ -647,7 +889,10 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       gap: 10px;
     }
 
-    .copy-context-button {
+    .copy-context-button,
+    .lesson-progress-button,
+    .reader-auth-link,
+    .reader-auth-button {
       min-height: 32px;
       padding: 0.34rem 0.7rem;
       border: 1px solid var(--line-strong);
@@ -658,6 +903,43 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       font-size: 13px;
       line-height: 1.2;
       cursor: pointer;
+    }
+
+    .reader-auth {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reader-auth [hidden],
+    .lesson-progress-button[hidden],
+    .lesson-progress-date[hidden] {
+      display: none;
+    }
+
+    .reader-auth-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .lesson-progress-button.is-read {
+      border-color: var(--accent);
+      color: var(--heading-strong);
+      background: rgb(134 173 243 / 0.13);
+    }
+
+    .lesson-progress-button:disabled,
+    .reader-auth-button:disabled {
+      cursor: wait;
+      opacity: 0.72;
+    }
+
+    .lesson-progress-date {
+      color: var(--muted);
+      font-family: var(--sans-font);
+      font-size: 12px;
+      line-height: 1.2;
     }
 
     .lesson-navigator-button,
@@ -678,6 +960,12 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
 
     .copy-context-button:hover,
     .copy-context-button:focus-visible,
+    .lesson-progress-button:hover,
+    .lesson-progress-button:focus-visible,
+    .reader-auth-link:hover,
+    .reader-auth-link:focus-visible,
+    .reader-auth-button:hover,
+    .reader-auth-button:focus-visible,
     .lesson-navigator-button:hover,
     .lesson-navigator-button:focus-visible,
     .lesson-navigator-toggle:hover,
@@ -689,6 +977,23 @@ function renderPage({ title, body, sourceRelative, urlPrefix, copyContext = "", 
       border-color: var(--accent);
       color: var(--accent);
       outline: none;
+    }
+
+    article a[data-reader-read="true"]::after {
+      content: "Read";
+      display: inline-block;
+      margin-left: 0.46rem;
+      padding: 0.05rem 0.34rem;
+      border: 1px solid rgb(168 194 246 / 0.42);
+      border-radius: 4px;
+      color: var(--heading-strong);
+      background: rgb(134 173 243 / 0.12);
+      font-family: var(--sans-font);
+      font-size: 0.68rem;
+      font-weight: 650;
+      line-height: 1.35;
+      vertical-align: 0.08em;
+      white-space: nowrap;
     }
 
     .lesson-navigator-fab {
@@ -1263,7 +1568,9 @@ ${lessonNavigatorSidebar}
             <a href="${topicsHref}">Topics</a>
           </nav>
           ${lessonNavigatorControls}
+          ${lessonProgressButton}
           ${copyContextButton}
+          ${readerAuthControls}
         </div>
       </header>
       <article>
@@ -1275,6 +1582,7 @@ ${lessonNavigatorFab}
 ${lessonNavigatorMarkup}
 ${copyContextScript}
 ${lessonNavigatorScript}
+${readerProgressScript}
 </body>
 </html>
 `
@@ -1303,6 +1611,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     const markdown = await fs.readFile(markdownPath, "utf8")
     const title = extractTitle(markdown, markdownRelative)
     const isReading = isIndividualReading(markdownRelative)
+    const lessonId = isReading ? markdownRelativeToRoute(markdownRelative) : ""
     const copyContext = isReading ? buildCopyContext(markdown, title) : ""
     const body = String(
       await unified()
@@ -1331,6 +1640,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
         urlPrefix,
         copyContext,
         enableLessonNavigator: isReading,
+        lessonId,
       }),
     )
   }

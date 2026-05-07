@@ -1,7 +1,7 @@
 import fs from "node:fs/promises"
 import http from "node:http"
 import path from "node:path"
-import { fileURLToPath } from "node:url"
+import { fileURLToPath, pathToFileURL } from "node:url"
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const publicDir = path.resolve(repoRoot, process.argv[2] ?? "web/lessons/public")
@@ -55,7 +55,75 @@ async function findFile(urlPath) {
   return { filePath: path.join(publicDir, "404.html"), status: 404 }
 }
 
+function resolveApiPath(requestUrl) {
+  const pathname = new URL(requestUrl, "http://localhost").pathname
+
+  if (!pathname.startsWith("/api/")) {
+    return null
+  }
+
+  const segments = pathname
+    .split("/")
+    .filter(Boolean)
+    .map((segment) => decodeURIComponent(segment))
+
+  if (segments.some((segment) => !/^[A-Za-z0-9_-]+$/.test(segment))) {
+    return null
+  }
+
+  const apiPath = path.join(repoRoot, ...segments) + ".js"
+  const apiRoot = path.join(repoRoot, "api")
+
+  if (!apiPath.startsWith(`${apiRoot}${path.sep}`)) {
+    return null
+  }
+
+  return apiPath
+}
+
+async function handleApi(request, response) {
+  const apiPath = resolveApiPath(request.url ?? "/")
+
+  if (!apiPath) {
+    return false
+  }
+
+  try {
+    const stat = await fs.stat(apiPath)
+
+    if (!stat.isFile()) {
+      return false
+    }
+
+    const moduleUrl = `${pathToFileURL(apiPath).href}?mtime=${stat.mtimeMs}`
+    const apiModule = await import(moduleUrl)
+
+    if (typeof apiModule.default !== "function") {
+      return false
+    }
+
+    await apiModule.default(request, response)
+  } catch (error) {
+    console.error(error)
+
+    if (!response.headersSent) {
+      response.writeHead(500, {
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "no-store",
+      })
+    }
+
+    response.end(JSON.stringify({ error: "API request failed" }))
+  }
+
+  return true
+}
+
 const server = http.createServer(async (request, response) => {
+  if (await handleApi(request, response)) {
+    return
+  }
+
   const result = await findFile(request.url ?? "/")
 
   if (!result) {

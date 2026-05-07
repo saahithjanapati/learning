@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "lessons:export": "node scripts/export_lessons.mjs",
     "lessons:native": "node scripts/build_native_lessons.mjs",
@@ -12,6 +15,7 @@
     "lessons:dev": "npm run lessons:serve"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-katex": "^7.0.1",
     "rehype-raw": "^7.0.0",

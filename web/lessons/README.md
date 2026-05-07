@@ -22,6 +22,10 @@ npm run lessons:build
 npm run lessons:serve
 ```
 
+`npm run lessons:serve` serves both the static reader and the local API routes under
+`/api`. Reader progress will stay signed out locally until the Google/Neon
+environment variables from `.env.example` are available in the shell.
+
 ## Vercel
 
 The repo-level `vercel.json` is configured for Vercel:
@@ -29,3 +33,31 @@ The repo-level `vercel.json` is configured for Vercel:
 - Build command: `npm run lessons:build`
 - Output directory: `web/lessons/public`
 - Clean URLs: enabled
+
+## Reader progress sync
+
+The reader supports Google sign-in plus per-user read/unread progress. The API
+routes create these Neon Postgres tables on first authenticated use:
+
+- `reader_users`
+- `reader_sessions`
+- `reader_lesson_progress`
+
+Required Vercel environment variables:
+
+- `DATABASE_URL`: Neon Postgres connection string from the Vercel Marketplace
+- `GOOGLE_CLIENT_ID`: Google OAuth web client ID
+- `GOOGLE_CLIENT_SECRET`: Google OAuth web client secret
+- `READER_ALLOWED_EMAILS`: optional comma-separated Google email allowlist
+
+In the Google Cloud OAuth client, add this production redirect URI:
+
+```text
+https://learning-machine.vercel.app/api/auth/callback/google
+```
+
+For local testing with `npm run lessons:serve`, add:
+
+```text
+http://localhost:8080/api/auth/callback/google
+```
