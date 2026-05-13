@@ -15,6 +15,7 @@ Use `learning_system/LOAD_ORDER.md` when a deterministic startup context is need
 - topic-tree-manager: Topic creation, reindexing, reorg reporting, and topic merge workflows. (file: `.agents/skills/topic-tree-manager/SKILL.md`)
 - materials-to-curriculum: Convert uploaded materials or provided links to markdown and build curriculum/lesson plans. (file: `.agents/skills/materials-to-curriculum/SKILL.md`)
 - lesson-writer: Create a thorough, readable, scholarly lesson with a table of contents; paper lessons include medium-length and full-length versions. (file: `.agents/skills/lesson-writer/SKILL.md`)
+- guided-paper-reading: Guided, critical live-chat reading sessions for research papers, including PDF/content ingest, summary, experiment analysis, critique, hypotheses, and junior-researcher coaching. (file: `.agents/skills/guided-paper-reading/SKILL.md`)
 - adaptive-session-tutor: Learner-directed adaptive tutoring (`learn`/`practice`/`mixed` + in-depth mode). (file: `.agents/skills/adaptive-session-tutor/SKILL.md`)
 - markdown-live-chat: Create or continue lesson live-chat transcripts and mirror the actual conversation into a markdown file. (file: `.agents/skills/markdown-live-chat/SKILL.md`)
 - learner-evidence-tracker: Log topic-level doubts, incorrect answers, and recurring confusion in a queryable learner-evidence system with timestamps and concept tags. (file: `.agents/skills/learner-evidence-tracker/SKILL.md`)
@@ -26,6 +27,7 @@ Use `learning_system/LOAD_ORDER.md` when a deterministic startup context is need
 - Topic creation, reindexing, reorg reports, and topic merges -> `topic-tree-manager`
 - Material ingestion, PDF conversion, website/article link scraping, and curriculum building -> `materials-to-curriculum`
 - Single lesson creation from a paper, website, blog, material, or topic -> `lesson-writer`
+- Guided research-paper reading, paper discussion, experiment walkthroughs, scientific critique, or co-scientist sessions -> `guided-paper-reading`
 - Learn/practice/mixed tutoring sessions and deep dives -> `adaptive-session-tutor`
 - Live chat transcript creation/continuation, markdown chat requests, or requests to mirror chat contents into an `.md` file -> `markdown-live-chat`
 - Tracking learner doubts, logging mistakes over time, or building reusable evidence for future adaptation -> `learner-evidence-tracker`

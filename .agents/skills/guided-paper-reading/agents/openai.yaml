@@ -1,0 +1,7 @@
+interface:
+  display_name: "Guided Paper Reading"
+  short_description: "Read research papers interactively with summary, experiment analysis, critique, and hypothesis generation."
+  default_prompt: "Use $guided-paper-reading to ingest this paper and start a guided research reading session."
+
+policy:
+  allow_implicit_invocation: true

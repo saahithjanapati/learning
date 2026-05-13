@@ -23,6 +23,7 @@ This prints:
 - startup + resume -> `learning-startup-resume`
 - topic creation/merge/reindex/reorg -> `topic-tree-manager`
 - materials to markdown/curriculum -> `materials-to-curriculum`
+- guided research-paper reading and experiment critique -> `guided-paper-reading`
 - session generation/adaptation -> `adaptive-session-tutor`
 - skill audit/create/split/merge -> `skill-catalog-manager`
 
@@ -63,12 +64,17 @@ This prints:
 - "switch this session to markdown chat mode"
 - "log this chat in a lesson markdown file"
 
-11. Clarify default lesson transcript logging
+11. Start guided paper reading
+- "use guided paper reading for this PDF"
+- "read this paper with me and help me understand the experiments"
+- "let's critique this paper like research collaborators"
+
+12. Clarify default lesson transcript logging
 - "is lesson chat logging on by default?"
 - "stop transcript logging for this session"
 - "resume transcript logging"
 
-12. Audit the skill catalog
+13. Audit the skill catalog
 - "audit the repo skills"
 - "check whether our skills are registered correctly"
 
