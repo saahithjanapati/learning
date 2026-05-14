@@ -1156,6 +1156,7 @@ function renderPage({
       function applyProgress(progress) {
         const readCount = progress?.readCount || 0
         count.textContent = countLabel(readCount)
+        count.classList.toggle("is-read", readCount > 0)
         button.textContent = progress?.isRead ? "Mark read again" : "Mark read"
         document.dispatchEvent(new CustomEvent("reader-progress-updated", {
           detail: {
@@ -1295,7 +1296,9 @@ function renderPage({
 
       function updateBadge(target, lessonId) {
         const readCount = progressByLessonId.get(lessonId) || 0
-        ensureBadge(target, lessonId).textContent = readCountLabel(readCount)
+        const badge = ensureBadge(target, lessonId)
+        badge.textContent = readCountLabel(readCount)
+        badge.classList.toggle("is-read", readCount > 0)
       }
 
       function annotateLessonLinks() {
@@ -2000,6 +2003,28 @@ function renderPage({
       line-height: 1.25;
       vertical-align: middle;
       white-space: nowrap;
+    }
+
+    .reader-progress-count {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.18rem 0.48rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface);
+      font-family: var(--sans-font);
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .reader-title-read-count.is-read,
+    .reader-progress-count.is-read {
+      border-color: rgba(22, 101, 52, 0.28);
+      color: #166534;
+      background: #dcfce7;
     }
 
     .reader-auth [hidden] {

@@ -11,9 +11,13 @@ Path: `topics/ai/scale-ai-research-internship-prep`
 ## Structure
 
 - [INDEX.md](INDEX.md): cross-filed reading queue and category map.
+- `lessons/`: public sub-lessons that make the prep grouping visible in the AI reader.
 - `curriculum/`
-- `lessons/`
 - `practice/`
+
+## Public Lessons
+
+- [Scale AI Papers Reading Map](lessons/2026-05-14-scale-ai-papers-reading-map.md): visible overview of the Scale AI paper clusters inside the AI category.
 
 ## Filing Policy
 
