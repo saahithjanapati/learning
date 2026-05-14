@@ -51,9 +51,17 @@ This belongs in the Scale prep queue because it is about making scarce high-qual
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper reframes data selection in post-training as data-induced regularization. Instead of treating general data as a pool from which to pick examples, Dr. Post-Training treats general data as defining a feasible set of update directions. The scarce target-data update is then projected toward directions that remain compatible with this broader regularizer.
+
+This view unifies ordinary training and existing data-selection methods as special cases with different bias-variance tradeoffs. Stronger regularization can reduce overfitting to scarce target data but may bias learning away from the target; weaker regularization can chase the target more aggressively but risks instability and forgetting. The paper then develops practical approximations and memory-aware implementations so the framework can be used in SFT, RLHF, and RLVR-like post-training regimes.
+
+The experiments test the framework across post-training settings and compare against state-of-the-art data-selection baselines. For Scale prep, the important idea is that data is not just content; it can define constraints on model updates and act like a regularizer for scarce high-fidelity objectives.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

@@ -51,9 +51,17 @@ This belongs in the AI collection and Scale prep because it connects interpretab
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper distinguishes two mechanistic systems: refusal neurons, which gate whether harmful knowledge is expressed, and concept neurons, which encode harmful-content concepts themselves. The core claim is causal, not merely correlational: suppressing an identified refusal neuron can bypass refusal behavior, while amplifying a concept neuron can induce harmful content from otherwise innocent prompts.
+
+The experiments span multiple model families and sizes, with analyses of pretraining, alignment, neuron localization, refusal directions, and geometric alignment. A major implication is that safety behavior may be more locally gated than many alignment stories assume. If a single MLP neuron can be causally sufficient for a refusal gate, then safety is not always a smoothly distributed property across the whole network.
+
+The important caution is that this does not mean one neuron contains all of safety. It means particular refusal behaviors can depend on brittle, localized mechanisms. For Scale-style evaluation, this matters because black-box safety tests may miss internal single-component vulnerabilities that only appear under causal intervention.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

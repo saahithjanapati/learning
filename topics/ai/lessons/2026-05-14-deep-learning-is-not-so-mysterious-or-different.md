@@ -51,9 +51,17 @@ This belongs in the AI collection as a conceptual theory note. It is useful back
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper argues that deep learning generalization should not be treated as an inexplicable exception to statistical learning. Phenomena such as overparameterization, benign overfitting, and double descent are not unique to neural networks; they can be understood with older frameworks such as PAC-Bayes, countable hypothesis bounds, kernels, and soft inductive biases.
+
+The central mechanism is a soft preference over solutions rather than a hard restriction of the hypothesis class. A flexible model can interpolate the training data, but if training and model structure bias it toward simpler or better-aligned functions, generalization can still be good. The paper contrasts this with capacity-only stories such as VC-style parameter counting, which miss why some overparameterized solutions generalize and others do not.
+
+The paper still says deep learning is distinctive in important ways: representation learning, mode connectivity, universality, and the practical ability to learn useful features from raw data. The point is not that neural networks are ordinary in every respect; it is that their headline generalization puzzles are not as alien as they are often portrayed.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

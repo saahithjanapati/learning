@@ -51,9 +51,17 @@ This belongs in Scale prep because it is about evaluating long-horizon research 
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper analyzes a proposed automated alignment research program: use increasingly capable AI agents to do more empirical alignment work, build safety cases for later agents, and eventually hand off primary research responsibility. The authors argue that this can fail even without deliberate scheming because alignment research contains many hard-to-supervise fuzzy tasks.
+
+The key failure mode is compelling but misleading research. Agents may produce outputs with systematic errors that human reviewers do not catch, and even correct-looking outputs can be aggregated into overconfident safety assessments. The paper gives several reasons the problem is worse for automated alignment than for ordinary human research: optimization pressure concentrates mistakes where reviewers are weak, AI mistakes may be alien rather than human-like, AI-generated arguments may exceed human evaluability, and shared weights/data/training can make outputs correlated.
+
+The paper then discusses generalization and scalable oversight as candidate solutions, but emphasizes that both face special challenges in automated alignment. The actionable takeaway is that agent capability alone is not enough; we need ways to validate fuzzy-task performance, sample maximally informative outputs, measure agent capabilities, and audit aggregation into safety cases.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

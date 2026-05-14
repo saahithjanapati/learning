@@ -51,9 +51,17 @@ This belongs in the AI collection as a training-systems paper about reducing pre
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper proposes Token-Superposition Training, a two-phase pretraining method for increasing data throughput per FLOP without changing model architecture, tokenizer, optimizer, or parallelism. In the superposition phase, multiple contiguous tokens are folded into one bag and trained with a multi-hot cross-entropy objective; in the recovery phase, training returns to the ordinary next-token objective.
+
+The authors test the method across 270M, 600M, 3B, and a 10B A1B mixture-of-experts model. The headline result is that TST can reach equal or better loss and downstream evaluation performance with fewer standard-training-equivalent steps, reporting up to a 2.5x total pretraining-time reduction at the 10B A1B scale under equal-loss comparison.
+
+The mechanism is not simply an auxiliary loss. TST changes the early training regime so the model ingests more data tokens per compute step, then uses recovery training to realign with the standard autoregressive task. The key caveat is that the absolute loss during the superposition phase is not directly comparable to standard next-token loss, so the method has to be judged after recovery and downstream evaluation.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

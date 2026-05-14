@@ -51,9 +51,17 @@ This belongs in the Scale prep queue because it is directly about using rubrics 
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper trains deep research agents beyond exact verifiable rewards by making rubrics the shared interface for policy execution, judge feedback, and memory. RubricEM decomposes the long research trajectory into stages such as planning, evidence gathering, review, and synthesis, then conditions the agent on self-generated stagewise rubrics.
+
+The RL component is Stage-Structured GRPO, which gives denser semantic credit assignment by judging trajectory stages rather than only final reports. In parallel, a reflection meta-policy distills judged trajectories into reusable rubric-grounded guidance, so past attempts become explicit experience for future research runs rather than only hidden parameter updates.
+
+The experiments evaluate RubricEM-8B on long-form research benchmarks including HealthBench, ResearchQA, DRB, and ResearchRubrics. The paper reports gains over comparable open models and movement toward proprietary deep-research systems, plus analyses showing that stagewise decomposition, rubric conditioning, and reflection memory each contribute. The Scale-prep takeaway is that rubrics can be more than evaluators: they can structure planning, supervision, credit assignment, and agent memory.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

@@ -51,9 +51,17 @@ This belongs in Scale prep because it addresses continual post-training and how 
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper argues that LLM adaptation should not be forced into either in-context learning or weight updates. Fast-Slow Training treats optimized context as fast weights and model parameters as slow weights. The fast context absorbs task-specific information and feedback, while the slow parameters learn more durable improvements without drifting as far from the base model.
+
+The method is motivated by catastrophic forgetting and plasticity loss in parameter-only RL. If every transient lesson is written into persistent weights, the model can lose general behavior and become less adaptable to future tasks. FST instead lets context optimization do short-timescale learning while parameter updates stay closer to reusable reasoning behavior.
+
+The experiments report better sample efficiency, higher asymptotic performance, lower KL drift from the base model, less forgetting, and better adaptation to later tasks than parameter-only RL. The Scale-prep connection is direct: many agent and post-training systems need continual adaptation without destroying the capabilities that made the base model useful.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

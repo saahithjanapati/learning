@@ -51,9 +51,17 @@ This belongs in the AI collection and Scale prep because it provides a conceptua
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full survey argues that mechanistic interpretability needs clearer causal units. It reframes interpretability methods through causal mediation analysis: given an input, output, and internal component, the question is whether intervening on that mediator changes model behavior in a way that supports explanation, hypothesis verification, localization, or editing.
+
+The paper surveys mediator types used in NLP interpretability, including neurons, attention heads, MLPs, residual-stream directions, circuits, features, subspaces, and higher-level abstractions. It compares their strengths and weaknesses along dimensions such as human interpretability, compute cost, causal faithfulness, granularity, and suitability for different research goals.
+
+The main recommendation is to stop treating all interpretability targets as interchangeable. Different goals need different mediators and search methods. The authors call for discovering new mediator types with better tradeoffs and for more standardized evaluations so the field can compare mediator choices instead of accumulating ad hoc case studies.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

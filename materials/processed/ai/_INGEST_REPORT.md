@@ -107,6 +107,8 @@ Files: 96
 
 ## 2026-05-14 Tweet Paper Batch
 
+Upgrade note: the tweet-resolved batch was initially created as canonical-source, abstract/page-level notes. It was upgraded on 2026-05-14 to full-paper/full-source structured ingests for the 12 newly created items below; the generated-token embeddings item was already present as a fuller paper note and was not duplicated.
+
 - `https://x.com/alexiglad/status/2054956610959593887` -> `https://arxiv.org/abs/2605.13450` -> `assessing-the-creativity-of-large-language-models-testing-limits-and-new-frontiers.md`
 - `https://x.com/andrewgwils/status/2054945551053930986` -> `https://arxiv.org/abs/2503.02113` -> `deep-learning-is-not-so-mysterious-or-different.md`
 - `https://x.com/_akhaliq/status/2054916924501360812` -> `https://arxiv.org/abs/2605.08513` -> `a-single-neuron-is-sufficient-to-bypass-safety-alignment-in-large-language-models.md`

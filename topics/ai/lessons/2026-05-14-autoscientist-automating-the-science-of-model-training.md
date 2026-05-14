@@ -51,9 +51,17 @@ This is not an academic paper, but it came from the tweet list and belongs as an
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Article Ingest Notes
+
+The full article is a product/research announcement rather than an academic paper. It argues that model training and reinforcement learning remain locked inside a small expert community because practical training recipes are hard to choose, easy to overfit, and often transmitted informally. AutoScientist is presented as a system that automates the loop of choosing data and model-training recipes until a model converges toward a user objective.
+
+The article positions AutoScientist as the successor to Adaptive Data: Adaptive Data shapes inputs, while AutoScientist shapes the model itself. It claims the system co-optimizes data and recipes, runs sweeps and improvement loops automatically, and helps developers or enterprises get owned adapted models without hand-tuning every training decision.
+
+The reported evidence is internal: across verticals, dataset sizes from 5k to 100k, and Together AI-hosted fine-tuning models, AutoScientist reportedly improved average win rates from 48% under AI-researcher recommendations to 64%, a 35% relative lift. The right reading is not peer-reviewed proof; it is a useful industry signal about automated post-training workflow design and the movement from prompting toward owned model adaptation.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 

@@ -51,9 +51,17 @@ This belongs in the AI collection because it is an evaluation paper about whethe
 
 This connects naturally to the Scale AI research-prep map when the source touches rubrics, post-training, evaluation, interpretable signals, or long-horizon agent workflows. It connects to the broader AI collection when it is more about training systems, creativity metrics, or generalization theory.
 
+## Full-Paper Ingest Notes
+
+The full paper frames the problem as construct validity: human creativity tests are convenient for LLM evaluation, but they may not predict the downstream creative achievement researchers actually care about. The authors separate convergent thinking, divergent thinking, and creative achievement, then test whether existing automatic creativity tests transfer to LLMs across creative writing, divergent thinking, and scientific ideation.
+
+The empirical design compares existing creativity tests against target benchmarks and finds that test validity is construct-specific. DAT best predicts creative writing, Conditional DAT best predicts divergent thinking, and no existing test reliably predicts scientific ideation. The proposed DRAT combines divergent and convergent pressure in one vocabulary-space task, and the key result is that this combined design predicts scientific ideation better than DAT, RAT, or a simple linear combination of the two.
+
+The full-paper lesson is that evaluation design has to match the target capability. A benchmark can be automated, psychologically inspired, and superficially plausible while still failing to predict the specific kind of creative output the user wants.
+
 ## Limitations And Cautions
 
-This lesson is based on the canonical abstract/page-level ingest rather than a line-by-line full-paper walkthrough. Treat it as a first-pass reading note: enough to orient you, decide whether the paper belongs in a deeper reading queue, and connect it to adjacent lessons.
+This lesson has been upgraded from the original abstract/page-level tweet ingest to a full-paper/full-source structured ingest. Treat it as a fuller study note: it now reflects the canonical PDF or source article beyond the tweet and abstract, while still avoiding a verbatim reproduction of the paper.
 
 The main caution is proxy validity. Many of these papers propose a way to measure, supervise, or improve a difficult behavior. The critical question is whether the proposed signal remains faithful when models, researchers, or optimization pressure adapt to it.
 
