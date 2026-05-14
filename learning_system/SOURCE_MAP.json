@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-13",
+  "generated_on": "2026-05-14",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1618,7 +1618,7 @@
     {
       "transcript_path": "materials/processed/ai/composer-2-technical-report.md",
       "root_topic": "ai",
-      "source_pdf": "https://arxiv.org/abs/2603.24477",
+      "source_pdf": "https://arxiv.org/pdf/2603.24477",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

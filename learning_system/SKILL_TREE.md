@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-13
+Last generated: 2026-05-14
 
 Hierarchical topic tree discovered from `topics/` paths.
 
@@ -42,8 +42,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection + Scale AI Prep -> Paper Lesson: Natural Emergent Misalignment
 - AI / Collection + Scale AI Prep -> Paper Lesson: Positive Alignment
 - AI / Collection + Scale AI Prep -> Paper Lesson: Base Models Know How To Reason
 - AI / Collection + Scale AI Prep -> Paper Lesson: Generated-Token Embeddings
 - AI / Collection + Scale AI Prep -> Paper Lesson: Matryoshka Sparse Autoencoders
-- AI / Collection + Scale AI Prep -> Paper Lesson: MoReBench moral reasoning

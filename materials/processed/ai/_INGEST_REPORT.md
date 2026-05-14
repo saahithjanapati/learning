@@ -64,7 +64,7 @@ Files: 96
 - `https://arxiv.org/abs/2602.04879` -> `rethinking-the-trust-region-in-llm-reinforcement-learning.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://zanette-labs.github.io/MaxRL/` -> `maxrl-maximum-likelihood-reinforcement-learning.md` (strategy: `project page extraction and RL-method lesson normalization`)
 - `https://qianwen-res.oss-accelerate.aliyuncs.com/qwen-scope/Qwen_Scope.pdf?spm=a2ty_o06.30285417.0.0.165ec921LHeJpi&file=Qwen_Scope.pdf` -> `qwen-scope-turning-sparse-features-into-development-tools-for-large-language-models.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
-- `https://arxiv.org/abs/2603.24477` -> `composer-2-technical-report.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
+- `https://arxiv.org/pdf/2603.24477` -> `composer-2-technical-report.md` (strategy: `canonical PDF refresh, full technical-report extraction, and medium/full paper lesson normalization`)
 - `https://co-tok.github.io/paper.pdf` -> `compute-optimal-tokenization.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)
 - `https://thoughtfullab.com/letting-ai-posttrain-ai.html` -> `what-we-learned-from-letting-ai-posttrain-ai.md` (strategy: `canonical article extraction and research-process lesson normalization`)
 - `https://arxiv.org/abs/2510.07284` -> `online-rubrics-elicitation-from-pairwise-comparisons.md` (strategy: `canonical PDF extraction and medium/full paper lesson normalization`)

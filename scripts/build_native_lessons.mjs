@@ -848,6 +848,12 @@ function renderPage({
         const readCount = progress?.readCount || 0
         count.textContent = countLabel(readCount)
         button.textContent = progress?.isRead ? "Mark read again" : "Mark read"
+        document.dispatchEvent(new CustomEvent("reader-progress-updated", {
+          detail: {
+            lessonId: lesson.lessonId,
+            readCount,
+          },
+        }))
       }
 
       async function requestJson(url, options = {}) {
@@ -922,6 +928,156 @@ function renderPage({
     })()
   </script>`
     : ""
+  const readerProgressSummaryScript = `
+  <script>
+    (() => {
+      const article = document.querySelector("article")
+
+      if (!article) {
+        return
+      }
+
+      const progressByLessonId = new Map()
+
+      function normalizeLessonIdFromHref(href) {
+        if (!href) {
+          return ""
+        }
+
+        let url
+
+        try {
+          url = new URL(href, window.location.origin)
+        } catch {
+          return ""
+        }
+
+        if (url.origin !== window.location.origin) {
+          return ""
+        }
+
+        const lessonId = url.pathname.replace(/^\\/+|\\/+$/g, "")
+
+        if (!lessonId || !lessonId.includes("/lessons/")) {
+          return ""
+        }
+
+        return lessonId
+      }
+
+      function readCountLabel(value) {
+        const readCount = Math.max(0, Number(value) || 0)
+        return readCount + " " + (readCount === 1 ? "read" : "reads")
+      }
+
+      function ensureBadge(target, lessonId) {
+        let badge = target.querySelector(":scope > [data-reader-title-read-count]")
+
+        if (!badge) {
+          badge = document.createElement("span")
+          badge.className = "reader-title-read-count"
+          badge.dataset.readerTitleReadCount = lessonId
+          target.append(" ")
+          target.append(badge)
+        }
+
+        return badge
+      }
+
+      function updateBadge(target, lessonId) {
+        const readCount = progressByLessonId.get(lessonId) || 0
+        ensureBadge(target, lessonId).textContent = readCountLabel(readCount)
+      }
+
+      function annotateLessonLinks() {
+        for (const link of article.querySelectorAll("a[href]")) {
+          if (link.closest("h1")) {
+            continue
+          }
+
+          const lessonId = normalizeLessonIdFromHref(link.getAttribute("href"))
+
+          if (!lessonId || link.dataset.readerProgressCountAttached === "true") {
+            continue
+          }
+
+          link.dataset.readerProgressCountAttached = "true"
+          updateBadge(link, lessonId)
+        }
+      }
+
+      function annotateCurrentTitle() {
+        const heading = article.querySelector("h1")
+
+        if (!heading) {
+          return
+        }
+
+        const lessonId = normalizeLessonIdFromHref(window.location.pathname)
+
+        if (!lessonId) {
+          return
+        }
+
+        updateBadge(heading, lessonId)
+      }
+
+      function annotatePage() {
+        annotateCurrentTitle()
+        annotateLessonLinks()
+      }
+
+      async function requestProgress() {
+        const response = await fetch("/api/lesson-progress", {
+          credentials: "same-origin",
+          headers: {
+            Accept: "application/json",
+          },
+        })
+
+        if (response.status === 401) {
+          return null
+        }
+
+        const data = await response.json().catch(() => ({}))
+
+        if (!response.ok) {
+          throw new Error(data.error || "Could not load read counts")
+        }
+
+        return data.progress || []
+      }
+
+      requestProgress()
+        .then((progressRows) => {
+          if (!progressRows) {
+            return
+          }
+
+          for (const row of progressRows) {
+            if (row.lessonId) {
+              progressByLessonId.set(row.lessonId, Math.max(0, Number(row.readCount) || 0))
+            }
+          }
+
+          annotatePage()
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+
+      document.addEventListener("reader-progress-updated", (event) => {
+        const lessonId = event.detail?.lessonId
+
+        if (!lessonId) {
+          return
+        }
+
+        progressByLessonId.set(lessonId, Math.max(0, Number(event.detail?.readCount) || 0))
+        annotatePage()
+      })
+    })()
+  </script>`
   const reviewPageScript = enableReviewPage
     ? `
   <script>
@@ -1334,6 +1490,23 @@ function renderPage({
       font-family: var(--sans-font);
       font-size: 13px;
       line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .reader-title-read-count {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.35rem;
+      padding: 0.12rem 0.38rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface);
+      font-family: var(--sans-font);
+      font-size: 0.72rem;
+      font-weight: 500;
+      line-height: 1.25;
+      vertical-align: middle;
       white-space: nowrap;
     }
 
@@ -2142,6 +2315,7 @@ ${lessonNavigatorMarkup}
 ${copyContextScript}
 ${lessonNotesScript}
 ${lessonProgressScript}
+${readerProgressSummaryScript}
 ${reviewPageScript}
 ${lessonNavigatorScript}
 ${readerChromeScript}
