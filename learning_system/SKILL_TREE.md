@@ -44,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
-- AI / Scale AI Research Internship Prep -> Scale AI Papers Reading Map
-- AI / Collection -> PhD Thesis Lesson: Beyond Deep Learning
-- Bhagavad Gita / Core -> Chapters 16-18: Character, faith, surrender, and the final teaching
-- Bhagavad Gita / Core -> Chapters 13-15: Body, field, gunas, and the cosmic tree
-- Bhagavad Gita / Core -> Chapters 10-12: Divine glories, universal form, and bhakti
+- AI / Collection + Scale AI Prep -> Paper Lesson: RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyo
+- AI / Collection + Scale AI Prep -> Paper Lesson: Automated alignment is harder than you think
+- AI / Collection + Scale AI Prep -> Paper Lesson: The Quest for the Right Mediator: Surveying Mechanistic Interp
+- AI / Collection + Scale AI Prep -> Article Lesson: AutoScientist: Automating the Science of Model Training
+- AI / Collection + Scale AI Prep -> Paper Lesson: Learning, Fast and Slow: Towards LLMs That Adapt Continually

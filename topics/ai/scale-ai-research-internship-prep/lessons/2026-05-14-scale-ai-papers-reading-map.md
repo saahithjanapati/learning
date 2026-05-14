@@ -45,6 +45,9 @@ Start here if you want the training side.
 - [SFT, RL, and On-Policy Distillation](../../lessons/2026-05-03-sft-rl-on-policy-distillation.md)
 - [Rubrics as Rewards](../../lessons/2026-05-08-rubrics-as-rewards.md)
 - [Online Rubrics Elicitation](../../lessons/2026-05-05-online-rubrics-elicitation.md)
+- [Reward Hacking in Rubric-Based Reinforcement Learning](../../lessons/2026-05-14-reward-hacking-in-rubric-based-reinforcement-learning.md)
+- [Dr. Post-Training](../../lessons/2026-05-14-dr-post-training-a-data-regularization-perspective-on-llm-post-training.md)
+- [RubricEM](../../lessons/2026-05-14-rubricem-meta-rl-with-rubric-guided-policy-decomposition-beyond-verifiab.md)
 - [Diverse Creative Writing Post-Training](../../ai-for-art/lessons/2026-05-08-diverse-creative-writing-post-training.md)
 
 These lessons are about how to train models after pretraining when the target behavior is open-ended. The important question is whether the reward signal captures what humans actually care about or merely creates a new surface for reward hacking.
@@ -60,6 +63,8 @@ Read this cluster when you want to understand the overlap between internal repre
 - [Natural Language Autoencoders](../../lessons/2026-05-12-natural-language-autoencoders.md)
 - [Generated-Token Embeddings](../../lessons/2026-05-12-generated-token-embeddings.md)
 - [Base Models Know How To Reason](../../lessons/2026-05-12-base-models-reason-thinking-models-learn-when.md)
+- [A Single Neuron Is Sufficient to Bypass Safety Alignment](../../lessons/2026-05-14-a-single-neuron-is-sufficient-to-bypass-safety-alignment-in-large-langua.md)
+- [The Quest for the Right Mediator](../../lessons/2026-05-14-the-quest-for-the-right-mediator-surveying-mechanistic-interpretability.md)
 
 The key idea is that activations, sparse features, embeddings, and probes might become more than explanations. They might become monitors, reward features, steering handles, or audit tools.
 
@@ -72,6 +77,9 @@ Read this cluster when you want the evaluation side.
 - [MoReBench](../../lessons/2026-05-12-morebench-moral-reasoning.md)
 - [Positive Alignment](../../lessons/2026-05-13-positive-alignment-human-flourishing.md)
 - [Natural Emergent Misalignment](../../lessons/2026-05-14-natural-emergent-misalignment-reward-hacking.md)
+- [Assessing the Creativity of Large Language Models](../../lessons/2026-05-14-assessing-the-creativity-of-large-language-models-testing-limits-and-new.md)
+- [AIs with Secret Loyalties](../../lessons/2026-05-14-ais-with-secret-loyalties-are-a-serious-but-addressable-threat.md)
+- [Automated Alignment Is Harder Than You Think](../../lessons/2026-05-14-automated-alignment-is-harder-than-you-think.md)
 - [Persona Selection Model](../../lessons/2026-05-12-persona-selection-model.md)
 - [Split Personality Training](../../lessons/2026-05-12-split-personality-training-latent-knowledge.md)
 
@@ -85,6 +93,8 @@ Read this cluster when you want agent systems and production traces.
 
 - [Context Engine, ACL-Wiki, And Production Agent Memory](../../lessons/2026-05-08-context-engine-acl-wiki-agent-memory.md)
 - [Autobrowse](../../lessons/2026-05-06-autobrowse-browser-agent-skills.md)
+- [Learning, Fast and Slow](../../lessons/2026-05-14-learning-fast-and-slow-towards-llms-that-adapt-continually.md)
+- [AutoScientist](../../lessons/2026-05-14-autoscientist-automating-the-science-of-model-training.md)
 - [GDPval](../../lessons/2026-05-03-gdpval-real-world-economically-valuable-tasks.md)
 
 This cluster is about longer workflows. Instead of only asking whether a model answers one prompt correctly, it asks whether an agent can use prior context, retrieve relevant history, avoid stale distractors, and perform economically meaningful tasks.

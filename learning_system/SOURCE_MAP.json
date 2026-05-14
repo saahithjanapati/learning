@@ -1540,6 +1540,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/a-single-neuron-is-sufficient-to-bypass-safety-alignment-in-large-language-models.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.08513",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/abstraction-induces-brain-alignment-language-speech-models.md",
       "root_topic": "ai",
       "source_pdf": null,
@@ -1575,6 +1582,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/ais-with-secret-loyalties-are-a-serious-but-addressable-threat.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www.formationresearch.com/secret-loyalties-whitepaper.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/andrej-karpathy-vibe-coding-agentic-engineering-sequoia-ai-ascent-2026.md",
       "root_topic": "ai",
       "source_pdf": "https://www.youtube.com/watch?v=96jN2OCOfLs",
@@ -1596,6 +1610,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/assessing-the-creativity-of-large-language-models-testing-limits-and-new-frontiers.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.13450",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/auto-review-of-agent-actions-without-synchronous-human-oversight.md",
       "root_topic": "ai",
       "source_pdf": "https://alignment.openai.com/auto-review",
@@ -1606,6 +1627,20 @@
       "transcript_path": "materials/processed/ai/autobrowse-mythos-moment-browser-agents.md",
       "root_topic": "ai",
       "source_pdf": "https://www.browserbase.com/blog/autobrowse",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/automated-alignment-is-harder-than-you-think.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.06390",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/autoscientist-automating-the-science-of-model-training.md",
+      "root_topic": "ai",
+      "source_pdf": "https://adaptionlabs.ai/blog/autoscientist",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1673,6 +1708,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/deep-learning-is-not-so-mysterious-or-different.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2503.02113",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/demis-hassabis-agents-agi-next-scientific-breakthrough-yc-2026.md",
       "root_topic": "ai",
       "source_pdf": "https://www.youtube.com/watch?v=JNyuX1zoOgU",
@@ -1726,9 +1768,23 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/dr-post-training-a-data-regularization-perspective-on-llm-post-training.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.07063",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/dyna-robotics-dyna-1-overview.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/efficient-pre-training-with-token-superposition.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.06546",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1843,6 +1899,13 @@
       "transcript_path": "materials/processed/ai/learning-a-generative-meta-model-of-llm-activations.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/learning-fast-and-slow-towards-llms-that-adapt-continually.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.12484",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -2038,6 +2101,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/reward-hacking-in-rubric-based-reinforcement-learning.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.12474",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/rishabh-agarwal-iclr-2026-scaling-rl-frontier-llms-periodic-labs-talk.md",
       "root_topic": "ai",
       "source_pdf": "https://x.com/agarwl_/status/2049263264249368906",
@@ -2048,6 +2118,13 @@
       "transcript_path": "materials/processed/ai/roll-the-dice-look-before-you-leap-creative-limits-next-token-prediction.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2504.15266",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/rubricem-meta-rl-with-rubric-guided-policy-decomposition-beyond-verifiable-rewards.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.10899",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -2155,6 +2232,13 @@
       "transcript_path": "materials/processed/ai/the-persona-selection-model.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/the-quest-for-the-right-mediator-surveying-mechanistic-interpretability-for-nlp-through-the-lens-of-causal-mediation-analysis.md",
+      "root_topic": "ai",
+      "source_pdf": "https://doi.org/10.1162/COLI.a.572",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

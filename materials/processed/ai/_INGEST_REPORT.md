@@ -103,3 +103,19 @@ Files: 96
 - `https://arxiv.org/pdf/2510.07364` -> `base-models-know-how-to-reason-thinking-models-learn-when.md` (strategy: `canonical PDF extraction, medium/full post-training interpretability lesson normalization, and Scale AI prep cross-filing`)
 - `https://arxiv.org/pdf/2605.10310` -> `positive-alignment-artificial-intelligence-for-human-flourishing.md` (strategy: `canonical PDF extraction, medium/full positive-alignment lesson normalization, and Scale AI prep cross-filing`)
 - `https://www-cdn.anthropic.com/daad4360a8bdc707f8b22e3e745796ba27e57fb3.pdf` -> `natural-emergent-misalignment-from-reward-hacking-in-production-rl.md` (strategy: `canonical Anthropic PDF extraction, medium/full reward-hacking lesson normalization, and Scale AI prep cross-filing`)
+
+## 2026-05-14 Tweet Paper Batch
+
+- `https://x.com/alexiglad/status/2054956610959593887` -> `https://arxiv.org/abs/2605.13450` -> `assessing-the-creativity-of-large-language-models-testing-limits-and-new-frontiers.md`
+- `https://x.com/andrewgwils/status/2054945551053930986` -> `https://arxiv.org/abs/2503.02113` -> `deep-learning-is-not-so-mysterious-or-different.md`
+- `https://x.com/_akhaliq/status/2054916924501360812` -> `https://arxiv.org/abs/2605.08513` -> `a-single-neuron-is-sufficient-to-bypass-safety-alignment-in-large-language-models.md`
+- `https://x.com/nas_mahmoud_/status/2054686020697038978` -> `https://arxiv.org/abs/2605.12474` -> `reward-hacking-in-rubric-based-reinforcement-learning.md`
+- `https://x.com/pingbanghu/status/2054689514736828534` -> `https://arxiv.org/abs/2605.07063` -> `dr-post-training-a-data-regularization-perspective-on-llm-post-training.md`
+- `https://x.com/tomdavidsonx/status/2054614224437907770` -> `https://www.formationresearch.com/secret-loyalties-whitepaper.pdf` -> `ais-with-secret-loyalties-are-a-serious-but-addressable-threat.md`
+- `https://x.com/nousresearch/status/2054610062836892054` -> `https://arxiv.org/abs/2605.06546` -> `efficient-pre-training-with-token-superposition.md`
+- `https://x.com/kushasareen/status/2054586907904901245` -> `https://arxiv.org/abs/2605.12484` -> `learning-fast-and-slow-towards-llms-that-adapt-continually.md`
+- `https://x.com/adaption_ai/status/2054532113316434061` -> `https://adaptionlabs.ai/blog/autoscientist` -> `autoscientist-automating-the-science-of-model-training.md`
+- `https://x.com/complingjournal/status/2054543899872620654` -> `https://doi.org/10.1162/COLI.a.572` -> `the-quest-for-the-right-mediator-surveying-mechanistic-interpretability-for-nlp-through-the-lens-of-causal-mediation-analysis.md`
+- `https://x.com/safe_paper/status/2054485431979213190` -> `https://arxiv.org/abs/2605.06390` -> `automated-alignment-is-harder-than-you-think.md`
+- `https://x.com/_akhaliq/status/2054545468818854267` -> `https://arxiv.org/abs/2605.10899` -> `rubricem-meta-rl-with-rubric-guided-policy-decomposition-beyond-verifiable-rewards.md`
+- `https://x.com/askalphaxiv/status/2054283127137378391` -> already ingested as `the-truth-lies-somewhere-in-the-middle-generated-tokens.md`; no duplicate created.
