@@ -101,6 +101,7 @@ Primary filing stays wherever the item normally belongs. This index adds an addi
 | --- | --- | --- | --- |
 | Memory In The Wild / ACL-Wiki | [source](../../../materials/processed/ai/memory-in-the-wild-context-engine-acl-wiki.md) | [lesson](../lessons/2026-05-08-context-engine-acl-wiki-agent-memory.md) | Production traces become an external memory layer; ACLBench tests memory lift and distractor regressions while holding the model fixed. |
 | Autobrowse | [source](../../../materials/processed/ai/autobrowse-mythos-moment-browser-agents.md) | [lesson](../lessons/2026-05-06-autobrowse-browser-agent-skills.md) | Browser traces become reusable skills; useful comparison point for trace-to-artifact learning loops. |
+| Towards an AI co-scientist | [source](../../../materials/processed/ai/towards-an-ai-co-scientist.md) | [lesson](../lessons/2026-05-04-ai-co-scientist.md) | Multi-agent generate-debate-evolve workflow for scientist-in-the-loop hypothesis generation, ranking, refinement, and validation. |
 
 ## Post-Training x Interpretability Queue
 

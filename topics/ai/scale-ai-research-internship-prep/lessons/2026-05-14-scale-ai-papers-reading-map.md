@@ -93,6 +93,7 @@ Read this cluster when you want agent systems and production traces.
 
 - [Context Engine, ACL-Wiki, And Production Agent Memory](../../lessons/2026-05-08-context-engine-acl-wiki-agent-memory.md)
 - [Autobrowse](../../lessons/2026-05-06-autobrowse-browser-agent-skills.md)
+- [Towards an AI Co-Scientist](../../lessons/2026-05-04-ai-co-scientist.md)
 - [Learning, Fast and Slow](../../lessons/2026-05-14-learning-fast-and-slow-towards-llms-that-adapt-continually.md)
 - [AutoScientist](../../lessons/2026-05-14-autoscientist-automating-the-science-of-model-training.md)
 - [GDPval](../../lessons/2026-05-03-gdpval-real-world-economically-valuable-tasks.md)

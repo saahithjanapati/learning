@@ -63,6 +63,7 @@ Items can naturally touch several themes. Each paper is listed once under the br
 
 - [Memory In The Wild / ACL-Wiki](../../lessons/2026-05-08-context-engine-acl-wiki-agent-memory.md): production traces as external agent memory and evaluation data.
 - [Autobrowse](../../lessons/2026-05-06-autobrowse-browser-agent-skills.md): browser traces becoming reusable agent skills.
+- [Towards an AI Co-Scientist](../../lessons/2026-05-04-ai-co-scientist.md): generate-debate-evolve workflow for scientist-in-the-loop hypothesis generation.
 - [Learning, Fast and Slow](../../lessons/2026-05-14-learning-fast-and-slow-towards-llms-that-adapt-continually.md): fast context adaptation plus slower parameter updates.
 - [AutoScientist](../../lessons/2026-05-14-autoscientist-automating-the-science-of-model-training.md): automated model-training experiments and evaluation loops.
 

@@ -103,6 +103,7 @@ Files: 96
 - `https://arxiv.org/pdf/2510.07364` -> `base-models-know-how-to-reason-thinking-models-learn-when.md` (strategy: `canonical PDF extraction, medium/full post-training interpretability lesson normalization, and Scale AI prep cross-filing`)
 - `https://arxiv.org/pdf/2605.10310` -> `positive-alignment-artificial-intelligence-for-human-flourishing.md` (strategy: `canonical PDF extraction, medium/full positive-alignment lesson normalization, and Scale AI prep cross-filing`)
 - `https://www-cdn.anthropic.com/daad4360a8bdc707f8b22e3e745796ba27e57fb3.pdf` -> `natural-emergent-misalignment-from-reward-hacking-in-production-rl.md` (strategy: `canonical Anthropic PDF extraction, medium/full reward-hacking lesson normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/pdf/2502.18864` -> `towards-an-ai-co-scientist.md` (strategy: `canonical arXiv metadata plus PDF text inspection, existing lesson refresh, and Scale AI prep cross-filing`)
 
 ## 2026-05-14 Tweet Paper Batch
 

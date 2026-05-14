@@ -2264,6 +2264,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/towards-an-ai-co-scientist.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2502.18864",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/towards-end-to-end-automation-of-ai-research.md",
       "root_topic": "ai",
       "source_pdf": null,

@@ -1,6 +1,6 @@
 # Towards an AI Co-Scientist
 
-Source note: researched from the original paper `Towards an AI co-scientist` ([arXiv:2502.18864](https://arxiv.org/abs/2502.18864)).
+Source note: researched from the original paper `Towards an AI co-scientist` by Juraj Gottweis, Wei-Hung Weng, Alexander Daryin, Tao Tu, Anil Palepu, Petar Sirkovic, Artiom Myaskovsky, Felix Weissenberger, Keran Rong, Ryutaro Tanno, Khaled Saab, Dan Popovici, Jacob Blum, Fan Zhang, Katherine Chou, Avinatan Hassidim, Burak Gokturk, Amin Vahdat, Pushmeet Kohli, Yossi Matias, Andrew Carroll, Kavita Kulkarni, Nenad Tomasev, Yuan Guan, Vikram Dhillon, Eeshit Dhaval Vaishnav, Byron Lee, Tiago R D Costa, Jose R Penades, Gary Peltz, Yunhan Xu, Annalisa Pawlosky, Alan Karthikesalingam, and Vivek Natarajan ([arXiv:2502.18864](https://arxiv.org/abs/2502.18864), 2025-02-26). Processed source: [materials/processed/ai/towards-an-ai-co-scientist.md](../../../materials/processed/ai/towards-an-ai-co-scientist.md).
 
 ## Table of Contents
 
@@ -28,6 +28,8 @@ The architecture is deliberately multi-agent. Instead of trusting one monolithic
 The most eye-catching part of the paper is the validation story. The authors report results in biomedical domains such as drug repurposing, liver-fibrosis target discovery, and bacterial evolution. In the strongest cases, the system's proposals were tied to wet-lab or organoid validation findings, which is much more impressive than simply "the model produced plausible-sounding biology text."
 
 The right way to read the paper is not `scientists are obsolete`. It is closer to `AI systems are beginning to contribute at the level of hypothesis generation and research planning, not only summarization`. That is a meaningful shift.
+
+The paper also matters as a workflow-evaluation example. It is not only asking whether a model can answer a prompt; it is asking whether a compound system can run a useful generate-critique-rank-evolve loop whose outputs survive expert review and experimental follow-up.
 
 ### Medium Takeaway
 
@@ -89,6 +91,17 @@ The value of the debate stage is easy to miss. A hypothesis can sound plausible 
 
 The evolution stage matters because the goal is not merely to choose the least bad initial idea. It is to turn partial ideas into stronger ones through structured iteration.
 
+More concretely, the system decomposes the workflow into specialized agents:
+
+- a generation agent for literature-grounded proposal generation;
+- a reflection agent for novelty, correctness, simulation, and deep-verification reviews;
+- a ranking agent for pairwise debate-style tournaments;
+- a proximity agent for clustering similar hypotheses;
+- an evolution agent for refinement, combination, feasibility, and simplification;
+- a meta-review agent for synthesizing patterns and producing the final research overview.
+
+That decomposition is why the paper is useful beyond biomedicine. It is a design pattern for long-horizon AI work where evaluation, memory, critique, and search need to be first-class system components.
+
 ## Why Test-Time Compute Matters Here
 
 The paper is part of a larger family of recent work arguing that additional inference-time search can improve difficult reasoning tasks. But here the argument is especially natural.
@@ -126,6 +139,8 @@ The strongest framing is not that AI independently solved biology. The stronger 
 That distinction matters because AI-for-science papers can otherwise drift into overclaiming. It is easy to generate attractive hypotheses; it is much harder to generate hypotheses that survive contact with experiments or expert review.
 
 The paper is important because it tries to close that gap, even if only partially.
+
+The paper also reports system-level evaluations before the biomedical case studies. The internal tournament ranking uses an Elo-style signal, and the authors check whether higher internal Elo ratings correspond to better performance on GPQA. They also study whether more test-time compute improves hypothesis quality across many research goals. These are not perfect substitutes for real science, but they are important because they test whether the system's internal selection pressure is at least directionally meaningful.
 
 ## Why The Paper Matters
 
