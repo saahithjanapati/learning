@@ -52,6 +52,7 @@ Apply topic merges only after an explicit user confirmation of the exact source 
 - Do not scan `node_modules/`, `.npm-cache/`, `.vercel/`, or `web/lessons/public/` unless debugging generated output.
 - Do not stage `.obsidian/` workspace changes unless the user explicitly asks.
 - Treat untracked course/material folders as user work until their scope is confirmed.
+- For Scale-relevant AI ingests, update `topics/ai/scale-ai-research-internship-prep/INDEX.md` and the public paper checklist at `topics/ai/scale-ai-research-internship-prep/lessons/2026-05-14-scale-ai-paper-catalog.md`; update the reading map only when the recommended prep path changes.
 - For web reader changes, edit generator scripts under `scripts/` and verify via `npm run lessons:build`; generated public output is ignored. Public AI source notes from `materials/processed/ai/` and AI lesson notes from `topics/ai/lessons/` both render under one visible `AI / Lessons` section. AI processed-source readings use exact source publication/submission dates when available; missing, partial, or inferred source dates fall back to ingest/add dates.
 
 ## Current Reorg Boundary

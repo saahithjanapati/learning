@@ -18,6 +18,7 @@ Path: `topics/ai/scale-ai-research-internship-prep`
 ## Public Lessons
 
 - [Scale AI Papers Reading Map](lessons/2026-05-14-scale-ai-papers-reading-map.md): visible overview of the Scale AI paper clusters inside the AI category.
+- [Scale AI Paper Catalog](lessons/2026-05-14-scale-ai-paper-catalog.md): broad-category checklist of every Scale-prep paper/resource already handled.
 
 ## Filing Policy
 
@@ -27,3 +28,12 @@ Path: `topics/ai/scale-ai-research-internship-prep`
 - Use `agent-memory` for context engines, trace-to-memory pipelines, retrieval-augmented agent memory, production feedback loops, and enterprise-specific procedural memory.
 - Use `post-training x interpretability` when a representation-level signal becomes a reward, monitor, rubric, verifier, alignment-generalization tool, or training target.
 - Use `scale-context` for Scale Labs papers or resources that match Scale research themes: evaluation, scalable supervision, data, agent benchmarks, and workflow-level verifiers.
+
+## Maintenance Rule
+
+When ingesting any new Scale-relevant AI paper or article:
+
+1. Keep the primary source and lesson in the normal AI location.
+2. Add or update the cross-filed entry in [INDEX.md](INDEX.md).
+3. Add the item to [Scale AI Paper Catalog](lessons/2026-05-14-scale-ai-paper-catalog.md) under exactly one broad category.
+4. Update [Scale AI Papers Reading Map](lessons/2026-05-14-scale-ai-papers-reading-map.md) only when the new item changes a recommended reading cluster or prep path.

@@ -10,6 +10,7 @@ Topic Path: `topics/ai/scale-ai-research-internship-prep`
 ## Source Materials
 
 - [Scale AI Papers Reading Map](../lessons/2026-05-14-scale-ai-papers-reading-map.md)
+- [Scale AI Paper Catalog](../lessons/2026-05-14-scale-ai-paper-catalog.md)
 - [Scale AI Research Internship Prep Index](../INDEX.md)
 - [Scale Labs 2025-2026 research brief](../../../../materials/processed/ai/scale-labs-papers-2025-2026/brief.md)
 - [Rubrics as Rewards](../../../../materials/processed/ai/rubrics-as-rewards-reinforcement-learning-beyond-verifiable-domains.md)

@@ -1,6 +1,6 @@
 # Scale AI Papers Reading Map
 
-Source note: This lesson makes the Scale AI research-prep grouping explicit as a public sub-lesson under `AI / Scale AI Research Internship Prep`. It summarizes the existing cross-filed paper queue in [INDEX.md](../INDEX.md) and points back to the regular AI lessons where the full paper notes live.
+Source note: This lesson makes the Scale AI research-prep grouping explicit as a public sub-lesson under `AI / Scale AI Research Internship Prep`. It summarizes the existing cross-filed paper queue in [INDEX.md](../INDEX.md), pairs with the checklist-style [Scale AI Paper Catalog](2026-05-14-scale-ai-paper-catalog.md), and points back to the regular AI lessons where the full paper notes live.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Source note: This lesson makes the Scale AI research-prep grouping explicit as a
 
 The Learning Machine already cross-files Scale AI relevant papers in the Scale AI research internship prep index. This page makes that grouping visible as its own AI sub-lesson.
 
-The point is not to move the original lessons. Each paper still lives in its normal AI location. This page is a reading map layered on top of them.
+The point is not to move the original lessons. Each paper still lives in its normal AI location. This page is a reading map layered on top of them. Use the [paper catalog](2026-05-14-scale-ai-paper-catalog.md) when you want the broad-category checklist of everything already handled.
 
 Use it when you want the Scale AI preparation view of the AI collection:
 
