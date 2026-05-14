@@ -1617,6 +1617,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/beyond-deep-learning-scalable-methods-and-models-for-learning.md",
+      "root_topic": "ai",
+      "source_pdf": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2013/Archive/EECS-2013-202.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md",
       "root_topic": "ai",
       "source_pdf": "https://alignment.anthropic.com/2025/bloom-auto-evals/",
