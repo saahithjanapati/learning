@@ -1242,12 +1242,14 @@ function renderPage({
   <script>
     (() => {
       const article = document.querySelector("article")
+      const reorderLessonLists = ${lessonData ? "false" : "true"}
 
       if (!article) {
         return
       }
 
       const progressByLessonId = new Map()
+      const lessonListOrder = new WeakMap()
 
       function normalizeLessonIdFromHref(href) {
         if (!href) {
@@ -1299,6 +1301,61 @@ function renderPage({
         const badge = ensureBadge(target, lessonId)
         badge.textContent = readCountLabel(readCount)
         badge.classList.toggle("is-read", readCount > 0)
+        badge.classList.toggle("is-unread", readCount === 0)
+      }
+
+      function firstLessonLink(container) {
+        for (const link of container.querySelectorAll("a[href]")) {
+          const lessonId = normalizeLessonIdFromHref(link.getAttribute("href"))
+
+          if (lessonId) {
+            return { link, lessonId }
+          }
+        }
+
+        return null
+      }
+
+      function reorderProgressLists() {
+        if (!reorderLessonLists) {
+          return
+        }
+
+        for (const list of article.querySelectorAll("ul, ol")) {
+          const rows = Array.from(list.children).filter((child) => child.tagName === "LI")
+          const lessonRows = []
+
+          rows.forEach((row, index) => {
+            const lessonLink = firstLessonLink(row)
+
+            if (!lessonLink) {
+              return
+            }
+
+            if (!lessonListOrder.has(row)) {
+              lessonListOrder.set(row, index)
+            }
+
+            const readCount = progressByLessonId.get(lessonLink.lessonId) || 0
+            row.classList.toggle("reader-progress-list-item", true)
+            row.classList.toggle("is-read", readCount > 0)
+            row.classList.toggle("is-unread", readCount === 0)
+            lessonRows.push({ row, readCount, originalIndex: lessonListOrder.get(row) ?? index })
+          })
+
+          if (lessonRows.length < 2 || lessonRows.length !== rows.length) {
+            continue
+          }
+
+          const sortedRows = [...lessonRows].sort((a, b) => {
+            const readBucket = Number(a.readCount > 0) - Number(b.readCount > 0)
+            return readBucket || a.originalIndex - b.originalIndex
+          })
+
+          sortedRows.forEach(({ row }) => {
+            list.append(row)
+          })
+        }
       }
 
       function annotateLessonLinks() {
@@ -1337,6 +1394,7 @@ function renderPage({
       function annotatePage() {
         annotateCurrentTitle()
         annotateLessonLinks()
+        reorderProgressLists()
       }
 
       async function requestProgress() {
@@ -2005,6 +2063,15 @@ function renderPage({
       white-space: nowrap;
     }
 
+    .reader-progress-list-item.is-unread > a {
+      color: #f6d365;
+    }
+
+    .reader-progress-list-item.is-unread > a:hover,
+    .reader-progress-list-item.is-unread > a:focus-visible {
+      color: #ffe08a;
+    }
+
     .reader-progress-count {
       display: inline-flex;
       align-items: center;
@@ -2022,9 +2089,16 @@ function renderPage({
 
     .reader-title-read-count.is-read,
     .reader-progress-count.is-read {
-      border-color: rgba(22, 101, 52, 0.28);
-      color: #166534;
-      background: #dcfce7;
+      border-color: rgba(248, 113, 113, 0.42);
+      color: #fecaca;
+      background: rgba(127, 29, 29, 0.52);
+    }
+
+    .reader-title-read-count.is-unread,
+    .reader-progress-count:not(.is-read) {
+      border-color: rgba(250, 204, 21, 0.5);
+      color: #fde68a;
+      background: rgba(113, 63, 18, 0.55);
     }
 
     .reader-auth [hidden] {
