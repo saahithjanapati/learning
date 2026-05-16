@@ -2089,9 +2089,9 @@ function renderPage({
 
     .reader-title-read-count.is-read,
     .reader-progress-count.is-read {
-      border-color: rgba(248, 113, 113, 0.42);
-      color: #fecaca;
-      background: rgba(127, 29, 29, 0.52);
+      border-color: rgba(74, 222, 128, 0.42);
+      color: #bbf7d0;
+      background: rgba(20, 83, 45, 0.58);
     }
 
     .reader-title-read-count.is-unread,
