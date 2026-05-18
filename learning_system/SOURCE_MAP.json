@@ -1743,6 +1743,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/deep-reinforcement-learning-from-human-preferences.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/1706.03741",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/demis-hassabis-agents-agi-next-scientific-breakthrough-yc-2026.md",
       "root_topic": "ai",
       "source_pdf": "https://www.youtube.com/watch?v=JNyuX1zoOgU",
@@ -1778,6 +1785,13 @@
       "transcript_path": "materials/processed/ai/digital-ecosystems-interactive-multi-agent-neural-cellular-automata.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/direct-preference-optimization.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2305.18290",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1843,6 +1857,13 @@
       "transcript_path": "materials/processed/ai/features-as-rewards-scalable-supervision-open-ended-tasks-interpretability.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2602.10067",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/fine-tuning-language-models-from-human-preferences.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/1909.08593",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -2414,6 +2435,13 @@
       "transcript_path": "materials/processed/ai/training-compute-optimal-large-language-models.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2203.15556",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/training-language-models-to-follow-instructions-with-human-feedback.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2203.02155",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

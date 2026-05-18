@@ -38,6 +38,10 @@ Items can naturally touch several themes. Each paper is listed once under the br
 - [Beyond Correctness](../../lessons/2026-05-18-beyond-correctness-confidence-aware-reward-modeling.md): confidence-aware reward modeling for reasoning quality beyond final-answer correctness.
 - [Co-rewarding](../../lessons/2026-05-18-co-rewarding-stable-self-supervised-rl-reasoning.md): self-supervised RL stabilized with complementary reward views.
 - [LoRA Without Regret](../../lessons/2026-05-18-lora-without-regret.md): Thinking Machines' empirical case that LoRA can match FullFT across many post-training settings when capacity and layer coverage are right.
+- [Deep Reinforcement Learning From Human Preferences](../../lessons/2026-05-18-deep-reinforcement-learning-from-human-preferences.md): foundational learned reward model from pairwise human preferences.
+- [Fine-Tuning Language Models From Human Preferences](../../lessons/2026-05-18-fine-tuning-language-models-from-human-preferences.md): adapts RLHF to pretrained transformer language models with reward modeling, PPO, and KL control.
+- [Training Language Models To Follow Instructions With Human Feedback](../../lessons/2026-05-18-training-language-models-follow-instructions-human-feedback.md): standard InstructGPT `SFT -> reward model -> PPO` instruction-following pipeline.
+- [Direct Preference Optimization](../../lessons/2026-05-18-direct-preference-optimization.md): direct preference-pair optimization alternative to explicit reward modeling and PPO.
 
 ## Interpretability And Representation Tools
 

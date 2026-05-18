@@ -44,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection + Scale AI Prep -> Paper Lesson: Direct Preference Optimization
+- AI / Collection + Scale AI Prep -> Paper Lesson: Training Language Models To Follow Instructions With Human Feedback
+- AI / Collection + Scale AI Prep -> Paper Lesson: Fine-Tuning Language Models From Human Preferences
+- AI / Collection + Scale AI Prep -> Paper Lesson: Deep Reinforcement Learning From Human Preferences
 - AI / Collection + Scale AI Prep -> Article Lesson: LoRA Without Regret
-- AI / Collection + Scale AI Prep -> Paper Lesson: Can Revealed Preferences Clarify LLM Alignment And Steering
-- AI / Collection + Scale AI Prep -> Paper Lesson: AdaSearch
-- AI / Collection + Scale AI Prep -> Paper Lesson: Co-rewarding
-- AI / Collection + Scale AI Prep -> Paper Lesson: Beyond Correctness

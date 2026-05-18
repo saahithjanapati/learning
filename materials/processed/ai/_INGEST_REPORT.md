@@ -117,6 +117,10 @@ Files: 96
 - `https://arxiv.org/abs/2512.16883` -> `adasearch-balancing-parametric-knowledge-search.md` (strategy: `individual agentic search paper normalization and medium/full lesson`)
 - `https://arxiv.org/abs/2605.08556` -> `can-revealed-preferences-clarify-llm-alignment-steering.md` (strategy: `individual revealed-preference alignment paper normalization and medium/full lesson`)
 - `https://thinkingmachines.ai/blog/lora/` -> `lora-without-regret.md` (strategy: `direct article extraction, post-training / LoRA lesson normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/abs/1706.03741` -> `deep-reinforcement-learning-from-human-preferences.md` (strategy: `canonical arXiv metadata lookup, foundational RLHF paper normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/abs/1909.08593` -> `fine-tuning-language-models-from-human-preferences.md` (strategy: `canonical arXiv metadata lookup, language-model RLHF paper normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/abs/2203.02155` -> `training-language-models-to-follow-instructions-with-human-feedback.md` (strategy: `canonical arXiv metadata lookup, InstructGPT RLHF pipeline normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/abs/2305.18290` -> `direct-preference-optimization.md` (strategy: `canonical arXiv metadata lookup, DPO preference-optimization normalization, and Scale AI prep cross-filing`)
 
 ## 2026-05-14 Tweet Paper Batch
 
