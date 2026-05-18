@@ -31,6 +31,20 @@ The paper separates three kinds of human data:
 
 This separation matters. Demonstrations teach the model the broad format of helpful instruction following. Comparisons teach a reward model what humans prefer among candidate outputs. PPO then searches for outputs that score well under that learned reward while remaining close to the starting policy.
 
+## Detailed Paper Notes
+
+The paper's starting point is that pretraining scale alone does not make a model aligned with user intent. A large model may be more capable than a small one, but still continue prompts instead of following instructions, produce untruthful answers, generate toxic completions, or optimize for text likelihood rather than usefulness. The alignment target is therefore behavioral: outputs should be helpful, truthful, and harmless according to the labeler guidelines and user prompts.
+
+The pipeline has three stages. First, supervised fine-tuning trains the model on labeler-written demonstrations. This gives the model an initial assistant-like policy. Second, reward modeling trains a separate model on rankings of outputs for the same prompt. This model learns which outputs labelers prefer. Third, PPO optimizes the SFT policy against the reward model while using a KL-style constraint to keep the policy close to the reference distribution.
+
+The data sources matter. The paper uses labeler-written prompts and prompts submitted through the OpenAI API. This makes the prompt distribution closer to real user intent than a static academic benchmark. It also means labeler instructions and data collection design become part of the objective. RLHF is not just an algorithmic trick; it is a socio-technical pipeline.
+
+The headline empirical result is that the 1.3B-parameter InstructGPT model is preferred to the 175B GPT-3 model on the authors' prompt distribution, despite being much smaller. This is the core evidence that post-training can move the user-facing quality frontier more than raw scale alone. The paper also reports improvements in truthfulness and reductions in toxic output relative to GPT-3, with minimal regressions on many public NLP datasets.
+
+The paper is careful that InstructGPT still makes mistakes. It does not solve alignment in a broad philosophical sense. It aligns models better to the labeler-specified instruction-following objective. The reward model can still be overoptimized, and labeler preferences can favor answers that sound good but are not correct.
+
+The lasting contribution is the operational decomposition: demonstrations teach the behavior format, comparisons define a preference reward, PPO performs policy improvement, and held-out human evaluation checks whether users actually prefer the result. This became the reference RLHF recipe for ChatGPT-era models.
+
 ## Why It Matters
 
 InstructGPT became the practical standard for aligning general-purpose language models to user-facing instruction following. It is the bridge from earlier preference-learning research to the ChatGPT-era alignment stack.

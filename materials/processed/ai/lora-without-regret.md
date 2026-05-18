@@ -35,6 +35,22 @@ For reinforcement learning, the result is stronger: LoRA matches FullFT even at 
 - Watch batch size. Large batches can hurt LoRA more than FullFT.
 - For RL post-training, low-rank adapters may be much more capable than intuition from supervised learning suggests.
 
+## Detailed Technical Notes
+
+The post's central concept is the "low-regret" regime: the setting where LoRA and FullFT have essentially the same learning curve and final performance, so choosing LoRA does not meaningfully sacrifice quality. The article argues that this regime is broader than many practitioners assume, especially for post-training rather than pretraining.
+
+The capacity story is more nuanced than "higher rank is better." Rank controls how much information the adapter can store, but the required rank depends on the information content of the training signal. For small-to-medium supervised fine-tuning datasets, sufficiently high rank can match FullFT. When the dataset becomes too large for the adapter, learning does not simply stop at a hard floor. Instead, LoRA becomes less sample-efficient as capacity pressure accumulates.
+
+Layer coverage is one of the most actionable findings. Attention-only LoRA is a weak default for modern post-training. Applying LoRA to MLP and MoE layers matters because those layers contain a large share of parameters and gradient-relevant features. The post's NTK-style intuition is that LoRA resembles FullFT only when the adapter covers the weight matrices that dominate the fine-tuning update.
+
+The reinforcement-learning result is the most surprising. In policy-gradient RL, the signal per episode is often a scalar reward or advantage, not dense token-level supervision. That lowers the amount of information the adapter needs to absorb per trajectory. The post uses this to explain why very low-rank LoRA can match FullFT in RL experiments even when the same rank would be too small for large supervised datasets.
+
+The hyperparameter lesson is practical: LoRA often wants a much higher learning rate than FullFT, about 10x in the reported sweeps. The post also explains why standard LoRA scaling can make the best learning rate roughly rank-invariant early in training.
+
+The compute claim is not only memory savings. Because LoRA avoids computing full weight gradients for frozen base matrices, its forward-backward cost can be slightly above 2/3 of FullFT in the simplified matrix accounting. Combined with small adapter checkpoints and easy multi-adapter serving, this makes LoRA a serious infrastructure default for rapid post-training experimentation.
+
+The main caveat is scope. The post does not say LoRA always matches FullFT. Pretraining-like regimes, huge supervised datasets, poor layer coverage, and untuned hyperparameters can all make LoRA underperform. The correct takeaway is conditional: for many post-training workloads, LoRA is strong enough that reward quality, data quality, exploration, and evaluation may matter more than full-weight update capacity.
+
 ## Why It Matters
 
 This post connects infrastructure decisions to research iteration speed. If LoRA usually matches FullFT for post-training, then managed APIs like Tinker, multi-tenant LoRA serving, cheap checkpoint transfer, and many parallel adapter experiments become more than convenience features. They become a realistic way to scale experimentation without paying full-weight training costs every time.

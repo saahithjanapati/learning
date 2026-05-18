@@ -25,11 +25,18 @@ Use this skill when user asks:
   - strategy:
     - attempt whole-PDF conversion first,
     - if truncated/failure, fallback to chunked conversion,
+  - for research papers, the processed markdown must be a full-source study note, not a brief abstract recap:
+    - include a detailed, source-backed summary that covers the paper's motivation, problem setting, method, objective/training details, experiments, results, limitations, and open questions
+    - preserve important equations, dataset/task names, metrics, model names, ablations, headline numbers, and caveats when they appear in the source
+    - include enough structure that the note can stand alone as the durable "processed source" for later lessons and review
+    - do not dump the raw paper verbatim; use structured extraction, close paraphrase, and short compliant quotations only when needed
+    - if the full PDF/source cannot be accessed and only metadata or an abstract was available, mark the note as `Limited extraction` and do not present it as a full-paper ingest
 - for websites/articles/URLs:
   - fetch the canonical page content directly,
   - scrape only the content needed for learning use,
   - preserve provenance with the canonical URL, title, and publish date when available,
   - prefer a structured summary/extract in markdown over raw HTML dumps,
+  - for technical papers hosted as web pages, follow the same full-source study-note standard as PDFs
 - save extracted markdown to:
   - `materials/processed/<root>/<source-name>.md`
 - math formatting policy for markdown output (Obsidian/MathJax compatible):

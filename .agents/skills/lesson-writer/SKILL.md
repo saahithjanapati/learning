@@ -29,6 +29,9 @@ The lesson must:
    - **Beginner lecture mode** when the learner says the material is dense, rusty, introductory, or should teach rather than review.
 4. Write the lesson as a markdown file under `topics/<root>/<topic>/lessons/YYYY-MM-DD-<slug>.md`.
 5. Add a concise source note near the top with the source title, authors/site when available, date when available, and link.
+   - If the lesson is based on a research paper, make sure the companion `materials/processed/<root>/<source-name>.md` file is a detailed processed-source study note, not only a short summary. It should preserve the paper's motivation, method, objective/training details, experiments, results, limitations, caveats, important equations, and study questions in structured prose.
+   - Do not store raw verbatim paper text as the processed note. Store a thorough, source-backed extraction and analysis instead, using only short compliant quotes when needed.
+   - If only metadata/abstract access was available, explicitly label the processed note as `Limited extraction` and avoid claiming full-paper coverage.
 6. Update `learning_system/LESSON_INDEX.md` with a concise row for the new lesson when the repo uses that registry. Use the lesson ingestion date for the filename date and index `Date` column; keep the source's publication date only inside the source note/provenance text.
 7. Reindex after adding the lesson: `python scripts/learning_cli.py reindex --write-skill-tree`.
 8. If the Quartz lesson site exists, rebuild with `npm run lessons:build` before claiming the web view is updated.
@@ -67,6 +70,8 @@ Include:
 - a final takeaway section for memory
 
 Do not turn the paper into a bullet-only summary. Use prose for the main explanation and bullets for checklists, experiment lists, or recap sections.
+
+The processed source note and public lesson have different jobs. The processed note is the durable extraction layer, so it should be expansive enough to support future rereading without reopening the source. The public lesson is the pedagogical explanation. For paper ingests, both should be substantive.
 
 ## Article Mode
 

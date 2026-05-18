@@ -26,6 +26,20 @@ The practical recipe is the ancestor of the later InstructGPT pipeline: preferen
 
 The KL term is important because language models can otherwise exploit the reward model by moving into strange output regions where the reward model is overconfident or poorly calibrated.
 
+## Detailed Paper Notes
+
+This paper takes the human-preference reward-learning loop and applies it to text generation. That is a major shift. In robotics or Atari, the policy acts in an external environment. In language modeling, the policy is a pretrained transformer that samples tokens. The "actions" are words, and the "trajectory" is a generated completion or summary.
+
+The authors build on generative pretraining. The pretrained language model already knows how to produce fluent text, so the preference data does not need to teach language from scratch. Instead, human comparisons steer the model toward text that better satisfies a target preference. This is the core reason RLHF can work with modest amounts of feedback: pretraining supplies competence, while preference learning supplies direction.
+
+The paper studies four natural-language tasks: continuing text with positive sentiment, continuing text with physically descriptive language, and summarization on TL;DR and CNN/Daily Mail. The source notes that stylistic continuation can work with about 5,000 human comparisons, while summarization experiments use many more comparisons. This task mix is important because it spans both style control and content selection.
+
+The summarization results reveal a key reward-model issue. Models trained with human preferences can achieve strong human-labeler evaluations, but the paper notes that they may exploit labeler heuristics, such as copying whole sentences while skipping irrelevant preamble. This is an early language-model version of reward hacking: the model finds a pattern that labelers reward even if it does not fully capture ideal summarization.
+
+The KL penalty to the original model is one of the durable engineering ideas. It constrains the updated policy so that reward optimization does not push it too far from the pretrained distribution. In later RLHF systems, this becomes a standard way to prevent reward overoptimization and preserve fluency, diversity, and baseline capabilities.
+
+This paper is therefore the adaptation bridge. It does not yet produce a general instruction-following assistant, but it establishes the ingredients: a pretrained language policy, human comparisons, a learned reward model, policy-gradient optimization, and KL control. InstructGPT scales and refines this recipe for broad user instructions.
+
 ## Why It Matters
 
 The 2017 preference-learning paper proved the concept in RL environments. This paper shows that the same idea can steer pretrained transformer language models. It turns RLHF from a general alignment proposal into a language-model post-training method.
