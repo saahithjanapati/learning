@@ -2200,6 +2200,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/raindrop-recent-intake-2026-05-18.md",
+      "root_topic": "ai",
+      "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/read-your-own-mind-reasoning-self-confidence-signals.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2505.23845",

@@ -26,6 +26,7 @@ This prints:
 - guided research-paper reading and experiment critique -> `guided-paper-reading`
 - session generation/adaptation -> `adaptive-session-tutor`
 - skill audit/create/split/merge -> `skill-catalog-manager`
+- recent Raindrop.io bookmark polling and ingest -> `raindrop-ingest`
 
 ## Natural-Language Commands
 
@@ -77,6 +78,10 @@ This prints:
 13. Audit the skill catalog
 - "audit the repo skills"
 - "check whether our skills are registered correctly"
+
+14. Ingest recent Raindrop.io links
+- "use raindrop-ingest to pull recent saved papers"
+- "fetch new Raindrops and ingest the useful AI links"
 
 ## Internal Note
 

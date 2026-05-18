@@ -21,6 +21,7 @@ This repo is organized so you can:
   - Load [learning_system/STARTUP_CONTEXT.md](learning_system/STARTUP_CONTEXT.md) first in new sessions.
   - Use [learning_system/AGENT_NAVIGATION.md](learning_system/AGENT_NAVIGATION.md) for a compact traversal map.
   - Use [learning_system/LOAD_ORDER.md](learning_system/LOAD_ORDER.md) for deterministic context loading.
+  - Use [learning_system/HIGH_VALUE_SOURCES.md](learning_system/HIGH_VALUE_SOURCES.md) as a scratchpad for high-value papers, courses, sources, and study targets.
 
 ## Current Topic Coverage
 
@@ -69,6 +70,7 @@ Public skills:
 - `learner-evidence-tracker`
 - `skill-catalog-manager`
 - `openai-image-generator`
+- `raindrop-ingest`
 
 Examples:
 - "show startup menu and recent topics"
@@ -79,6 +81,7 @@ Examples:
 - "show a reorganization report"
 - "dry-run merge topic A into topic B"
 - "audit the repo skills and fix the catalog"
+- "use raindrop-ingest to pull recent saved papers"
 
 The assistant executes maintenance actions internally.
 

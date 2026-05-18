@@ -1,0 +1,7 @@
+interface:
+  display_name: "Raindrop Ingest"
+  short_description: "Fetch recent Raindrop.io bookmarks and ingest papers or articles into Learning Machine."
+  default_prompt: "Use $raindrop-ingest to fetch recent unseen Raindrop.io links and ingest useful learning material."
+
+policy:
+  allow_implicit_invocation: true

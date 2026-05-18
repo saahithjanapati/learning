@@ -1,13 +1,13 @@
 # Skill Catalog Report
 
-Generated: 2026-05-04
+Generated: 2026-05-18
 
 ## Summary
 
 - Catalog status: PASS
-- Public skills registered in `AGENTS.md`: 10
-- Skill files discovered on disk: 10
-- Public skills in `.agents/skills`: 10
+- Public skills registered in `AGENTS.md`: 11
+- Skill files discovered on disk: 11
+- Public skills in `.agents/skills`: 11
 - Internal skill files: 0
 - Errors: 0
 - Warnings: 0
@@ -24,6 +24,7 @@ Generated: 2026-05-04
 - `learner-evidence-tracker` -> `.agents/skills/learner-evidence-tracker/SKILL.md`
 - `skill-catalog-manager` -> `.agents/skills/skill-catalog-manager/SKILL.md`
 - `openai-image-generator` -> `.agents/skills/openai-image-generator/SKILL.md`
+- `raindrop-ingest` -> `.agents/skills/raindrop-ingest/SKILL.md`
 
 ## Public Skill Files
 
@@ -37,6 +38,7 @@ Generated: 2026-05-04
 - `learner-evidence-tracker` -> `.agents/skills/learner-evidence-tracker/SKILL.md` (present)
 - `skill-catalog-manager` -> `.agents/skills/skill-catalog-manager/SKILL.md` (present)
 - `openai-image-generator` -> `.agents/skills/openai-image-generator/SKILL.md` (present)
+- `raindrop-ingest` -> `.agents/skills/raindrop-ingest/SKILL.md` (present)
 
 ## Internal Skill Files
 

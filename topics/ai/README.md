@@ -22,6 +22,7 @@ Path: `topics/ai`
 
 - Materials index: [topics/ai/materials/INDEX.md](materials/INDEX.md)
 - Scale AI research internship prep: [topics/ai/scale-ai-research-internship-prep](scale-ai-research-internship-prep/README.md)
+- High-value source scratchpad: [learning_system/HIGH_VALUE_SOURCES.md](../../learning_system/HIGH_VALUE_SOURCES.md)
 - Processed sources: `materials/processed/ai/`
 - AI for art subtopic: [topics/ai/ai-for-art](ai-for-art/README.md)
 - Transformer architecture subtopic: [topics/ai/transformers](transformers/README.md)
