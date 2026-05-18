@@ -2411,6 +2411,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/think-before-you-speak-training-language-models-with-pause-tokens.md",
+      "root_topic": "ai",
+      "source_pdf": "https://proceedings.iclr.cc/paper_files/paper/2024/file/76917808731dae9e6d62c2a7a6afb542-Paper-Conference.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/thinking-machines-lab-tinker-api.md",
       "root_topic": "ai",
       "source_pdf": "https://thinkingmachines.ai/blog/tinker/",
