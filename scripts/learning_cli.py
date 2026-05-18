@@ -572,22 +572,31 @@ def _write_reorg_report() -> None:
     REORG_REPORT_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def _parse_transcript_header(transcript_path: Path) -> tuple[str | None, list[str]]:
+def _parse_transcript_header(transcript_path: Path) -> tuple[str | None, str | None, list[str]]:
     source_pdf: str | None = None
+    source_text: str | None = None
     duplicate_equivalents: list[str] = []
     try:
         lines = transcript_path.read_text(encoding="utf-8").splitlines()[:20]
     except OSError:
-        return source_pdf, duplicate_equivalents
+        return source_pdf, source_text, duplicate_equivalents
 
     for line in lines:
         if line.startswith(("Source: ", "Source paper: ", "PDF: ")) and source_pdf is None:
             m = re.search(r"`([^`]+)`", line)
             if m:
                 source_pdf = m.group(1)
+        if line.startswith(("Source text: ", "Full source text: ")) and source_text is None:
+            m = re.search(r"`([^`]+)`", line)
+            if m:
+                source_text = m.group(1)
+        if source_text is None:
+            m = re.search(r"<!--\s*(?:Source text|Full source text):\s*([^>]+?)\s*-->", line, flags=re.I)
+            if m:
+                source_text = m.group(1).strip()
         if line.startswith("Duplicate equivalents:"):
             duplicate_equivalents = re.findall(r"`([^`]+)`", line)
-    return source_pdf, duplicate_equivalents
+    return source_pdf, source_text, duplicate_equivalents
 
 
 def _discover_transcript_metadata() -> dict[str, dict]:
@@ -604,15 +613,18 @@ def _discover_transcript_metadata() -> dict[str, dict]:
         for transcript in sorted(class_dir.rglob("*.md")):
             if transcript.name == "_INGEST_REPORT.md":
                 continue
-            source_pdf, duplicate_equivalents = _parse_transcript_header(transcript)
+            source_pdf, source_text, duplicate_equivalents = _parse_transcript_header(transcript)
             rel = transcript.relative_to(REPO_ROOT).as_posix()
-            metadata[rel] = {
+            entry = {
                 "transcript_path": rel,
                 "root_topic": class_dir.name,
                 "source_pdf": source_pdf,
                 "duplicate_equivalents": duplicate_equivalents,
                 "ingest_report": ingest_report_rel,
             }
+            if source_text:
+                entry["source_text"] = source_text
+            metadata[rel] = entry
     return metadata
 
 

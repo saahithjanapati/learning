@@ -442,7 +442,15 @@ async function publicProcessedSourceReadings(rootTopic, publicCollection) {
 }
 
 function sanitizeGeneratedMarkdown(markdown) {
-  return markdown
+  const protectedSourceTextComments = []
+  const sourceTextCommentPrefix = "LEARNING_MACHINE_SOURCE_TEXT_COMMENT_"
+  const protectedMarkdown = markdown.replace(/<!--\s*(?:Source text|Full source text):\s*materials\/source_text\/[^>]+?-->/gi, (match) => {
+    const token = `${sourceTextCommentPrefix}${protectedSourceTextComments.length}`
+    protectedSourceTextComments.push(match)
+    return token
+  })
+
+  return protectedMarkdown
     .replaceAll(`${repoRoot}${path.sep}`, "")
     .replace(/(?:file:\/\/)?\/Users\/[^\s)\]`<>"']+/g, "[local file redacted]")
     .replace(/[A-Za-z]:\\Users\\[^\s)\]`<>"']+/g, "[local file redacted]")
@@ -459,6 +467,7 @@ function sanitizeGeneratedMarkdown(markdown) {
     .replace(/\bmaterials\/[^\s)\]`<>"']*/g, "[source material]")
     .replace(/(?:\.\.\/)+learning_system\/[^\s)\]`<>"']+/g, "[system note]")
     .replace(/\blearning_system\/[^\s)\]`<>"']*/g, "[system note]")
+    .replace(new RegExp(`${sourceTextCommentPrefix}(\\d+)`, "g"), (_, index) => protectedSourceTextComments[Number(index)] || "")
 }
 
 function topicLabel(topicPath) {

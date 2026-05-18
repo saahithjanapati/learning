@@ -1,6 +1,7 @@
 # Annotations Mitigate Post-Training Mode Collapse
 
 Source note: This lesson is based on Jacob Mitchell Springer, Madhu Advani, Lukas Aichberger, Arwen Bradley, Eran Malach, Omid Saremi, Sinead Williamson, Preetum Nakkiran, Etai Littwin, and Aditi Raghunathan, "Annotations Mitigate Post-Training Mode Collapse," arXiv v1, 2026. Source PDF: [arxiv.org](https://arxiv.org/pdf/2605.09995). Processed source: [materials/processed/ai/annotations-mitigate-post-training-mode-collapse.md](../../../materials/processed/ai/annotations-mitigate-post-training-mode-collapse.md).
+<!-- Source text: materials/source_text/ai/annotations-mitigate-post-training-mode-collapse.txt -->
 
 Filing note: This is filed normally under `AI / Collection` and cross-listed under [Scale AI Research Internship Prep](../scale-ai-research-internship-prep/README.md) as `post-training`, `diversity`, `semantic entropy`, `annotation-anchored training`, and `evaluation`.
 
@@ -232,4 +233,3 @@ The core mechanism:
 The practical takeaway:
 
 When post-training data is narrow, optimizing harder can erase useful diversity. A good post-training objective may need to specify not only what behavior should improve, but also which pretraining distributional properties should remain intact.
-

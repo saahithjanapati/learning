@@ -1,6 +1,7 @@
 # Annotations Mitigate Post-Training Mode Collapse
 
 Source: `https://arxiv.org/pdf/2605.09995`
+<!-- Source text: materials/source_text/ai/annotations-mitigate-post-training-mode-collapse.txt -->
 Title: `Annotations Mitigate Post-Training Mode Collapse`
 Authors: Jacob Mitchell Springer, Madhu Advani, Lukas Aichberger, Arwen Bradley, Eran Malach, Omid Saremi, Sinead Williamson, Preetum Nakkiran, Etai Littwin, Aditi Raghunathan
 Venue: arXiv preprint, v1 dated 2026-05-11
@@ -245,4 +246,3 @@ For research prep, the most important idea is the distinction between conditiona
 5. Why are annotated pretraining and inference-time annotation sampling both necessary?
 6. How would you design useful annotations for math proofs, code generation, or agent plans?
 7. What failure modes could appear if a model optimizes against a diversity metric directly?
-

@@ -18,6 +18,7 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const contentDir = path.join(repoRoot, "web", "lessons", "content")
 const publicDir = path.join(repoRoot, "web", "lessons", "public")
 const faviconSourcePath = path.join(repoRoot, "web", "lessons", "assets", "favicon.svg")
+const includeSourceTextCopy = ["1", "true", "yes"].includes((process.env.LESSONS_INCLUDE_SOURCE_TEXT || "").toLowerCase())
 let markdownRelativeSet = new Set()
 
 function toPosix(filePath) {
@@ -43,6 +44,10 @@ async function walk(dir) {
 
 function stripFrontmatter(markdown) {
   return markdown.replace(/^---\n[\s\S]*?\n---\n?/, "")
+}
+
+function stripSourceTextPointers(markdown) {
+  return markdown.replace(/<!--\s*(?:Source text|Full source text):\s*[^>]+?\s*-->\s*/gi, "")
 }
 
 function extractTitle(markdown, fallback) {
@@ -187,7 +192,7 @@ function isIndividualReading(markdownRelative) {
 }
 
 function buildCopyContext(markdown, title) {
-  const body = stripFrontmatter(markdown).trim()
+  const body = stripSourceTextPointers(stripFrontmatter(markdown)).trim()
   const trimmedTitle = title.trim()
 
   if (!body) {
@@ -195,6 +200,42 @@ function buildCopyContext(markdown, title) {
   }
 
   return /^#\s+/.test(body.trimStart()) ? body : `# ${trimmedTitle}\n\n${body}`
+}
+
+function extractSourceTextRelative(markdown) {
+  const commentMatch = markdown.match(/<!--\s*(?:Source text|Full source text):\s*([^>]+?)\s*-->/i)
+  const inlineMatch = markdown.match(/^(?:Source text|Full source text|Source text file):\s*(?:\[[^\]]+\]\(([^)]+)\)|`([^`]+)`|(.+?))\s*$/im)
+  const rawValue = commentMatch?.[1] ?? inlineMatch?.[1] ?? inlineMatch?.[2] ?? inlineMatch?.[3] ?? ""
+
+  return rawValue
+    .trim()
+    .replace(/^<|>$/g, "")
+    .replace(/^\/+/, "")
+}
+
+async function readSourceTextForMarkdown(markdown) {
+  if (!includeSourceTextCopy) {
+    return ""
+  }
+
+  const sourceTextRelative = extractSourceTextRelative(markdown)
+
+  if (!sourceTextRelative || !sourceTextRelative.startsWith("materials/source_text/")) {
+    return ""
+  }
+
+  const sourceTextPath = path.resolve(repoRoot, sourceTextRelative)
+  const sourceTextRoot = path.resolve(repoRoot, "materials", "source_text")
+
+  if (!sourceTextPath.startsWith(`${sourceTextRoot}${path.sep}`)) {
+    return ""
+  }
+
+  try {
+    return await fs.readFile(sourceTextPath, "utf8")
+  } catch {
+    return ""
+  }
 }
 
 function normalizedHeadingText(value) {
@@ -293,6 +334,7 @@ function renderPage({
   urlPrefix,
   copyContext = "",
   copySummary = "",
+  sourceText = "",
   enableLessonNavigator = false,
   lessonData = null,
   enableReviewPage = false,
@@ -557,7 +599,8 @@ function renderPage({
     : ""
   const copyContextButtons = copyContext
     ? `<button class="copy-context-button" type="button" data-copy-summary-button><span class="copy-context-label">Copy summary</span></button>
-          <button class="copy-context-button" type="button" data-copy-full-button><span class="copy-context-label">Copy full text</span></button>`
+          <button class="copy-context-button" type="button" data-copy-full-button><span class="copy-context-label">Copy full text</span></button>
+          ${sourceText ? `<button class="copy-context-button" type="button" data-copy-source-button><span class="copy-context-label">Copy source text</span></button>` : ""}`
     : ""
   const copyContextScript = copyContext
     ? `
@@ -565,6 +608,7 @@ function renderPage({
     JSON.stringify({
       summary: copySummary || copyContext,
       fullText: copyContext,
+      sourceText,
     }),
   )}</script>
   <script>
@@ -573,6 +617,7 @@ function renderPage({
       const buttons = [
         { button: document.querySelector("[data-copy-summary-button]"), key: "summary" },
         { button: document.querySelector("[data-copy-full-button]"), key: "fullText" },
+        { button: document.querySelector("[data-copy-source-button]"), key: "sourceText" },
       ].filter((entry) => entry.button)
 
       if (!source || buttons.length === 0) {
@@ -3150,6 +3195,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
     const lessonRoute = markdownRelativeToRoute(markdownRelative)
     const copyContext = isReading ? buildCopyContext(markdown, title) : ""
     const copySummary = isReading ? buildSummaryContext(markdown, title) : ""
+    const sourceText = isReading ? await readSourceTextForMarkdown(markdown) : ""
     const body = String(
       await unified()
         .use(remarkParse)
@@ -3163,7 +3209,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
         .use(wrapResponsiveTables)
         .use(rehypeKatex, { strict: "warn" })
         .use(rehypeStringify)
-        .process(stripFrontmatter(markdown)),
+        .process(stripSourceTextPointers(stripFrontmatter(markdown))),
     )
     const outputPath = markdownRelativeToOutputPath(markdownRelative, outputRoot)
 
@@ -3177,6 +3223,7 @@ async function renderTarget({ outputRoot, urlPrefix, preserveNames }) {
         urlPrefix,
         copyContext,
         copySummary,
+        sourceText,
         enableLessonNavigator: isReading,
         lessonData: isReading
           ? {

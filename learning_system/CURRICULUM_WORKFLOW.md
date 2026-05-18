@@ -21,10 +21,13 @@ If learner asks how to start:
 2. Ask the assistant to convert the source into markdown.
    - PDFs: convert the document contents.
    - URLs: scrape the article/page contents and normalize them into learning-friendly markdown.
-3. Store extracted text in `materials/processed/<root>/`.
+3. Store learning-facing extracted/synthesized markdown in `materials/processed/<root>/`.
+   - For paper/PDF sources, also save the full text-only extraction to `materials/source_text/<root>/<slug>.txt` with `python scripts/save_source_text.py <source-url-or-file> --root <root> --slug <slug>` when extraction succeeds.
+   - `materials/source_text/` is local-only and git-ignored. Public lessons should keep summaries and processed notes outward-facing; local/private reader builds can opt into a `Copy source text` button with `LESSONS_INCLUDE_SOURCE_TEXT=1 npm run lessons:build`.
 4. Preserve provenance:
    - file sources -> archive from `materials/inbox/` to `materials/archive/`
    - URL sources -> keep canonical URL in the processed markdown `Source:` header
+   - full text extractions -> add an invisible `<!-- Source text: materials/source_text/<root>/<slug>.txt -->` pointer near the top of the processed note and public lesson
 5. Run post-ingest maintenance after file-based conversion:
    - `python scripts/learning_cli.py post-ingest`
    - archives processed source files from `materials/inbox/` to `materials/archive/`

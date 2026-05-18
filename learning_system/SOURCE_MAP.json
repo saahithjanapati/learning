@@ -1607,7 +1607,8 @@
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2605.09995",
       "duplicate_equivalents": [],
-      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md",
+      "source_text": "materials/source_text/ai/annotations-mitigate-post-training-mode-collapse.txt"
     },
     {
       "transcript_path": "materials/processed/ai/are-sparse-representations-rich-enough-for-acoustic-modeling.md",

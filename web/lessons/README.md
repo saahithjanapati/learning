@@ -58,6 +58,21 @@ Individual lesson pages include two clipboard buttons in the sticky header:
   preferring the `Medium-Length Version` section used by paper lessons.
 - `Copy full text`: copies the full markdown body rendered by the reader.
 
+Paper/PDF ingests can also keep a local-only text extraction under
+`materials/source_text/<root>/<slug>.txt`, with an invisible markdown pointer:
+
+```md
+<!-- Source text: materials/source_text/ai/example-paper.txt -->
+```
+
+Those source text files are git-ignored and are not included in public builds by
+default. For a private/local reader build that exposes a `Copy source text`
+button on pages with a matching pointer, run:
+
+```sh
+LESSONS_INCLUDE_SOURCE_TEXT=1 npm run lessons:build
+```
+
 Required Vercel environment variables:
 
 - `DATABASE_URL`: Neon Postgres connection string from the Vercel Marketplace

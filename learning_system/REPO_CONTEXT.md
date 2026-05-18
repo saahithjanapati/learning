@@ -85,12 +85,13 @@ The assistant should help the learner:
    - [learning_system/SKILL_GRAPH.md](SKILL_GRAPH.md) if skill status changes.
 2. Keep exercises in topic `practice/` folders.
 3. Prefer concise, concrete notes over long prose.
-4. Keep raw uploads and local source snapshots out of git; keep processed markdown in git.
+4. Keep raw uploads, local source snapshots, and full source text extractions out of git; keep processed markdown in git.
 5. Maintain startup, index, and reorg outputs via the public skills registered in `AGENTS.md` and stored under `.agents/skills/` for native discovery.
 6. After file-based material conversion, run post-ingest maintenance (`python scripts/learning_cli.py post-ingest`).
 7. For URL-based ingest:
    - scrape the canonical page content directly,
    - store normalized markdown under `materials/processed/<root>/`,
+   - save full text-only source extractions under git-ignored `materials/source_text/<root>/` when useful,
    - preserve provenance with the source URL in the processed markdown header.
 8. By default for every lesson session:
    - create or continue `topics/<root>/<topic>/live-chats/YYYY-MM-DD-live-chat.md`,

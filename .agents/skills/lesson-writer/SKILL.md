@@ -23,6 +23,7 @@ The lesson must:
 1. Identify the target topic path. If unclear, infer the closest existing topic under `topics/`; create a new topic only when the material does not fit any existing topic.
 2. Read the source material directly. For URLs or papers, fetch the page/PDF/source; for local files, inspect the artifact itself.
    - If the user gives a tweet, social post, AlphaXiv page, project page, benchmark page, lab page, blog announcement, or website that is about a paper, resolve and read the actual paper whenever available. Prefer the canonical arXiv/ACL/NeurIPS/ICLR/OpenReview/DOI/conference PDF or official HTML paper source for the processed note and lesson. Keep the tweet/page as discovery provenance, not as a substitute for the paper.
+   - For paper/PDF ingests, save a text-only extraction of the full source to `materials/source_text/<root>/<slug>.txt` when extraction succeeds. Use `python scripts/save_source_text.py <source-url-or-file> --root <root> --slug <slug>` when possible. This path is local-only and git-ignored by default; do not paste the raw paper text into processed notes or public lessons.
 3. Decide the lesson mode:
    - **Paper mode** for research papers, arXiv links, conference papers, or technical reports.
    - **Article mode** for blog posts, web pages, essays, documentation, or news-like sources.
@@ -30,6 +31,7 @@ The lesson must:
    - **Beginner lecture mode** when the learner says the material is dense, rusty, introductory, or should teach rather than review.
 4. Write the lesson as a markdown file under `topics/<root>/<topic>/lessons/YYYY-MM-DD-<slug>.md`.
 5. Add a concise source note near the top with the source title, authors/site when available, date when available, and link.
+   - If a local full-source text extraction exists, add an invisible pointer near the top of the public lesson and processed source: `<!-- Source text: materials/source_text/<root>/<slug>.txt -->`. The public reader keeps summaries outward-facing; local/private builds can opt into a `Copy source text` button with `LESSONS_INCLUDE_SOURCE_TEXT=1 npm run lessons:build`.
    - If the lesson is based on a research paper, make sure the companion `materials/processed/<root>/<source-name>.md` file is a detailed processed-source study note, not only a short summary. It should preserve the paper's motivation, method, objective/training details, experiments, results, limitations, caveats, important equations, and study questions in structured prose.
    - Do not store raw verbatim paper text as the processed note. Store a thorough, source-backed extraction and analysis instead, using only short compliant quotes when needed.
    - If only metadata/abstract/accessory-page access was available, explicitly label the processed note as `Limited extraction` and avoid claiming full-paper coverage.
