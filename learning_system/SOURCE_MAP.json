@@ -1603,6 +1603,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/annotations-mitigate-post-training-mode-collapse.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/pdf/2605.09995",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/are-sparse-representations-rich-enough-for-acoustic-modeling.md",
       "root_topic": "ai",
       "source_pdf": "https://www.isca-archive.org/interspeech_2012/vinyals12_interspeech.pdf",

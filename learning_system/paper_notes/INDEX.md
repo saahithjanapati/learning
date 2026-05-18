@@ -4,6 +4,7 @@ Personal paper and source notes are tracked here. These are internal learning no
 
 | Date captured | Topic | Source | Note | Tags |
 | --- | --- | --- | --- | --- |
+| 2026-05-18 | AI / Collection + Scale AI Prep | Springer et al., "Annotations Mitigate Post-Training Mode Collapse" | [notes](ai/annotations-mitigate-post-training-mode-collapse.md) | post-training, semantic diversity, mode collapse, annotations, pretraining, evaluation |
 | 2026-05-18 | AI / Collection + Scale AI Prep | Goyal et al., "Think Before You Speak" | [notes](ai/think-before-you-speak-training-language-models-with-pause-tokens.md) | pause tokens, inference-time compute, pretraining, test-time scaling, reasoning |
 | 2026-05-18 | AI / Collection + Scale AI Prep | Goyal, Lopez-Paz, and Ahuja, "Distilled Pretraining" | [notes](ai/distilled-pretraining-data-in-context-learning-test-time-scaling.md) | distillation, pretraining, test-time scaling, in-context learning, induction heads, RLVR |
 | 2026-05-18 | AI / Collection + Scale AI Prep | Maini et al., "Safety Pretraining: Toward the Next Generation of Safe AI" | [notes](ai/safety-pretraining-toward-next-generation-safe-ai.md) | safety, alignment, pretraining, data curation, refusal, evaluation |

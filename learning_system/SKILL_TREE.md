@@ -44,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
+- AI / Collection + Scale AI Prep -> Paper Lesson: Annotations Mitigate Post-Training Mode Collapse
 - AI / Collection + Scale AI Prep -> Paper Lesson: Think Before You Speak
 - AI / Collection + Scale AI Prep -> Paper Lesson: Distilled Pretraining
 - AI / Collection + Scale AI Prep -> Paper Lesson: Safety Pretraining
 - AI / Collection + Scale AI Prep -> Paper Lesson: Direct Preference Optimization
-- AI / Collection + Scale AI Prep -> Paper Lesson: Training Language Models To Follow Instructions With Human Feedback
