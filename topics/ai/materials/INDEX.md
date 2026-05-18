@@ -94,6 +94,19 @@ Policy:
 - [materials/processed/ai/the-truth-lies-somewhere-in-the-middle-generated-tokens.md](../../../materials/processed/ai/the-truth-lies-somewhere-in-the-middle-generated-tokens.md)
 - [materials/processed/ai/base-models-know-how-to-reason-thinking-models-learn-when.md](../../../materials/processed/ai/base-models-know-how-to-reason-thinking-models-learn-when.md)
 - [materials/processed/ai/positive-alignment-artificial-intelligence-for-human-flourishing.md](../../../materials/processed/ai/positive-alignment-artificial-intelligence-for-human-flourishing.md)
+- [materials/processed/ai/hallucinations-undermine-trust-metacognition-way-forward.md](../../../materials/processed/ai/hallucinations-undermine-trust-metacognition-way-forward.md)
+- [materials/processed/ai/metacognitive-uncertainty-and-self-knowledge-paper-map.md](../../../materials/processed/ai/metacognitive-uncertainty-and-self-knowledge-paper-map.md)
+- [materials/processed/ai/language-models-mostly-know-what-they-know.md](../../../materials/processed/ai/language-models-mostly-know-what-they-know.md)
+- [materials/processed/ai/efficient-semantic-uncertainty-quantification-diversity-steered-sampling.md](../../../materials/processed/ai/efficient-semantic-uncertainty-quantification-diversity-steered-sampling.md)
+- [materials/processed/ai/teaching-models-express-uncertainty-in-words.md](../../../materials/processed/ai/teaching-models-express-uncertainty-in-words.md)
+- [materials/processed/ai/teaching-language-models-faithfully-express-uncertainty.md](../../../materials/processed/ai/teaching-language-models-faithfully-express-uncertainty.md)
+- [materials/processed/ai/metacognitive-prompting-improves-understanding-llms.md](../../../materials/processed/ai/metacognitive-prompting-improves-understanding-llms.md)
+- [materials/processed/ai/read-your-own-mind-reasoning-self-confidence-signals.md](../../../materials/processed/ai/read-your-own-mind-reasoning-self-confidence-signals.md)
+- [materials/processed/ai/reasoning-about-uncertainty-reasoning-models-know.md](../../../materials/processed/ai/reasoning-about-uncertainty-reasoning-models-know.md)
+- [materials/processed/ai/beyond-correctness-confidence-aware-reward-modeling.md](../../../materials/processed/ai/beyond-correctness-confidence-aware-reward-modeling.md)
+- [materials/processed/ai/co-rewarding-stable-self-supervised-rl-reasoning.md](../../../materials/processed/ai/co-rewarding-stable-self-supervised-rl-reasoning.md)
+- [materials/processed/ai/adasearch-balancing-parametric-knowledge-search.md](../../../materials/processed/ai/adasearch-balancing-parametric-knowledge-search.md)
+- [materials/processed/ai/can-revealed-preferences-clarify-llm-alignment-steering.md](../../../materials/processed/ai/can-revealed-preferences-clarify-llm-alignment-steering.md)
 
 ## Cross-Filing Collections
 

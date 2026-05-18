@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-14",
+  "generated_on": "2026-05-18",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -1561,6 +1561,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/adasearch-balancing-parametric-knowledge-search.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2512.16883",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/ai-choreographer-music-conditioned-3d-dance-generation-with-aist-plus-plus.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2101.08779",
@@ -1652,6 +1659,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/beyond-correctness-confidence-aware-reward-modeling.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2511.07483",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/beyond-deep-learning-scalable-methods-and-models-for-learning.md",
       "root_topic": "ai",
       "source_pdf": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2013/Archive/EECS-2013-202.pdf",
@@ -1673,9 +1687,23 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/can-revealed-preferences-clarify-llm-alignment-steering.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.08556",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/claudes-constitution.md",
       "root_topic": "ai",
       "source_pdf": "https://www.anthropic.com/constitution",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/co-rewarding-stable-self-supervised-rl-reasoning.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2508.00410",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1789,6 +1817,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/efficient-semantic-uncertainty-quantification-diversity-steered-sampling.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2510.21310",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/estimation-of-non-normalized-statistical-models-by-score-matching.md",
       "root_topic": "ai",
       "source_pdf": "https://jmlr.org/papers/v6/hyvarinen05a.html",
@@ -1861,6 +1896,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/hallucinations-undermine-trust-metacognition-way-forward.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2605.01428",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/how-go-players-disempower-themselves-to-ai.md",
       "root_topic": "ai",
       "source_pdf": "https://www.lesswrong.com/posts/nR3DkyivzF4ve97oM/how-go-players-disempower-themselves-to-ai",
@@ -1892,6 +1934,13 @@
       "transcript_path": "materials/processed/ai/kv-streams-cross-turn-continuity-chat-models.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/language-models-mostly-know-what-they-know.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2207.05221",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -1969,6 +2018,20 @@
       "transcript_path": "materials/processed/ai/memorybench-benchmark-for-memory-and-continual-learning-in-llm-systems.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/pdf/2510.17281",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/metacognitive-prompting-improves-understanding-llms.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2308.05342",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/metacognitive-uncertainty-and-self-knowledge-paper-map.md",
+      "root_topic": "ai",
+      "source_pdf": null,
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -2090,6 +2153,20 @@
       "transcript_path": "materials/processed/ai/qwen-scope-turning-sparse-features-into-development-tools-for-large-language-models.md",
       "root_topic": "ai",
       "source_pdf": "https://qianwen-res.oss-accelerate.aliyuncs.com/qwen-scope/Qwen_Scope.pdf?spm=a2ty_o06.30285417.0.0.165ec921LHeJpi&file=Qwen_Scope.pdf",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/read-your-own-mind-reasoning-self-confidence-signals.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2505.23845",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/reasoning-about-uncertainty-reasoning-models-know.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2506.18183",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
@@ -2225,6 +2302,20 @@
       "transcript_path": "materials/processed/ai/synthetic-computers-at-scale-for-long-horizon-productivity-simulation.md",
       "root_topic": "ai",
       "source_pdf": "https://arxiv.org/abs/2604.28181",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/teaching-language-models-faithfully-express-uncertainty.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2510.12587",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/teaching-models-express-uncertainty-in-words.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2205.14334",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

@@ -104,6 +104,18 @@ Files: 96
 - `https://arxiv.org/pdf/2605.10310` -> `positive-alignment-artificial-intelligence-for-human-flourishing.md` (strategy: `canonical PDF extraction, medium/full positive-alignment lesson normalization, and Scale AI prep cross-filing`)
 - `https://www-cdn.anthropic.com/daad4360a8bdc707f8b22e3e745796ba27e57fb3.pdf` -> `natural-emergent-misalignment-from-reward-hacking-in-production-rl.md` (strategy: `canonical Anthropic PDF extraction, medium/full reward-hacking lesson normalization, and Scale AI prep cross-filing`)
 - `https://arxiv.org/pdf/2502.18864` -> `towards-an-ai-co-scientist.md` (strategy: `canonical arXiv metadata plus PDF text inspection, existing lesson refresh, and Scale AI prep cross-filing`)
+- `metacognitive uncertainty paper batch: 2207.05221, 2510.21310, 2205.14334, 2510.12587, 2308.05342, 2505.23845, 2506.18183, 2511.07483, 2508.00410, 2512.16883, 2605.08556` -> `metacognitive-uncertainty-and-self-knowledge-paper-map.md` (strategy: `canonical arXiv/ACL metadata lookup, thematic batch normalization, medium/full synthesis lesson, and Scale AI prep cross-filing`)
+- `https://arxiv.org/abs/2207.05221` -> `language-models-mostly-know-what-they-know.md` (strategy: `individual metacognition paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2510.21310` -> `efficient-semantic-uncertainty-quantification-diversity-steered-sampling.md` (strategy: `individual semantic uncertainty paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2205.14334` -> `teaching-models-express-uncertainty-in-words.md` (strategy: `individual verbal uncertainty paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2510.12587` -> `teaching-language-models-faithfully-express-uncertainty.md` (strategy: `individual faithful uncertainty paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2308.05342` -> `metacognitive-prompting-improves-understanding-llms.md` (strategy: `individual metacognitive prompting paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2505.23845` -> `read-your-own-mind-reasoning-self-confidence-signals.md` (strategy: `individual reasoning confidence paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2506.18183` -> `reasoning-about-uncertainty-reasoning-models-know.md` (strategy: `individual reasoning uncertainty paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2511.07483` -> `beyond-correctness-confidence-aware-reward-modeling.md` (strategy: `individual confidence-aware reward-modeling paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2508.00410` -> `co-rewarding-stable-self-supervised-rl-reasoning.md` (strategy: `individual self-supervised RL paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2512.16883` -> `adasearch-balancing-parametric-knowledge-search.md` (strategy: `individual agentic search paper normalization and medium/full lesson`)
+- `https://arxiv.org/abs/2605.08556` -> `can-revealed-preferences-clarify-llm-alignment-steering.md` (strategy: `individual revealed-preference alignment paper normalization and medium/full lesson`)
 
 ## 2026-05-14 Tweet Paper Batch
 

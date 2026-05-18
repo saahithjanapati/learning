@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-14
+Last generated: 2026-05-18
 
 Hierarchical topic tree discovered from `topics/` paths.
 
@@ -44,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
-- AI / Collection + Scale AI Prep -> Paper Lesson: Interpretable Reward Model Via Sparse Autoencoder
-- AI / Collection + Scale AI Prep -> Paper Lesson: SparseRM Lightweight Preference Modeling With Sparse Autoencoders
-- AI / Collection + Scale AI Prep -> Paper Lesson: The Quantization Model Of Neural Scaling
-- AI / Collection + Scale AI Prep -> Article Lesson: On Neural Scaling And The Quanta Hypothesis
-- AI / Collection + Scale AI Prep -> Paper Lesson: RubricEM: Meta-RL with Rubric-guided Policy Decomposition beyo
+- AI / Collection + Scale AI Prep -> Paper Lesson: Can Revealed Preferences Clarify LLM Alignment And Steering
+- AI / Collection + Scale AI Prep -> Paper Lesson: AdaSearch
+- AI / Collection + Scale AI Prep -> Paper Lesson: Co-rewarding
+- AI / Collection + Scale AI Prep -> Paper Lesson: Beyond Correctness
+- AI / Collection + Scale AI Prep -> Paper Lesson: Reasoning About Uncertainty

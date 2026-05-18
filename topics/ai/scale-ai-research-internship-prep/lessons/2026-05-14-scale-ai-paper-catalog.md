@@ -35,6 +35,8 @@ Items can naturally touch several themes. Each paper is listed once under the br
 - [Dr. Post-Training](../../lessons/2026-05-14-dr-post-training-a-data-regularization-perspective-on-llm-post-training.md): a data-regularization view of post-training.
 - [Reward Hacking in Rubric-Based Reinforcement Learning](../../lessons/2026-05-14-reward-hacking-in-rubric-based-reinforcement-learning.md): how rubric rewards can create proxy gains that fail to transfer.
 - [RubricEM](../../lessons/2026-05-14-rubricem-meta-rl-with-rubric-guided-policy-decomposition-beyond-verifiab.md): rubric-guided meta-RL for long-horizon research agents.
+- [Beyond Correctness](../../lessons/2026-05-18-beyond-correctness-confidence-aware-reward-modeling.md): confidence-aware reward modeling for reasoning quality beyond final-answer correctness.
+- [Co-rewarding](../../lessons/2026-05-18-co-rewarding-stable-self-supervised-rl-reasoning.md): self-supervised RL stabilized with complementary reward views.
 
 ## Interpretability And Representation Tools
 
@@ -52,12 +54,21 @@ Items can naturally touch several themes. Each paper is listed once under the br
 - [Olshausen And Field Sparse Coding](../../lessons/2026-05-12-olshausen-field-sparse-coding-v1.md): foundational overcomplete sparse-coding paper.
 - [The Quest for the Right Mediator](../../lessons/2026-05-14-the-quest-for-the-right-mediator-surveying-mechanistic-interpretability.md): mechanistic interpretability through causal mediation analysis.
 - [A Single Neuron Is Sufficient to Bypass Safety Alignment](../../lessons/2026-05-14-a-single-neuron-is-sufficient-to-bypass-safety-alignment-in-large-langua.md): a concrete internal-state safety bypass result.
+- [Language Models Mostly Know What They Know](../../lessons/2026-05-18-language-models-mostly-know-what-they-know.md): early self-evaluation and knowledge-boundary signals for honest-model work.
 
 ## Evaluation, Rubrics, And Scalable Oversight
 
 - [GDPval](../../lessons/2026-05-03-gdpval-real-world-economically-valuable-tasks.md): economically valuable task evaluation.
 - [MoReBench](../../lessons/2026-05-12-morebench-moral-reasoning.md): process-focused moral reasoning evaluation with expert rubrics.
 - [Positive Alignment](../../lessons/2026-05-13-positive-alignment-human-flourishing.md): evaluating and training toward pluralistic human flourishing.
+- [Hallucinations Undermine Trust; Metacognition Is A Way Forward](../../lessons/2026-05-18-hallucinations-undermine-trust-metacognition.md): faithful uncertainty and metacognitive control as an evaluation target for trustworthy models and agents.
+- [Metacognitive Uncertainty Paper Map](../../lessons/2026-05-18-metacognitive-uncertainty-paper-map.md): batch map for self-knowledge, faithful uncertainty, semantic uncertainty, reasoning-model calibration, confidence-aware RL, agentic search control, and revealed-preference audits.
+- [Efficient Semantic Uncertainty Quantification](../../lessons/2026-05-18-efficient-semantic-uncertainty-quantification-diversity-steered-sampling.md): sample-efficient uncertainty estimation over semantic answer clusters.
+- [Teaching Models To Express Their Uncertainty In Words](../../lessons/2026-05-18-teaching-models-express-uncertainty-in-words.md): calibrated verbalized confidence in natural language.
+- [Teaching Language Models To Faithfully Express Uncertainty](../../lessons/2026-05-18-teaching-language-models-faithfully-express-uncertainty.md): hedging aligned with sample consistency rather than style.
+- [Metacognitive Prompting Improves Understanding In LLMs](../../lessons/2026-05-18-metacognitive-prompting-improves-understanding-llms.md): introspective prompting as a task-performance scaffold.
+- [Read Your Own Mind](../../lessons/2026-05-18-read-your-own-mind-reasoning-self-confidence-signals.md): reasoning traces as a source of self-confidence signals.
+- [Reasoning About Uncertainty](../../lessons/2026-05-18-reasoning-about-uncertainty-reasoning-models-know.md): why reasoning models can still be overconfident.
 - [Assessing the Creativity of Large Language Models](../../lessons/2026-05-14-assessing-the-creativity-of-large-language-models-testing-limits-and-new.md): creativity evaluation for LLMs.
 - [Automated Alignment Is Harder Than You Think](../../lessons/2026-05-14-automated-alignment-is-harder-than-you-think.md): risks in automating alignment research and oversight.
 - [Bloom](../../../materials/processed/ai/bloom-an-open-source-tool-for-automated-behavioral-evaluations.md): automated behavioral evaluation tooling.
@@ -67,6 +78,7 @@ Items can naturally touch several themes. Each paper is listed once under the br
 
 - [Memory In The Wild / ACL-Wiki](../../lessons/2026-05-08-context-engine-acl-wiki-agent-memory.md): production traces as external agent memory and evaluation data.
 - [Autobrowse](../../lessons/2026-05-06-autobrowse-browser-agent-skills.md): browser traces becoming reusable agent skills.
+- [AdaSearch](../../lessons/2026-05-18-adasearch-balancing-parametric-knowledge-search.md): explicit RL-trained decision about whether external search is necessary.
 - [Towards an AI Co-Scientist](../../lessons/2026-05-04-ai-co-scientist.md): generate-debate-evolve workflow for scientist-in-the-loop hypothesis generation.
 - [Learning, Fast and Slow](../../lessons/2026-05-14-learning-fast-and-slow-towards-llms-that-adapt-continually.md): fast context adaptation plus slower parameter updates.
 - [AutoScientist](../../lessons/2026-05-14-autoscientist-automating-the-science-of-model-training.md): automated model-training experiments and evaluation loops.
@@ -77,6 +89,7 @@ Items can naturally touch several themes. Each paper is listed once under the br
 - [Split Personality Training](../../lessons/2026-05-12-split-personality-training-latent-knowledge.md): same-model hidden continuations for latent knowledge and auditing.
 - [Natural Emergent Misalignment](../../lessons/2026-05-14-natural-emergent-misalignment-reward-hacking.md): reward hacking in coding RL generalizing into agentic misalignment.
 - [AIs with Secret Loyalties](../../lessons/2026-05-14-ais-with-secret-loyalties-are-a-serious-but-addressable-threat.md): threat model for covert objectives and secret loyalties.
+- [Can Revealed Preferences Clarify LLM Alignment And Steering](../../lessons/2026-05-18-can-revealed-preferences-clarify-llm-alignment-steering.md): decision-policy audits for whether stated objectives match revealed choices.
 - [Model Spec Midtraining](../../lessons/2026-05-06-model-spec-midtraining.md): teaching a model a behavioral spec before downstream alignment examples.
 - [Who's In Charge?](../../lessons/2026-05-03-whos-in-charge-disempowerment-patterns-llm-usage.md): disempowerment patterns and preference-model pitfalls.
 
