@@ -12,10 +12,13 @@ It is not an automation contract yet; add, remove, or reorder items freely.
 - OpenAI: alignment, evals, safety, agents, model behavior, and systems posts.
 - DeepMind: reinforcement learning, deep learning, agents, reasoning, and scientific ML.
 - David Bau's lab: network dissection, causal tracing, model editing, and interpretability.
+- Diyi Yang: Stanford research on NLP, social computing, human-centered AI, and language-model behavior.
+- Aditi Raghunathan: CMU research on robustness, reliability, evaluation, and trustworthy machine learning.
 
 ## Online Resources
 
 - How to Scale Your Model.
+- Modal GPU Glossary: GPU architecture, CUDA, performance, and ML infrastructure terminology.
 
 ## Textbooks And Courses
 
