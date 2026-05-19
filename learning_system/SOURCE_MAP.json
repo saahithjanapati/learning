@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_on": "2026-05-18",
+  "generated_on": "2026-05-19",
   "generated_by": "scripts/learning_cli.py source-map",
   "roots": [
     {
@@ -81,7 +81,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "ai",
@@ -179,7 +180,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "art-and-aesthetics",
@@ -199,7 +201,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "bhagavadgita",
@@ -221,7 +224,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "biology",
@@ -247,7 +251,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "information-theory",
@@ -267,7 +272,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "interviews",
@@ -295,7 +301,8 @@
           ],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "learning-and-study-skills",
@@ -315,7 +322,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "optimization-for-ml",
@@ -489,7 +497,8 @@
           ],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "probabilistic-graphical-models",
@@ -747,7 +756,8 @@
           ],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "probability-and-statistics-36-700-cmu",
@@ -797,7 +807,8 @@
           "transcript_anchors": [],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     },
     {
       "root_topic": "survey-of-algebra",
@@ -827,7 +838,8 @@
           ],
           "unresolved_source_materials": []
         }
-      ]
+      ],
+      "source_materials": []
     }
   ],
   "transcripts": [
@@ -1596,6 +1608,13 @@
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },
     {
+      "transcript_path": "materials/processed/ai/an-economic-framework-for-generative-engines-advertising-or-subscription.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2603.29071v1",
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
       "transcript_path": "materials/processed/ai/andrej-karpathy-vibe-coding-agentic-engineering-sequoia-ai-ascent-2026.md",
       "root_topic": "ai",
       "source_pdf": "https://www.youtube.com/watch?v=96jN2OCOfLs",
@@ -1835,6 +1854,13 @@
       "transcript_path": "materials/processed/ai/dyna-robotics-dyna-1-overview.md",
       "root_topic": "ai",
       "source_pdf": null,
+      "duplicate_equivalents": [],
+      "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
+    },
+    {
+      "transcript_path": "materials/processed/ai/efficient-dataset-selection-for-continual-adaptation-generative-recommenders.md",
+      "root_topic": "ai",
+      "source_pdf": "https://arxiv.org/abs/2604.07739v1",
       "duplicate_equivalents": [],
       "ingest_report": "materials/processed/ai/_INGEST_REPORT.md"
     },

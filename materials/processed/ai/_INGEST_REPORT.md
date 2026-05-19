@@ -121,6 +121,8 @@ Files: 96
 - `https://arxiv.org/abs/1909.08593` -> `fine-tuning-language-models-from-human-preferences.md` (strategy: `canonical arXiv metadata lookup, language-model RLHF paper normalization, and Scale AI prep cross-filing`)
 - `https://arxiv.org/abs/2203.02155` -> `training-language-models-to-follow-instructions-with-human-feedback.md` (strategy: `canonical arXiv metadata lookup, InstructGPT RLHF pipeline normalization, and Scale AI prep cross-filing`)
 - `https://arxiv.org/abs/2305.18290` -> `direct-preference-optimization.md` (strategy: `canonical arXiv metadata lookup, DPO preference-optimization normalization, and Scale AI prep cross-filing`)
+- `https://arxiv.org/abs/2603.29071v1` -> `an-economic-framework-for-generative-engines-advertising-or-subscription.md` (strategy: `canonical PDF extraction and medium/full AI paper lesson normalization`)
+- `https://arxiv.org/abs/2604.07739v1` -> `efficient-dataset-selection-for-continual-adaptation-generative-recommenders.md` (strategy: `canonical PDF extraction and medium/full AI paper lesson normalization`)
 
 ## 2026-05-14 Tweet Paper Batch
 

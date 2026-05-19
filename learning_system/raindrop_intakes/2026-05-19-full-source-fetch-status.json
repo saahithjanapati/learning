@@ -1,0 +1,213 @@
+[
+  {
+    "chars": 503767,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 232,
+    "path": "materials/source_text/ai/neural-processes-underpinning-episodic-memory.txt",
+    "slug": "neural-processes-underpinning-episodic-memory",
+    "status_code": 200,
+    "url": "https://static1.1.sqspcdn.com/static/f/1096238/22752296/1369317078327/DemisHassabisThesis.pdf"
+  },
+  {
+    "chars": 24907,
+    "content_type": "text/html; charset=utf-8",
+    "kind": "web",
+    "ok": true,
+    "path": "materials/source_text/ai/general-agent-self-evolving-synthetic-agent-environment.txt",
+    "slug": "general-agent-self-evolving-synthetic-agent-environment",
+    "status_code": 200,
+    "url": "https://www.primeintellect.ai/blog/general-agent"
+  },
+  {
+    "chars": 10932,
+    "content_type": "text/html; charset=utf-8",
+    "kind": "web",
+    "ok": true,
+    "path": "materials/source_text/ai/helpful-assistant-features-suppress-emergent-misalignment.txt",
+    "slug": "helpful-assistant-features-suppress-emergent-misalignment",
+    "status_code": 200,
+    "url": "https://alignment.openai.com/helpful-assistant-features/"
+  },
+  {
+    "chars": 17852,
+    "content_type": "text/html; charset=utf-8",
+    "kind": "web",
+    "ok": true,
+    "path": "materials/source_text/ai/sae-latent-attribution-debugging-misaligned-completions.txt",
+    "slug": "sae-latent-attribution-debugging-misaligned-completions",
+    "status_code": 200,
+    "url": "https://alignment.openai.com/sae-latent-attribution/"
+  },
+  {
+    "chars": 16465,
+    "content_type": "text/html; charset=utf-8",
+    "len_html": 37298,
+    "ok": true,
+    "path": "materials/source_text/ai/interpreting-black-box-reward-models-argo.txt",
+    "slug": "interpreting-black-box-reward-models-argo",
+    "status_code": 200,
+    "url": "https://alignment.openai.com/argo/"
+  },
+  {
+    "chars": 17864,
+    "content_type": "text/html; charset=utf-8",
+    "kind": "web",
+    "ok": true,
+    "path": "materials/source_text/ai/claude-code-large-codebases-best-practices.txt",
+    "slug": "claude-code-large-codebases-best-practices",
+    "status_code": 200,
+    "url": "https://claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start"
+  },
+  {
+    "chars": 178492,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 52,
+    "path": "materials/source_text/ai/absolute-zero-reinforced-self-play-reasoning-zero-data.txt",
+    "slug": "absolute-zero-reinforced-self-play-reasoning-zero-data",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2505.03335"
+  },
+  {
+    "chars": 119394,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 40,
+    "path": "materials/source_text/ai/building-production-ready-probes-for-gemini.txt",
+    "slug": "building-production-ready-probes-for-gemini",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2601.11516"
+  },
+  {
+    "chars": 153776,
+    "content_type": "text/html; charset=utf-8",
+    "len_html": 228384,
+    "ok": true,
+    "path": "materials/source_text/ai/negative-results-saes-downstream-tasks.txt",
+    "slug": "negative-results-saes-downstream-tasks",
+    "status_code": 200,
+    "url": "https://www.greaterwrong.com/posts/4uXCAJNuPKtKBsi28/sae-progress-update-2-draft"
+  },
+  {
+    "chars": 100130,
+    "content_type": "text/html; charset=utf-8",
+    "kind": "web",
+    "ok": true,
+    "path": "materials/source_text/ai/teaching-claude-why.txt",
+    "slug": "teaching-claude-why",
+    "status_code": 200,
+    "url": "https://alignment.anthropic.com/2026/teaching-claude-why/"
+  },
+  {
+    "chars": 12691,
+    "content_type": "text/html; charset=UTF-8",
+    "len_html": 143999,
+    "ok": true,
+    "path": "materials/source_text/ai/training-humanoid-robot-hard-work.txt",
+    "slug": "training-humanoid-robot-hard-work",
+    "status_code": 200,
+    "url": "https://bostondynamics.com/blog/training-a-humanoid-robot-for-hard-work/"
+  },
+  {
+    "chars": 83078,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 18,
+    "path": "materials/source_text/ai/actionable-interpretability-guide.txt",
+    "slug": "actionable-interpretability-guide",
+    "status_code": 200,
+    "url": "https://actionable-interpretability-guide.github.io/paper.pdf"
+  },
+  {
+    "chars": 79298,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 20,
+    "path": "materials/source_text/ai/extreme-compression-llms-additive-quantization.txt",
+    "slug": "extreme-compression-llms-additive-quantization",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2401.06118"
+  },
+  {
+    "chars": 101471,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 34,
+    "path": "materials/source_text/ai/quip-2-bit-quantization-llms-guarantees.txt",
+    "slug": "quip-2-bit-quantization-llms-guarantees",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2307.13304"
+  },
+  {
+    "chars": 54043,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 17,
+    "path": "materials/source_text/ai/snapkv-llm-knows-before-generation.txt",
+    "slug": "snapkv-llm-knows-before-generation",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2404.14469"
+  },
+  {
+    "chars": 131537,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 44,
+    "path": "materials/source_text/ai/alphaevolve-coding-agent-scientific-algorithmic-discovery.txt",
+    "slug": "alphaevolve-coding-agent-scientific-algorithmic-discovery",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2506.13131"
+  },
+  {
+    "chars": 87327,
+    "content_type": "text/html; charset=\"UTF-8\"",
+    "kind": "web",
+    "ok": true,
+    "path": "materials/source_text/ai/funsearch-mathematical-discoveries-program-search.txt",
+    "slug": "funsearch-mathematical-discoveries-program-search",
+    "status_code": 200,
+    "url": "https://www.nature.com/articles/s41586-023-06924-6"
+  },
+  {
+    "chars": 125273,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 32,
+    "path": "materials/source_text/ai/barbarians-at-gate-ai-upending-systems-research.txt",
+    "slug": "barbarians-at-gate-ai-upending-systems-research",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2510.06189"
+  },
+  {
+    "chars": 76094,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 22,
+    "path": "materials/source_text/ai/adaexplore-failure-driven-kernel-generation.txt",
+    "slug": "adaexplore-failure-driven-kernel-generation",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2604.16625"
+  },
+  {
+    "chars": 96486,
+    "content_type": "application/pdf",
+    "kind": "pdf",
+    "ok": true,
+    "pages": 27,
+    "path": "materials/source_text/ai/sera-soft-verified-efficient-repository-agents.txt",
+    "slug": "sera-soft-verified-efficient-repository-agents",
+    "status_code": 200,
+    "url": "https://arxiv.org/pdf/2601.20789"
+  }
+]

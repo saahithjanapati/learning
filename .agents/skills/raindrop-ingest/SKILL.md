@@ -49,9 +49,21 @@ Keep these in `.env.local`; never commit them.
 - unclear social/bookmark pages -> treat as discovery provenance and follow through to the durable source when possible
 - skip non-learning bookmarks unless the user explicitly wants them
 
-4. Ingest content:
-- for batches or mixed source material, invoke `materials-to-curriculum`
-- for one substantial paper/article lesson, invoke `lesson-writer`
+4. Fetch full source content before writing final lessons:
+- always attempt to fetch/read the complete source before accepting a Raindrop as handled
+- for PDFs and papers, save a local full-source text extraction with:
+  - `python scripts/save_source_text.py <canonical-url-or-file> --root ai --slug <slug>`
+- for web articles/blogs, fetch the canonical page body and preserve enough article text to support a real article lesson, not just title/excerpt metadata
+- if full-source fetching fails, retry the canonical URL or an alternate official source when one is obvious
+- use `Limited extraction` only after a real full-source attempt fails, is blocked, or yields only metadata/abstract text; record what was attempted
+- do not mark a Raindrop seen as fully ingested unless either the full source was processed or the resulting lesson clearly says `Limited extraction`
+
+5. Ingest content:
+- create one public lesson per successfully handled Raindrop by default, even when processing a batch
+- do not collapse a batch into only one combined public intake lesson unless the user explicitly asks for a batch overview instead of per-item lessons
+- for batches or mixed source material, use a batch intake note only as a manifest/triage artifact; the final user-facing output should still include a standalone lesson for each accepted Raindrop
+- for each substantial paper/article lesson, invoke `lesson-writer`
+- for paper/PDF Raindrops, resolve and process the canonical full paper when available; if only metadata, abstract, or bookmark-level context remains available after full-source attempts, create a standalone lesson labeled `Limited extraction` rather than presenting it as full-paper coverage
 - for guided discussion instead of durable artifacts, invoke `guided-paper-reading`
 - preserve Raindrop metadata in provenance when useful:
   - `Raindrop ID:`
@@ -59,7 +71,7 @@ Keep these in `.env.local`; never commit them.
   - `Raindrop tags:`
   - `Discovery source:`
 
-5. Post-ingest maintenance:
+6. Post-ingest maintenance:
 - after successful durable ingest, run:
   - `python scripts/learning_cli.py post-ingest`
 - for AI material, verify it appears under the public `AI / Lessons` reader section when publishing is expected
@@ -70,7 +82,7 @@ Keep these in `.env.local`; never commit them.
 
 Use a scheduled automation prompt like:
 
-> Use `$raindrop-ingest` in `/Users/saahithjanapati/Desktop/learning-machine`. Fetch the latest unseen Raindrop.io links, prioritize papers and serious AI/ML technical articles, ingest up to 3 useful items into Learning Machine with durable processed-source notes and lessons when appropriate, run post-ingest maintenance, and report which Raindrop IDs were ingested or skipped.
+> Use `$raindrop-ingest` in `/Users/saahithjanapati/Desktop/learning-machine`. Fetch the latest unseen Raindrop.io links, prioritize papers and serious AI/ML technical articles, create one standalone public lesson for each successfully handled Raindrop, use any batch intake note only as triage/manifest support, run post-ingest maintenance, and report which Raindrop IDs were ingested or skipped.
 
 Recommended environment:
 - local or worktree automation in this repo

@@ -1,6 +1,6 @@
 # Skill Tree
 
-Last generated: 2026-05-18
+Last generated: 2026-05-19
 
 Hierarchical topic tree discovered from `topics/` paths.
 
@@ -44,8 +44,8 @@ Hierarchical topic tree discovered from `topics/` paths.
 
 ## Recent Topics
 
-- AI / Collection + Scale AI Prep -> Paper Lesson: Annotations Mitigate Post-Training Mode Collapse
-- AI / Collection + Scale AI Prep -> Paper Lesson: Think Before You Speak
-- AI / Collection + Scale AI Prep -> Paper Lesson: Distilled Pretraining
-- AI / Collection + Scale AI Prep -> Paper Lesson: Safety Pretraining
-- AI / Collection + Scale AI Prep -> Paper Lesson: Direct Preference Optimization
+- AI / Collection -> Paper Lesson: Efficient Dataset Selection for Continual Adaptation of Generative Recommenders
+- AI / Collection -> Paper Lesson: Generative Engine Ads vs Subscriptions
+- AI / Collection + Scale AI Prep -> Raindrop Lesson: SERA
+- AI / Collection + Scale AI Prep -> Raindrop Lesson: AdaExplore
+- AI / Collection + Scale AI Prep -> Raindrop Lesson: Barbarians at the Gate
